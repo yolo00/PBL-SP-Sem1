@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola</title>
+    <link rel="stylesheet" href="css/kelola-staff.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo"><img src="image/Polibatam.png" width="50" height="50">
+            <span class="brand">DISP<span class="brand-o">O</span>L</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="dashboard-staf.html">Beranda</a></li>
+                <li><a href="/kelola-staf.html" class="active"><p>Kelola</p></li>
+                <li><a href="profil-staf.html">Profil</a></li>
+            </ul>
+        </div>
+    </nav>
+<!-- Overlay Search -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-box">
+      <input type="text" placeholder="Ketik untuk mencari..." autofocus>
+    </div>
+  </div>
+  <main>
+    <div class="judul-kembali">
+      <a href="dashboard-staf.html"><button class="btn-kembali"><b>Kembali</b></button></a>
+      <h1><b>KELOLA SURAT PERINGATAN</b></h1>
+    </div>
+    <section class="table-container"> 
+      <div class="filter-bar">
+        <input type="text" placeholder="Cari" class="search-input">
+        <select>
+          <option aria-checked="undefined">Semua tingkat peringatan</option>
+          <option required>SP I</option>
+          <option required>SP II</option>
+          <option required>SP III</option>
+        </select>
+        <select>
+          <option>Status</option>
+          <option required>Aktif</option>
+          <option required>Selesai</option>
+          <option required>Kadaluarsa</option>
+        </select>
+        <button class="btn-tambah" onclick="window.location.href='tambah-surat.html'">Tambah</button>
+      </div>
+      <table id="peringatanTable">
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>NIM</th>
+            <th>Prodi</th>
+            <th>Tingkat Peringatan</th>
+            <th>Tanggal</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Michael S.T</td>
+            <td>3312501042</td>
+            <td>Informatika</td>
+            <td>SP I</td>
+            <td>19/10/2025</td>
+            <td class="status aktif">Aktif</td>
+            <td class="delete-cell"><button class="btn-hapus">🗑️</button></td>
+          </tr>
+          <tr>
+            <td>Muhammad Faturrahman</td>
+            <td>3312501043</td>
+            <td>Informatika</td>
+            <td>SP II</td>
+            <td>08/10/2025</td>
+            <td class="status selesai">Selesai</td>
+            <td class="delete-cell"><button class="btn-hapus">🗑️</button></td>
+          </tr>
+          <tr>
+            <td>Muhammad Ivan Febrian</td>
+            <td>3312501044</td>
+            <td>Informatika</td>
+            <td>SP II</td>
+            <td>15/10/2025</td>
+            <td class="status aktif">Aktif</td>
+            <td class="delete-cell"><button class="btn-hapus">🗑️</button></td>
+          </tr>
+          <tr>
+            <td>Nur Illyanie</td>
+            <td>3312501045</td>
+            <td>Informatika</td>
+            <td>SP III</td>
+            <td>18/09/2025</td>
+            <td class="status aktif">Aktif</td>
+            <td class="delete-cell"><button class="btn-hapus">🗑️</button></td>
+          </tr>
+          <tr>
+            <td>Zaid Hasbiya Abrar</td>
+            <td>3312501046</td>
+            <td>Informatika</td>
+            <td>SP III</td>
+            <td>08/08/2025</td>
+            <td class="status selesai">Selesai</td>
+            <td class="delete-cell"><button class="btn-hapus">🗑️</button></td>
+          </tr>
+          <tr>
+            <td>Fathur Alfitrah Dermawan</td>
+            <td>3312501047</td>
+            <td>Informatika</td>
+            <td>SP I</td>
+            <td>10/07/2025</td>
+            <td class="status kadaluarsa">Kadaluarsa</td>
+            <td class="delete-cell"><button class="btn-hapus">🗑️</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+    <!-- footer --->
+    </section>
+    <section id="tentang" class="about">
+        <div class="container">
+            <h2>Tentang Kami</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <form action="#" class="contact-form">
+                    <input type="text" name="name" placeholder="Masukkan Nama Anda" required>
+                    <input type="email" name="email" placeholder="Masukkan Email Anda" required>
+                    <textarea name="message" rows="5" placeholder="Masukkan Nama Anda" required></textarea>
+                    <button type="submit" class="btn">Kirim Pesan</button>
+                </form>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 All rights reserved.</p>
+            <ul class="social-links">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+        </div>
+    </footer>
+<script src="/js/script2.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+html, body {
+  height: 100%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding-top: 70px;
+}
+
+/*menu/navbar*/
+.navbar {
+    background: #004080;
+    padding: 1rem 0;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+.nav-inner { 
+    gap: 12px; 
+}
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.logo img {
+  display: block;
+  border-radius: 6px;
+}
+.brand { /*Gaya huruf dispol*/
+  color: #ffffff;
+  margin-left: 10px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+.brand-o {
+  color: #ff8c00; /* orange untuk O */
+}
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    margin-right: 20px;
+    align-items: center;
+}
+.navbar .nav-links li .active {
+    color:#e04e32;
+}
+.navbar .nav-links li {
+    margin-left: 20px;
+}
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+}
+.navbar .nav-links a:hover {
+    color: #e04e32;
+}
+
+.surat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+/* Lembar surat */
+.surat {
+  background-color: #fff;
+  width: 210mm;
+  min-height: 297mm;
+  padding: 30mm 25mm;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+  border-radius: 6px;
+  font-size: 9pt; /* Ukuan huruf*/
+}
+
+.kepala-surat img {
+  display: block;
+  margin: 0 auto 10px auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/*Surat*/
+/*Judul*/
+.judul-surat {
+  text-align: center;
+  font-weight: bold;
+  margin: 10px 0 20px;
+  text-transform: uppercase;
+}
+
+/*Identitas Surat & Mahasiswa*/
+.identitas-surat,
+.identitas-mahasiswa {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.identitas-surat p,
+.identitas-mahasiswa p {
+  margin: 2px 0;
+  text-align: left;
+}
+
+/*Isi Surat*/
+.isi-surat {
+  text-align: justify;
+  margin: 20px 0 60px 0;
+  line-height: 1.7;
+}
+
+/*Tanda Tangan*/
+.tanda-tangan {
+  position: absolute;
+  bottom: 50px;
+  right: 60px;
+  text-align: right;
+}
+
+.tanda-tangan img {
+  width: 150px;
+  height: auto;
+  display: block;
+  margin: 5px 0;
+}
+
+/*Unduh PDF*/
+.download-section {
+  margin-top: 20px;
+}
+
+.btn-download {
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.btn-download:hover {
+  background-color: #0056b3;
+}
+
+/*Adaptasi ukuran teks untuk ukuran display berbeda*/
+@media (max-width: 768px) {
+  .surat {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .tanda-tangan {
+    position: static;
+    text-align: right;
+    margin-top: 40px;
+  }
+}
