@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Surat</title>
+    <link rel="stylesheet" href="css/tambah-surat.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+           <a href href="#" class="logo"><img src="image/Polibatam.png" width="50" height="50"></href>
+            <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
+            <span class="brand">DISP<span class="brand-o">O</span>L</span></a>
+            <ul class="nav-links">
+                <li><a href="dashboard-staf.html">Beranda</a></li>
+                <li><a href="kelola-staf.html"><p>Kelola</p></li>
+                <li><a href="profil-staf.html" class="active">Profil</a></li>
+            </ul>
+        </div>
+    </nav>
+<!-- Overlay Search -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-box">
+            <input type="text" placeholder="Ketik untuk mencari..." autofocus>
+        </div>
+    </div>
+
+    <main>
+    <div class="title-bar">
+      <h1><b>TAMBAH SURAT PERINGATAN BARU</b></h1>
+    </div>
+
+    <section class="form-container">
+      <h2>Input Surat Peringatan</h2>
+
+      <form id="formPeringatan">
+        <div class="form-grid">
+
+          <div>
+            <label>Tingkat peringatan</label>
+            <select id="tingkatSelect">
+              <option>SP I</option>
+              <option>SP II</option>
+              <option>SP III</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Tanggal dikeluarkan</label>
+            <input type="date" id="tanggalInput" required>
+          </div>
+
+          <div>
+            <label>Sampai dengan tanggal</label>
+            <input type="date" required>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div>
+            <label>Nama</label>
+            <input type="text" id="namaInput" placeholder="Nama Mahasiswa" required>
+          </div>
+          <div>
+            <label>NIM</label>
+            <input type="text" id="nimInput" placeholder="3312xxxxxx" required>
+          </div>
+          <div>
+            <label>Prodi</label>
+            <input type="text" id="prodiInput" placeholder="Prodi" required>
+          </div>
+          <div>
+            <label>Jurusan</label>
+            <input type="text" placeholder="Teknik">
+          </div>
+          <div>
+            <label>Kelas</label>
+            <input type="text" placeholder="A / B / C / D">
+          </div>
+        </div>
+
+        <div>
+          <label>Perihal</label>
+          <input type="text" placeholder="Pelanggaran Tata Tertib">
+        </div>
+
+        <div>
+          <label>Deskripsi Peringatan</label>
+          <textarea rows="3" placeholder="Tuliskan deskripsi singkat..."></textarea>
+        </div>
+
+        <div class="upload-box">
+          <label>Unggah Dokumen Pendukung</label>
+          <div class="drop-area" id="dropArea">
+            <p>📄 You can drag and drop files here to add them.</p>
+            <p><small>Maximum file size: 50 MB, max 20 files.</small></p>
+            <input type="file" multiple hidden id="fileInput">
+          </div>
+        </div>
+        <div class="form-buttons">
+          <button type="button" class="btn-batal" onclick="window.location.href='kelola-staf.html'">Batal</button>
+          <button type="submit" id="btnKirim" class="btn-kirim">Kirim</button>
+        </div>
+      </form>
+    </section>
+  </main>
+<script src="/js/scripttambah.js"></script>
+</body>
+</html>

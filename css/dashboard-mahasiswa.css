@@ -1,0 +1,190 @@
+/* Michael Sando Turnip */
+
+
+html, body {
+  height: 100%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding-top: 70px;
+}
+
+/*menu/navbar*/
+.navbar {
+    background: #004080;
+    padding: 1rem 0;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+.nav-inner { 
+    gap: 12px; 
+}
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.logo img {
+  display: block;
+  border-radius: 6px;
+}
+.brand { /*Gaya huruf dispol*/
+  color: #ffffff;
+  margin-left: 10px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+.brand-o {
+  color: #ff8c00; /* orange untuk O */
+}
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    margin-right: 20px;
+    align-items: center;
+}
+.navbar .nav-links li .active {
+    color:#e04e32;
+}
+.navbar .nav-links li {
+    margin-left: 20px;
+}
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+}
+.navbar .nav-links a:hover {
+    color: #e04e32;
+}
+
+/*welcome/hero*/
+
+.hero * {
+  position: relative;
+  z-index: 1;
+  font-size: 2.4rem;
+}
+.hero {
+    padding: 80px;
+}
+
+/*listsp*/
+#list.container { /*merapikan seluruh isi tabel*/
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  padding-bottom: 0;
+}
+.container2 {
+  background:#5c5c5c;
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba(87, 86, 86, 0.08);
+  padding: 25px;
+  width: 90%;
+  max-width: 1200px;
+  min-height: calc(100vh - 160px);/*bagian ini agar container bisa mnetok sampe bawah*/
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.tabelsp {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+table thead, table td {
+  padding: 14px 12px;
+  border-bottom: 2px solid #eaeaea;
+}
+table td {
+  padding: 12px 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-bottom: 2px solid #eaeaea;
+  vertical-align: middle;
+}
+table th {
+  background-color: #f6f6f6;
+  font-weight: 700;
+  color: #222;
+  text-transform: capitalize;
+  font-size: 1.3rem;
+}
+table thead tr {
+  background-color: #f9f9f9;
+}
+table tr:hover {
+  background-color: #f9fafb;
+}
+
+.status {
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+.status.aktif {
+  color: #0b9840;
+}
+.status.kadaluarsa {
+  color: #555;
+}
+.btn {
+  background-color: #e0e0e0;
+  border: none;
+  text-decoration: none;
+  color: black;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-left: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.btn:hover {
+  background-color: #d0d0d0;
+}
+
+/*Adaptasi ukuran teks untuk ukuran display berbeda*/
+@media (max-width: 768px) {
+  .container2 {
+    min-height: auto;
+    padding: 30px;
+  }
+  table th, table td {
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+  .btn {
+    padding: 5px 8px;
+    font-size: 13px;
+  }
+}

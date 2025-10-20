@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+body {
+  padding-top: 70px;
+
+}
+.navbar {
+    background: #004080;
+    padding: 1rem 0;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+.nav-inner { 
+    gap: 12px; 
+}
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.logo img {
+  display: block;
+  border-radius: 6px;
+}
+.brand { /*Gaya huruf dispol*/
+  color: #ffffff;
+  margin-left: 10px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+.brand-o {
+  color: #ff8c00; /* orange untuk O */
+}
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    margin-right: 20px;
+    align-items: center;
+}
+.navbar .nav-links li .active {
+    color:#e04e32;
+}
+.navbar .nav-links li {
+    margin-left: 20px;
+}
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.navbar .nav-links a:hover {
+    color: #e04e32;
+}
+
+.navbar .nav-links a:hover {
+  color: #e04e32;
+} /* ===== POPUP SEARCH OVERLAY ===== */
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(3px);
+}
+
+.search-overlay.active {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.search-box input {
+  width: 700px;
+  max-width: 90%;
+  padding: 14px 20px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+  margin-bottom: 500px;
+  display: flex auto;
+}
+/*profil*/
+.profile-box {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 400px;
+  margin: 50px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+}
+
+.profile-box h1 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.profile-box p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+main {
+  text-align: center;
+  padding: 40px;
+}
+
+main h1 {
+  color: #153d7e;
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+.title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
