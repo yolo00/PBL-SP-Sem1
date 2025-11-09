@@ -10,8 +10,8 @@ const dataSurat = [ //template data sp
   {
     judul: "Ketidakhadiran pada mata kuliah IF 105 tanpa laporan",
     tingkat: "SP I",
-    tanggal: "12/08/2024",
-    status: "Kadaluarsa",
+    tanggal: "12/08/2025",
+    status: "Aktif",
     link: "surat2.html"
   },
 //Tambahin sini kalau mau tambah

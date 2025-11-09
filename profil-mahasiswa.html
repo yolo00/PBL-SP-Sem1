@@ -1,33 +1,92 @@
-<!--Nur Iliyanie-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Mahasiswa</title>
-    <link rel="stylesheet" href="css/profil-mahasiswa.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil Mahasiswa</title>
+  <link rel="stylesheet" href="css/profil-mahasiswa.css" />
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo"><img src="/image/Polibatam.png" width="50" height="50">
-            <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
-            <span class="brand">DISP<span class="brand-o">O</span>L</span></a>
-            <ul class="nav-links">
-                <li><a href="dashboard-mahasiswa.html">Beranda</a></li>
-                <li><a href="profil-staf.html" class="active"><p>Profil</p></a></li>
+  <!-- Navbar -->
+<nav class="navbar">
+    <div class="container nav-inner">
+      <a class="logo">
+        <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
+        <span class="brand">DISP<span class="brand-o">O</span>L</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="/dashboard-mahasiswa.html"><p>Beranda</p></a></li>
+        <li><a href="profil-mahasiswa.html" class="active">Profil</a></li>
+      </ul>
+    </div>
+</nav>
+
+
+  <main class="profil-container">
+    <h1>Profil Mahasiswa</h1>
+
+    <!-- Identitas Mahasiswa -->
+    <section class="profil-card">
+        <div class="photo"></div>
+      <div class="profil-info">
+        <h2>Nama Mahasiswa</h2>
+        <p><strong>NIM:</strong> 3312501048</p>
+        <p><strong>Prodi:</strong> Teknik Informatika</p>
+        <p><strong>Jurusan:</strong> Teknik Informatika</p>
+        <p><strong>Kelas:</strong> IF-1B</p>
+        <p><strong>Angkatan:</strong> 2025</p>
+        <p><strong>Email:</strong> namamahasiswa@polibatam.ac.id</p>
+        <p><strong>No. HP:</strong> +62 812-1234-5678</p>
+      </div>
+    </section>
+
+    <!-- Informasi Akademik -->
+    <section class="akademik-card">
+      <h3>Informasi Akademik</h3>
+      <p><strong>IPK Terakhir:</strong> 3.62</p>
+      <p><strong>SKS Ditempuh:</strong> 108</p>
+      <p><strong>Dosen Wali:</strong> Ir. Ahmad Taufik, M.Kom</p>
+      <p><strong>Status Akademik:</strong> Aktif</p>
+    </section>
+
+
+    <!-- Tombol Aksi -->
+    <div class="aksi">
+      <button class="btn-logout">Keluar</button>
+    </div>
+  </main>
+
+  <!--Footer-->
+  <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-left">
+          <img src="image/dispol.png" alt="Logo Dispol" width="60">
+            <div>
+              <h3>DISPOL</h3>
+              <p>Digitalisasi Surat Peringatan Mahasiswa Polibatam</p>
+            </div>
+        </div>
+        <div class="footer-center">
+          <h4>Menu</h4>
+            <ul>
+              <li><a href="dashboard-mahasiswa.html">Beranda</a></li>
+              <li><a href="profil-mahasiswa.html">Kelola</a></li>
             </ul>
         </div>
-    </nav>
-<main>
-  <div class="profile-box">
-    <h1 id="name">Nama Mahasiswa</h1>
-    <p class="nim">NIM</p>
-    <p class="jurusan">Jurusan Teknik Informatika</p>
-    <p class="prodi">Program Studi Teknik Informatika</p>
-    <p class="kelas">IF-1B Pagi</p>
-  </div>
-</main>
+        <div class="footer-right">
+          <h4>Hubungi Kami</h4>
+          <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
+            <ul class="social-links">
+              <li><a href="#"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
+              <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
+              <li><a href="#"><img src="image/icon-instagram.png" alt="Instagram"></a></li>
+            </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; 2025 DISPOL | All Rights Reserved</p>
+      </div>
+    </footer>
+  <script src="js/profil-mahasiswa.js"></script>
 </body>
 </html>

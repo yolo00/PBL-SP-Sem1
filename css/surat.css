@@ -73,7 +73,23 @@ body {
 .navbar .nav-links a:hover {
     color: #e04e32;
 }
+/* Tombol kembali */
+.back {
+  position: absolute;
+  top: 120px; /* atur posisi sesuai tinggi header kamu */
+  left: 20px;
+  background-color: #2500dc;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
 
+.back:hover {
+  background-color: #0e9cd8;
+}
 .surat-container {
   display: flex;
   flex-direction: column;

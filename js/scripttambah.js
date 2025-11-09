@@ -1,52 +1,53 @@
-// script3.js - untuk tambah-surat.html
 document.addEventListener("DOMContentLoaded", function () {
   const STORAGE_KEY = "suratPeringatan";
+  const DETAIL_KEY = "detailSurat";
   const form = document.getElementById("formPeringatan");
-  const namaEl = document.getElementById("namaInput");
-  const nimEl = document.getElementById("nimInput");
-  const prodiEl = document.getElementById("prodiInput");
-  const tingkatEl = document.getElementById("tingkatSelect");
-  const tanggalEl = document.getElementById("tanggalInput");
-
-  function getData() {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-  }
-  function saveData(arr) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
-  }
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const nama = namaEl.value.trim();
-    const nim = nimEl.value.trim();
-    const prodi = prodiEl.value.trim();
-    const tingkat = tingkatEl.value;
-    const tanggal = tanggalEl.value;
+    const fileInput = document.getElementById("fileSurat");
+    const file = fileInput.files[0];
 
-    if (!nama || !nim || !prodi || !tingkat || !tanggal) {
-      alert("Harap isi semua field yang wajib sebelum mengirim.");
-      return;
-    }
-
-    // Buat objek data baru, status otomatis "Aktif"
-    const newItem = {
-      id: Date.now(), // id unik
-      nama: nama,
-      nim: nim,
-      prodi: prodi,
-      tingkat: tingkat,
-      tanggal: tanggal,
-      status: "Aktif"
+    const newData = {
+      tingkat: document.getElementById("tingkatSelect").value,
+      tanggal: document.getElementById("tanggalInput").value,
+      nama: document.getElementById("namaInput").value,
+      nim: document.getElementById("nimInput").value,
+      prodi: document.getElementById("prodiInput").value,
+      jurusan: document.getElementById("jurusanInput")?.value || "",
+      kelas: document.getElementById("kelasInput")?.value || "",
+      perihal: document.getElementById("perihalInput")?.value || "",
+      deskripsi: document.getElementById("deskripsiInput")?.value || "",
+      status: "Aktif",
+      file: "",
+      fileName: "",
+      fileType: "",
     };
 
-    const data = getData();
-    data.push(newItem);
-    saveData(data);
-
-    // Beri notifikasi lalu kembali ke halaman kelola
-    alert("Surat peringatan berhasil ditambahkan.");
-    // arahkan kembali ke halaman kelola (sesuaikan URL bila perlu)
-    window.location.href = "kelola-staf.html";
+    // Baca file kalau ada
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        newData.file = event.target.result;
+        newData.fileName = file.name;
+        newData.fileType = file.type;
+        simpanData(newData);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      simpanData(newData);
+    }
   });
+
+  function simpanData(data) {
+    const allData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    allData.push(data);
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(allData));
+    localStorage.setItem(DETAIL_KEY, JSON.stringify(data)); // ⬅ simpan data baru juga ke detail
+
+    alert("✅ Surat peringatan baru berhasil ditambahkan!");
+    window.location.href = "detail-surat.html"; // langsung ke detail agar langsung bisa dilihat
+  }
 });

@@ -10,13 +10,14 @@
 <body>
     <nav class="navbar">
         <div class="container">
-           <a href href="#" class="logo"><img src="image/Polibatam.png" width="50" height="50"></href>
+           <a class="logo">
             <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
             <span class="brand">DISP<span class="brand-o">O</span>L</span></a>
             <ul class="nav-links">
                 <li><a href="dashboard-staf.html">Beranda</a></li>
-                <li><a href="kelola-staf.html"><p>Kelola</p></li>
-                <li><a href="profil-staf.html" class="active">Profil</a></li>
+                <li><a href="kelola-staf.html" class="active"><p>Kelola</p></li>
+                <li><a href="arsip-staf.html">Arsip</a></li>
+                <li><a href="profil-staf.html">Profil</a></li>
             </ul>
         </div>
     </nav>
@@ -73,36 +74,37 @@
           </div>
           <div>
             <label>Jurusan</label>
-            <input type="text" placeholder="Teknik">
+            <input type="text" id="jurusanInput" placeholder="Teknik">
           </div>
           <div>
             <label>Kelas</label>
-            <input type="text" placeholder="A / B / C / D">
+            <input type="text" id="kelasInput" placeholder="A / B / C / D">
           </div>
         </div>
 
         <div>
           <label>Perihal</label>
-          <input type="text" placeholder="Pelanggaran Tata Tertib">
+          <input type="text" id="perihalInput" placeholder="Pelanggaran Tata Tertib">
         </div>
 
         <div>
           <label>Deskripsi Peringatan</label>
           <textarea rows="3" placeholder="Tuliskan deskripsi singkat..."></textarea>
         </div>
-
-        <div class="upload-box">
-          <label>Unggah Dokumen Pendukung</label>
-          <div class="drop-area" id="dropArea">
-            <p>📄 You can drag and drop files here to add them.</p>
-            <p><small>Maximum file size: 50 MB, max 20 files.</small></p>
-            <input type="file" multiple hidden id="fileInput">
+        <div class="form-grid">
+          <div>
+            <label>Unggah File Surat Peringatan (opsional)</label>
+            <input type="file" id="fileSurat" accept=".pdf,.jpg,.png,.doc,.docx">
           </div>
         </div>
+
+
         <div class="form-buttons">
           <button type="button" class="btn-batal" onclick="window.location.href='kelola-staf.html'">Batal</button>
           <button type="submit" id="btnKirim" class="btn-kirim">Kirim</button>
         </div>
+
+
       </form>
     </section>
   </main>

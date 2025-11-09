@@ -132,6 +132,19 @@ main h1 {
   gap: 16px;
   margin-bottom: 10px;
 }
+.detail-item a {
+  display: inline-block;
+  background: #004080;
+  color: white;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin-top: 6px;
+  transition: 0.3s;
+}
+.detail-item a:hover {
+  background: #ff8c00;
+}
 
 /* Tombol Kembali di kiri */
 .btn-kembali {
@@ -200,20 +213,25 @@ main h1 {
   border: 1px solid #ccc;
   border-radius: 8px;
 }
-
-.upload-section {
-  background: #f9f9f9;
-  border: 2px dashed #ccc;
-  border-radius: 8px;
-  padding: 16px;
-  text-align: center;
-  margin-top: 12px;
+.file-section {
+  margin-top: 15px;
 }
 
-.upload-section input[type="file"] {
+.download-link {
+  display: inline-block;
   margin-top: 10px;
-  cursor: pointer;
+  padding: 8px 14px;
+  background-color: #153d7e;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
 }
+.download-link:hover {
+  background-color: #0f54c2;
+}
+
+
+
 
 /* Tombol bawah */
 .form-buttons {
