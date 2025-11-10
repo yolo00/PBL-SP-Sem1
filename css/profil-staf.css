@@ -3,15 +3,23 @@
   padding: 0;
   box-sizing: border-box;
 }
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
 body {
   font-family: Arial, sans-serif;
-  background: url(/image/background-utama.png) center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #153d7e;
-  padding-top: 80px;
+  line-height: 1.6;
+  padding-top: 70px; /* untuk navbar fixed */
 }
+
+main {
+  flex: 1;
+  padding-bottom: 40px;
+}
+
 
 .navbar {
     background: #004080;
