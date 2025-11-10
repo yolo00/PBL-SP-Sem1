@@ -394,3 +394,27 @@ td:last-child {
     align-items: center;
   }
 }
+
+/* Styles for editable cells */
+.editable {
+  cursor: pointer;
+}
+
+.editable:hover {
+  background-color: #f5f5f5;
+}
+
+.btn-edit {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 4px;
+}
+
+.btn-edit:hover {
+  color: #2196F3;
+  background: #2196F321;
+  transition: all 0.3s ease;
+}

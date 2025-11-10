@@ -1,0 +1,336 @@
+/* Nama file: edit_surat.css*/
+/* Dibuat oleh: Nur Iliyanie*/
+
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #f4f6f9;
+  line-height: 1.6;
+  color: #333;
+  padding-top: 70px;
+}
+
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrap {
+  flex: 1;
+}
+
+/* ===== NAVBAR (sama seperti halaman lain) ===== */
+.navbar {
+  background: #004080;
+  padding: 1rem 0;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo img {
+  border-radius: 6px;
+}
+
+.brand {
+  color: #ffffff;
+  margin-left: 10px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.brand-o {
+  color: #ff8c00;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.navbar .nav-links li {
+  margin-left: 20px;
+}
+
+.navbar .nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.navbar .nav-links a:hover,
+.navbar .nav-links .active {
+  color: #e04e32;
+}
+
+/* ===== HEADER (Judul + Tombol kembali) ===== */
+.judul-kembali {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 40px;
+  position: relative;
+  width: calc(100% - 80px);
+}
+
+.btn-kembali {
+  background-color: #153d7e;
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+  margin-bottom: 20px;
+  z-index: 10;
+  align-self: flex-start;
+}
+
+.btn-kembali:hover {
+  background-color: #135bc7;
+}
+
+.judul-kembali h1 {
+  color: #153d7e;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* ===== FORM WRAPPER ===== */
+.form-container {
+  background: #fff;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 35px 40px 45px;
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== FORM INPUTS ===== */
+.form-group {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #153d7e;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #153d7e;
+  box-shadow: 0 0 5px rgba(21, 61, 126, 0.4);
+}
+
+/* ===== BUTTONS ===== */
+.form-button {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.btn-simpan {
+  background-color: #153d7e;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-simpan:hover {
+  background-color: #135bc7;
+  transform: translateY(-2px);
+}
+
+.btn-batal {
+  background-color: #d1d5db;
+  color: #333;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-batal:hover {
+  background-color: #c0c4c8;
+  transform: translateY(-2px);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
+  color: #fff;
+  padding: 40px 0 10px 0;
+  margin-top: auto;
+  box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.3);
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: auto;
+  gap: 30px;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-left img {
+  border-radius: 8px;
+}
+
+.footer-left h3 {
+  color: #ff8c00;
+  margin-bottom: 5px;
+  font-size: 1.3rem;
+}
+
+.footer-center h4,
+.footer-right h4 {
+  color: #ff8c00;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.footer-center ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-center li {
+  margin: 6px 0;
+}
+
+.footer-center a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-center a:hover {
+  color: #ff8c00;
+}
+
+.footer-right p {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.social-links img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social-links img:hover {
+  transform: scale(1.2);
+  filter: brightness(0) invert(0.6) sepia(1) saturate(5) hue-rotate(15deg);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 10px;
+  font-size: 0.9rem;
+  color: #d0d0d0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .btn-kembali {
+    position: static;
+    margin-bottom: 15px;
+  }
+
+  .judul-kembali h1 {
+    text-align: center;
+  }
+
+  .form-container {
+    padding: 25px 20px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}

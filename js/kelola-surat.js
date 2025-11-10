@@ -21,13 +21,14 @@ document.addEventListener("DOMContentLoaded", function () {
     filterData.forEach((item, index) => {
       const row = document.createElement("tr");
       row.innerHTML = `
-        <td>${item.nama}</td>
-        <td>${item.nim}</td>
-        <td>${item.prodi}</td>
-        <td>${item.tingkat}</td>
-        <td>${item.tanggal}</td>
+        <td class="editable" data-index="${index}">${item.nama}</td>
+        <td class="editable" data-index="${index}">${item.nim}</td>
+        <td class="editable" data-index="${index}">${item.prodi}</td>
+        <td class="editable" data-index="${index}">${item.tingkat}</td>
+        <td class="editable" data-index="${index}">${item.tanggal}</td>
         <td class="status ${item.status.toLowerCase()}">${item.status}</td>
         <td class="action-buttons">
+          <button class="btn-edit" title="Edit" data-index="${index}">✏️</button>
           <button class="btn-arsip" title="Arsipkan" data-index="${index}">📁</button>
           <button class="btn-hapus" title="Hapus" data-index="${index}">🗑️</button>
         </td>
@@ -35,6 +36,20 @@ document.addEventListener("DOMContentLoaded", function () {
       tableBody.appendChild(row);
     });
   }
+
+  // Handle edit click
+  tableBody.addEventListener('click', function(e) {
+    const target = e.target;
+    
+    // If clicked on edit button or editable cell
+    if (target.classList.contains('btn-edit') || target.classList.contains('editable')) {
+      const index = target.dataset.index;
+      const item = data[index];
+      
+      // Redirect to edit page with data
+      window.location.href = `edit_surat.html?id=${index}&nama=${encodeURIComponent(item.nama)}&nim=${encodeURIComponent(item.nim)}&prodi=${encodeURIComponent(item.prodi)}&tingkat=${encodeURIComponent(item.tingkat)}&tanggal=${encodeURIComponent(item.tanggal)}`;
+    }
+  });
 
   // Fungsi filter
   function applyFilter() {

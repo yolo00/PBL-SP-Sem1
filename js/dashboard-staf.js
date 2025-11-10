@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ${data.tanggal}<br>
         <span class="status ${data.status.toLowerCase()}">${data.status}</span>
       </p>
-      <a href="#" class="detail" data-nim="${data.nim}">Lebih detail ></a>
+      <a href="#" class="detail" data-nim="${data.nim}">Rincian</a>
     `;
     return div;
   }

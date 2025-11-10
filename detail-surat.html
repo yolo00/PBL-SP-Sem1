@@ -1,11 +1,18 @@
+<!--Nama file: detail-surat.html-->
+<!--Dibuat oleh: Nur Iliyanie-->
+
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detail Surat Peringatan</title>
+  <title>Detail Surat Peringatan | DISPOL</title>
   <link rel="stylesheet" href="css/detail-surat.css">
-</head>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  </head>
+<body>
+  </head>
 <body>
   <!-- Navbar -->
   <nav class="navbar">
@@ -23,90 +30,74 @@
     </div>
   </nav>
 
-  <main>
-    <div class="title-bar">
-      <button class="btn-kembali" onclick="window.location.href='dashboard-staf.html'"><b>Kembali</b></button>
-      <h1>Detail & Edit Surat Peringatan</h1>
+  <!-- Konten Detail -->
+  <div class="detail-container" data-aos="fade-up">
+    <div class="detail-header">
+      <h2>Nama Mahasiswa <span class="sp-badge sp2">SP II</span></h2>
+      <p>Mahasiswa Politeknik Negeri Batam</p>
     </div>
 
-    <section class="form-container">
-      <form id="formEditSurat">
-        <div class="form-grid">
-          <div>
-            <label>Tingkat peringatan</label>
-            <select id="tingkatSelect">
-              <option>SP I</option>
-              <option>SP II</option>
-              <option>SP III</option>
-            </select>
-          </div>
+    <div class="detail-info">
+      <p><strong>NIM:</strong> 43220109</p>
+      <p><strong>Program Studi:</strong> Teknik Informatika</p>
+      <p><strong>Status:</strong> Aktif (Dalam masa pembinaan)</p>
+      <p><strong>Dosen Pembimbing Akademik:</strong> Nama Dosen</p>
+    </div>
 
-          <div>
-            <label>Tanggal dikeluarkan</label>
-            <input type="date" id="tanggalInput" required>
-          </div>
+    <div class="alasan">
+      <h3>Alasan Dikeluarkan Surat Peringatan:</h3>
+      <p>Mahasiswa telah melakukan pelanggaran terhadap tata tertib akademik, yaitu ketidakhadiran lebih dari 25% pada mata kuliah wajib tanpa keterangan resmi. Surat Peringatan II dikeluarkan untuk mendorong peningkatan disiplin dan tanggung jawab mahasiswa.</p>
+    </div>
 
-          <div>
-            <label>Status</label>
-            <select id="statusSelect">
-              <option>Aktif</option>
-              <option>Selesai</option>
-              <option>Kadaluarsa</option>
-            </select>
-          </div>
-        </div>
+    <div class="alasan">
+      <h3>Tindakan yang Diharapkan:</h3>
+      <p>Mahasiswa diharapkan dapat memperbaiki tingkat kehadiran, menjaga etika dalam kegiatan akademik, serta aktif berkomunikasi dengan dosen pembimbing terkait perkembangan studi.</p>
+    </div>
 
-        <div class="form-grid">
-          <div>
-            <label>Nama</label>
-            <input type="text" id="namaInput" required>
-          </div>
-          <div>
-            <label>NIM</label>
-            <input type="text" id="nimInput" required>
-          </div>
-          <div>
-            <label>Prodi</label>
-            <input type="text" id="prodiInput" required>
-          </div>
-          <div>
-            <label>Jurusan</label>
-            <input type="text" id="jurusanInput">
-          </div>
-          <div>
-            <label>Kelas</label>
-            <input type="text" id="kelasInput">
-          </div>
-        </div>
+    <div class="detail-footer">
+      <button class="btn-kembali" onclick="window.history.back()">Kembali</button>
+    </div>
+  </div>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <img src="image/dispol.png" alt="Logo Dispol" width="60">
         <div>
-          <label>Perihal</label>
-          <input type="text" id="perihalInput">
+          <h3>DISPOL</h3>
+          <p>Digitalisasi Surat Peringatan Mahasiswa Polibatam</p>
         </div>
+      </div>
 
-        <div>
-          <label>Deskripsi Peringatan</label>
-          <textarea rows="4" id="deskripsiInput"></textarea>
-        </div>
-        
-        <div class="form-grid">
-          <div>
-            <label for="fileSurat" id="fileLabel">Unggah Surat Peringatan (opsional)</label>
-            <input type="file" id="fileSurat" accept=".pdf,.jpg,.png,.doc,.docx">
-          </div>
-        </div>
+      <div class="footer-center">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="dashboard-staf.html">Beranda</a></li>
+          <li><a href="kelola-staf.html">Kelola</a></li>
+          <li><a href="arsip-staf.html">Arsip</a></li>
+          <li><a href="profil-staf.html">Profil</a></li>
+        </ul>
+      </div>
 
-<div id="fileContainer" class="file-section"></div>
+      <div class="footer-right">
+        <h4>Hubungi Kami</h4>
+        <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
+        <ul class="social-links">
+          <li><a href="#"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
+          <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
+          <li><a href="#"><img src="image/icon-instagram.png" alt="Instagram"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 DISPOL | All Rights Reserved</p>
+    </div>
+  </footer>
 
-
-        <div class="form-buttons">
-          <button type="button" class="btn-batal" onclick="window.location.href='dashboard-staf.html'">Batal</button>
-          <button type="submit" class="btn-kirim">Simpan Perubahan</button>
-        </div>
-      </form>
-    </section>
-  </main>
-
-  <script src="js/detail-surat.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once:true, duration:1000 });
+  </script>
 </body>
 </html>
