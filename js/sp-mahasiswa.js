@@ -17,6 +17,29 @@ const dataSurat = [ //template data sp
 //Tambahin sini kalau mau tambah
 ];
 
+//Kalau data SP kosong 
+document.addEventListener("DOMContentLoaded", tampilkanSuratKosong);
+
+function tampilkanSuratKosong() {
+  const tabelSP = document.getElementById("tabelSP");
+  tabelSP.innerHTML = "";
+
+  if (dataSurat.length === 0) {
+    // Jika tidak ada data
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+    td.colSpan = 5;
+    td.textContent = "Kamu belum menerima surat peringatan apapun";
+    td.style.textAlign = "center";
+    td.style.padding = "20px";
+    td.style.fontWeight = "600";
+    td.style.color = "#555";
+    tr.appendChild(td);
+    tabelSP.appendChild(tr);
+    return;
+  }
+}
+
 function tampilkanSurat() {
   const tabel = document.getElementById("tabelSP");
 
@@ -29,7 +52,7 @@ function tampilkanSurat() {
       <td>${surat.tingkat}</td>
       <td>${surat.tanggal}</td>
       <td><span class="status ${surat.status.toLowerCase()}">${surat.status}</span></td>
-      <td><a href="${surat.link}" class="btn">Lihat</a></td>
+      <td><a href="${surat.link}" class="btn-lihat">Lihat</a></td>
     `;
 
     tabel.appendChild(baris);
@@ -38,3 +61,31 @@ function tampilkanSurat() {
 
 //Jalankan setelah halaman selesai dimuat
 document.addEventListener("DOMContentLoaded", tampilkanSurat);
+
+
+const sidebar = document.getElementById('sidebar');
+const toggle = document.getElementById('sidebarToggle');
+const closeBtn = document.getElementById('sidebarClose');
+
+
+// buka/tutup sidebar
+toggle.addEventListener('click', () => {
+  const open = sidebar.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', open);
+});
+
+closeBtn.addEventListener('click', () => {
+  sidebar.classList.remove('open');
+  toggle.setAttribute('aria-expanded', 'false');
+});
+
+// Klik di luar sidebar menutup
+document.addEventListener('click', (e) => {
+  if (!sidebar.classList.contains('open')) return;
+  if (!sidebar.contains(e.target) && !toggle.contains(e.target)) {
+    sidebar.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+});
+
+

@@ -1,5 +1,5 @@
-
 /* Michael Sando Turnip */
+
 
 html, body {
   height: 100%;
@@ -150,146 +150,105 @@ body {
   right: 320px;
 }
 
+
+/*welcome/hero*/
 .hero {
-  width: 100%;
-  padding: 80px 20px;
+  background: url("/image/Gedung.jpg") no-repeat center center/cover;
+  height: 600px;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 100px;
+  justify-content: center;
   text-align: center;
-  color: white;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  animation: fadeInDown 1s ease-in-out;
-  }
-
-  .hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
+  border-image: fill 0 linear-gradient(#0001, #000);
+}
+.hero h1 {
+  font-size: 4rem;
+  margin-top: 100px;
+}
+.welcome {
+  margin: 40px 0;
+  position: relative;
 }
 
-.hero h1 span {
-color: #ffd700;
-font-weight: bold;
+/*card grid*/
+.announcements-section {
+  padding: 24px 16px 40px;
 }
 
-    .hero h2 {
-      font-size: 1.3rem;
-      font-weight: 400;
-      opacity: 0.9;
-    }
+.section-title {
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+  color: #2b3b50;
+}
 
-    /* ====== List Section ====== */
-    #list {
-      width: 90%;
-      max-width: 900px;
-      background: white;
-      /* center horizontally and keep the negative top offset */
-      margin: -30px auto 0;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-      animation: fadeInUp 1s ease-in-out;
-    }
+/* Grid: max 2 kolom, responsive */
+.announcement-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, 1fr); /* maksimal 2 kolom */
+  align-items: start;
+}
 
-    .tabelsp {
-      overflow-x: auto;
-    }
+/* Card */
+.announcement-card {
+  background: #ffffff;
+  border: 1px solid #e6e8eb;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 120px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-    }
+/*Isi*/
+.announcement-card .title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+.card .pemisah {
+  border: none;
+  border-top: 2px solid #ccc;
+  width: 50px;
+  margin: 5px 0 10px;
+}
+.announcement-card .subtitle {
+  font-size: 0.95rem;
+  color: #495057;
+  margin-bottom: 14px;
+}
+/*footer card/tanggal*/
+.announcement-card .meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.announcement-card .date {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 600;
+  white-space: nowrap;
+}
+/*Kalau kosong*/
+.announcement-empty {
+  grid-column: 1 / -1; /* lebar penuh */
+  text-align: center;
+  padding: 28px;
+  color: #6b7280;
+  font-weight: 600;
+  background: #fff;
+  border: 1px dashed #e6e8eb;
+  border-radius: 8px;
+}
 
-    th, td {
-      padding: 14px 10px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-    }
 
-    /* Make Perihal column wider and allow multi-line content so there's room to add new SP descriptions */
-    th:first-child,
-    td:first-child {
-      width: 58%;
-      text-align: left;
-      padding-left: 18px;
-      word-wrap: break-word;
-    }
 
-    /* Make rows a bit taller for readability / space to add content */
-    tbody tr {
-      min-height: 56px;
-    }
 
-    /* Scoped button style for the Lihat action */
-    .btn-lihat {
-      display: inline-block;
-      padding: 8px 12px;
-      background: linear-gradient(135deg, #1a73e8, #2a9df4);
-      color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 6px 12px rgba(26,115,232,0.18);
-      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
-    }
-
-    .btn-lihat:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(26,115,232,0.18);
-      opacity: 0.95;
-    }
-
-    th {
-      background: #1a73e8;
-      color: white;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    tr:hover {
-      background-color: #f1f7ff;
-      transition: background-color 0.3s ease;
-    }
-
-    /* ====== Responsive Design ====== */
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 1.6rem;
-      }
-
-      .hero h2 {
-        font-size: 1rem;
-      }
-
-      th, td {
-        padding: 10px;
-        font-size: 0.9rem;
-      }
-    }
-
-    /* ====== Animations ====== */
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
 /* ===== Footer Baru ===== */
 .footer {
   background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
@@ -394,4 +353,18 @@ font-weight: bold;
     text-align: center;
     align-items: center;
   }
+  .container2 {
+    min-height: auto;
+    padding: 30px;
+  }
+  table th, table td {
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+  .btn {
+    padding: 5px 8px;
+    font-size: 13px;
+  }
+  .announcement-grid { grid-template-columns: 1fr; }
+  .section-title { font-size: 1.3rem; }
 }

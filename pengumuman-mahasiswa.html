@@ -1,9 +1,12 @@
-<!DOCTYPE html><!--Michael Sando Turnip-->
+<!--File: Pengumuman-->
+<!--Michael Sando Turnip-->
+<!--Note: Ini bakal jadi landing page nantinya dan belum yakin mau ditambahin atau gak-->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/dashboard-mahasiswa.css"><!--CSS-->
+    <link rel="stylesheet" href="css/pengumuman-mahasiswa.css"><!--CSS-->
     <title>Beranda Mahasiswa</title>
 </head>
 <body>
@@ -15,7 +18,7 @@
         <span class="brand">DISP<span class="brand-o">O</span>L</span>
       </a>
     <ul class="nav-links">
-        <li><a href="beranda-mahasiswa.html" class="active"><p>Beranda</p></a></li>
+        <li><a href="dashboard-mahasiswa.html" class="active"><p>Beranda</p></a></li>
         <li><a href="profil-mahasiswa.html">Profil</a></li>
       </ul>
     </div>
@@ -31,43 +34,39 @@
 <!-- Sidebar kanan -->
 <aside id="sidebar" class="sidebar" aria-hidden="true">
   <nav class="sidebar-menu">
-    <a href="pengumuman-mahasiswa.html" class="menu-item">Pengumuman</a>
-    <a href="dashboard-mahasiswa.html" class="menu-item active">Daftar SP</a>
+    <a href="pengumuman-mahasiswa.html" class="menu-item active">Pengumuman</a>
+    <a href="dashboard-mahasiswa.html" class="menu-item">Daftar SP</a>
     <a href="riwayat-sp.html" class="menu-item">Riwayat SP</a>
   </nav>
 </aside>
 
+
 <section id="home" class="hero">
-    <div class="container">
-      <h1>Halo 👋, Selamat datang <span>Nama Mahasiswa</span></h1>
-      <h2>33125XXXXX</h2>
-    </div>
-  </section>
+  <div data-aos="fade-up">
+    <h1>Selamat Datang di Layanan Surat Peringatan Mahasiswa Polibatam</h1>
+  </div>
+</section>
 
-  <!-- Tabel Section -->
-  <section id="list" class="container">
-    <div class="container2">
-      <div class="tabelsp">
-        <table>
-          <thead>
-            <tr>
-              <th>Perihal</th>
-              <th>Tingkat SP</th>
-              <th>Tanggal</th>
-              <th>Status</th>
-              <th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody id="tabelSP">
-            
-      
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+<div class="welcome">
+  <h1>Halo, Selamat datang <span>..(Nama Mahasiswa)</span>👋</h1>
+  <h2>(33125......)</h2>
+</div>
 
-  <!--Footer-->
+<!--Pengumuman-->
+<section id="pengumuman" class="container announcements-section" aria-labelledby="announcements-heading">
+  <h2 id="announcements-heading" class="section-title">Panduan Sistem Informasi dan Layanan Mahasiswa</h2>
+
+  <div id="announcementsGrid" class="announcement-grid" aria-live="polite">
+    <!-- Cards akan di-render oleh JS -->
+  </div>
+
+  <!-- Fallback jika JS mati (akan disembunyikan oleh JS saat ada data) -->
+  <noscript>
+    <p class="no-data">JavaScript dinonaktifkan — daftar pengumuman tidak dapat ditampilkan.</p>
+  </noscript>
+</section>
+
+
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-left">
@@ -98,6 +97,6 @@
     <p>&copy; 2025 DISPOL | All Rights Reserved</p>
   </div>
 </footer>
-<script src="js/sp-mahasiswa.js"></script>
+<script src="js/pengumuman-mahasiswa.js"></script>
 </body>
 </html>
