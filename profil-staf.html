@@ -23,28 +23,45 @@
         </div>
     </nav>
 
-  <main class="profil-container">
-    <h1>Profil Staf Akademik</h1>
+  <main class="profil-container-modern">
+    <div class="header-section">
+        <h1><i class="fas fa-user-circle"></i> Profil Staf Akademik</h1>
+        <p class="subtitle">Kelola dan tinjau informasi akun pribadi Anda.</p>
+    </div>
 
-    <!-- Profil Utama -->
-    <section class="profil-card">
-        <div class="photo"></div>
-      <div class="profil-info">
-        <h2>Nama Lengkap Staf</h2>
-        <p><strong>NIK:</strong> 1987654321</p>
-        <p><strong>Jabatan:</strong> Staf Akademik</p>
-        <p><strong>Program Studi:</strong> Informatika</p>
-        <p><strong>Email:</strong> staf@polibatam.ac.id</p>
-        <p><strong>No. Telepon:</strong> +62 812-3456-7890</p>
-      </div>
+    <section class="profile-card-modern">
+        <div class="card-left">
+            <div class="photo-placeholder">
+                <i class="fas fa-user fa-3x"></i>
+            </div>
+            <h2 class="staff-name">Nama Lengkap Staf</h2>
+            <p class="staff-role"><i class="fas fa-graduation-cap"></i> Staf Akademik</p>
+            
+            <div class="action-buttons-card">
+                <button class="btn-edit-profile"><i class="fas fa-pen"></i> Ubah Profil</button>
+            </div>
+        </div>
+
+        <div class="card-right">
+            <h3><i class="fas fa-info-circle"></i> Detail Informasi</h3>
+            <div class="detail-group">
+                <p><span class="label">NIK</span><span class="value">1987654321</span></p>
+                <p><span class="label">Jabatan</span><span class="value">Staf Akademik</span></p>
+                <p><span class="label">Program Studi</span><span class="value">Informatika</span></p>
+            </div>
+
+            <h3><i class="fas fa-envelope"></i> Kontak</h3>
+            <div class="detail-group">
+                <p><span class="label">Email</span><span class="value">staf@polibatam.ac.id</span></p>
+                <p><span class="label">No. Telepon</span><span class="value">+62 812-3456-7890</span></p>
+            </div>
+        </div>
     </section>
 
-    <!-- Tombol Aksi -->
-    <div class="aksi">
-      <button class="btn-logout" id="logoutBtn">Keluar</button>
+    <div class="aksi-logout-area">
+        <button class="btn-logout" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Keluar</button>
     </div>
-  </main>
-
+</main>
   <!--Footer-->
   <footer class="footer">
       <div class="footer-container">
