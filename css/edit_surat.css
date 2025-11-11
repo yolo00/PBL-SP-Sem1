@@ -130,14 +130,35 @@ body {
 
 /* ===== FORM WRAPPER ===== */
 .form-container {
+  position: relative; /* allow absolutely positioned controls inside card */
   background: #fff;
   width: 90%;
   max-width: 700px;
-  margin: 0 auto 60px;
+  margin: 20px auto 60px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   padding: 35px 40px 45px;
   animation: fadeIn 0.6s ease;
+}
+
+/* Back button placed inside the card (top-left) */
+.form-container .btn-kembali {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: transparent;
+  color: #153d7e;
+  border: 1px solid rgba(21,61,126,0.12);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.form-container .btn-kembali:hover {
+  background: rgba(21,61,126,0.06);
 }
 
 @keyframes fadeIn {
@@ -180,7 +201,7 @@ body {
 /* ===== BUTTONS ===== */
 .form-button {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end; /* align actions to the right */
   gap: 15px;
   margin-top: 25px;
 }
@@ -202,19 +223,22 @@ body {
 }
 
 .btn-batal {
-  background-color: #d1d5db;
-  color: #333;
-  padding: 10px 25px;
+  background: transparent;
+  color: #e04e32; /* red text */
+  padding: 10px 18px;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: color 0.2s, background 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 }
 
 .btn-batal:hover {
-  background-color: #c0c4c8;
-  transform: translateY(-2px);
+  color: #b73728;
+  background: rgba(224,78,50,0.04);
 }
 
 /* ===== FOOTER ===== */

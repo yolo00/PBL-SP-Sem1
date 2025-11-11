@@ -1,4 +1,3 @@
-
 /* Michael Sando Turnip */
 
 html, body {
@@ -267,7 +266,7 @@ font-weight: bold;
         font-size: 0.9rem;
       }
     }
-
+    
     /* ====== Animations ====== */
     @keyframes fadeInDown {
       from {

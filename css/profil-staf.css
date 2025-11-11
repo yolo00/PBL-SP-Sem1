@@ -82,79 +82,169 @@ main {
 .navbar .nav-links a:hover {
     color: #e04e32;
 }
-
-
-.profil-container {
-  width: 90%;
-  max-width: 1000px;
-  margin: 40px auto;
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/* Styling Kontainer Utama */
+.profil-container-modern {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
 }
 
-h1 {
-  text-align: center;
-  color: #004080;
-  margin-bottom: 30px;
+.header-section {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.profil-card {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 30px;
-}
-.photo {
-  background-color: #3c486b; /* abu tua */
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-top: 15px;
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png");
-  background-size: cover;
-  background-position: center;
+.header-section h1 {
+    font-size: 2.2em;
+    color: #2c3e50;
+    margin: 0;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+.header-section .subtitle {
+    color: #7f8c8d;
+    font-size: 1em;
+    margin-top: 5px;
 }
 
-th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+/* 1. Kartu Profil Modern (Profile Card) */
+.profile-card-modern {
+    display: flex;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    margin-bottom: 30px;
 }
 
-th {
-  background-color: #004080;
-  color: white;
+/* Sisi Kiri: Foto dan Info Singkat */
+.card-left {
+    flex: 0 0 300px; /* Lebar tetap untuk sisi kiri */
+    background-color: #f8f9fa;
+    padding: 30px;
+    text-align: center;
+    border-right: 1px solid #ecf0f1;
 }
 
-.btn-edit,
+.photo-placeholder {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db; /* Warna Brand */
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.staff-name {
+    font-size: 1.6em;
+    color: #2c3e50;
+    margin: 0 0 5px;
+}
+
+.staff-role {
+    color: #3498db;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+}
+
+/* Tombol Ubah Profil */
+.btn-edit-profile {
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.btn-edit-profile:hover {
+    background-color: #e67e22;
+}
+
+
+/* Sisi Kanan: Detail Informasi */
+.card-right {
+    flex-grow: 1;
+    padding: 30px;
+}
+
+.card-right h3 {
+    font-size: 1.25em;
+    color: #3498db;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+.card-right h3:first-child {
+    margin-top: 0;
+}
+
+.detail-group p {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    border-bottom: 1px dotted #e0e0e0;
+}
+
+.detail-group p:last-child {
+    border-bottom: none;
+}
+
+.detail-group .label {
+    font-weight: 600;
+    color: #555;
+    flex: 1;
+}
+
+.detail-group .value {
+    color: #2c3e50;
+    text-align: right;
+    flex: 2;
+}
+
+/* 2. Area Tombol Logout */
+.aksi-logout-area {
+    text-align: center;
+}
+
 .btn-logout {
-  background-color: #004080;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-.btn-logout {
-  background-color: #e04e32;
-}
-
-.btn-edit:hover {
-  background-color: #2563eb;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
 }
 
 .btn-logout:hover {
-  background-color: #c0392b;
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-card-modern {
+        flex-direction: column;
+    }
+
+    .card-left {
+        flex: auto;
+        border-right: none;
+        border-bottom: 1px solid #ecf0f1;
+    }
 }
 
 /* ===== Footer Baru ===== */
