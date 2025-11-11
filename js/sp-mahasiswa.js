@@ -29,7 +29,7 @@ function tampilkanSurat() {
       <td>${surat.tingkat}</td>
       <td>${surat.tanggal}</td>
       <td><span class="status ${surat.status.toLowerCase()}">${surat.status}</span></td>
-      <td><a href="${surat.link}" class="btn">Lihat</a></td>
+      <td><a href="${surat.link}" class="btn-lihat">Lihat</a></td>
     `;
 
     tabel.appendChild(baris);
