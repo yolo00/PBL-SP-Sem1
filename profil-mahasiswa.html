@@ -22,40 +22,52 @@
 </nav>
 
 
-  <main class="profil-container">
-    <h1>Profil Mahasiswa</h1>
-
-    <!-- Identitas Mahasiswa -->
-    <section class="profil-card">
-        <div class="photo"></div>
-      <div class="profil-info">
-        <h2>Nama Mahasiswa</h2>
-        <p><strong>NIM:</strong> 3312501048</p>
-        <p><strong>Prodi:</strong> Teknik Informatika</p>
-        <p><strong>Jurusan:</strong> Teknik Informatika</p>
-        <p><strong>Kelas:</strong> IF-1B</p>
-        <p><strong>Angkatan:</strong> 2025</p>
-        <p><strong>Email:</strong> namamahasiswa@polibatam.ac.id</p>
-        <p><strong>No. HP:</strong> +62 812-1234-5678</p>
-      </div>
-    </section>
-
-    <!-- Informasi Akademik -->
-    <section class="akademik-card">
-      <h3>Informasi Akademik</h3>
-      <p><strong>IPK Terakhir:</strong> 3.62</p>
-      <p><strong>SKS Ditempuh:</strong> 108</p>
-      <p><strong>Dosen Wali:</strong> Ir. Ahmad Taufik, M.Kom</p>
-      <p><strong>Status Akademik:</strong> Aktif</p>
-    </section>
-
-
-    <!-- Tombol Aksi -->
-    <div class="aksi">
-      <button class="btn-logout">Keluar</button>
+<main class="profil-container-mahasiswa">
+    <div class="header-section">
+        <h1><i class="fas fa-id-badge"></i> Profil Mahasiswa</h1>
+        <p class="subtitle">Tinjau detail identitas dan status akademik Anda.</p>
     </div>
-  </main>
 
+    <div class="profile-content-wrapper">
+        <section class="profil-identitas-card">
+            <div class="card-header-mahasiswa">
+                <div class="photo-placeholder">
+                    <i class="fas fa-user-graduate fa-3x"></i>
+                </div>
+                <div class="profil-info-header">
+                    <h2>Nama Mahasiswa</h2>
+                    <p class="nim-label">NIM: 3312501048</p>
+                </div>
+            </div>
+            
+            <div class="profil-info-details">
+                <h3><i class="fas fa-address-book"></i> Data Pribadi & Kontak</h3>
+                <div class="detail-group">
+                    <p><span class="label">Prodi</span><span class="value">Teknik Informatika</span></p>
+                    <p><span class="label">Jurusan</span><span class="value">Teknik Informatika</span></p>
+                    <p><span class="label">Kelas</span><span class="value">IF-1B</span></p>
+                    <p><span class="label">Angkatan</span><span class="value">2025</span></p>
+                    <p><span class="label">Email</span><span class="value">namamahasiswa@polibatam.ac.id</span></p>
+                    <p><span class="label">No. HP</span><span class="value">+62 812-1234-5678</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="akademik-card-modern">
+            <h3><i class="fas fa-chart-line"></i> Informasi Akademik</h3>
+            <div class="detail-group">
+                <p><span class="label">IPK Terakhir</span><span class="value ipk">3.62</span></p>
+                <p><span class="label">SKS Ditempuh</span><span class="value">108</span></p>
+                <p><span class="label">Dosen Wali</span><span class="value dosen-wali">Ir. Ahmad Taufik, M.Kom</span></p>
+                <p><span class="label">Status Akademik</span><span class="value status-aktif">Aktif</span></p>
+            </div> 
+        </section>
+    </div>
+
+    <div class="aksi-logout-area">
+        <button class="btn-logout" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Keluar</button>
+    </div>
+</main>
   <!--Footer-->
   <footer class="footer">
       <div class="footer-container">
