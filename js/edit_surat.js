@@ -1,134 +1,141 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Get URL parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get('id');
-    
-    // Get form elements
-    const namaInput = document.getElementById('nama');
-    const nimInput = document.getElementById('nim');
-    const prodiSelect = document.getElementById('prodi');
-    const tingkatSelect = document.getElementById('tingkat');
-    const tanggalInput = document.getElementById('tanggal');
-    const statusSelect = document.getElementById('status');
-    const keteranganInput = document.getElementById('keterangan');
-    const formEdit = document.querySelector('.form-edit');
+document.addEventListener("DOMContentLoaded", function () {
+  const STORAGE_KEY = "suratPeringatan";
+  const DETAIL_KEY = "detailSurat";
 
-    // Get data from localStorage
-    const STORAGE_KEY = 'suratPeringatan';
-    const DETAIL_KEY = 'detailSurat';
-    let suratData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    
-    // Coba ambil dari detailSurat dulu (dari kelola-staf.html), jika tidak ada, ambil dari array berdasarkan ID
-    let currentSurat = JSON.parse(localStorage.getItem(DETAIL_KEY));
-    if (!currentSurat && id !== null) {
-      currentSurat = suratData[parseInt(id)];
-    }
+  const form = document.getElementById("formEditSurat");
+  const fileInput = document.getElementById("fileSurat");
+  const fileContainer = document.getElementById("fileContainer");
+  const fileLabel = document.getElementById("fileLabel");
+  const namaInput = document.getElementById("namaInput");
+  const namaMahasiswaHeader = document.getElementById("namaMahasiswaHeader");
 
-    // Populate form if we have data
-    if (currentSurat) {
-        namaInput.value = currentSurat.nama || '';
-        nimInput.value = currentSurat.nim || '';
-        prodiSelect.value = currentSurat.prodi || prodiSelect.options[0].value;
-        if (tingkatSelect) tingkatSelect.value = currentSurat.tingkat || tingkatSelect.options[0].value;
-        if (tanggalInput) tanggalInput.value = currentSurat.tanggal || '';
-        if (statusSelect) statusSelect.value = currentSurat.status || 'Aktif';
-        if (keteranganInput) keteranganInput.value = currentSurat.deskripsi || currentSurat.perihal || '';
+  // 🔹 Ambil data dari localStorage
+  const selected = JSON.parse(localStorage.getItem(DETAIL_KEY));
+  const allData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+
+  // Jika tidak ada data, balik ke Kelola
+  if (!selected) {
+    alert("Data surat tidak ditemukan. Silakan pilih surat dari halaman Kelola atau Tambah surat baru.");
+    window.location.href = "kelola-staf.html";
+    return;
+  }
+
+  // === ISI FORM DENGAN DATA DARI LOCALSTORAGE ===
+  function isiFormDariData() {
+    document.getElementById("tingkatSelect").value = selected.tingkat || "";
+    document.getElementById("tanggalInput").value = selected.tanggal || "";
+    document.getElementById("namaInput").value = selected.nama || "";
+    document.getElementById("nimInput").value = selected.nim || "";
+    document.getElementById("prodiInput").value = selected.prodi || "";
+    document.getElementById("jurusanInput").value = selected.jurusan || "";
+    document.getElementById("kelasInput").value = selected.kelas || "";
+    document.getElementById("perihalInput").value = selected.perihal || "";
+    document.getElementById("deskripsiInput").value = selected.deskripsi || "";
+    
+    // Update header dengan nama mahasiswa
+    updateHeaderName();
+    
+    // Tampilkan file jika ada
+    tampilkanFile(selected);
+  }
+
+  // Panggil fungsi pengisian form
+  isiFormDariData();
+
+  // === UPDATE HEADER NAMA SAAT INPUT BERUBAH ===
+  function updateHeaderName() {
+    const nama = namaInput.value || "Nama Mahasiswa";
+    namaMahasiswaHeader.textContent = nama;
+  }
+
+  namaInput.addEventListener("input", updateHeaderName);
+
+  // === TAMPILKAN FILE DARI DATA SEBELUMNYA ===
+  function tampilkanFile(data) {
+    if (data.file && data.fileName) {
+      fileContainer.innerHTML = "";
+      const link = document.createElement("a");
+      link.href = data.file;
+      link.download = data.fileName;
+      link.textContent = `📎 Unduh ${data.fileName}`;
+      link.classList.add("download-link");
+      fileContainer.appendChild(link);
+      fileLabel.textContent = `File: ${data.fileName}`;
     } else {
-        // If no data in localStorage, try to get from URL params
-        namaInput.value = urlParams.get('nama') || '';
-        nimInput.value = urlParams.get('nim') || '';
-        prodiSelect.value = urlParams.get('prodi') || prodiSelect.options[0].value;
-        if (tingkatSelect) tingkatSelect.value = urlParams.get('tingkat') || tingkatSelect.options[0].value;
-        if (tanggalInput) tanggalInput.value = urlParams.get('tanggal') || '';
+      fileContainer.innerHTML = "<p style='color:#666;'>Belum ada file surat diunggah.</p>";
     }
+  }
 
-    // Update preview area (if present)
-    function updatePreview() {
-        const detTingkat = document.getElementById('detailTingkat');
-        const detTanggal = document.getElementById('detailTanggal');
-        const detNama = document.getElementById('detailNamaSurat');
-        const detNim = document.getElementById('detailNimSurat');
-        const detProdi = document.getElementById('detailProdiSurat');
-        const detJurusan = document.getElementById('detailJurusanSurat');
-        const detKelas = document.getElementById('detailKelasSurat');
-        const detPerihal = document.getElementById('detailPerihalSurat');
-        const detDeskripsi = document.getElementById('detailDeskripsiSurat');
+  // === SAAT FILE BARU DIPILIH ===
+  fileInput.addEventListener("change", function() {
+    const fileName = fileInput.files[0]?.name || "-";
+    fileLabel.textContent = `File dipilih: ${fileName}`;
+  });
 
-        if (detTingkat) detTingkat.textContent = (tingkatSelect ? tingkatSelect.value : '-') || '-';
-        if (detTanggal) detTanggal.textContent = (tanggalInput ? tanggalInput.value : '-') || '-';
-        if (detNama) detNama.textContent = namaInput.value || '-';
-        if (detNim) detNim.textContent = nimInput.value || '-';
-        if (detProdi) detProdi.textContent = prodiSelect.value || '-';
-        if (detJurusan) detJurusan.textContent = currentSurat?.jurusan || '-';
-        if (detKelas) detKelas.textContent = currentSurat?.kelas || '-';
-        if (detPerihal) detPerihal.textContent = currentSurat?.perihal || keteranganInput.value || '-';
-        if (detDeskripsi) detDeskripsi.textContent = keteranganInput.value || currentSurat?.deskripsi || '-';
+  // === SAAT FORM DISUBMIT (UPDATE) ===
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const updated = {
+      tingkat: document.getElementById("tingkatSelect").value,
+      tanggal: document.getElementById("tanggalInput").value,
+      nama: document.getElementById("namaInput").value,
+      nim: document.getElementById("nimInput").value,
+      prodi: document.getElementById("prodiInput").value,
+      jurusan: document.getElementById("jurusanInput").value,
+      kelas: document.getElementById("kelasInput").value,
+      perihal: document.getElementById("perihalInput").value,
+      deskripsi: document.getElementById("deskripsiInput").value,
+      status: selected.status || "Aktif",
+      file: selected.file || null,
+      fileName: selected.fileName || null,
+      fileType: selected.fileType || null,
+    };
+
+    // Jika staf upload file baru di sini (opsional)
+    const file = fileInput?.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        updated.file = event.target.result;
+        updated.fileName = file.name;
+        updated.fileType = file.type;
+        simpanPerubahan(updated);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      simpanPerubahan(updated);
     }
+  });
 
-    // Call once to populate preview after filling form
-    updatePreview();
+  // === FUNGSI SIMPAN PERUBAHAN ===
+  function simpanPerubahan(updated) {
+    // Cari index berdasarkan NIM
+    const index = allData.findIndex((d) => d.nim === selected.nim);
+    
+    if (index !== -1) {
+      // Update data yang sudah ada
+      allData[index] = updated;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(allData));
+      localStorage.setItem(DETAIL_KEY, JSON.stringify(updated));
+      alert("✅ Surat Peringatan berhasil diperbarui!");
+      window.location.href = "kelola-staf.html";
+    } else {
+      // Jika tidak ditemukan di array, tambahkan sebagai data baru
+      allData.push(updated);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(allData));
+      localStorage.setItem(DETAIL_KEY, JSON.stringify(updated));
+      alert("✅ Surat Peringatan berhasil disimpan!");
+      window.location.href = "kelola-staf.html";
+    }
+  }
 
-    // Listen to input changes to update preview live
-    [namaInput, nimInput, prodiSelect, tingkatSelect, tanggalInput, statusSelect, keteranganInput].forEach(el => {
-        if (!el) return;
-        el.addEventListener('input', updatePreview);
-        el.addEventListener('change', updatePreview);
+  // === TOMBOL BATAL ===
+  const btnBatal = document.querySelector(".btn-batal");
+  if (btnBatal) {
+    btnBatal.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.href = "kelola-staf.html";
     });
-
-    // Handle form submission
-    formEdit.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const updatedSurat = {
-            nama: namaInput.value,
-            nim: nimInput.value,
-            prodi: prodiSelect.value,
-            tingkat: tingkatSelect ? tingkatSelect.value : currentSurat?.tingkat,
-            tanggal: tanggalInput ? tanggalInput.value : currentSurat?.tanggal,
-            deskripsi: keteranganInput ? keteranganInput.value : currentSurat?.deskripsi,
-            perihal: currentSurat?.perihal || '',
-            jurusan: currentSurat?.jurusan || '',
-            kelas: currentSurat?.kelas || '',
-            status: statusSelect ? statusSelect.value : currentSurat?.status || 'Aktif',
-            file: currentSurat?.file || null,
-            fileName: currentSurat?.fileName || null,
-            fileType: currentSurat?.fileType || null,
-        };
-
-        if (id !== null) {
-            // Update existing surat
-            suratData[parseInt(id)] = updatedSurat;
-        } else {
-            // Add new surat
-            suratData.push(updatedSurat);
-        }
-
-        // Save to localStorage
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(suratData));
-        localStorage.setItem(DETAIL_KEY, JSON.stringify(updatedSurat));
-
-        // Show success message
-        alert('✅ Surat Peringatan berhasil diperbarui!');
-
-        // Redirect back to kelola page
-        window.location.href = 'kelola-staf.html';
-    });
-
-    // Handle cancel/back button
-    const btnKembali = document.querySelector('.btn-kembali');
-    if (btnKembali) {
-        btnKembali.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.location.href = 'kelola-staf.html';
-        });
-    }
-
-    // Handle cancel button in form
-    const btnBatalLink = document.querySelector('.btn-batal');
-    if (btnBatalLink) {
-        btnBatalLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.location.href = 'kelola-staf.html';
-        });
-    }
+  }
 });

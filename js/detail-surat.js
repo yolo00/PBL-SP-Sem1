@@ -20,39 +20,44 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  // === ISI FORM ===
-  document.getElementById("tingkatSelect").value = selected.tingkat || "";
-  document.getElementById("tanggalInput").value = selected.tanggal || "";
-  document.getElementById("statusSelect").value = selected.status || "Aktif";
-  document.getElementById("namaInput").value = selected.nama || "";
-  document.getElementById("nimInput").value = selected.nim || "";
-  document.getElementById("prodiInput").value = selected.prodi || "";
-  document.getElementById("jurusanInput").value = selected.jurusan || "";
-  document.getElementById("kelasInput").value = selected.kelas || "";
-  document.getElementById("perihalInput").value = selected.perihal || "";
-  document.getElementById("deskripsiInput").value = selected.deskripsi || "";
 
-  // Update header dengan nama mahasiswa
-  updateHeaderName();
-  updatePreview();
+  // === POPULATE PREVIEW FROM SELECTED DATA ===
+  // Update header
+  if (namaMahasiswaHeader) namaMahasiswaHeader.textContent = selected.nama || "Nama Mahasiswa";
 
-  // === TAMPILKAN FILE DARI DATA SEBELUMNYA ===
-  tampilkanFile(selected);
+  // Fill preview spans safely (only if present in DOM)
+  const setText = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value || "-";
+  };
 
-  // === UPDATE HEADER SAAT NAMA BERUBAH ===
-  namaInput.addEventListener("input", updateHeaderName);
+  setText('previewNama', selected.nama);
+  setText('previewNim', selected.nim);
+  setText('previewProdi', selected.prodi);
+  setText('previewJurusan', selected.jurusan);
+  setText('previewKelas', selected.kelas);
+  setText('previewStatus', selected.status);
+  setText('previewTingkat', selected.tingkat);
+  setText('previewTanggal', selected.tanggal);
+  setText('previewPerihal', selected.perihal);
+  setText('previewDeskripsi', selected.deskripsi);
+  setText('previewFile', selected.fileName);
 
-  // === UPDATE PREVIEW SAAT FORM BERUBAH ===
-  const formInputs = form.querySelectorAll("input, textarea, select");
-  formInputs.forEach(input => {
-    input.addEventListener("change", updatePreview);
-    input.addEventListener("input", updatePreview);
-  });
-
-  fileInput.addEventListener("change", function() {
-    const fileName = fileInput.files[0]?.name || "-";
-    document.getElementById("previewFile").textContent = fileName;
-  });
+  // Show file link area if applicable
+  if (fileContainer) {
+    if (selected.file && selected.fileName) {
+      fileContainer.innerHTML = '';
+      const link = document.createElement('a');
+      link.href = selected.file;
+      link.download = selected.fileName;
+      link.textContent = `📎 Unduh ${selected.fileName}`;
+      link.classList.add('download-link');
+      fileContainer.appendChild(link);
+      if (fileLabel) fileLabel.textContent = `File: ${selected.fileName}`;
+    } else if (fileContainer) {
+      fileContainer.innerHTML = "<p style='color:#666;'>Belum ada file surat diunggah.</p>";
+    }
+  }
 
   // === SAAT FORM DISUBMIT (EDIT) ===
   form.addEventListener("submit", function (e) {
@@ -164,23 +169,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (btnEditSurat) {
     btnEditSurat.addEventListener("click", function(e) {
       e.preventDefault();
-      // Simpan data ke localStorage
-      const currentData = {
-        tingkat: document.getElementById("tingkatSelect").value,
-        tanggal: document.getElementById("tanggalInput").value,
-        status: document.getElementById("statusSelect").value,
-        nama: document.getElementById("namaInput").value,
-        nim: document.getElementById("nimInput").value,
-        prodi: document.getElementById("prodiInput").value,
-        jurusan: document.getElementById("jurusanInput").value,
-        kelas: document.getElementById("kelasInput").value,
-        perihal: document.getElementById("perihalInput").value,
-        deskripsi: document.getElementById("deskripsiInput").value,
-        file: selected.file || null,
-        fileName: selected.fileName || null,
-        fileType: selected.fileType || null,
-      };
-      localStorage.setItem(DETAIL_KEY, JSON.stringify(currentData));
+      // Simpan selected data kembali ke DETAIL_KEY (ensures edit page will load it)
+      localStorage.setItem(DETAIL_KEY, JSON.stringify(selected));
       window.location.href = "edit_surat.html";
     });
   }

@@ -1,20 +1,5 @@
 // Daftar Prodi berdasarkan Jurusan
 const daftarProdi = {
-  mb: [
-    "D3 Akuntansi",
-    "Sarjana Terapan Akuntansi Manajerial",
-    "Sarjana Terapan Administrasi Bisnis Terapan",
-    "Sarjana Terapan Logistik Perdagangan Internasional",
-    "D2 Distribusi Barang"
-  ],
-  te: [
-    "D3 Teknik Elektronika Manufaktur",
-    "Sarjana Terapan Teknologi Rekayasa Elektronika",
-    "D3 Teknik Instrumentasi",
-    "Sarjana Terapan Teknik Mekatronika",
-    "Sarjana Terapan Teknologi Rekayasa Pembangkit Energi",
-    "Sarjana Terapan Teknologi Rekayasa Robotika"
-  ],
   ti: [
     "D3 Teknik Informatika",
     "D3 Teknologi Geomatika",
@@ -24,13 +9,6 @@ const daftarProdi = {
     "Sarjana Terapan Rekayasa Perangkat Lunak",
     "Magister Terapan (S2) Teknik Komputer",
     "Sarjana Terapan Teknologi Permainan"
-  ],
-  tm: [
-    "D3 Teknik Mesin",
-    "D3 Teknik Perawatan Pesawat Udara",
-    "Sarjana Terapan Teknologi Rekayasa Konstruksi Perkapalan",
-    "Sarjana Terapan Teknologi Rekayasa Pengelasan dan Fabrikasi",
-    "Sarjana Terapan Teknologi Rekayasa Metalurgi"
   ]
 };
 
@@ -61,6 +39,11 @@ jurusanSelect.addEventListener("change", () => {
     prodiSelect.appendChild(option);
   });
 });
+
+// Jika halaman dimuat dan jurusan sudah terpilih (mis. Teknik Informatika), isi prodi otomatis
+if (jurusanSelect.value) {
+  jurusanSelect.dispatchEvent(new Event('change'));
+}
 
 
 document.addEventListener("DOMContentLoaded", function () {
