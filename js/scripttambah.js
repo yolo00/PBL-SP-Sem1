@@ -1,3 +1,68 @@
+// Daftar Prodi berdasarkan Jurusan
+const daftarProdi = {
+  mb: [
+    "D3 Akuntansi",
+    "Sarjana Terapan Akuntansi Manajerial",
+    "Sarjana Terapan Administrasi Bisnis Terapan",
+    "Sarjana Terapan Logistik Perdagangan Internasional",
+    "D2 Distribusi Barang"
+  ],
+  te: [
+    "D3 Teknik Elektronika Manufaktur",
+    "Sarjana Terapan Teknologi Rekayasa Elektronika",
+    "D3 Teknik Instrumentasi",
+    "Sarjana Terapan Teknik Mekatronika",
+    "Sarjana Terapan Teknologi Rekayasa Pembangkit Energi",
+    "Sarjana Terapan Teknologi Rekayasa Robotika"
+  ],
+  ti: [
+    "D3 Teknik Informatika",
+    "D3 Teknologi Geomatika",
+    "Sarjana Terapan Animasi",
+    "Sarjana Terapan Teknologi Rekayasa Multimedia",
+    "Sarjana Terapan Rekayasa Keamanan Siber",
+    "Sarjana Terapan Rekayasa Perangkat Lunak",
+    "Magister Terapan (S2) Teknik Komputer",
+    "Sarjana Terapan Teknologi Permainan"
+  ],
+  tm: [
+    "D3 Teknik Mesin",
+    "D3 Teknik Perawatan Pesawat Udara",
+    "Sarjana Terapan Teknologi Rekayasa Konstruksi Perkapalan",
+    "Sarjana Terapan Teknologi Rekayasa Pengelasan dan Fabrikasi",
+    "Sarjana Terapan Teknologi Rekayasa Metalurgi"
+  ]
+};
+
+// Elemen HTML
+const jurusanSelect = document.getElementById("jurusanInput");
+const prodiSelect = document.getElementById("prodiInput");
+
+// Event ketika jurusan berubah
+jurusanSelect.addEventListener("change", () => {
+  const jurusanDipilih = jurusanSelect.value;
+
+  // Kosongkan isi prodi dahulu
+  prodiSelect.innerHTML = "";
+
+  if (!jurusanDipilih) {
+    prodiSelect.innerHTML = `<option value="">-- Pilih Jurusan Terlebih Dahulu --</option>`;
+    return;
+  }
+
+  // Ambil daftar prodi berdasarkan jurusan
+  const prodiList = daftarProdi[jurusanDipilih];
+
+  // Masukkan opsi prodi ke dropdown
+  prodiList.forEach(prodi => {
+    const option = document.createElement("option");
+    option.value = prodi;
+    option.textContent = prodi;
+    prodiSelect.appendChild(option);
+  });
+});
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const STORAGE_KEY = "suratPeringatan";
   const DETAIL_KEY = "detailSurat";
