@@ -46,8 +46,11 @@ document.addEventListener("DOMContentLoaded", function () {
       const index = target.dataset.index;
       const item = data[index];
       
-      // Redirect to edit page with data
-      window.location.href = `edit_surat.html?id=${index}&nama=${encodeURIComponent(item.nama)}&nim=${encodeURIComponent(item.nim)}&prodi=${encodeURIComponent(item.prodi)}&tingkat=${encodeURIComponent(item.tingkat)}&tanggal=${encodeURIComponent(item.tanggal)}`;
+      // Simpan data lengkap ke localStorage
+      localStorage.setItem('detailSurat', JSON.stringify(item));
+      
+      // Redirect ke edit page
+      window.location.href = `edit_surat.html?id=${index}`;
     }
   });
 
