@@ -2,7 +2,7 @@
 <!--Dibuat oleh: Nur Iliyanie-->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +10,7 @@
   <link rel="stylesheet" href="css/detail-surat.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  </head>
-<body>
-  </head>
+</head>
 <body>
   <!-- Navbar -->
   <nav class="navbar">
@@ -33,29 +31,66 @@
   <!-- Konten Detail -->
   <div class="detail-container" data-aos="fade-up">
     <div class="detail-header">
-      <h2>Nama Mahasiswa <span class="sp-badge sp2">SP II</span></h2>
+      <h2 id="namaMahasiswaHeader">Nama Mahasiswa</h2>
       <p>Mahasiswa Politeknik Negeri Batam</p>
     </div>
+ 
+    <!-- Rincian Surat Preview Section -->
+    <div class="rincian-surat">
+      <h3>Rincian Surat Peringatan</h3>
+      <div class="preview-container">
+        <div class="preview-section">
+          <h4>Data Mahasiswa</h4>
+          <div class="preview-item">
+            <label>Nama:</label>
+            <span id="previewNama">-</span>
+          </div>
+          <div class="preview-item">
+            <label>NIM:</label>
+            <span id="previewNim">-</span>
+          </div>
+          <div class="preview-item">
+            <label>Program Studi:</label>
+            <span id="previewProdi">-</span>
+          </div>
+          <div class="preview-item">
+            <label>Jurusan:</label>
+            <span id="previewJurusan">-</span>
+          </div>
+          <div class="preview-item">
+            <label>Kelas:</label>
+            <span id="previewKelas">-</span>
+          </div>
+          <div class="preview-item">
+            <label>Status:</label>
+            <span id="previewStatus">-</span>
+          </div>
+        </div>
 
-    <div class="detail-info">
-      <p><strong>NIM:</strong> 43220109</p>
-      <p><strong>Program Studi:</strong> Teknik Informatika</p>
-      <p><strong>Status:</strong> Aktif (Dalam masa pembinaan)</p>
-      <p><strong>Dosen Pembimbing Akademik:</strong> Nama Dosen</p>
-    </div>
-
-    <div class="alasan">
-      <h3>Alasan Dikeluarkan Surat Peringatan:</h3>
-      <p>Mahasiswa telah melakukan pelanggaran terhadap tata tertib akademik, yaitu ketidakhadiran lebih dari 25% pada mata kuliah wajib tanpa keterangan resmi. Surat Peringatan II dikeluarkan untuk mendorong peningkatan disiplin dan tanggung jawab mahasiswa.</p>
-    </div>
-
-    <div class="alasan">
-      <h3>Tindakan yang Diharapkan:</h3>
-      <p>Mahasiswa diharapkan dapat memperbaiki tingkat kehadiran, menjaga etika dalam kegiatan akademik, serta aktif berkomunikasi dengan dosen pembimbing terkait perkembangan studi.</p>
-    </div>
-
-    <div class="detail-footer">
-      <button class="btn-kembali" onclick="window.history.back()">Kembali</button>
+        <div class="preview-section">
+          <h4>Data Surat Peringatan</h4>
+          <div class="preview-item">
+            <label>Tingkat SP:</label>
+            <span id="previewTingkat">-</span>
+          </div>
+          <div class="preview-item">
+            <label>Tanggal Surat:</label>
+            <span id="previewTanggal">-</span>
+          </div>
+          <div class="preview-item">
+            <label>Perihal:</label>
+            <span id="previewPerihal">-</span>
+          </div>
+          <div class="preview-item">
+            <label>Deskripsi:</label>
+            <span id="previewDeskripsi">-</span>
+          </div>
+          <div class="preview-item">
+            <label>File Surat:</label>
+            <span id="previewFile">-</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -96,6 +131,7 @@
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/detail-surat.js"></script>
   <script>
     AOS.init({ once:true, duration:1000 });
   </script>
