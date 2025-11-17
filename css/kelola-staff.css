@@ -84,44 +84,37 @@ body {
     color: #e04e32;
 }
 
- /* ===== POPUP SEARCH OVERLAY ===== */
-.search-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  backdrop-filter: blur(3px);
-}
-
-.search-overlay.active {
+/* Wrapper untuk search bar */
+.search-wrapper {
+  position: relative;
   display: flex;
-  animation: fadeIn 0.3s ease;
+  align-items: center;
+  flex: 1;               /* ➤ membuat search bar memanjang */
+  max-width: 650px;
 }
 
-.search-box input {
-  width: 700px;
-  max-width: 90%;
-  padding: 14px 20px;
-  border-radius: 30px;
-  border: none;
-  font-size: 16px;
+.search-wrapper .search-icon {
+  position: absolute;
+  left: 12px;
+  font-size: 18px;
+  opacity: 0.6;
+}
+
+.search-wrapper .search-input {
+   flex: 1;               /* ➤ membuat inputnya meluas */
+  padding-left: 40px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
   outline: none;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
-  margin-bottom: 500px;
-  display: flex auto;
+  transition: 0.2s;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.search-wrapper .search-input:focus {
+  border-color: #0b63f3;
+  box-shadow: 0 0 4px rgba(11, 99, 243, 0.4);
 }
+
 main {
   text-align: center;
   padding: 40px;
