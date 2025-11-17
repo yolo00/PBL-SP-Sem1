@@ -1,4 +1,4 @@
-<!--Nama file: edit-surat.html-->
+<!--Nama file: edit_surat.html-->
 <!--Dibuat oleh: Nur Iliyanie-->
 
 <!DOCTYPE html>
@@ -6,12 +6,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Surat Peringatan</title>
-  <link rel="stylesheet" href="css/edit_surat.css">
+  <title>Edit Surat Peringatan | DISPOL</title>
+  <link rel="stylesheet" href="css/detail-surat.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
       <a class="logo">
@@ -20,118 +21,149 @@
       </a>
       <ul class="nav-links">
         <li><a href="dashboard-staf.html">Beranda</a></li>
-        <li><a href="kelola-staf.html" class="active">Kelola</a></li>
+        <li><a href="kelola-staf.html">Kelola</a></li>
         <li><a href="arsip-staf.html">Arsip</a></li>
         <li><a href="profil-staf.html">Profil</a></li>
       </ul>
     </div>
   </nav>
 
-  <div class="page-container">
-    <main class="content-wrap">
-      <div class="judul-kembali">
-        <h1 style="text-align: center;"><b>EDIT SURAT PERINGATAN</b></h1>
-      </div>
+  <!-- Konten Detail -->
+  <div class="detail-container" data-aos="fade-up">
+    <div class="detail-header">
+      <h2 id="namaMahasiswaHeader">Nama Mahasiswa</h2>
+      <p>Mahasiswa Politeknik Negeri Batam</p>
+    </div>
 
-      <section class="form-container" data-aos="fade-up">
-        <a href="kelola-staf.html"></a>
-        <form action="#" method="POST" class="form-edit"> 
+    <form id="formEditSurat" class="form-edit-surat">
+      <!-- Data Mahasiswa Section -->
+      <fieldset class="form-fieldset">
+        <legend>Data Mahasiswa</legend>
+        
+        <div class="form-row">
           <div class="form-group">
-            <label for="nama">Nama Mahasiswa</label>
-            <input type="text" id="nama" name="nama" value="Nur Illyanie" required>
+            <label for="nimInput">NIM</label>
+            <input type="text" id="nimInput" placeholder="Masukkan NIM mahasiswa">
           </div>
-
           <div class="form-group">
-            <label for="nim">NIM</label>
-            <input type="text" id="nim" name="nim" value="3312501045" required>
-          </div>
-
-          <div class="form-group">
-            <label for="prodi">Program Studiiiiiii</label>
-            <select id="prodi" name="prodi" required>
-              <option selected>Informatika</option>
-              <option>Akuntansi</option>
-              <option>Teknik Elektro</option>
-              <option>Manajemen Bisnis</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="tingkat">Tingkat Peringatan</label>
-            <select id="tingkat" name="tingkat" required>
-              <option>SP I</option>
-              <option>SP II</option>
-              <option selected>SP III</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="tanggal">Tanggal Dikeluarkan</label>
-            <input type="date" id="tanggal" name="tanggal" value="2025-09-18" required>
-          </div>
-
-          <div class="form-group">
-            <label for="status">Status Surat</label>
-            <select id="status" name="status" required>
-              <option selected>Aktif</option>
-              <option>Selesai</option>
-              <option>Kadaluarsa</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="keterangan">Keterangan</label>
-            <textarea id="keterangan" name="keterangan" rows="4" placeholder="Tuliskan alasan atau catatan tambahan..."></textarea>
-          </div>
-
-          <div class="form-button">
-            <button type="submit" class="btn-simpan">Simpan Perubahan</button>
-            <a href="kelola-staf.html" class="btn-batal">Batal</a>
-          </div>
-        </form>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-left">
-          <img src="image/dispol.png" alt="Logo Dispol" width="60">
-          <div>
-            <h3>DISPOL</h3>
-            <p>Digitalisasi Surat Peringatan Mahasiswa Polibatam</p>
+            <label for="namaInput">Nama Mahasiswa</label>
+            <input type="text" id="namaInput" placeholder="Masukkan nama mahasiswa">
           </div>
         </div>
 
-        <div class="footer-center">
-          <h4>Menu</h4>
-          <ul>
-            <li><a href="dashboard-staf.html">Beranda</a></li>
-            <li><a href="kelola-staf.html">Kelola</a></li>
-            <li><a href="arsip-staf.html">Arsip</a></li>
-            <li><a href="profil-staf.html">Profil</a></li>
-          </ul>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prodiInput">Program Studi</label>
+            <input type="text" id="prodiInput" placeholder="Masukkan program studi">
+          </div>
+          <div class="form-group">
+            <label for="jurusanInput">Jurusan</label>
+            <input type="text" id="jurusanInput" placeholder="Masukkan jurusan">
+          </div>
         </div>
 
-        <div class="footer-right">
-          <h4>Hubungi Kami</h4>
-          <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
-          <ul class="social-links">
-            <li><a href="#"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
-            <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
-            <li><a href="#"><img src="image/icon-instagram.png" alt="Instagram"></a></li>
-          </ul>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="kelasInput">Kelas</label>
+            <input type="text" id="kelasInput" placeholder="Masukkan kelas">
+          </div>
+          <div class="form-group">
+            <label for="statusSelect">Status</label>
+            <select id="statusSelect">
+              <option value="Aktif">Aktif</option>
+              <option value="Tidak Aktif">Tidak Aktif</option>
+              <option value="Cuti">Cuti</option>
+              <option value="Lulus">Lulus</option>
+            </select>
+          </div>
         </div>
+      </fieldset>
+
+      <!-- Data Surat Peringatan Section -->
+      <fieldset class="form-fieldset">
+        <legend>Data Surat Peringatan</legend>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tingkatSelect">Tingkat SP</label>
+            <select id="tingkatSelect">
+              <option value="">-- Pilih Tingkat --</option>
+              <option value="SP I">SP I</option>
+              <option value="SP II">SP II</option>
+              <option value="SP III">SP III</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="tanggalInput">Tanggal Surat</label>
+            <input type="date" id="tanggalInput">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="perihalInput">Perihal</label>
+          <input type="text" id="perihalInput" placeholder="Pelanggaran Tata Tertib">
+        </div>
+
+        <div class="form-group">
+          <label for="deskripsiInput">Deskripsi Peringatan</label>
+          <textarea id="deskripsiInput" rows="4" placeholder="Tuliskan deskripsi singkat..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="fileSurat">Unggah File Surat Peringatan (opsional)</label>
+          <input type="file" id="fileSurat" accept=".pdf,.jpg,.png,.doc,.docx">
+          <div id="fileContainer"></div>
+          <span id="fileLabel"></span>
+        </div>
+      </fieldset>
+
+      <!-- Action Buttons -->
+      <div class="form-buttons">
+        <button type="submit" class="btn btn-kirim">Kirim</button>
+        <button type="button" class="btn btn-batal" onclick="window.history.back()">Batal</button>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 DISPOL | All Rights Reserved</p>
-      </div>
-    </footer>
+    </form>
   </div>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <img src="image/dispol.png" alt="Logo Dispol" width="60">
+        <div>
+          <h3>DISPOL</h3>
+          <p>Digitalisasi Surat Peringatan Mahasiswa Polibatam</p>
+        </div>
+      </div>
+
+      <div class="footer-center">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="dashboard-staf.html">Beranda</a></li>
+          <li><a href="kelola-staf.html">Kelola</a></li>
+          <li><a href="arsip-staf.html">Arsip</a></li>
+          <li><a href="profil-staf.html">Profil</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-right">
+        <h4>Hubungi Kami</h4>
+        <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
+        <ul class="social-links">
+          <li><a href="#"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
+          <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
+          <li><a href="#"><img src="image/icon-instagram.png" alt="Instagram"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 DISPOL | All Rights Reserved</p>
+    </div>
+  </footer>
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="js/edit_surat.js"></script>
   <script>
-    AOS.init();
+    AOS.init({ once:true, duration:1000 });
   </script>
 </body>
 </html>

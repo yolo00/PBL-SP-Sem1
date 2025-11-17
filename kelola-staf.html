@@ -24,12 +24,6 @@
             </ul>
         </div>
     </nav>
-<!-- Overlay Search -->
-  <div class="search-overlay" id="searchOverlay">
-    <div class="search-box">
-      <input type="text" placeholder="Ketik untuk mencari..." autofocus>
-    </div>
-  </div>
 
   <div class="page-container">
   <main class="content-wrap">
@@ -39,7 +33,11 @@
     </div>
     <section class="table-container"> 
       <div class="filter-bar">
-        <input type="text" placeholder="Cari" class="search-input">
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Cari" class="search-input">
+        </div>
+
         <select>
           <option aria-checked="undefined">Semua tingkat peringatan</option>
           <option required>SP I</option>
