@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- data pengumuman & rendering ---
   const pengumumanData = [
     {
-      judul: "Peluncuran SP Terhadap Absensi Pada Kuartal 3",
+      judul: "Peluncuran SP Terhadap Absensi Pada Mahasiswa Teknik Informatika Periode Ganjil 2025/2026",
       subjudul: "Bentuk penanganan mahasiswa absesni bermasalah selama periode setengah semester saat ini.",
       tanggal: "2025-11-02",
       link: "#"

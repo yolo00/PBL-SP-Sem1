@@ -96,6 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem(DETAIL_KEY, JSON.stringify(data)); // ⬅ simpan data baru juga ke detail
 
     alert("✅ Surat peringatan baru berhasil ditambahkan!");
-    window.location.href = "detail-surat.html"; // langsung ke detail agar langsung bisa dilihat
+    window.location.href = "kelola-staf.html"; // langsung ke detail agar langsung bisa dilihat
   }
 });
