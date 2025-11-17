@@ -19,8 +19,6 @@ main {
   flex: 1;
   padding-bottom: 40px;
 }
-
-
 .navbar {
     background: #004080;
     padding: 1rem 0;
@@ -84,9 +82,9 @@ main {
 }
 /* Styling Kontainer Utama */
 .profil-container-modern {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px;
 }
 
 .header-section {
@@ -95,9 +93,13 @@ main {
 }
 
 .header-section h1 {
-    font-size: 2.2em;
-    color: #2c3e50;
-    margin: 0;
+  font-size: 40px;
+  color: #153d7e;
+  margin: 8px 0 18px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.2px;
+  line-height: 1.1;
 }
 
 .header-section .subtitle {
@@ -108,46 +110,50 @@ main {
 
 /* 1. Kartu Profil Modern (Profile Card) */
 .profile-card-modern {
-    display: flex;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-    margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  border-radius: 14px;
+  box-shadow: 0 14px 40px rgba(16, 24, 40, 0.08);
+  overflow: hidden;
+  margin-bottom: 30px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Sisi Kiri: Foto dan Info Singkat */
 .card-left {
-    flex: 0 0 300px; /* Lebar tetap untuk sisi kiri */
-    background-color: #f8f9fa;
-    padding: 30px;
-    text-align: center;
-    border-right: 1px solid #ecf0f1;
+  grid-column: 1 / -1;
+  background-color: #f7fbff;
+  padding: 36px 30px;
+  text-align: center;
+  border-bottom: 1px solid #ecf0f1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .photo-placeholder {
-    width: 100px;
-    height: 100px;
-    background-color: #3498db; /* Warna Brand */
-    border-radius: 50%;
-    margin: 0 auto 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
+    display: none;
 }
 
 .staff-name {
-    font-size: 1.6em;
-    color: #2c3e50;
-    margin: 0 0 5px;
+  font-size: 1.9rem;
+  color: #153d7e;
+  margin: 12px 0 6px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.2px;
 }
 
 .staff-role {
-    color: #3498db;
-    font-weight: 600;
-    margin-bottom: 20px;
-    font-size: 0.95em;
+  color: #153d7e;
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  opacity: 0.95;
 }
 
 /* Tombol Ubah Profil */
@@ -166,12 +172,11 @@ main {
 .btn-edit-profile:hover {
     background-color: #e67e22;
 }
-
-
 /* Sisi Kanan: Detail Informasi */
 .card-right {
-    flex-grow: 1;
-    padding: 30px;
+  flex-grow: 1;
+  padding: 36px 40px;
+  background: #ffffff;
 }
 
 .card-right h3 {
@@ -236,15 +241,45 @@ main {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .profile-card-modern {
-        flex-direction: column;
-    }
+  .profile-card-modern {
+    grid-template-columns: 1fr;
+  }
 
-    .card-left {
-        flex: auto;
-        border-right: none;
-        border-bottom: 1px solid #ecf0f1;
-    }
+  .card-left {
+    flex: auto;
+    border-right: none;
+    border-bottom: 1px solid #ecf0f1;
+    padding: 28px 20px;
+  }
+
+  .card-right {
+    padding: 20px;
+  }
+}
+
+/* Responsive tweak for header title */
+@media (max-width: 768px) {
+  .header-section h1 {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+}
+
+@media (min-width: 900px) {
+  .profile-card-modern {
+    grid-template-columns: 340px 1fr;
+    align-items: stretch;
+  }
+  .card-left {
+    grid-column: 1;
+    border-bottom: none;
+    border-right: 1px solid #ecf0f1;
+    padding: 40px 36px;
+  }
+  .card-right {
+    grid-column: 2;
+    padding: 40px 48px;
+  }
 }
 
 /* ===== Footer Baru ===== */
