@@ -1,4 +1,7 @@
 <!--Muhammad Ivan Febrian-->
+
+<?php include "backend/config.php"; ?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -16,10 +19,10 @@
             <span class="brand">DISP<span class="brand-o">O</span>L</span>
             </a>
             <ul class="nav-links">
-                <li><a href="/dashboard-staf.html"><p>Beranda</p></a></li>
-                <li><a href="kelola-staf.html">Kelola</li>
-                <li><a href="arsip-staf.html">Arsip</li>
-                <li><a href="profil-staf.html" class="active">Profil</a></li>
+                <li><a href="dashboard-staf.php"><p>Beranda</p></a></li>
+                <li><a href="kelola-staf.php">Kelola</li>
+                <li><a href="arsip-staf.php">Arsip</li>
+                <li><a href="profil-staf.php" class="active">Profil</a></li>
             </ul>
         </div>
     </nav>
@@ -58,7 +61,11 @@
     </section>
 
     <div class="aksi-logout-area">
-        <button class="btn-logout" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Keluar</button>
+        <a href="backend/logout.php">
+          <button class="btn-logout">
+            <i class="fas fa-sign-out-alt"></i> Keluar
+          </button>
+        </a>
     </div>
 </main>
   <!--Footer-->
@@ -96,7 +103,5 @@
           <p>&copy; 2025 DISPOL | All Rights Reserved</p>
       </div>
     </footer>
-
-  <script src="js/profil-staf.js"></script>
 </body>
 </html>

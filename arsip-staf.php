@@ -1,6 +1,17 @@
 <!--Nama file: arsip-staf.html-->
 <!--Dibuat oleh: Muhammad Faturrahman-->
 
+<?php
+include "backend/config.php";
+
+$query = mysqli_query($conn, "
+  SELECT * FROM surat_peringatan
+  WHERE status='selesai'
+  ORDER BY id DESC
+");
+?>
+
+
 <!DOCTYPE html>
 <html lang="id">
   <head>
@@ -23,10 +34,10 @@
           <span class="brand">DISP<span class="brand-o">O</span>L</span>
         </a>
         <ul class="nav-links">
-          <li><a href="dashboard-staf.html">Beranda</a></li>
-          <li><a href="kelola-staf.html">Kelola</a></li>
-          <li><a href="arsip-staf.html" class="active">Arsip</a></li>
-          <li><a href="profil-staf.html">Profil</a></li>
+          <li><a href="dashboard-staf.php">Beranda</a></li>
+          <li><a href="kelola-staf.php">Kelola</a></li>
+          <li><a href="arsip-staf.php" class="active">Arsip</a></li>
+          <li><a href="profil-staf.php">Profil</a></li>
         </ul>
       </div>
     </nav>
@@ -44,7 +55,24 @@
               <th>Status</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+    <?php if (mysqli_num_rows($query) == 0): ?>
+        <tr>
+            <td colspan="6" style="text-align:center;color:gray;">Belum ada arsip</td>
+        </tr>
+    <?php else: ?>
+        <?php while($row = mysqli_fetch_assoc($query)): ?>
+            <tr>
+                <td><?= $row['nama'] ?></td>
+                <td><?= $row['nim'] ?></td>
+                <td><?= $row['prodi'] ?></td>
+                <td><?= $row['tingkat'] ?></td>
+                <td><?= date('d/m/Y', strtotime($row['tanggal'])) ?></td>
+                <td><?= $row['status'] ?></td>
+            </tr>
+        <?php endwhile ?>
+    <?php endif ?>
+</tbody>
         </table>
       </main>
 

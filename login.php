@@ -1,3 +1,4 @@
+<?php include "backend/config.php"; ?>
 <!--Muhammad Ivan Febrian-->
 <!DOCTYPE html>
 <html lang="en">
@@ -8,11 +9,11 @@
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-    <form action="#" method="post">
+    <form action="backend/login-process.php" method="POST">
         <img src="image/dispol.png" class="logo">
         <h2 style="text-align: center;">Digitalisasi Surat Peringatan Mahasiswa Polibatam</h2>
         <label for="role">Pilih Pengguna</label>
-        <select id="role" class="jenis-user" required>
+        <select id="role" name="role" class="jenis-user" required>
             <option value="">Pilih Jenis Pengguna</option>
             <option value="mahasiswa">Mahasiswa</option>
             <option value="staf">Staf Akademik</option>
@@ -21,8 +22,8 @@
         <input type="text" id="username" name="username" placeholder="Masukkan NIK/NIM anda" required>
         <label for="password">Kata Sandi:</label>
         <input type="password" id="password" name="password" placeholder="Masukkan kata sandi" required>
-        <button type="button" id="loginBtn">Masuk</button>
-        <a href="#"><p class="lupa-sandi">Lupa Sandi?</p></a>
+        <button type="submit" id="loginBtn">Masuk</button>
+        <p class="lupa-sandi">Belum punya akun?<a href="daftar.php">Daftar</a></p>
     </form>
     <script src="js/script-login.js"></script>
 </body>

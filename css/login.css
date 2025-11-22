@@ -1,5 +1,5 @@
 body {
-  background-image: url(/image/Gedung.jpg);
+  background-image: url("../image/gedung.jpg");
   background-size: cover;
   width: auto;
   height: auto;
