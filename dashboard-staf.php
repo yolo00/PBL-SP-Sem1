@@ -5,14 +5,18 @@
 session_start();
 include "backend/config.php";
 
+// WAJIB ditaruh sebelum HTML, agar browser tidak simpan cache
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
+
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'staf') {
     header("Location: login.php");
     exit;
 }
 
-// Ambil data user yang sedang login
+// Ambil data user dari session
 $data = $_SESSION;
-
 
 // Ambil semua surat peringatan
 $querySurat = mysqli_query($conn, "
@@ -21,11 +25,9 @@ $querySurat = mysqli_query($conn, "
     ORDER BY id DESC
 ");
 
-?>
-
-<?php
 include "backend/auto-arsip.php";
 ?>
+
 
 
 
@@ -123,10 +125,10 @@ include "backend/auto-arsip.php";
     <div class="footer-center">
       <h4>Menu</h4>
       <ul>
-        <li><a href="dashboard-staf.html">Beranda</a></li>
-        <li><a href="kelola-staf.html">Kelola</a></li>
-        <li><a href="arsip-staf.html">Arsip</a></li>
-        <li><a href="profil-staf.html">Profil</a></li>
+        <li><a href="dashboard-staf.php">Beranda</a></li>
+        <li><a href="kelola-staf.php">Kelola</a></li>
+        <li><a href="arsip-staf.php">Arsip</a></li>
+        <li><a href="profil-staf.php">Profil</a></li>
       </ul>
     </div>
 

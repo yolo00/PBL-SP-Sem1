@@ -1,15 +1,27 @@
-
 <?php
+session_start();
+include "backend/config.php";
+
+// Cegah browser menampilkan cache setelah logout
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+// Cek login dan role
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'staf') {
+    header("Location: login.php");
+    exit;
+}
+
 include "backend/auto-arsip.php";
-?>
 
-<?php
 $query = mysqli_query($conn, "
   SELECT * FROM surat_peringatan
   WHERE status='aktif'
   ORDER BY id DESC
 ");
 ?>
+
 
 
 <!DOCTYPE html>
@@ -130,10 +142,10 @@ $query = mysqli_query($conn, "
         <div class="footer-center">
           <h4>Menu</h4>
             <ul>
-              <li><a href="dashboard-staf.html">Beranda</a></li>
-              <li><a href="kelola-staf.html">Kelola</a></li>
-              <li><a href="arsip-staf.html">Arsip</a></li>
-              <li><a href="profil-staf.html">Profil</a></li>
+              <li><a href="dashboard-staf.php">Beranda</a></li>
+              <li><a href="kelola-staf.php">Kelola</a></li>
+              <li><a href="arsip-staf.php">Arsip</a></li>
+              <li><a href="profil-staf.php">Profil</a></li>
             </ul>
         </div>
 
