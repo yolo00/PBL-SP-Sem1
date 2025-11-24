@@ -77,7 +77,7 @@ $data  = mysqli_fetch_assoc($query);
 
           <h3>Kontak</h3>
           <div class="detail-group">
-              <p><span class="label">Email</span><span class="value"><?= $data['email']; ?></span></p>
+              <p><span class="label">Email&nbsp;&nbsp;</span><span class="value"><?= $data['email']; ?></span></p>
               <p><span class="label">No. Telepon</span><span class="value"><?= $data['telepon']; ?></span></p>
           </div>
       </div>
