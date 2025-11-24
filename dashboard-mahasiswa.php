@@ -14,10 +14,6 @@
         <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
         <span class="brand">DISP<span class="brand-o">O</span>L</span>
       </a>
-    <ul class="nav-links">
-        <li><a href="beranda-mahasiswa.html" class="active"><p>Beranda</p></a></li>
-        <li><a href="profil-mahasiswa.html">Profil</a></li>
-      </ul>
     </div>
 </nav>
 
@@ -31,9 +27,8 @@
 <!-- Sidebar kanan -->
 <aside id="sidebar" class="sidebar" aria-hidden="true">
   <nav class="sidebar-menu">
-    <a href="pengumuman-mahasiswa.html" class="menu-item">Pengumuman</a>
-    <a href="dashboard-mahasiswa.html" class="menu-item active">Daftar SP</a>
-    <a href="riwayat-sp.html" class="menu-item">Riwayat SP</a>
+    <a href="dashboard-mahasiswa.php" class="menu-item active">Beranda</a>
+    <a href="profil-mahasiswa.php" class="menu-item">Profil</a>
   </nav>
 </aside>
 

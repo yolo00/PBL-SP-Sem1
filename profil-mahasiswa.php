@@ -15,12 +15,23 @@
         <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
         <span class="brand">DISP<span class="brand-o">O</span>L</span>
     </a>
-    <ul class="nav-links">
-        <li><a href="/dashboard-mahasiswa.html"><p>Beranda</p></a></li>
-        <li><a href="profil-mahasiswa.html" class="active">Profil</a></li>
-      </ul>
     </div>
 </nav>
+
+<!-- Tombol sidebar-->
+<button id="sidebarToggle" class="sidebar-toggle" aria-label="Buka menu" aria-expanded="false">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</button>
+
+<!-- Sidebar kanan -->
+<aside id="sidebar" class="sidebar" aria-hidden="true">
+  <nav class="sidebar-menu">
+    <a href="dashboard-mahasiswa.php" class="menu-item">Beranda</a>
+    <a href="profil-mahasiswa.php" class="menu-item active">Profil</a>
+  </nav>
+</aside>
 
 
 <main class="profil-container-mahasiswa">
