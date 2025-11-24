@@ -81,7 +81,7 @@ $data  = mysqli_fetch_assoc($query);
               <p><span class="label">No. Telepon</span><span class="value"><?= $data['telepon']; ?></span></p>
           </div>
       </div>
-  </section>
+  </section> 
 
   <div class="aksi-logout-area">
       <a href="backend/logout.php">
