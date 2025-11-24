@@ -89,10 +89,10 @@ $query = mysqli_query($conn, "
           <div class="footer-center">
             <h4>Menu</h4>
             <ul>
-              <li><a href="dashboard-staf.html">Beranda</a></li>
-              <li><a href="kelola-staf.html">Kelola</a></li>
-              <li><a href="arsip-staf.html">Arsip</a></li>
-              <li><a href="profil-staf.html">Profil</a></li>
+              <li><a href="dashboard-staf.php">Beranda</a></li>
+              <li><a href="kelola-staf.php">Kelola</a></li>
+              <li><a href="arsip-staf.php">Arsip</a></li>
+              <li><a href="profil-staf.php">Profil</a></li>
             </ul>
           </div>
           <div class="footer-right">

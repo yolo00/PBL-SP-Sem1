@@ -1,27 +1,34 @@
 <?php
 include "config.php";
 
-$role = $_POST['role'];
+$role     = $_POST['role'];
 $username = $_POST['username'];
 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-$nama = $_POST['nama'];
-$email = $_POST['email'];
-$telepon = $_POST['telepon'];
+$nama     = $_POST['nama'];
+$email    = $_POST['email'];
+$telepon  = $_POST['telepon'];
 
-// Jika role = staf
+// ===============================
+// REGISTER STAF
+// ===============================
 if ($role == "staf") {
+
     $nik     = $_POST['nik'];
     $jabatan = $_POST['jabatan'];
 
-    // Insert data staf
     $query = mysqli_query($conn, "
-        INSERT INTO users(username, password, role, nama, email, telepon, nik, jabatan)
-        VALUES('$username', '$password', '$role', '$nama', '$email', '$telepon', '$nik', '$jabatan')
+        INSERT INTO users(
+            username, password, role, nama, email, telepon, nik, jabatan
+        ) VALUES(
+            '$username', '$password', '$role', '$nama', '$email', '$telepon', '$nik', '$jabatan'
+        )
     ");
-
 }
 
-// Jika role = mahasiswa
+
+// ===============================
+// REGISTER MAHASISWA
+// ===============================
 else if ($role == "mahasiswa") {
 
     $nim      = $_POST['nim'];
@@ -30,17 +37,30 @@ else if ($role == "mahasiswa") {
     $kelas    = $_POST['kelas'];
     $angkatan = $_POST['angkatan'];
 
-    // Insert data mahasiswa
     $query = mysqli_query($conn, "
-        INSERT INTO users(username, password, role, nama, email, telepon, nim, jurusan, prodi, kelas, angkatan)
-        VALUES('$username', '$password', '$role', '$nama', '$email', '$telepon', '$nim', '$jurusan', '$prodi', '$kelas', '$angkatan')
+        INSERT INTO users(
+            username, password, role, nama, email, telepon,
+            jurusan, prodi, kelas, angkatan
+        ) VALUES(
+            '$username', '$password', '$role', '$nama', '$email', '$telepon',
+            '$jurusan', '$prodi', '$kelas', '$angkatan'
+        )
     ");
 }
 
 
+// ===============================
+// CEK STATUS INSERT
+// ===============================
 if ($query) {
-    echo "<script>alert('Akun berhasil dibuat!'); window.location='../login.php';</script>";
+    echo "<script>
+            alert('Akun berhasil dibuat!');
+            window.location='../login.php';
+          </script>";
 } else {
-    echo "<script>alert('Gagal mendaftarkan akun!'); window.location='../daftar.php';</script>";
+    echo "<script>
+            alert('Gagal mendaftarkan akun!');
+            window.location='../daftar.php';
+          </script>";
 }
 ?>
