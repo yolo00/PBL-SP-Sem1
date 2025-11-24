@@ -52,7 +52,7 @@
                 <p><span class="label">Program Studi</span><span class="value">Informatika</span></p>
             </div>
 
-            <h3><i class="fas fa-envelope"></i> Kontak</h3>
+            <h3><i class="fas fa-envel`ope"></i> Kontak</h3>
             <div class="detail-group">
                 <p><span class="label">Email</span><span class="value">staf@polibatam.ac.id</span></p>
                 <p><span class="label">No. Telepon</span><span class="value">+62 812-3456-7890</span></p>

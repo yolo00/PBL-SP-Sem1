@@ -11,7 +11,6 @@ $query = mysqli_query($conn, "
 ");
 ?>
 
-
 <!DOCTYPE html>
 <html lang="id">
   <head>
