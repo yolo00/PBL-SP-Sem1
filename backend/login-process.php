@@ -37,6 +37,7 @@ $_SESSION['jurusan']  = $data['jurusan'];
 $_SESSION['prodi']    = $data['prodi'];
 $_SESSION['kelas']    = $data['kelas'];
 $_SESSION['angkatan'] = $data['angkatan'];
+$_SESSION['nim']      = $data['nim'];
 $_SESSION['nik']      = $data['nik'];
 $_SESSION['jabatan']  = $data['jabatan'];
 

@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       const konfirmasi = confirm("Yakin ingin keluar dari akun ini?");
       if (konfirmasi) {
-        window.location.href = "login.html";
+        window.location.href = "backend/logout.php";
       }
     });
   }
