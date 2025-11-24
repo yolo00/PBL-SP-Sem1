@@ -37,6 +37,9 @@
 
     <label for="jabatan">Jabatan</label>
     <input type="text" name="jabatan" placeholder="Contoh: Staf Akademik">
+
+    <label for="prodi">Program Studi</label>
+    <input type="text" name="prodi" placeholder="Masukkan prodi">
 </div>
 
 
