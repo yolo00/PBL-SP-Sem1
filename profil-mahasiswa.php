@@ -1,3 +1,13 @@
+<?php
+session_start();
+include "backend/config.php";
+
+// Cek apakah user sudah login
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
+    echo "<script>alert('Silakan login terlebih dahulu!'); window.location='login.php';</script>";
+    exit;
+}
+?>
 <!--Muhammad Ivan Febrian-->
 <!DOCTYPE html>
 <html lang="id">
@@ -15,6 +25,7 @@
         <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
         <span class="brand">DISP<span class="brand-o">O</span>L</span>
     </a>
+
     </div>
 </nav>
 
@@ -33,7 +44,6 @@
   </nav>
 </aside>
 
-
 <main class="profil-container-mahasiswa">
     <div class="header-section">
         <h1><i class="fas fa-id-badge"></i><b>PROFIL MAHASISWA</b></h1>
@@ -46,20 +56,20 @@
                     <i class="fas fa-user-graduate fa-3x"></i>
                 </div>
                 <div class="profil-info-header">
-                    <h2>Nama Mahasiswa</h2>
-                    <p class="nim-label">NIM: 3312501048</p>
+                    <h2><?php echo isset($_SESSION['nama']) ? htmlspecialchars($_SESSION['nama']) : 'Nama Mahasiswa'; ?></h2>
+                    <p class="nim-label">NIM: <?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : '3312501048'; ?></p>
                 </div>
             </div>
             
             <div class="profil-info-details">
                 <h3><i class="fas fa-address-book"></i> Data Pribadi & Kontak</h3>
                 <div class="detail-group">
-                    <p><span class="label">Prodi</span><span class="value">Teknik Informatika</span></p>
-                    <p><span class="label">Jurusan</span><span class="value">Teknik Informatika</span></p>
-                    <p><span class="label">Kelas</span><span class="value">IF-1B</span></p>
-                    <p><span class="label">Angkatan</span><span class="value">2025</span></p>
-                    <p><span class="label">Email</span><span class="value">namamahasiswa@polibatam.ac.id</span></p>
-                    <p><span class="label">No. HP</span><span class="value">+62 812-1234-5678</span></p>
+                    <p><span class="label">Prodi</span><span class="value"><?php echo isset($_SESSION['prodi']) ? htmlspecialchars($_SESSION['prodi']) : '-'; ?></span></p>
+                    <p><span class="label">Jurusan</span><span class="value"><?php echo isset($_SESSION['jurusan']) ? htmlspecialchars($_SESSION['jurusan']) : '-'; ?></span></p>
+                    <p><span class="label">Kelas</span><span class="value"><?php echo isset($_SESSION['kelas']) ? htmlspecialchars($_SESSION['kelas']) : '-'; ?></span></p>
+                    <p><span class="label">Angkatan</span><span class="value"><?php echo isset($_SESSION['angkatan']) ? htmlspecialchars($_SESSION['angkatan']) : '-'; ?></span></p>
+                    <p><span class="label">Email</span><span class="value"><?php echo isset($_SESSION['email']) ? htmlspecialchars($_SESSION['email']) : '-'; ?></span></p>
+                    <p><span class="label">No. HP</span><span class="value"><?php echo isset($_SESSION['telepon']) ? htmlspecialchars($_SESSION['telepon']) : '-'; ?></span></p>
                 </div>
             </div>
         </section>

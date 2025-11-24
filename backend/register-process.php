@@ -39,10 +39,10 @@ else if ($role == "mahasiswa") {
     $query = mysqli_query($conn, "
         INSERT INTO users(
             username, password, role, nama, email, telepon,
-            jurusan, prodi, kelas, angkatan
+            nim, jurusan, prodi, kelas, angkatan
         ) VALUES(
             '$username', '$password', '$role', '$nama', '$email', '$telepon',
-            '$jurusan', '$prodi', '$kelas', '$angkatan'
+            '$nim', '$jurusan', '$prodi', '$kelas', '$angkatan'
         )
     ");
 }

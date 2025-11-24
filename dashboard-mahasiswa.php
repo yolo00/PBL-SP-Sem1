@@ -1,3 +1,13 @@
+<?php
+session_start();
+include "backend/config.php";
+
+// Cek apakah user sudah login
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
+    echo "<script>alert('Silakan login terlebih dahulu!'); window.location='login.php';</script>";
+    exit;
+}
+?>
 <!DOCTYPE html><!--Michael Sando Turnip-->
 <html lang="en">
 <head>
@@ -34,8 +44,8 @@
 
 <section id="home" class="hero">
     <div class="container">
-      <h1>Halo 👋, Selamat datang <span>Nama Mahasiswa</span></h1>
-      <h2>33125XXXXX</h2>
+      <h1>Halo 👋, Selamat datang <span><?php echo isset($_SESSION['nama']) ? htmlspecialchars($_SESSION['nama']) : 'Nama Mahasiswa'; ?></span></h1>
+      <h2><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : '33125XXXXX'; ?></h2>
     </div>
   </section>
 
@@ -54,8 +64,6 @@
             </tr>
           </thead>
           <tbody id="tabelSP">
-            
-      
           </tbody>
         </table>
       </div>
@@ -75,8 +83,8 @@
     <div class="footer-center">
       <h4>Menu</h4>
       <ul>
-        <li><a href="dashboard-mahasiswa.html">Beranda</a></li>
-        <li><a href="profil-mahasiswa.html">Profil</a></li>
+        <li><a href="dashboard-mahasiswa.php">Beranda</a></li>
+        <li><a href="profil-mahasiswa.php">Profil</a></li>
       </ul>
     </div>
     <div class="footer-right">
