@@ -75,7 +75,6 @@ $data  = mysqli_fetch_assoc($query);
               <p><span class="label">Program Studi</span><span class="value"><?= !empty($data['prodi']) ? $data['prodi'] : '-'; ?></span></p>
           </div>
 
-<<<<<<< HEAD
           <h3>Kontak</h3>
           <div class="detail-group">
               <p><span class="label">Email&nbsp;&nbsp;</span><span class="value"><?= $data['email']; ?></span></p>
@@ -83,15 +82,6 @@ $data  = mysqli_fetch_assoc($query);
           </div>
       </div>
   </section>
-=======
-            <h3><i class="fas fa-envelope"></i> Kontak</h3>
-            <div class="detail-group">
-                <p><span class="label">Email</span><span class="value">staf@polibatam.ac.id</span></p>
-                <p><span class="label">No. Telepon</span><span class="value">+62 812-3456-7890</span></p>
-            </div>
-        </div>
-    </section>
->>>>>>> a590f18f99e7cd516eb5885e57f66d52ee1772d5
 
   <div class="aksi-logout-area">
       <a href="backend/logout.php">
