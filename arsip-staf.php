@@ -1,4 +1,4 @@
-<!--Nama file: arsip-staf.html-->
+<!--Nama file: arsip-staf.php-->
 <!--Dibuat oleh: Muhammad Faturrahman-->
 
 <?php
@@ -11,7 +11,6 @@ $query = mysqli_query($conn, "
 ");
 ?>
 
-
 <!DOCTYPE html>
 <html lang="id">
   <head>
@@ -19,18 +18,14 @@ $query = mysqli_query($conn, "
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arsip Surat Peringatan</title>
     <link rel="stylesheet" href="css/arsip-staf.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
   </head>
+
   <body>
     <nav class="navbar">
       <div class="container">
         <a class="logo">
-          <img
-            src="image/dispol.png"
-            width="65"
-            height="65"
-            alt="dispol logo"
-          />
+          <img src="image/dispol.png" width="65" height="65" alt="dispol logo"/>
           <span class="brand">DISP<span class="brand-o">O</span>L</span>
         </a>
         <ul class="nav-links">
@@ -41,7 +36,9 @@ $query = mysqli_query($conn, "
         </ul>
       </div>
     </nav>
+
     <h1><b>ARSIP SURAT PERINGATAN</b></h1>
+
     <div class="page-container">
       <main class="content-wrap">
         <table id="arsipTable">
@@ -55,27 +52,28 @@ $query = mysqli_query($conn, "
               <th>Status</th>
             </tr>
           </thead>
+
           <tbody>
-    <?php if (mysqli_num_rows($query) == 0): ?>
-        <tr>
-            <td colspan="6" style="text-align:center;color:gray;">Belum ada arsip</td>
-        </tr>
-    <?php else: ?>
-        <?php while($row = mysqli_fetch_assoc($query)): ?>
-            <tr>
-                <td><?= $row['nama'] ?></td>
-                <td><?= $row['nim'] ?></td>
-                <td><?= $row['prodi'] ?></td>
-                <td><?= $row['tingkat'] ?></td>
-                <td><?= date('d/m/Y', strtotime($row['tanggal'])) ?></td>
-                <td><?= $row['status'] ?></td>
-            </tr>
-        <?php endwhile ?>
-    <?php endif ?>
-</tbody>
+            <?php if (mysqli_num_rows($query) == 0): ?>
+                <tr>
+                    <td colspan="6" style="text-align:center;color:gray;">Belum ada arsip</td>
+                </tr>
+            <?php else: ?>
+                <?php while($row = mysqli_fetch_assoc($query)): ?>
+                    <tr onclick="window.location='detail_arsip.php?id=<?= $row['id'] ?>'" class="clickable-row">
+                        <td><?= $row['nama'] ?></td>
+                        <td><?= $row['nim'] ?></td>
+                        <td><?= $row['prodi'] ?></td>
+                        <td><?= $row['tingkat'] ?></td>
+                        <td><?= date('d/m/Y', strtotime($row['tanggal'])) ?></td>
+                        <td><?= $row['status'] ?></td>
+                    </tr>
+                <?php endwhile ?>
+            <?php endif ?>
+          </tbody>
+
         </table>
       </main>
-
 
       <footer class="footer">
         <div class="footer-container">
@@ -86,6 +84,7 @@ $query = mysqli_query($conn, "
               <p>Digitalisasi Surat Peringatan Mahasiswa Polibatam</p>
             </div>
           </div>
+
           <div class="footer-center">
             <h4>Menu</h4>
             <ul>
@@ -95,33 +94,25 @@ $query = mysqli_query($conn, "
               <li><a href="profil-staf.php">Profil</a></li>
             </ul>
           </div>
+
           <div class="footer-right">
             <h4>Hubungi Kami</h4>
             <p>Politeknik Negeri Batam<br/>Jl. Ahmad Yani, Batam Center</p>
             <ul class="social-links">
-              <li>
-                <a href="#"
-                  ><img src="image/icon-facebook.png" alt="Facebook"
-                /></a>
-              </li>
-              <li>
-                <a href="#"
-                  ><img src="image/icon-twitter.png" alt="Twitter"
-                /></a>
-              </li>
-              <li>
-                <a href="#"
-                  ><img src="image/icon-instagram.png" alt="Instagram"
-                /></a>
-              </li>
+              <li><a href="#"><img src="image/icon-facebook.png" alt="Facebook"/></a></li>
+              <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"/></a></li>
+              <li><a href="#"><img src="image/icon-instagram.png" alt="Instagram"/></a></li>
             </ul>
           </div>
+
         </div>
+
         <div class="footer-bottom">
           <p>&copy; 2025 DISPOL | All Rights Reserved</p>
         </div>
       </footer>
     </div>
+
     <script src="js/arsip-staf.js"></script>
   </body>
 </html>

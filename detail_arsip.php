@@ -90,7 +90,6 @@ if (!$data) {
     <!-- Tombol -->
     <div class="form-buttons">
       <button type="button" class="btn btn-batal" onclick="window.history.back()">Kembali</button>
-      <a href="edit_surat.php?id=<?= $data['id'] ?>" class="btn btn-edit">Edit</a>
     </div>
 
   </div>
