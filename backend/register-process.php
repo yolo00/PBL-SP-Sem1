@@ -15,14 +15,13 @@ if ($role == "staf") {
 
     $nik     = $_POST['nik'];
     $jabatan = $_POST['jabatan'];
+    $prodi = $_POST['prodi'];
 
-    $query = mysqli_query($conn, "
-        INSERT INTO users(
-            username, password, role, nama, email, telepon, nik, jabatan
-        ) VALUES(
-            '$username', '$password', '$role', '$nama', '$email', '$telepon', '$nik', '$jabatan'
-        )
-    ");
+$query = mysqli_query($conn, "
+    INSERT INTO users(username, password, role, nama, email, telepon, nik, jabatan, prodi)
+    VALUES('$username', '$password', '$role', '$nama', '$email', '$telepon', '$nik', '$jabatan', '$prodi')
+");
+
 }
 
 

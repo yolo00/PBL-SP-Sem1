@@ -72,7 +72,7 @@ $data  = mysqli_fetch_assoc($query);
           <div class="detail-group">
               <p><span class="label">NIK</span><span class="value"><?= $data['nik']; ?></span></p>
               <p><span class="label">Jabatan</span><span class="value"><?= $data['jabatan']; ?></span></p>
-              <p><span class="label">Program Studi</span><span class="value"><?= $data['prodi']; ?></span></p>
+              <p><span class="label">Program Studi</span><span class="value"><?= !empty($data['prodi']) ? $data['prodi'] : '-'; ?></span></p>
           </div>
 
           <h3>Kontak</h3>
