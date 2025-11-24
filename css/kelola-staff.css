@@ -172,6 +172,10 @@ main h1 {
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px 30px 40px;
+
+  /* ini penting */
+  max-height: 430px;
+  overflow-y: auto;
 }
 
 /* Filter Bar */
@@ -410,4 +414,44 @@ td:last-child {
   color: #2196F3;
   background: #2196F321;
   transition: all 0.3s ease;
+}
+
+
+.table-wrapper {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Tinggi area tabel scroll */
+.table-body {
+  max-height: 350px;     /* Atur sesuai kebutuhan */
+  overflow-y: auto;
+}
+
+/* Sinkronisasi lebar kolom */
+.table-head th,
+.table-body td {
+  width: 150px;
+  white-space: nowrap;
+}
+
+/* Warna header tetap */
+.table-head th {
+  background-color: #153d7e;
+  color: white;
+  padding: 12px;
+}
+
+/* Styling baris */
+.table-body table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-body tr:nth-child(even) {
+  background-color: #f4f6f9;
+}
+
+.table-body td {
+  padding: 12px 10px;
 }

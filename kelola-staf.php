@@ -76,15 +76,15 @@ $query = mysqli_query($conn, "
         </select>
         <button class="btn-tambah" onclick="window.location.href='tambah-surat.php'">Tambah</button>
       </div>
-      <table>
-        <thead>
-            <tr 
-              data-nama="<?= strtolower($row['nama']) ?>" 
-              data-nim="<?= strtolower($row['nim']) ?>" 
-              data-tingkat="<?= strtolower($row['tingkat']) ?>" 
-              data-status="<?= strtolower($row['status']) ?>"
-            >
 
+      <div class="table-wrapper">
+
+    <!-- TABEL HEADER (Tetap) -->
+    <table class="table-head">
+        <thead>
+            <tr
+            data-nama="<?= strtolower($row['nama']) ?>" data-nim="<?= strtolower($row['nim']) ?>" data-tingkat="<?= strtolower($row['tingkat']) ?>" data-status="<?= strtolower($row['status']) ?>"
+            >
                 <th>Nama</th>
                 <th>NIM</th>
                 <th>Prodi</th>
@@ -94,39 +94,32 @@ $query = mysqli_query($conn, "
                 <th>Aksi</th>
             </tr>
         </thead>
-
-        <tbody>
-        <?php if (mysqli_num_rows($query) == 0): ?>
-            <tr>
-                <td colspan="7" style="text-align:center;color:gray;">Tidak ada data</td>
-            </tr>
-        <?php else: ?>
-            <?php while($row = mysqli_fetch_assoc($query)): ?>
-<tr 
-  data-nama="<?= strtolower($row['nama']) ?>" 
-  data-nim="<?= strtolower($row['nim']) ?>" 
-  data-tingkat="<?= strtolower($row['tingkat']) ?>" 
-  data-status="<?= strtolower($row['status']) ?>"
->
-    <td><?= $row['nama'] ?></td>
-    <td><?= $row['nim'] ?></td>
-    <td><?= $row['prodi'] ?></td>
-    <td><?= $row['tingkat'] ?></td>
-    <td><?= date('d/m/Y', strtotime($row['tanggal'])) ?></td>
-    <td><?= $row['status'] ?></td>
-    <td>
-        <a href="edit_surat.php?id=<?= $row['id'] ?>">✏️</a>
-        <a href="backend/arsip-manual.php?id=<?= $row['id'] ?>" 
-          onclick="return confirm('Arsipkan surat ini?')">📁</a>
-        <a href="backend/surat-delete.php?id=<?= $row['id'] ?>" 
-          onclick="return confirm('Hapus surat ini?')">🗑️</a>
-    </td>
-</tr>
-<?php endwhile ?>
-
-        <?php endif ?>
-        </tbody>
     </table>
+
+    <!-- TABEL ISI (Scroll) -->
+    <div class="table-body">
+        <table>
+            <tbody>
+            <?php while($row = mysqli_fetch_assoc($query)): ?>
+            <tr>
+                <td><?= $row['nama'] ?></td>
+                <td><?= $row['nim'] ?></td>
+                <td><?= $row['prodi'] ?></td>
+                <td><?= $row['tingkat'] ?></td>
+                <td><?= date('d/m/Y', strtotime($row['tanggal'])) ?></td>
+                <td><?= $row['status'] ?></td>
+                <td>
+                    <a href="edit_surat.php?id=<?= $row['id'] ?>">✏️</a>
+                    <a href="backend/arsip-manual.php?id=<?= $row['id'] ?>">📁</a>
+                    <a href="backend/surat-delete.php?id=<?= $row['id'] ?>">🗑️</a>
+                </td>
+            </tr>
+            <?php endwhile ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
     </section>
   </main>
     <footer class="footer">
