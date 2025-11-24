@@ -205,10 +205,11 @@ main {
 }
 
 .detail-group .label {
+    display: inline-block;
+    width: 140px;   /* Bebas, sesuaikan */
     font-weight: 600;
-    color: #555;
-    flex: 1;
 }
+
 
 .detail-group .value {
     color: #2c3e50;
