@@ -19,7 +19,6 @@ $newFileName = null;
 
 if (!empty($_FILES['file']['name'])) {
 
-    // Pastikan folder uploads ada
     if (!is_dir("../uploads")) {
         mkdir("../uploads");
     }
@@ -39,11 +38,12 @@ if (!empty($_FILES['file']['name'])) {
         sampai='$sampai',
         perihal='$perihal',
         deskripsi='$deskripsi',
-        file='$newFileName'
+        file='$newFileName',
         status='$status'
         WHERE id='$id'
     ";
-} else {
+} 
+else {
 
     // Jika file TIDAK diganti
     $updateQuery = "

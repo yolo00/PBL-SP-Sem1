@@ -7,7 +7,17 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
     echo "<script>alert('Silakan login terlebih dahulu!'); window.location='login.php';</script>";
     exit;
 }
+// Ambil NIM mahasiswa dari session
+$nim = $_SESSION['nim'];
+
+// Ambil semua surat milik mahasiswa
+$spQuery = mysqli_query($conn, "
+    SELECT * FROM surat_peringatan 
+    WHERE nim = '$nim'
+    ORDER BY tanggal DESC
+");
 ?>
+
 <!DOCTYPE html><!--Michael Sando Turnip-->
 <html lang="en">
 <head>
@@ -63,7 +73,22 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
               <th>Aksi</th>
             </tr>
           </thead>
-          <tbody id="tabelSP">
+          <tbody>
+                <?php while ($sp = mysqli_fetch_assoc($spQuery)) : ?>
+                  <tr>
+                    <td><?= htmlspecialchars($sp['perihal']) ?></td>
+                    <td><?= htmlspecialchars($sp['tingkat']) ?></td>
+                    <td><?= date('d/m/Y', strtotime($sp['tanggal'])) ?></td>
+                    <td><?= htmlspecialchars($sp['status']) ?></td>
+                    <td>
+                      <?php if ($sp['file']) : ?>
+                        <a href="uploads/<?= $sp['file'] ?>" target="_blank">📄 Lihat</a>
+                      <?php else : ?>
+                        <span>-</span>
+                      <?php endif; ?>
+                    </td>
+                  </tr>
+                <?php endwhile; ?>
           </tbody>
         </table>
       </div>

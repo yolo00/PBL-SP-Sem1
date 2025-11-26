@@ -55,72 +55,73 @@ $query = mysqli_query($conn, "
       <a href="dashboard-staf.php"><button class="btn-kembali"><b>Kembali</b></button></a>
       <h1><b>KELOLA SURAT PERINGATAN</b></h1>
     </div>
-    <section class="table-container"> 
-      <div class="filter-bar">
+<section class="table-container"> 
+
+    <div class="filter-bar">
         <div class="search-wrapper">
-          <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Cari" class="search-input" id="filterSearch">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Cari" class="search-input" id="filterSearch">
         </div>
 
         <select id="filterTingkat">
-          <option value="">Semua tingkat peringatan</option>
-          <option value="sp i">SP I</option>
-          <option value="sp ii">SP II</option>
-          <option value="sp iii">SP III</option>
+            <option value="">Semua tingkat peringatan</option>
+            <option value="sp i">SP I</option>
+            <option value="sp ii">SP II</option>
+            <option value="sp iii">SP III</option>
         </select>
+
         <select id="filterStatus">
-        <option value="">Status</option>
-        <option value="aktif">Aktif</option>
-        <option value="selesai">Selesai</option>
-        <option value="kadaluarsa">Kadaluarsa</option>
+            <option value="">Status</option>
+            <option value="aktif">Aktif</option>
+            <option value="selesai">Selesai</option>
         </select>
+
         <button class="btn-tambah" onclick="window.location.href='tambah-surat.php'">Tambah</button>
-      </div>
+    </div>
 
-      <div class="table-wrapper">
 
-    <!-- TABEL HEADER (Tetap) -->
-    <table class="table-head">
-        <thead>
-            <tr
-            data-nama="<?= strtolower($row['nama']) ?>" data-nim="<?= strtolower($row['nim']) ?>" data-tingkat="<?= strtolower($row['tingkat']) ?>" data-status="<?= strtolower($row['status']) ?>"
-            >
-                <th>Nama</th>
-                <th>NIM</th>
-                <th>Prodi</th>
-                <th>SP</th>
-                <th>Tanggal</th>
-                <th>Status</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-    </table>
+    <!-- TABEL TUNGGAL (Header sticky + scroll body) -->
+    <div class="table-wrapper">
+        <table class="main-table">
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Prodi</th>
+                    <th>SP</th>
+                    <th>Tanggal</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
 
-    <!-- TABEL ISI (Scroll) -->
-    <div class="table-body">
-        <table>
             <tbody>
-            <?php while($row = mysqli_fetch_assoc($query)): ?>
-            <tr>
-                <td><?= $row['nama'] ?></td>
-                <td><?= $row['nim'] ?></td>
-                <td><?= $row['prodi'] ?></td>
-                <td><?= $row['tingkat'] ?></td>
-                <td><?= date('d/m/Y', strtotime($row['tanggal'])) ?></td>
-                <td><?= $row['status'] ?></td>
-                <td>
-                    <a href="edit_surat.php?id=<?= $row['id'] ?>">✏️</a>
-                    <a href="backend/arsip-manual.php?id=<?= $row['id'] ?>">📁</a>
-                    <a href="backend/surat-delete.php?id=<?= $row['id'] ?>">🗑️</a>
-                </td>
-            </tr>
-            <?php endwhile ?>
+                <?php while($row = mysqli_fetch_assoc($query)): ?>
+                <tr 
+                    data-nama="<?= strtolower($row['nama']) ?>"
+                    data-nim="<?= strtolower($row['nim']) ?>"
+                    data-tingkat="<?= strtolower($row['tingkat']) ?>"
+                    data-status="<?= strtolower($row['status']) ?>"
+                >
+                    <td><?= $row['nama'] ?></td>
+                    <td><?= $row['nim'] ?></td>
+                    <td><?= $row['prodi'] ?></td>
+                    <td><?= $row['tingkat'] ?></td>
+                    <td><?= date('d/m/Y', strtotime($row['tanggal'])) ?></td>
+                    <td><?= $row['status'] ?></td>
+                    <td>
+                        <a href="edit_surat.php?id=<?= $row['id'] ?>">✏️</a>
+                        <a href="backend/arsip-manual.php?id=<?= $row['id'] ?>">📁</a>
+                        <a href="backend/surat-delete.php?id=<?= $row['id'] ?>">🗑️</a>
+                    </td>
+                </tr>
+                <?php endwhile ?>
             </tbody>
         </table>
     </div>
-</div>
 
-    </section>
+</section>
+
   </main>
     <footer class="footer">
       <div class="footer-container">
