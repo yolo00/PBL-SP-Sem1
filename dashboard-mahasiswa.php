@@ -1,14 +1,26 @@
+<!--Michael Sando Turnip-->
+
 <?php
 session_start();
-include "backend/config.php";
 
-// Cek apakah user sudah login
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
+// Ambil config
+$configPath = __DIR__ . '/backend/config.php';
+if (!file_exists($configPath)) {
+    die("Config not found at: $configPath");
+}
+require_once $configPath;
+
+// Cache login
+if (!isset($_SESSION['user_id']) || ($_SESSION['role'] ?? '') !== 'mahasiswa') {
     echo "<script>alert('Silakan login terlebih dahulu!'); window.location='login.php';</script>";
     exit;
 }
+
+$nim = $_SESSION['nim'] ?? '';
 ?>
-<!DOCTYPE html><!--Michael Sando Turnip-->
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
