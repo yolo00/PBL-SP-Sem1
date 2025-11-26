@@ -15,7 +15,6 @@ if (!isset($_SESSION['user_id']) || ($_SESSION['role'] ?? '') !== 'mahasiswa') {
     echo "<script>alert('Silakan login terlebih dahulu!'); window.location='login.php';</script>";
     exit;
 }
-<<<<<<< HEAD
 // Ambil NIM mahasiswa dari session
 $nim = $_SESSION['nim'];
 
@@ -28,14 +27,6 @@ $spQuery = mysqli_query($conn, "
 ?>
 
 <!DOCTYPE html><!--Michael Sando Turnip-->
-=======
-
-$nim = $_SESSION['nim'] ?? '';
-?>
-
-
-<!DOCTYPE html>
->>>>>>> 5c9e5cf9c777d7cf590e2e0d31175ce469a5606f
 <html lang="en">
 <head>
     <meta charset="UTF-8">
