@@ -7,6 +7,7 @@ $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 $nama     = $_POST['nama'];
 $email    = $_POST['email'];
 $telepon  = $_POST['telepon'];
+$prodi = $_POST['prodi'];
 
 // ===============================
 // REGISTER STAF
@@ -18,8 +19,8 @@ if ($role == "staf") {
     $prodi = $_POST['prodi'];
 
 $query = mysqli_query($conn, "
-    INSERT INTO users(username, password, role, nama, email, telepon, nik, jabatan, prodi)
-    VALUES('$username', '$password', '$role', '$nama', '$email', '$telepon', '$nik', '$jabatan', '$prodi')
+    INSERT INTO users(username, password, role, nama, email, telepon, nik, prodi, jabatan)
+    VALUES('$username', '$password', '$role', '$nama', '$email', '$telepon', '$nik', '$prodi', '$jabatan')
 ");
 
 }
