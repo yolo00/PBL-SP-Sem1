@@ -27,11 +27,13 @@ $kelas    = $mhs['kelas'];
 $angkatan = $mhs['angkatan']; // kalau nanti mau dipakai
 
 // Ambil data SP dari form
-$tingkat   = $_POST['tingkat'];
-$tanggal   = $_POST['tanggal'];
-$sampai    = $_POST['sampai'];
-$perihal   = $_POST['perihal'];
-$deskripsi = $_POST['deskripsi'];
+$tingkat     = $_POST['tingkat'];
+$tanggal     = $_POST['tanggal'];
+$sampai      = $_POST['sampai'];
+$perihal     = $_POST['perihal'];
+$deskripsi   = $_POST['deskripsi'];
+$semester    = $_POST['semester'];
+$sesi_kelas  = $_POST['sesi_kelas'];
 
 // ===============================
 // HANDLE UPLOAD FILE
@@ -55,10 +57,10 @@ if (!empty($_FILES['file']['name'])) {
 $query = mysqli_query($conn, "
     INSERT INTO surat_peringatan(
         nama, nim, jurusan, prodi, kelas,
-        tingkat, tanggal, sampai, perihal, deskripsi, file
+        tingkat, tanggal, sampai, perihal, deskripsi, file, semester, sesi_kelas
     ) VALUES(
         '$nama', '$nim', '$jurusan', '$prodi', '$kelas',
-        '$tingkat', '$tanggal', '$sampai', '$perihal', '$deskripsi', '$fileName'
+        '$tingkat', '$tanggal', '$sampai', '$perihal', '$deskripsi', '$fileName', '$semester', '$sesi_kelas'
     )
 ");
 

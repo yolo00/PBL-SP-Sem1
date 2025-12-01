@@ -63,6 +63,8 @@ if (!$data) {
           <div class="preview-item"><label>Program Studi:</label> <span><?= $data['prodi'] ?></span></div>
           <div class="preview-item"><label>Jurusan:</label> <span><?= $data['jurusan'] ?></span></div>
           <div class="preview-item"><label>Kelas:</label> <span><?= $data['kelas'] ?></span></div>
+          <div class="preview-item"><label>Semester:</label> <span>Semester <?= $data['semester'] ?></span></div>
+          <div class="preview-item"><label>Sesi Kelas:</label> <span><?= $data['sesi_kelas'] ?></span></div>
           <div class="preview-item"><label>Status:</label> 
             <span><?= $data['status'] ?? 'Aktif' ?></span></div>
         </div>

@@ -1,18 +1,20 @@
 <?php
 include "config.php";
 
-$id        = $_POST['id'];
-$nama      = $_POST['nama'];
-$nim       = $_POST['nim'];
-$jurusan   = $_POST['jurusan'];
-$prodi     = $_POST['prodi'];
-$kelas     = $_POST['kelas'];
-$tingkat   = $_POST['tingkat'];
-$tanggal   = $_POST['tanggal'];
-$sampai    = $_POST['sampai'];
-$status    = $_POST['status'];
-$perihal   = $_POST['perihal'];
-$deskripsi = $_POST['deskripsi'];
+$id         = $_POST['id'];
+$nama       = $_POST['nama'];
+$nim        = $_POST['nim'];
+$jurusan    = $_POST['jurusan'];
+$prodi      = $_POST['prodi'];
+$kelas      = $_POST['kelas'];
+$tingkat    = $_POST['tingkat'];
+$tanggal    = $_POST['tanggal'];
+$sampai     = $_POST['sampai'];
+$status     = $_POST['status'];
+$perihal    = $_POST['perihal'];
+$deskripsi  = $_POST['deskripsi'];
+$semester   = $_POST['semester'];
+$sesi_kelas = $_POST['sesi_kelas'];
 
 // Cek apakah ada file baru di-upload
 $newFileName = null;
@@ -39,7 +41,9 @@ if (!empty($_FILES['file']['name'])) {
         perihal='$perihal',
         deskripsi='$deskripsi',
         file='$newFileName',
-        status='$status'
+        status='$status',
+        semester='$semester',
+        sesi_kelas='$sesi_kelas'
         WHERE id='$id'
     ";
 } 
@@ -58,7 +62,9 @@ else {
         sampai='$sampai',
         status='$status',
         perihal='$perihal',
-        deskripsi='$deskripsi'
+        deskripsi='$deskripsi',
+        semester='$semester',
+        sesi_kelas='$sesi_kelas'
         WHERE id='$id'
     ";
 }

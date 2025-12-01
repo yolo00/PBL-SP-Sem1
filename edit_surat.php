@@ -109,6 +109,28 @@ $data = mysqli_fetch_assoc($query);
       </div>
 
       <div>
+        <label>Semester</label>
+        <select name="semester" required>
+          <option value="1" <?= $data['semester']=='1'?'selected':'' ?>>Semester 1</option>
+          <option value="2" <?= $data['semester']=='2'?'selected':'' ?>>Semester 2</option>
+          <option value="3" <?= $data['semester']=='3'?'selected':'' ?>>Semester 3</option>
+          <option value="4" <?= $data['semester']=='4'?'selected':'' ?>>Semester 4</option>
+          <option value="5" <?= $data['semester']=='5'?'selected':'' ?>>Semester 5</option>
+          <option value="6" <?= $data['semester']=='6'?'selected':'' ?>>Semester 6</option>
+          <option value="7" <?= $data['semester']=='7'?'selected':'' ?>>Semester 7</option>
+          <option value="8" <?= $data['semester']=='8'?'selected':'' ?>>Semester 8</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Sesi Kelas</label>
+        <select name="sesi_kelas" required>
+          <option value="Pagi" <?= $data['sesi_kelas']=='Pagi'?'selected':'' ?>>Pagi</option>
+          <option value="Malam" <?= $data['sesi_kelas']=='Malam'?'selected':'' ?>>Malam</option>
+        </select>
+      </div>
+
+      <div>
         <label>Status Surat</label>
         <select name="status" required>
           <option value="Aktif" <?= $data['status']=='Aktif'?'selected':'' ?>>Aktif</option>

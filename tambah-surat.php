@@ -108,6 +108,30 @@
       </select>
     </div>
 
+    <div>
+      <label>Semester</label>
+      <select name="semester" required>
+        <option value="">Pilih Semester</option>
+        <option value="1">Semester 1</option>
+        <option value="2">Semester 2</option>
+        <option value="3">Semester 3</option>
+        <option value="4">Semester 4</option>
+        <option value="5">Semester 5</option>
+        <option value="6">Semester 6</option>
+        <option value="7">Semester 7</option>
+        <option value="8">Semester 8</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Sesi Kelas</label>
+      <select name="sesi_kelas" required>
+        <option value="">Pilih Sesi Kelas</option>
+        <option value="Pagi">Pagi</option>
+        <option value="Malam">Malam</option>
+      </select>
+    </div>
+
   </div>
 
   <div>
