@@ -104,6 +104,7 @@ $data = mysqli_fetch_assoc($query);
           <option value="B" <?= $data['kelas']=='B'?'selected':'' ?>>B</option>
           <option value="C" <?= $data['kelas']=='C'?'selected':'' ?>>C</option>
           <option value="D" <?= $data['kelas']=='D'?'selected':'' ?>>D</option>
+          <option value="E" <?= $data['kelas']=='E'?'selected':'' ?>>E</option>
         </select>
       </div>
 

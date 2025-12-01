@@ -51,9 +51,6 @@
       <p id="noSPMessage" class="no-sp">Belum ada surat peringatan yang diterbitkan.</p>
     </section>
   </main>
-
-
-
   <!--Footer-->
   <footer class="footer">
       <div class="footer-container">
