@@ -73,18 +73,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
                 </div>
             </div>
         </section>
-
-        <section class="akademik-card-modern">
-            <h3><i class="fas fa-chart-line"></i> Informasi Akademik</h3>
-            <div class="detail-group">
-                <p><span class="label">IPK Terakhir</span><span class="value ipk">3.62</span></p>
-                <p><span class="label">SKS Ditempuh</span><span class="value">108</span></p>
-                <p><span class="label">Dosen Wali</span><span class="value dosen-wali">Ir. Ahmad Taufik, M.Kom</span></p>
-                <p><span class="label">Status Akademik</span><span class="value status-aktif">Aktif</span></p>
-            </div> 
-        </section>
     </div>
-
     <div class="aksi-logout-area">
         <button class="btn-logout" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Keluar</button>
     </div>
