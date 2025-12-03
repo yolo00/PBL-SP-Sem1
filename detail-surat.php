@@ -66,7 +66,7 @@ if (!$data) {
           <div class="preview-item"><label>Semester:</label> <span>Semester <?= $data['semester'] ?></span></div>
           <div class="preview-item"><label>Sesi Kelas:</label> <span><?= $data['sesi_kelas'] ?></span></div>
           <div class="preview-item"><label>Status:</label> 
-            <span><?= $data['status'] ?? 'Aktif' ?></span></div>
+          <span><?= $data['status'] ?? 'Aktif' ?></span></div>
         </div>
 
         <!-- DATA SURAT -->
@@ -94,13 +94,10 @@ if (!$data) {
       <button type="button" class="btn btn-batal" onclick="window.history.back()">Kembali</button>
       <a href="edit_surat.php?id=<?= $data['id'] ?>" class="btn btn-edit">Edit</a>
     </div>
-
   </div>
-
   <footer class="footer">
     <!-- Footer tetap sama -->
   </footer>
-
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ once:true, duration:1000 });
