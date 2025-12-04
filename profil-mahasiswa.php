@@ -47,7 +47,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
 
 <main class="profil-container-mahasiswa">
     <div class="header-section">
-        <h1><i class="fas fa-id-badge"></i> <b>PROFIL MAHASISWA</b></h1>
+        <h1><b>PROFIL MAHASISWA</b></h1>
         <p class="subtitle">Data Akademik & Informasi Pribadi</p>
     </div>
 
@@ -64,30 +64,30 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
             </div>
             
             <div class="profil-info-details">
-                <h3><i class="fas fa-address-book"></i> Data Pribadi & Kontak</h3>
+                <h3>Data Pribadi & Kontak</h3>
                 <div class="detail-group">
                     <div class="detail-item">
-                        <span class="label"><i class="fas fa-university"></i> Prodi</span>
+                        <span class="label">Prodi</span>
                         <span class="value"><?php echo isset($_SESSION['prodi']) ? htmlspecialchars($_SESSION['prodi']) : '-'; ?></span>
                     </div>
                     <div class="detail-item">
-                        <span class="label"><i class="fas fa-graduation-cap"></i> Jurusan</span>
+                        <span class="label">Jurusan</span>
                         <span class="value"><?php echo isset($_SESSION['jurusan']) ? htmlspecialchars($_SESSION['jurusan']) : '-'; ?></span>
                     </div>
                     <div class="detail-item">
-                        <span class="label"><i class="fas fa-chalkboard-teacher"></i> Kelas</span>
+                        <span class="label">Kelas</span>
                         <span class="value"><?php echo isset($_SESSION['kelas']) ? htmlspecialchars($_SESSION['kelas']) : '-'; ?></span>
                     </div>
                     <div class="detail-item">
-                        <span class="label"><i class="fas fa-calendar-alt"></i> Angkatan</span>
+                        <span class="label">Angkatan</span>
                         <span class="value"><?php echo isset($_SESSION['angkatan']) ? htmlspecialchars($_SESSION['angkatan']) : '-'; ?></span>
                     </div>
                     <div class="detail-item">
-                        <span class="label"><i class="fas fa-envelope"></i> Email</span>
+                        <span class="label">Email</span>
                         <span class="value"><?php echo isset($_SESSION['email']) ? htmlspecialchars($_SESSION['email']) : '-'; ?></span>
                     </div>
                     <div class="detail-item">
-                        <span class="label"><i class="fas fa-phone"></i> No. HP</span>
+                        <span class="label">No. HP</span>
                         <span class="value"><?php echo isset($_SESSION['telepon']) ? htmlspecialchars($_SESSION['telepon']) : '-'; ?></span>
                     </div>
                 </div>
@@ -95,7 +95,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
         </section>
     </div>
     <div class="aksi-logout-area">
-        <button class="btn-logout" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Keluar</button>
+        <button class="btn-logout" id="logoutBtn">Keluar</button>
     </div>
 </main>
   <!--Footer-->

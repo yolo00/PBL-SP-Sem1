@@ -3,7 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
-html,
+
+html {
+  height: 100%;
+}
+
 body {
   height: 100%;
   display: flex;
@@ -13,7 +17,8 @@ body {
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  padding-top: 70px; /* untuk navbar fixed */
+  padding-top: 70px;
+  /* untuk navbar fixed */
 }
 
 main {
@@ -32,6 +37,7 @@ main {
   z-index: 1000;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
 }
+
 .navbar .container {
   display: flex;
   justify-content: space-between;
@@ -40,18 +46,22 @@ main {
   margin: 0 auto;
   padding: 0 16px;
 }
+
 .nav-inner {
   gap: 12px;
 }
+
 .logo {
   display: flex;
   align-items: center;
   text-decoration: none;
 }
+
 .logo img {
   display: block;
   border-radius: 6px;
 }
+
 .brand {
   /*Gaya huruf dispol*/
   color: #ffffff;
@@ -60,26 +70,33 @@ main {
   font-size: 1.1rem;
   letter-spacing: 0.5px;
 }
+
 .brand-o {
-  color: #ff8c00; /* orange untuk O */
+  color: #ff8c00;
+  /* orange untuk O */
 }
+
 .navbar .nav-links {
   list-style: none;
   display: flex;
   margin-right: 20px;
   align-items: center;
 }
+
 .navbar .nav-links li .active {
   color: #e04e32;
 }
+
 .navbar .nav-links li {
   margin-left: 20px;
 }
+
 .navbar .nav-links a {
   color: white;
   text-decoration: none;
   transition: 0.5s;
 }
+
 .navbar .nav-links a:hover {
   color: #e04e32;
 }
@@ -118,6 +135,7 @@ main {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -132,18 +150,76 @@ main {
   text-align: center;
   border-image: fill 0 linear-gradient(#0001, #000);
 }
+
 .hero h1 {
   font-size: 4rem;
   margin-top: 100px;
 }
+
 .welcome {
-  margin: 40px 0;
+  margin: 40px auto;
+  padding: 40px;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
   position: relative;
+  overflow: hidden;
+  animation: fadeInUp 1s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.welcome::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #004080, #00b4d8);
+}
+
+.welcome h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.8rem;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.2;
 }
 
 .welcome h1 span {
-  color: #444;
-  font-weight: 600;
+  background: linear-gradient(45deg, #004080, #00b4d8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  display: inline-block;
+  position: relative;
+}
+
+.welcome h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  color: #666;
+  font-weight: 400;
+  background-color: rgba(0, 64, 128, 0.1);
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 50px;
+  margin-top: 10px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* CARD CONTAINER */
@@ -190,7 +266,8 @@ main {
   position: absolute;
   top: 15px;
   margin-left: 200px;
-  background-color: #00b4d8; /* biru muda */
+  background-color: #00b4d8;
+  /* biru muda */
   color: white;
   font-weight: bold;
   padding: 5px 12px;
@@ -200,7 +277,8 @@ main {
 
 /* FOTO PROFIL */
 .photo {
-  background-color: #3c486b; /* abu tua */
+  background-color: #3c486b;
+  /* abu tua */
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -225,13 +303,19 @@ main {
 
 .sp1 {
   background-color: #00b4d8;
-} /* Biru muda */
+}
+
+/* Biru muda */
 .sp2 {
   background-color: #f4a261;
-} /* Oranye */
+}
+
+/* Oranye */
 .sp3 {
   background-color: #e63946;
-} /* Merah */
+}
+
+/* Merah */
 
 .detail {
   display: inline-block;
@@ -246,12 +330,14 @@ main {
 .detail:hover {
   text-decoration: underline;
 }
+
 /* ===== Footer Baru ===== */
 .footer {
   background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
   color: #fff;
   padding: 40px 0 10px 0;
-  margin-top: auto; /* ✅ dorong footer ke bawah */
+  margin-top: auto;
+  /* ✅ dorong footer ke bawah */
   box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.3);
   font-family: "Poppins", sans-serif;
 }
