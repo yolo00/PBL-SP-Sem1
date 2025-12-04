@@ -58,17 +58,13 @@ include "backend/auto-arsip.php";
         </div>
     </nav>
 <section id="home" class="hero">
-    <div data-aos="fade-up">
+    <div data-aos="fade-up" data-aos-duration="1500">
         <h1>Selamat Datang di Layanan Surat Peringatan Mahasiswa Polibatam</h1>
     </div>
 </section>
 
-<div class="welcome">
-    <h1>Halo👋, <span><?= $data['nama'] ?></span></h1> 
-    <p class="role-badge">Staf Akademik</p> 
-    <h2 class="nik">NIK : <?= $data['username'] ?></h2> 
-    <a href="profil-staf.php" class="view-profile-btn">Lihat Profil Lengkap</a>
-</div>
+<div class="welcome" data-aos="zoom-in" data-aos-delay="200">
+    <h1>Halo, Selamat datang <span data-aos="fade-in" data-aos-delay="600"><?= $data['nama'] ?></span></h1>
 
 <div class="new">
     <h1>Surat Peringatan Aktif Terbaru</h1> 

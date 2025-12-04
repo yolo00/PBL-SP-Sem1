@@ -159,22 +159,21 @@ main {
 /* Welcome Section */
 .welcome {
   margin: 40px auto;
-  padding: 50px 40px;
+  padding: 60px 50px;
   text-align: center;
   background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
   border-radius: 20px;
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
-  max-width: 950px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  max-width: 800px;
   position: relative;
   overflow: hidden;
-  animation: fadeInUp 1s ease-out;
   border: 1px solid rgba(255, 255, 255, 0.8);
   transform: perspective(1px) translateZ(0);
-  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
 .welcome:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.01);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
 
@@ -186,11 +185,18 @@ main {
   width: 100%;
   height: 6px;
   background: linear-gradient(90deg, #004080, #00b4d8, #ff8c00);
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+.welcome-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: wave 2s ease-in-out infinite;
 }
 
 .welcome h1 {
   font-family: 'Poppins', sans-serif;
-  font-size: 3.2rem;
+  font-size: 4rem;
   color: #333;
   margin-bottom: 15px;
   line-height: 1.2;
@@ -204,6 +210,7 @@ main {
   font-weight: 800;
   display: inline-block;
   position: relative;
+  animation: textGlow 2s ease-in-out infinite alternate;
 }
 
 .role-badge {
@@ -216,49 +223,52 @@ main {
   font-weight: 600;
   margin-top: 15px;
   box-shadow: 0 4px 8px rgba(255, 140, 0, 0.4);
+  animation: badgePulse 2s ease-in-out infinite;
 }
 
-.welcome h2.nik {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.1rem;
-  color: #333;
-  font-weight: 400;
-  background-color: rgba(0, 64, 128, 0.05);
-  display: inline-block;
-  padding: 8px 20px;
-  border-radius: 50px;
-  margin-top: 10px;
-  border: 1px solid rgba(0, 64, 128, 0.1);
-}
 
-.view-profile-btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 25px;
-  background-color: #004080;
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 5px 15px rgba(0, 64, 128, 0.4);
-}
-
-.view-profile-btn:hover {
-  background-color: #002b6b;
-  transform: translateY(-2px);
-}
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(30px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  75% { transform: rotate(-10deg); }
+}
+
+@keyframes textGlow {
+  from { text-shadow: 0 0 5px rgba(0, 64, 128, 0.5); }
+  to { text-shadow: 0 0 20px rgba(0, 64, 128, 1); }
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes slideInFromBottom {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes buttonGlow {
+  from { box-shadow: 0 5px 15px rgba(0, 64, 128, 0.4); }
+  to { box-shadow: 0 5px 15px rgba(0, 64, 128, 0.8); }
 }
 
 /* New Section */
@@ -300,22 +310,24 @@ main {
 .card {
   position: relative;
   background-color: #ffffff;
-  width: 320px;
-  padding: 30px 20px 20px 20px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #e0e0e0;
+  width: 340px;
+  padding: 35px 25px 25px 25px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  border: 2px solid #f0f0f0;
   overflow: hidden;
   margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: cardEntrance 1.2s ease-out;
 }
 
 .card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  background-color: #fafafa;
 }
 
 .sp-label {
