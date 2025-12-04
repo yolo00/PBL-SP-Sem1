@@ -125,10 +125,10 @@ main {
   border-radius: 30px;
   border: none;
   font-size: 16px;
-  outline: none;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
-  margin-bottom: 500px;
-  display: flex auto;
+  padding: 100px;
+  justify-content: center;
+  text-align: center;
+  border-image: fill 0 linear-gradient(#0001, #000);
 }
 
 @keyframes fadeIn {
@@ -156,18 +156,26 @@ main {
   margin-top: 100px;
 }
 
+/* Welcome Section */
 .welcome {
   margin: 40px auto;
-  padding: 40px;
+  padding: 50px 40px;
   text-align: center;
   background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
   border-radius: 20px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  max-width: 900px;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+  max-width: 950px;
   position: relative;
   overflow: hidden;
   animation: fadeInUp 1s ease-out;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transform: perspective(1px) translateZ(0);
+  transition: transform 0.3s ease-out;
+}
+
+.welcome:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
 
 .welcome::before {
@@ -176,13 +184,13 @@ main {
   top: 0;
   left: 0;
   width: 100%;
-  height: 5px;
-  background: linear-gradient(90deg, #004080, #00b4d8);
+  height: 6px;
+  background: linear-gradient(90deg, #004080, #00b4d8, #ff8c00);
 }
 
 .welcome h1 {
   font-family: 'Poppins', sans-serif;
-  font-size: 2.8rem;
+  font-size: 3.2rem;
   color: #333;
   margin-bottom: 15px;
   line-height: 1.2;
@@ -193,21 +201,52 @@ main {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 700;
+  font-weight: 800;
   display: inline-block;
   position: relative;
 }
 
-.welcome h2 {
+.role-badge {
+  display: inline-block;
+  background-color: #ff8c00;
+  color: white;
+  padding: 6px 15px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 15px;
+  box-shadow: 0 4px 8px rgba(255, 140, 0, 0.4);
+}
+
+.welcome h2.nik {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
-  color: #666;
+  font-size: 1.1rem;
+  color: #333;
   font-weight: 400;
-  background-color: rgba(0, 64, 128, 0.1);
+  background-color: rgba(0, 64, 128, 0.05);
   display: inline-block;
   padding: 8px 20px;
   border-radius: 50px;
   margin-top: 10px;
+  border: 1px solid rgba(0, 64, 128, 0.1);
+}
+
+.view-profile-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 25px;
+  background-color: #004080;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 5px 15px rgba(0, 64, 128, 0.4);
+}
+
+.view-profile-btn:hover {
+  background-color: #002b6b;
+  transform: translateY(-2px);
 }
 
 @keyframes fadeInUp {
@@ -222,7 +261,32 @@ main {
   }
 }
 
-/* CARD CONTAINER */
+/* New Section */
+.new h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  text-align: center;
+  color: #004080;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #ff8c00;
+  max-width: 450px;
+  margin: 40px auto 20px auto;
+}
+
+.no-sp-found {
+  text-align: center;
+  color: #004080;
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 20px;
+  background-color: #e6f7ff;
+  border: 1px solid #91d5ff;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+/* Card Container */
 .card-container {
   margin-top: 10px;
   padding: 20px;
@@ -232,103 +296,119 @@ main {
   gap: 30px;
 }
 
-.new {
-  align-items: center;
-  justify-content: center;
-  padding: 0 10px;
-  margin-top: 15px;
-}
-
-.no-surat-msg {
-  text-align: center;
-  color: #555;
-  font-style: italic;
-  margin-top: 20px;
-  font-size: 16px;
-}
-
-/* CARD */
+/* Card Styles */
 .card {
   position: relative;
-  background-color: #e6e6e6;
-  width: 300px;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  width: 320px;
+  padding: 30px 20px 20px 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  margin-top: 50px;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: 75px;
 }
 
-/* LABEL SP */
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
 .sp-label {
   position: absolute;
-  top: 15px;
-  margin-left: 200px;
-  background-color: #00b4d8;
-  /* biru muda */
+  top: 0;
+  right: 0;
+  margin: 0;
+  border-radius: 0 15px 0 15px;
+  padding: 8px 15px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  z-index: 10;
   color: white;
   font-weight: bold;
-  padding: 5px 12px;
-  border-radius: 15px;
-  font-size: 13px;
 }
 
-/* FOTO PROFIL */
 .photo {
-  background-color: #3c486b;
-  /* abu tua */
-  width: 80px;
-  height: 80px;
+  background-color: #ddd;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  margin-top: 15px;
+  margin: 0 auto 15px auto;
+  border: 4px solid white;
+  box-shadow: 0 0 0 3px #004080;
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png");
   background-size: cover;
   background-position: center;
 }
 
-/* TEKS INFO */
-.info {
-  text-align: left;
-  margin-top: 15px;
+.card-content {
+  text-align: center;
+  margin-bottom: 15px;
   width: 100%;
 }
 
-.info p {
-  margin: 3px 0;
-  font-size: 14px;
+.student-name {
+  font-size: 1.3rem;
+  color: #004080;
+  margin-bottom: 5px;
+}
+
+.student-detail,
+.issue-date {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 3px;
+}
+
+.sp-status {
+  font-weight: bold;
+  margin-top: 5px;
   color: #333;
 }
 
 .sp1 {
-  background-color: #00b4d8;
+  background-color: #0096c7;
 }
 
-/* Biru muda */
 .sp2 {
-  background-color: #f4a261;
+  background-color: #fca311;
 }
 
-/* Oranye */
 .sp3 {
-  background-color: #e63946;
+  background-color: #c9184a;
 }
-
-/* Merah */
 
 .detail {
-  display: inline-block;
-  margin-top: 10px;
-  color: #0a4d8c;
-  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #004080;
+  font-size: 1rem;
+  font-weight: 700;
   text-decoration: none;
-  font-weight: 600;
-  margin-left: 199px;
+  transition: color 0.3s;
+  margin-top: 10px;
+  margin-left: 0;
 }
 
 .detail:hover {
-  text-decoration: underline;
+  color: #ff8c00;
+  text-decoration: none;
+}
+
+.arrow-icon {
+  margin-left: 5px;
+  font-style: normal;
+  transition: transform 0.3s;
+}
+
+.detail:hover .arrow-icon {
+  transform: translateX(5px);
 }
 
 /* ===== Footer Baru ===== */
@@ -337,7 +417,6 @@ main {
   color: #fff;
   padding: 40px 0 10px 0;
   margin-top: auto;
-  /* ✅ dorong footer ke bawah */
   box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.3);
   font-family: "Poppins", sans-serif;
 }
