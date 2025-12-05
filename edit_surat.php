@@ -13,6 +13,7 @@ $data = mysqli_fetch_assoc($query);
     <meta charset="UTF-8">
     <title>Edit Surat</title>
     <link rel="stylesheet" href="css/tambah-surat.css">
+    <link rel="icon" type="image/png" href="image/dispol.png">
 </head>
 <body>
 

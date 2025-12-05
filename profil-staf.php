@@ -28,6 +28,7 @@ $data  = mysqli_fetch_assoc($query);
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profil Staf Akademik</title>
   <link rel="stylesheet" href="css/profil-staf.css" />
+    <link rel="icon" type="png" href="image/dispol.png">
 </head>
 <body>
   

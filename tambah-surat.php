@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Surat</title>
     <link rel="stylesheet" href="css/tambah-surat.css">
+    <link rel="icon" type="image/png" href="image/dispol.png">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>

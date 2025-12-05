@@ -32,6 +32,7 @@ $query = mysqli_query($conn, "
     <title>Kelola</title>
     <link rel="stylesheet" href="css/kelola-staff.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="image/dispol.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>

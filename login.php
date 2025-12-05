@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login DISPOL</title>
     <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" type="image/png" href="image/dispol.png">
 </head>
 <body>
     <form action="backend/login-process.php" method="POST">
