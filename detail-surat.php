@@ -93,12 +93,43 @@ if (!$data) {
     <!-- Tombol -->
     <div class="form-buttons">
       <button type="button" class="btn btn-batal" onclick="window.history.back()">Kembali</button>
-      <a href="edit_surat.php?id=<?= $data['id'] ?>" class="btn btn-edit">Edit</a>
     </div>
   </div>
-  <footer class="footer">
     <!-- Footer tetap sama -->
-  </footer>
+ <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <img src="image/dispol.png" alt="Logo Dispol" width="60">
+      <div>
+        <h3>DISPOL</h3>
+        <p>Digitalisasi Surat Peringatan Mahasiswa Polibatam</p>
+      </div>
+    </div>
+
+    <div class="footer-center">
+      <h4>Menu</h4>
+      <ul>
+        <li><a href="dashboard-staf.php">Beranda</a></li>
+        <li><a href="kelola-staf.php">Kelola</a></li>
+        <li><a href="arsip-staf.php">Arsip</a></li>
+        <li><a href="profil-staf.php">Profil</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-right">
+      <h4>Hubungi Kami</h4>
+      <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
+      <ul class="social-links">
+        <li><a href="#"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
+        <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
+        <li><a href="#"><img src="image/icon-instagram.png" alt="Instagram"></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 DISPOL | All Rights Reserved</p>
+  </div>
+</footer>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ once:true, duration:1000 });

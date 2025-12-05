@@ -6,14 +6,14 @@ session_start();
 // Ambil config
 $configPath = __DIR__ . '/backend/config.php';
 if (!file_exists($configPath)) {
-    die("Config not found at: $configPath");
+  die("Config not found at: $configPath");
 }
 require_once $configPath;
 
 // Cache login
 if (!isset($_SESSION['user_id']) || ($_SESSION['role'] ?? '') !== 'mahasiswa') {
-    echo "<script>alert('Silakan login terlebih dahulu!'); window.location='login.php';</script>";
-    exit;
+  echo "<script>alert('Silakan login terlebih dahulu!'); window.location='login.php';</script>";
+  exit;
 }
 // Ambil NIM mahasiswa dari session
 $nim = $_SESSION['nim'];
@@ -28,40 +28,42 @@ $spQuery = mysqli_query($conn, "
 
 <!DOCTYPE html><!--Michael Sando Turnip-->
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/dashboard-mahasiswa.css"><!--CSS-->
-    <link rel="icon" type="image/png" href="image/dispol.png">
-    <title>Beranda Mahasiswa</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/dashboard-mahasiswa.css"><!--CSS-->
+  <link rel="icon" type="image/png" href="image/dispol.png">
+  <title>Beranda Mahasiswa</title>
 </head>
+
 <body>
 
-<nav class="navbar">
+  <nav class="navbar">
     <div class="container nav-inner">
       <a class="logo">
         <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
         <span class="brand">DISP<span class="brand-o">O</span>L</span>
       </a>
     </div>
-</nav>
-
-<!-- Tombol sidebar-->
-<button id="sidebarToggle" class="sidebar-toggle" aria-label="Buka menu" aria-expanded="false">
-  <span class="bar"></span>
-  <span class="bar"></span>
-  <span class="bar"></span>
-</button>
-
-<!-- Sidebar kanan -->
-<aside id="sidebar" class="sidebar" aria-hidden="true">
-  <nav class="sidebar-menu">
-    <a href="dashboard-mahasiswa.php" class="menu-item active">Beranda</a>
-    <a href="profil-mahasiswa.php" class="menu-item">Profil</a>
   </nav>
-</aside>
 
-<section id="home" class="hero">
+  <!-- Tombol sidebar-->
+  <button id="sidebarToggle" class="sidebar-toggle" aria-label="Buka menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <!-- Sidebar kanan -->
+  <aside id="sidebar" class="sidebar" aria-hidden="true">
+    <nav class="sidebar-menu">
+      <a href="dashboard-mahasiswa.php" class="menu-item active">Beranda</a>
+      <a href="profil-mahasiswa.php" class="menu-item">Profil</a>
+    </nav>
+  </aside>
+
+  <section id="home" class="hero">
     <div class="container">
       <h1>Halo 👋, Selamat datang <span><?php echo isset($_SESSION['nama']) ? htmlspecialchars($_SESSION['nama']) : 'Nama Mahasiswa'; ?></span></h1>
       <h2><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : '33125XXXXX'; ?></h2>
@@ -83,21 +85,21 @@ $spQuery = mysqli_query($conn, "
             </tr>
           </thead>
           <tbody>
-                <?php while ($sp = mysqli_fetch_assoc($spQuery)) : ?>
-                  <tr>
-                    <td><?= htmlspecialchars($sp['perihal']) ?></td>
-                    <td><?= htmlspecialchars($sp['tingkat']) ?></td>
-                    <td><?= date('d/m/Y', strtotime($sp['tanggal'])) ?></td>
-                    <td><?= htmlspecialchars($sp['status']) ?></td>
-                    <td>
-                      <?php if ($sp['file']) : ?>
-                        <a href="uploads/<?= $sp['file'] ?>" target="_blank">📄 Lihat</a>
-                      <?php else : ?>
-                        <span>-</span>
-                      <?php endif; ?>
-                    </td>
-                  </tr>
-                <?php endwhile; ?>
+            <?php while ($sp = mysqli_fetch_assoc($spQuery)) : ?>
+              <tr>
+                <td><?= htmlspecialchars($sp['perihal']) ?></td>
+                <td><?= htmlspecialchars($sp['tingkat']) ?></td>
+                <td><?= date('d/m/Y', strtotime($sp['tanggal'])) ?></td>
+                <td><?= htmlspecialchars($sp['status']) ?></td>
+                <td>
+                  <?php if ($sp['file']) : ?>
+                    <a href="uploads/<?= $sp['file'] ?>" target="_blank">📄 Lihat</a>
+                  <?php else : ?>
+                    <span>-</span>
+                  <?php endif; ?>
+                </td>
+              </tr>
+            <?php endwhile; ?>
           </tbody>
         </table>
       </div>
@@ -105,36 +107,37 @@ $spQuery = mysqli_query($conn, "
   </section>
 
   <!--Footer-->
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-left">
-      <img src="image/dispol.png" alt="Logo Dispol" width="60">
-      <div>
-        <h3>DISPOL</h3>
-        <p>Digitalisasi Surat Peringatan Mahasiswa Polibatam</p>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <img src="image/dispol.png" alt="Logo Dispol" width="60">
+        <div>
+          <h3>DISPOL</h3>
+          <p>Digitalisasi Surat Peringatan Mahasiswa Polibatam</p>
+        </div>
+      </div>
+      <div class="footer-center">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="dashboard-mahasiswa.php">Beranda</a></li>
+          <li><a href="profil-mahasiswa.php">Profil</a></li>
+        </ul>
+      </div>
+      <div class="footer-right">
+        <h4>Hubungi Kami</h4>
+        <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
+        <ul class="social-links">
+          <li><a href="#"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
+          <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
+          <li><a href="#"><img src="image/icon-instagram.png" alt="Instagram"></a></li>
+        </ul>
       </div>
     </div>
-    <div class="footer-center">
-      <h4>Menu</h4>
-      <ul>
-        <li><a href="dashboard-mahasiswa.php">Beranda</a></li>
-        <li><a href="profil-mahasiswa.php">Profil</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <p>&copy; 2025 DISPOL | All Rights Reserved</p>
     </div>
-    <div class="footer-right">
-      <h4>Hubungi Kami</h4>
-      <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
-      <ul class="social-links">
-        <li><a href="#"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
-        <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
-        <li><a href="#"><img src="image/icon-instagram.png" alt="Instagram"></a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 DISPOL | All Rights Reserved</p>
-  </div>
-</footer>
-<script src="js/sp-mahasiswa.js"></script>
+  </footer>
+  <script src="js/sp-mahasiswa.js"></script>
 </body>
+
 </html>
