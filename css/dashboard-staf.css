@@ -27,6 +27,54 @@ main {
   overflow: visible; /* biarkan konten mengalir */
 }
 
+/* BUTTON TOGGLE (HIDDEN DI DESKTOP) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* NAV-LINKS FOR MOBILE */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: #004080;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 20px 0;
+        transform: translateY(-300px);
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s ease;
+        z-index: 999;
+    }
+
+    /* KETIKA NAVBAR AKTIF */
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav-links li {
+        margin: 0;
+    }
+}
+
+
 .navbar {
   background: #004080;
   padding: 1rem 0;
@@ -533,11 +581,61 @@ main {
   color: #d0d0d0;
 }
 
-/* Responsif */
 @media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
+    .welcome {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+
+    .welcome h1 {
+        font-size: 2rem;
+    }
+
+    .welcome h1 span {
+        font-size: 2.1rem;
+    }
+
+    .hero {
+        padding: 50px 20px;
+        min-height: 250px;
+    }
+
+    .hero h1 {
+        font-size: 1.7rem;
+        margin-top: 30px;
+    }
+     .footer {
+        padding: 25px 0 10px 0;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .footer-left img {
+        width: 50px;
+    }
+
+    .footer-left h3 {
+        font-size: 1.1rem;
+    }
+
+    .footer-right p,
+    .footer-center li {
+        font-size: 0.9rem;
+    }
+    .footer-right {
+      margin-left: 150px;
+    }
+    .footer-right ul {
+      margin-left: 55px;
+    }
+    .footer-center {
+      margin-left: 220px;  
+    }
+    .footer-bottom {
+      margin-left: 30px;
+    }
 }

@@ -34,7 +34,6 @@ include "backend/auto-arsip.php";
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,6 +68,53 @@ include "backend/auto-arsip.php";
   </section>
 
   <div class="welcome">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda Staf</title>
+    <link rel="stylesheet" href="css/dashboard-staf.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="image/dispol.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <button class="menu-toggle" id="menuToggle">
+            </button>
+
+            <a class="logo">
+                <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
+                <span class="brand">DISP<span class="brand-o">O</span>L</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="dashboard-staf.php" class="active">
+                        <p>Beranda</p>
+                    </a></li>
+                <li><a href="kelola-staf.php">Kelola</li>
+                <li><a href="arsip-staf.php">Arsip</li>
+                <li><a href="profil-staf.php">Profil</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="home" class="hero">
+        <div data-aos="fade-up" data-aos-duration="1500">
+            <h1>Selamat Datang di Layanan Surat Peringatan Mahasiswa Polibatam</h1>
+        </div>
+    </section>
+
+    <div class="welcome" data-aos="fade-up" data-aos-delay="200">
+        <h1>Halo👋, Selamat datang <span data-aos="fade-in" data-aos-delay="600"><?= $data['nama'] ?></span></h1>
+        <h2><?= $data['nik'] ?></h2>
+    </div>
+    <div class="new">
+        <h1>Surat Peringatan Aktif Terbaru</h1>
+        <p id="noSuratMsg" class="no-surat-msg" style="display:none;">Tidak ada surat peringatan terbaru</p>
+    </div>
+    <div class="card-container">
+        <?php
     <h1>Halo👋, Selamat datang <span data-aos="fade-in" data-aos-delay="600"><?= $data['nama'] ?></span></h1>
     <h2><?= $data['nik'] ?></h2>
   </div>
