@@ -1,10 +1,10 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html, body {
+html,
+body {
   height: 100%;
 }
 .page-container {
@@ -27,26 +27,26 @@ body {
 }
 
 .navbar {
-    background: #004080;
-    padding: 1rem 0;
-    color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+  background: #004080;
+  padding: 1rem 0;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
 }
 .navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 2000px;
-    margin: 0 auto;
-    padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
-.nav-inner { 
-    gap: 12px; 
+.nav-inner {
+  gap: 12px;
 }
 .logo {
   display: flex;
@@ -57,7 +57,7 @@ body {
   display: block;
   border-radius: 6px;
 }
-.brand { 
+.brand {
   color: #ffffff;
   margin-left: 10px;
   font-weight: 800;
@@ -68,23 +68,23 @@ body {
   color: #ff8c00; /* orange untuk O */
 }
 .navbar .nav-links {
-    list-style: none;
-    display: flex;
-    margin-right: 20px;
-    align-items: center;
+  list-style: none;
+  display: flex;
+  margin-right: 20px;
+  align-items: center;
 }
 .navbar .nav-links li .active {
-    color:#e04e32;
+  color: #e04e32;
 }
 .navbar .nav-links li {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 .navbar .nav-links a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 .navbar .nav-links a:hover {
-    color: #e04e32;
+  color: #e04e32;
 }
 
 /* ================= JUDUL ================= */
@@ -98,37 +98,37 @@ h1 {
 /* ---------- FILTER ---------- */
 
 .filter-bar {
-    display: flex;
-    gap: 14px;
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .search-wrapper {
-    position: relative;
-    flex: 1;
-    min-width: 260px;
+  position: relative;
+  flex: 1;
+  min-width: 260px;
 }
 
 .search-wrapper .search-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0.6;
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.6;
 }
 
 .search-input {
-    width: 100%;
-    padding: 10px 40px;
-    border-radius: 8px;
-    border: 1px solid #d0d0d0;
+  width: 100%;
+  padding: 10px 40px;
+  border-radius: 8px;
+  border: 1px solid #d0d0d0;
 }
 
 .filter-select {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #d0d0d0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d0d0d0;
 }
 
 /* ================= CARD ================= */
@@ -139,7 +139,7 @@ main {
   background: white;
   border-radius: 12px;
   padding: 20px 30px 40px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* ================= TABLE ================= */
@@ -149,7 +149,8 @@ table {
   font-size: 0.95rem;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #ccc;
   padding: 10px;
   text-align: center;
@@ -170,8 +171,8 @@ tbody tr:hover {
   color: #fff;
   padding: 40px 0 10px 0;
   margin-top: 50px;
-  box-shadow: 0 -3px 15px rgba(0,0,0,0.3);
-  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.3);
+  font-family: "Poppins", sans-serif;
 }
 
 .footer-container {
@@ -253,7 +254,7 @@ tbody tr:hover {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
   margin-top: 20px;
   padding-top: 10px;
@@ -267,5 +268,67 @@ tbody tr:hover {
     flex-direction: column;
     text-align: center;
     align-items: center;
+  }
+}
+/* ===========================
+   HAMBURGER NAVBAR
+=========================== */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* MODE HP */
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 94px;
+    left: -100%;
+    background: #00346f;
+    width: 70%;
+    height: 100vh;
+    flex-direction: column;
+    padding-top: 30px;
+    gap: 20px;
+    transition: 0.4s ease;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-links.show {
+    left: 0;
+  }
+
+  /* FILTER */
+  .filter-bar {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .search-wrapper,
+  .search-input,
+  .filter-select {
+    width: 100%;
+  }
+
+  /* TABLE RESPONSIVE */
+  .table-container {
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  table {
+    width: 700px;
+  }
+
+  /* FOOTER */
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
   }
 }

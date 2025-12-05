@@ -3,7 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
-html, body {
+html,
+body {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -20,26 +21,26 @@ main {
   padding-bottom: 40px;
 }
 .navbar {
-    background: #004080;
-    padding: 1rem 0;
-    color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+  background: #004080;
+  padding: 1rem 0;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
 }
 .navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 2000px;
-    margin: 0 auto;
-    padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
-.nav-inner { 
-    gap: 12px; 
+.nav-inner {
+  gap: 12px;
 }
 .logo {
   display: flex;
@@ -50,7 +51,8 @@ main {
   display: block;
   border-radius: 6px;
 }
-.brand { /*Gaya huruf dispol*/
+.brand {
+  /*Gaya huruf dispol*/
   color: #ffffff;
   margin-left: 10px;
   font-weight: 800;
@@ -61,24 +63,24 @@ main {
   color: #ff8c00; /* orange untuk O */
 }
 .navbar .nav-links {
-    list-style: none;
-    display: flex;
-    margin-right: 20px;
-    align-items: center;
+  list-style: none;
+  display: flex;
+  margin-right: 20px;
+  align-items: center;
 }
 .navbar .nav-links li .active {
-    color:#e04e32;
+  color: #e04e32;
 }
 .navbar .nav-links li {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 .navbar .nav-links a {
-    color: white;
-    text-decoration: none;
-    transition: 0.5s;
+  color: white;
+  text-decoration: none;
+  transition: 0.5s;
 }
 .navbar .nav-links a:hover {
-    color: #e04e32;
+  color: #e04e32;
 }
 /* Styling Kontainer Utama */
 .profil-container-modern {
@@ -88,8 +90,8 @@ main {
 }
 
 .header-section {
-    text-align: center;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .header-section h1 {
@@ -103,49 +105,40 @@ main {
 }
 
 .header-section .subtitle {
-    color: #7f8c8d;
-    font-size: 1em;
-    margin-top: 5px;
+  color: #7f8c8d;
+  font-size: 1em;
+  margin-top: 5px;
 }
 
-/* 1. Kartu Profil Modern (Profile Card) */
 .profile-card-modern {
-  display: grid;
-  grid-template-columns: 1fr;
-  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
-  border-radius: 14px;
-  box-shadow: 0 14px 40px rgba(16, 24, 40, 0.08);
-  overflow: hidden;
-  margin-bottom: 30px;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  gap: 30px;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Sisi Kiri: Foto dan Info Singkat */
+/* Desktop layout */
 .card-left {
-  grid-column: 1 / -1;
-  background-color: #f7fbff;
-  padding: 36px 30px;
-  text-align: center;
-  border-bottom: 1px solid #ecf0f1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 35%;
+}
+
+.card-right {
+  width: 65%;
 }
 
 .photo-placeholder {
-    display: none;
+  display: none;
 }
 
 .staff-name {
   font-size: 1.9rem;
-  color: #153d7e;
-  margin: 12px 0 6px;
+  color: #153d7e; 
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.2px;
+  margin-top: 150px;
 }
 
 .staff-role {
@@ -154,23 +147,24 @@ main {
   margin-bottom: 20px;
   font-size: 1rem;
   opacity: 0.95;
+  text-align: center;
 }
 
 /* Tombol Ubah Profil */
 .btn-edit-profile {
-    background-color: #f39c12;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s;
-    width: 100%;
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  width: 100%;
 }
 
 .btn-edit-profile:hover {
-    background-color: #e67e22;
+  background-color: #e67e22;
 }
 /* Sisi Kanan: Detail Informasi */
 .card-right {
@@ -180,107 +174,61 @@ main {
 }
 
 .card-right h3 {
-    font-size: 1.25em;
-    color: #3498db;
-    border-bottom: 2px solid #ecf0f1;
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-    margin-top: 20px;
+  font-size: 1.25em;
+  color: #3498db;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+  margin-top: 20px;
 }
 
 .card-right h3:first-child {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .detail-group p {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    padding: 5px 0;
-    border-bottom: 1px dotted #e0e0e0;
-}
-
-.detail-group p:last-child {
-    border-bottom: none;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .detail-group .label {
-    display: inline-block;
-    width: 140px;   /* Bebas, sesuaikan */
-    font-weight: 600;
+  min-width: 130px; /* Bikin kolom kiri lebar tetap */
+  font-weight: 700;
+  color: #004080;
 }
 
-
 .detail-group .value {
-    color: #2c3e50;
-    text-align: right;
-    flex: 2;
+  flex: 1; /* Kolom kanan fleksibel */
+  color: #2c3e50;
+  white-space: normal; /* Supaya tidak turun per huruf */
+  word-break: normal; /* Hindari pecah huruf */
 }
 
 /* 2. Area Tombol Logout */
 .aksi-logout-area {
-    text-align: center;
+  text-align: center;
 }
 
 .btn-logout {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: 600;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  margin-top: 20px;
+  padding: 12px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
 }
 
 .btn-logout:hover {
-    background-color: #c0392b;
-    transform: translateY(-2px);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .profile-card-modern {
-    grid-template-columns: 1fr;
-  }
-
-  .card-left {
-    flex: auto;
-    border-right: none;
-    border-bottom: 1px solid #ecf0f1;
-    padding: 28px 20px;
-  }
-
-  .card-right {
-    padding: 20px;
-  }
-}
-
-/* Responsive tweak for header title */
-@media (max-width: 768px) {
-  .header-section h1 {
-    font-size: 26px;
-    margin-bottom: 12px;
-  }
-}
-
-@media (min-width: 900px) {
-  .profile-card-modern {
-    grid-template-columns: 340px 1fr;
-    align-items: stretch;
-  }
-  .card-left {
-    grid-column: 1;
-    border-bottom: none;
-    border-right: 1px solid #ecf0f1;
-    padding: 40px 36px;
-  }
-  .card-right {
-    grid-column: 2;
-    padding: 40px 48px;
-  }
+  background-color: #c0392b;
+  transform: translateY(-2px);
 }
 
 /* ===== Footer Baru ===== */
@@ -289,8 +237,8 @@ main {
   color: #fff;
   padding: 40px 0 10px 0;
   margin-top: 50px;
-  box-shadow: 0 -3px 15px rgba(0,0,0,0.3);
-  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.3);
+  font-family: "Poppins", sans-serif;
 }
 
 .footer-container {
@@ -372,7 +320,7 @@ main {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
   margin-top: 20px;
   padding-top: 10px;
@@ -380,11 +328,149 @@ main {
   color: #d0d0d0;
 }
 
-/* Responsif */
-@media (max-width: 768px) {
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 900px) {
+  /* NAVBAR */
+  .nav-links {
+    position: fixed;
+    top: 94px;
+    left: -100%;
+    background: #00346f;
+    width: 70%;
+    height: 100vh;
+    flex-direction: column;
+    padding-top: 30px;
+    gap: 20px;
+    transition: 0.4s ease;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    left: 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar .container {
+    padding-right: 20px;
+  }
+
+  .profil-container-modern {
+    width: 90%;
+    max-width: 1100px;
+    margin: 120px auto;
+    padding-bottom: 30px;
+  }
+
+  .profile-card-modern {
+    display: block;
+    padding: 20px;
+  }
+
+  .card-left,
+  .card-right {
+    width: 100%;
+  }
+
+  .card-right {
+    margin-top: 20px;
+  }
+
+  .photo-placeholder {
+    width: 120px;
+    height: 120px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-right {
+    width: 65%;
+  }
+
+  .detail-group p {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: space-between;
+    margin: 6px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ccc;
+    grid-template-columns: 120px 1fr;
+  }
+
+  .detail-group .label {
+    min-width: unset;
+    font-weight: bold;
+    color: #004080;
+  }
+
+  .value {
+    color: #333;
+  }
+
+  .aksi-logout-area {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .btn-logout {
+    background: #d32f2f;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .btn-logout:hover {
+    background: #b71c1c;
+  }
+
+  .footer {
+    padding: 25px 0 10px 0;
+  }
+
   .footer-container {
     flex-direction: column;
+    gap: 15px;
     text-align: center;
-    align-items: center;
+  }
+
+  .footer-left img {
+    width: 50px;
+  }
+
+  .footer-left h3 {
+    font-size: 1.1rem;
+  }
+
+  .footer-right p,
+  .footer-center li {
+    font-size: 0.9rem;
+  }
+  .footer-right {
+    margin-left: 150px;
+  }
+  .footer-right ul {
+    margin-left: 55px;
+  }
+  .footer-center {
+    margin-left: 220px;
   }
 }

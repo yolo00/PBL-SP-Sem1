@@ -48,35 +48,31 @@ include "backend/auto-arsip.php";
 <body>
     <nav class="navbar">
         <div class="container">
-            <button class="menu-toggle" id="menuToggle">
+            <div class="menu-toggle" id="menuToggle">
                 ☰
-            </button>
+            </div>
 
             <a class="logo">
                 <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
                 <span class="brand">DISP<span class="brand-o">O</span>L</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="dashboard-staf.php" class="active">
-                        <p>Beranda</p>
-                    </a></li>
-                <li><a href="kelola-staf.php">Kelola</li>
-                <li><a href="arsip-staf.php">Arsip</li>
+
+            <ul class="nav-links" id="navMenu">
+                <li><a href="dashboard-staf.php">Beranda</a></li>
+                <li><a href="kelola-staf.php">Kelola</a></li>
+                <li><a href="arsip-staf.php">Arsip</a></li>
                 <li><a href="profil-staf.php">Profil</a></li>
             </ul>
         </div>
     </nav>
+
     <section id="home" class="hero">
         <div data-aos="fade-up" data-aos-duration="1500">
             <h1>Selamat Datang di Layanan Surat Peringatan Mahasiswa Polibatam</h1>
         </div>
     </section>
 
-<<<<<<< HEAD
     <div class="welcome">
-=======
-    <div class="welcome" data-aos="fade-up" data-aos-delay="200">
->>>>>>> 427ceb4646046ae28aeadc3930217c6f844ba45d
         <h1>Halo👋, Selamat datang <span data-aos="fade-in" data-aos-delay="600"><?= $data['nama'] ?></span></h1>
         <h2><?= $data['nik'] ?></h2>
     </div>
@@ -114,14 +110,7 @@ include "backend/auto-arsip.php";
                 <i class="arrow-icon">→</i>
             </a>
         </div>
-
-        <a href="detail-surat.php?id=<?= $row['id'] ?>" class="detail">
-            Lihat Rincian
-         <i class="arrow-icon">→</i>
-        </a>
-    </div>
-
-    <?php
+        <?php
  }
 }
 ?>
@@ -170,11 +159,11 @@ include "backend/auto-arsip.php";
     });
     </script>
     <script>
-    const toggle = document.getElementById("menuToggle");
-    const navLinks = document.querySelector(".nav-links");
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
 
-    toggle.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
+    menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
     });
     </script>
 

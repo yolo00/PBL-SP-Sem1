@@ -5,7 +5,8 @@
 }
 
 /* HILANGKAN height 100% agar halaman bisa scroll */
-html, body {
+html,
+body {
   width: 100%;
   min-height: 100%;
   overflow-x: hidden;
@@ -29,51 +30,13 @@ main {
 
 /* BUTTON TOGGLE (HIDDEN DI DESKTOP) */
 .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
+  display: none;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
 }
-
-/* NAV-LINKS FOR MOBILE */
-@media (max-width: 768px) {
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 100%;
-        background: #004080;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-        padding: 20px 0;
-        transform: translateY(-300px);
-        opacity: 0;
-        pointer-events: none;
-        transition: 0.3s ease;
-        z-index: 999;
-    }
-
-    /* KETIKA NAVBAR AKTIF */
-    .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    .nav-links li {
-        margin: 0;
-    }
-}
-
 
 .navbar {
   background: #004080;
@@ -150,46 +113,6 @@ main {
   color: #e04e32;
 }
 
-/* ===== POPUP SEARCH OVERLAY ===== */
-.search-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  backdrop-filter: blur(3px);
-}
-
-.search-overlay.active {
-  display: flex;
-  animation: fadeIn 0.3s ease;
-}
-
-.search-box input {
-  width: 700px;
-  max-width: 90%;
-  padding: 14px 20px;
-  border-radius: 30px;
-  border: none;
-  font-size: 16px;
-  padding: 100px;
-  justify-content: center;
-  text-align: center;
-  border-image: fill 0 linear-gradient(#0001, #000);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 .hero {
   background: url("../image/gedung.jpg") no-repeat center center/cover;
   min-height: 400px;
@@ -223,13 +146,8 @@ main {
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
-.welcome:hover {
-  transform: translateY(-5px) scale(1.01);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-}
-
 .welcome::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -246,7 +164,7 @@ main {
 }
 
 .welcome h1 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 4rem;
   color: #333;
   margin-bottom: 15px;
@@ -265,7 +183,7 @@ main {
 }
 
 .welcome h2 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 2.4rem;
   font-weight: 800;
   margin-top: 5px;
@@ -287,8 +205,6 @@ main {
   animation: badgePulse 2s ease-in-out infinite;
 }
 
-
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -301,46 +217,78 @@ main {
 }
 
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes wave {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(10deg); }
-  75% { transform: rotate(-10deg); }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
 }
 
 @keyframes textGlow {
-  from { text-shadow: 0 0 5px rgba(0, 64, 128, 0.5); }
-  to { text-shadow: 0 0 20px rgba(0, 64, 128, 1); }
+  from {
+    text-shadow: 0 0 5px rgba(0, 64, 128, 0.5);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(0, 64, 128, 1);
+  }
 }
 
 @keyframes badgePulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 @keyframes slideInFromBottom {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes buttonGlow {
-  from { box-shadow: 0 5px 15px rgba(0, 64, 128, 0.4); }
-  to { box-shadow: 0 5px 15px rgba(0, 64, 128, 0.8); }
+  from {
+    box-shadow: 0 5px 15px rgba(0, 64, 128, 0.4);
+  }
+  to {
+    box-shadow: 0 5px 15px rgba(0, 64, 128, 0.8);
+  }
 }
 
 /* New Section */
 .new h1 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 2.2rem;
   text-align: center;
   color: #004080;
   padding-bottom: 5px;
   border-bottom: 3px solid #ff8c00;
-  max-width: 450px;
+  max-width: 500px;
   margin: 40px auto 20px auto;
 }
 
@@ -374,7 +322,8 @@ main {
   padding: 35px 25px 25px 25px;
   border-radius: 20px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease,
+    background-color 0.4s ease;
   border: 2px solid #f0f0f0;
   overflow: hidden;
   margin-top: 50px;
@@ -382,11 +331,12 @@ main {
   flex-direction: column;
   align-items: center;
   animation: cardEntrance 1.2s ease-out;
+  transform: perspective(1px) translateZ(0);
 }
 
 .card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
   background-color: #fafafa;
 }
 
@@ -580,61 +530,85 @@ main {
   color: #d0d0d0;
 }
 
-@media (max-width: 768px) {
-    .welcome {
-        padding: 30px 20px;
-        margin: 20px;
-    }
+@media (max-width: 900px) {
+  /* NAVBAR */
+  .nav-links {
+    position: fixed;
+    top: 94px;
+    left: -100%;
+    background: #00346f;
+    width: 70%;
+    height: 100vh;
+    flex-direction: column;
+    padding-top: 30px;
+    gap: 20px;
+    transition: 0.4s ease;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+  }
 
-    .welcome h1 {
-        font-size: 2rem;
-    }
+  .nav-links.show {
+    left: 0;
+  }
 
-    .welcome h1 span {
-        font-size: 2.1rem;
-    }
+  .menu-toggle {
+    display: block;
+  }
 
-    .hero {
-        padding: 50px 20px;
-        min-height: 250px;
-    }
+  .navbar .container {
+    padding-right: 20px;
+  }
+  .welcome {
+    padding: 30px 20px;
+    margin: 20px;
+  }
 
-    .hero h1 {
-        font-size: 1.7rem;
-        margin-top: 30px;
-    }
-     .footer {
-        padding: 25px 0 10px 0;
-    }
+  .welcome h1 {
+    font-size: 2rem;
+  }
 
-    .footer-container {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
+  .welcome h1 span {
+    font-size: 2.1rem;
+  }
 
-    .footer-left img {
-        width: 50px;
-    }
+  .hero {
+    padding: 50px 20px;
+    min-height: 250px;
+  }
 
-    .footer-left h3 {
-        font-size: 1.1rem;
-    }
+  .hero h1 {
+    font-size: 1.7rem;
+    margin-top: 30px;
+  }
+  .footer {
+    padding: 25px 0 10px 0;
+  }
 
-    .footer-right p,
-    .footer-center li {
-        font-size: 0.9rem;
-    }
-    .footer-right {
-      margin-left: 150px;
-    }
-    .footer-right ul {
-      margin-left: 55px;
-    }
-    .footer-center {
-      margin-left: 220px;  
-    }
-    .footer-bottom {
-      margin-left: 30px;
-    }
+  .footer-container {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .footer-left img {
+    width: 50px;
+  }
+
+  .footer-left h3 {
+    font-size: 1.1rem;
+  }
+
+  .footer-right p,
+  .footer-center li {
+    font-size: 0.9rem;
+  }
+  .footer-right {
+    margin-left: 150px;
+  }
+  .footer-right ul {
+    margin-left: 55px;
+  }
+  .footer-center {
+    margin-left: 220px;
+  }
 }
