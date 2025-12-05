@@ -115,6 +115,7 @@ include "backend/auto-arsip.php";
     </div>
     <div class="card-container">
         <?php
+<<<<<<< HEAD
     <h1>Halo👋, Selamat datang <span data-aos="fade-in" data-aos-delay="600"><?= $data['nama'] ?></span></h1>
     <h2><?= $data['nik'] ?></h2>
   </div>
@@ -124,6 +125,8 @@ include "backend/auto-arsip.php";
   </div>
   <div class="card-container">
     <?php
+=======
+>>>>>>> 1f029dd976551a9e2487f3daeb309aed184d27e0
     if (mysqli_num_rows($querySurat) == 0) {
       echo "<p class='no-sp-found' data-aos='fade-up'>🎉 Tidak ada surat peringatan aktif saat ini. Semua beres!</p>"; // Ubah tampilan pesan
     } else {
@@ -152,6 +155,7 @@ include "backend/auto-arsip.php";
             <i class="arrow-icon">→</i>
           </a>
         </div>
+<<<<<<< HEAD
     <?php
       }
     }
@@ -187,6 +191,19 @@ include "backend/auto-arsip.php";
           <li><a href="#"><img src="image/icon-instagram.png" alt="Instagram"></a></li>
         </ul>
       </div>
+=======
+
+        <a href="detail-surat.php?id=<?= $row['id'] ?>" class="detail">
+            Lihat Rincian
+         <i class="arrow-icon">→</i>
+        </a>
+    </div>
+
+    <?php
+ }
+}
+?>
+>>>>>>> 1f029dd976551a9e2487f3daeb309aed184d27e0
     </div>
     <div class="footer-bottom">
       <p>&copy; 2025 DISPOL | All Rights Reserved</p>
