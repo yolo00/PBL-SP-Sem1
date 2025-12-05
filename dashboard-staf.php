@@ -64,9 +64,9 @@ include "backend/auto-arsip.php";
     </div>
 </section>
 
-<div class="welcome" data-aos="zoom-in" data-aos-delay="200">
+<div class="welcome">
     <h1>Halo, Selamat datang <span data-aos="fade-in" data-aos-delay="600"><?= $data['nama'] ?></span></h1>
-
+</div>
 <div class="new">
     <h1>Surat Peringatan Aktif Terbaru</h1> 
     <p id="noSuratMsg" class="no-surat-msg" style="display:none;">Tidak ada surat peringatan terbaru</p>
