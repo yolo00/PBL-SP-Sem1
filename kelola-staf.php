@@ -98,9 +98,10 @@ $query = mysqli_query($conn, "
 
             <tbody>
                 <?php while($row = mysqli_fetch_assoc($query)): ?>
-                <tr 
+                <tr
                     data-nama="<?= strtolower($row['nama']) ?>"
                     data-nim="<?= strtolower($row['nim']) ?>"
+                    data-prodi="<?= strtolower($row['prodi']) ?>"
                     data-tingkat="<?= strtolower($row['tingkat']) ?>"
                     data-status="<?= strtolower($row['status']) ?>"
                 >
