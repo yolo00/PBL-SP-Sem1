@@ -72,6 +72,7 @@ include "backend/auto-arsip.php";
         </div>
     </section>
 
+<<<<<<< HEAD
     <div class="welcome" data-aos="fade-up" data-aos-delay="200">
         <h1>Halo👋, Selamat datang <span data-aos="fade-in" data-aos-delay="600"><?= $data['nama'] ?></span></h1>
         <h2><?= $data['nik'] ?></h2>
@@ -82,6 +83,18 @@ include "backend/auto-arsip.php";
     </div>
     <div class="card-container">
         <?php
+=======
+<div class="welcome">
+    <h1>Halo👋, Selamat datang <span data-aos="fade-in" data-aos-delay="600"><?= $data['nama'] ?></span></h1>
+    <h2><?= $data['nik'] ?></h2>
+</div>
+<div class="new">
+    <h1>Surat Peringatan Aktif Terbaru</h1> 
+    <p id="noSuratMsg" class="no-surat-msg" style="display:none;">Tidak ada surat peringatan terbaru</p>
+</div>
+<div class="card-container">
+    <?php
+>>>>>>> 3459080310a429bae40747990abfd2b124d5326c
     if (mysqli_num_rows($querySurat) == 0) {
         echo "<p class='no-sp-found' data-aos='fade-up'>🎉 Tidak ada surat peringatan aktif saat ini. Semua beres!</p>"; // Ubah tampilan pesan
     } else {
