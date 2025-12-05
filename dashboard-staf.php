@@ -65,7 +65,8 @@ include "backend/auto-arsip.php";
 </section>
 
 <div class="welcome" data-aos="fade-up" data-aos-delay="200">
-    <h1>Halo, Selamat datang <span data-aos="fade-in" data-aos-delay="600"><?= $data['nama'] ?></span></h1>
+    <h1>Halo👋, Selamat datang <span data-aos="fade-in" data-aos-delay="600"><?= $data['nama'] ?></span></h1>
+    <h2><?= $data['nik'] ?></h2>
 </div>
 <div class="new">
     <h1>Surat Peringatan Aktif Terbaru</h1> 
