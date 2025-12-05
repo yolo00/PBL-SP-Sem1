@@ -12,7 +12,7 @@ $data = mysqli_fetch_assoc($query);
 <head>
     <meta charset="UTF-8">
     <title>Edit Surat</title>
-    <link rel="stylesheet" href="css/tambah-surat.css">
+    <link rel="stylesheet" href="css/edit_surat.css">
 </head>
 <body>
 
