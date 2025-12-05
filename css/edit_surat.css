@@ -1,360 +1,311 @@
-/* Nama file: edit_surat.css*/
-/* Dibuat oleh: Nur Iliyanie*/
-
-/* ===== RESET & BASE ===== */
+/* RESET STANDAR */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* ================================================= */
+/* 🎨 BODY & LAYOUT UTAMA (Perbaikan Background & Font) */
+/* ================================================= */
 body {
-  font-family: 'Poppins', Arial, sans-serif;
-  background-color: #f4f6f9;
-  line-height: 1.6;
-  color: #333;
-  padding-top: 70px;
+    /* Menggunakan font yang lebih modern dan bersih */
+    font-family: 'Poppins', sans-serif; /* Asumsi font Poppins diimport atau diganti dengan 'Arial' jika tidak */
+    line-height: 1.6;
+    background-color: #f0f2f5; /* Background abu-abu muda yang lembut */
+    /* background: url(/image/background-utama.png) center;
+    background-size: cover;
+    background-repeat: no-repeat; */
+    /* Hapus/Komentari jika tidak ada image background */
 }
 
-.page-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* Jarak dari Navbar */
+body {
+    padding-top: 70px; /* Pertahankan jarak ini dari navbar fixed */
 }
 
-.content-wrap {
-  flex: 1;
-}
+/* ================================================= */
+/* 🚫 NAVBAR (TIDAK DIUBAH Sesuai Permintaan) */
+/* ================================================= */
 
-/* ===== NAVBAR (sama seperti halaman lain) ===== */
 .navbar {
-  background: #004080;
-  padding: 1rem 0;
-  color: white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+    background: #004080;
+    padding: 1rem 0;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
 }
-
+/* ... (Aturan navbar lainnya tetap sama) ... */
 .navbar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 2000px;
-  margin: 0 auto;
-  padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 0 16px;
 }
-
+.nav-inner { 
+    gap: 12px; 
+}
 .logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
-
 .logo img {
-  border-radius: 6px;
+    display: block;
+    border-radius: 6px;
 }
-
-.brand {
-  color: #ffffff;
-  margin-left: 10px;
-  font-weight: 800;
-  font-size: 1.1rem;
-  letter-spacing: 0.5px;
+.brand { 
+    color: #ffffff;
+    margin-left: 10px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
 }
-
 .brand-o {
-  color: #ff8c00;
+    color: #ff8c00; 
 }
-
 .navbar .nav-links {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
+    list-style: none;
+    display: flex;
+    margin-right: 20px;
+    align-items: center;
 }
-
+.navbar .nav-links li .active {
+    color:#e04e32;
+}
 .navbar .nav-links li {
-  margin-left: 20px;
+    margin-left: 20px;
 }
-
 .navbar .nav-links a {
-  color: white;
-  text-decoration: none;
-  transition: 0.5s;
+    color: white;
+    text-decoration: none;
+}
+.navbar .nav-links a:hover {
+    color: #e04e32;
 }
 
-.navbar .nav-links a:hover,
-.navbar .nav-links .active {
-  color: #e04e32;
+
+/* ===== POPUP SEARCH OVERLAY (TIDAK DIUBAH) ===== */
+.search-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    backdrop-filter: blur(3px);
 }
 
-/* ===== HEADER (Judul + Tombol kembali) ===== */
-.judul-kembali {
-  display: flex;
-  flex-direction: column;
-  margin: 20px 40px;
-  position: relative;
-  width: calc(100% - 80px);
+.search-overlay.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
 }
 
-.btn-kembali {
-  background-color: #153d7e;
-  color: #ffffff;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: 0.3s;
-  margin-bottom: 20px;
-  z-index: 10;
-  align-self: flex-start;
-}
-
-.btn-kembali:hover {
-  background-color: #135bc7;
-}
-
-.judul-kembali h1 {
-  color: #153d7e;
-  font-size: 28px;
-  font-weight: 700;
-  margin: 0;
-  width: 100%;
-  text-align: center;
-}
-
-/* ===== FORM WRAPPER ===== */
-.form-container {
-  position: relative; /* allow absolutely positioned controls inside card */
-  background: #fff;
-  width: 90%;
-  max-width: 700px;
-  margin: 20px auto 60px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  padding: 35px 40px 45px;
-  animation: fadeIn 0.6s ease;
-}
-
-/* Back button placed inside the card (top-left) */
-.form-container .btn-kembali {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  padding: 8px 14px;
-  border-radius: 8px;
-  background: transparent;
-  color: #153d7e;
-  border: 1px solid rgba(21,61,126,0.12);
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-}
-
-.form-container .btn-kembali:hover {
-  background: rgba(21,61,126,0.06);
+.search-box input {
+    width: 700px;
+    max-width: 90%;
+    padding: 14px 20px;
+    border-radius: 30px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+    margin-bottom: 500px;
+    display: flex auto;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+/* ================================================= */
+/* 🎨 MAIN CONTENT & JUDUL (Tampilan Lebih Rapi) */
+/* ================================================= */
+main {
+    text-align: center;
+    padding: 40px 20px; /* Padding sedikit dilebarkan */
 }
 
-/* ===== FORM INPUTS ===== */
-.form-group {
-  margin-bottom: 18px;
-  text-align: left;
+.title-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Tetap center, tombol kembali akan diabsolutkan */
+    gap: 16px;
+    margin-bottom: 25px; /* Jarak yang lebih baik ke form */
+    position: relative; /* Penting untuk posisi tombol kembali */
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 6px;
-  color: #153d7e;
-  font-weight: 600;
+/* Judul Utama */
+.title-bar h1 {
+    color: #153d7e;
+    font-size: 2.2rem; /* Ukuran lebih besar */
+    font-weight: 800;
+    text-align: center;
+    /* flex: 1; -> Dihapus, biarkan di tengah alami */
+    margin: 0; /* Hapus margin default */
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 15px;
-  outline: none;
-  transition: 0.2s;
+/* Tombol Kembali di kiri (Posisi Disesuaikan) */
+.btn-kembali {
+    position: absolute;
+    left: 0; /* Posisikan ke kiri container main */
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #3b82f6; /* Warna lebih cerah */
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px; /* Padding sedikit disesuaikan */
+    border-radius: 8px; /* Lebih halus */
+    font-family: inherit;
+    font-weight: 600; /* Lebih tebal */
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: #153d7e;
-  box-shadow: 0 0 5px rgba(21, 61, 126, 0.4);
+.btn-kembali:hover {
+    background-color: #2563eb;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* ===== BUTTONS ===== */
-.form-button {
-  display: flex;
-  justify-content: flex-end; /* align actions to the right */
-  gap: 15px;
-  margin-top: 25px;
+/* ================================================= */
+/* 📝 FORM CONTAINER (Desain Kartu) */
+/* ================================================= */
+.form-container {
+    background: white;
+    width: 90%;
+    max-width: 1200px; /* Lebar lebih besar untuk banyak kolom */
+    margin: 0 auto;
+    border-radius: 16px; /* Lebih membulat */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* Bayangan lebih halus dan dalam */
+    padding: 40px;
+    text-align: left;
+    border: 1px solid #e0e0e0; /* Border halus */
 }
 
-.btn-simpan {
-  background-color: #153d7e;
-  color: white;
-  padding: 10px 25px;
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+.form-container h2 {
+    color: #153d7e;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #f0f2f5; /* Garis pemisah halus */
+    padding-bottom: 10px;
 }
 
-.btn-simpan:hover {
-  background-color: #135bc7;
-  transform: translateY(-2px);
+/* ================================================= */
+/* 🌐 GRID FORM (Layout 3 Kolom Responsif) */
+/* ================================================= */
+.form-grid {
+    /* Menggunakan Grid Layout untuk 3 kolom */
+    display: grid;
+    /* 3 kolom dengan lebar minimum 250px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px; /* Jarak antar item lebih besar */
+    margin-bottom: 25px;
+}
+
+.form-container label {
+    font-weight: 600; /* Lebih tebal */
+    color: #4b5563; /* Warna teks label lebih gelap */
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    padding: 10px 12px; /* Padding lebih besar */
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus {
+    border-color: #3b82f6; /* Border warna aksen saat fokus */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2); /* Ring fokus */
+    outline: none;
+}
+
+/* Perbaikan Area Teks Khusus (Perihal & Deskripsi) */
+.form-group-full-width {
+    grid-column: 1 / -1; /* Membuat elemen ini menempati lebar penuh (12 kolom) */
+}
+.form-group-full-width textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Unggah File (Clean Design) */
+.upload-section {
+    background: #f9f9f9;
+    border: 2px dashed #a5b4fc; /* Border dashed warna aksen */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 25px;
+    grid-column: 1 / -1; /* Lebar penuh */
+}
+
+.upload-section input[type="file"] {
+    margin-top: 10px;
+    cursor: pointer;
+    /* Mengatasi styling input file yang sulit diatur */
+    border: none;
+    padding: 0;
+}
+
+
+/* ================================================= */
+/* 🚀 TOMBOL AKSI (Modern & Jelas) */
+/* ================================================= */
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px; /* Jarak antar tombol */
+    margin-top: 30px;
+    border-top: 1px solid #e0e0e0; /* Garis pemisah */
+    padding-top: 20px;
+}
+
+.btn-batal, .btn-kirim {
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn-batal {
-  background: transparent;
-  color: #e04e32; /* red text */
-  padding: 10px 18px;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: color 0.2s, background 0.2s;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
+    background-color: #9ca3af;
+    color: white;
 }
 
 .btn-batal:hover {
-  color: #b73728;
-  background: rgba(224,78,50,0.04);
+    background-color: #6b7280;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* ===== FOOTER ===== */
-.footer {
-  background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
-  color: #fff;
-  padding: 40px 0 10px 0;
-  margin-top: auto;
-  box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.3);
-  font-family: 'Poppins', sans-serif;
+.btn-kirim {
+    background-color: #3b82f6;
+    color: white;
 }
 
-.footer-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  max-width: 1100px;
-  margin: auto;
-  gap: 30px;
-}
-
-.footer-left {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex: 1;
-  min-width: 250px;
-}
-
-.footer-left img {
-  border-radius: 8px;
-}
-
-.footer-left h3 {
-  color: #ff8c00;
-  margin-bottom: 5px;
-  font-size: 1.3rem;
-}
-
-.footer-center h4,
-.footer-right h4 {
-  color: #ff8c00;
-  margin-bottom: 10px;
-  font-size: 1.1rem;
-}
-
-.footer-center ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-center li {
-  margin: 6px 0;
-}
-
-.footer-center a {
-  color: #fff;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.footer-center a:hover {
-  color: #ff8c00;
-}
-
-.footer-right p {
-  font-size: 0.95rem;
-  margin-bottom: 10px;
-}
-
-.social-links {
-  list-style: none;
-  display: flex;
-  gap: 12px;
-  margin-top: 10px;
-}
-
-.social-links img {
-  width: 24px;
-  height: 24px;
-  filter: brightness(0) invert(1);
-  transition: transform 0.3s, filter 0.3s;
-}
-
-.social-links img:hover {
-  transform: scale(1.2);
-  filter: brightness(0) invert(0.6) sepia(1) saturate(5) hue-rotate(15deg);
-}
-
-.footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  text-align: center;
-  margin-top: 20px;
-  padding-top: 10px;
-  font-size: 0.9rem;
-  color: #d0d0d0;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .btn-kembali {
-    position: static;
-    margin-bottom: 15px;
-  }
-
-  .judul-kembali h1 {
-    text-align: center;
-  }
-
-  .form-container {
-    padding: 25px 20px;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-  }
+.btn-kirim:hover {
+    background-color: #2563eb;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }

@@ -12,8 +12,12 @@ $data = mysqli_fetch_assoc($query);
 <head>
     <meta charset="UTF-8">
     <title>Edit Surat</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="css/tambah-surat.css">
     <link rel="icon" type="image/png" href="image/dispol.png">
+=======
+    <link rel="stylesheet" href="css/edit_surat.css">
+>>>>>>> 89ce14c3b7cdde4d404c364999c975e01cb901aa
 </head>
 <body>
 
