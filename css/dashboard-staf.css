@@ -144,7 +144,9 @@ main {
 
 .hero {
   background: url("../image/gedung.jpg") no-repeat center center/cover;
-  height: 600px;
+  min-height: 400px;
+  height: auto;
+  padding: 100px;
   color: rgba(255, 255, 255, 0.5);
   padding: 100px;
   justify-content: center;
@@ -165,7 +167,7 @@ main {
   background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
   border-radius: 20px;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-  max-width: 800px;
+  max-width: auto;
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.8);
