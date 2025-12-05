@@ -72,7 +72,11 @@ include "backend/auto-arsip.php";
         </div>
     </section>
 
+<<<<<<< HEAD
     <div class="welcome">
+=======
+    <div class="welcome" data-aos="fade-up" data-aos-delay="200">
+>>>>>>> 427ceb4646046ae28aeadc3930217c6f844ba45d
         <h1>Halo👋, Selamat datang <span data-aos="fade-in" data-aos-delay="600"><?= $data['nama'] ?></span></h1>
         <h2><?= $data['nik'] ?></h2>
     </div>
@@ -110,7 +114,14 @@ include "backend/auto-arsip.php";
                 <i class="arrow-icon">→</i>
             </a>
         </div>
-        <?php
+
+        <a href="detail-surat.php?id=<?= $row['id'] ?>" class="detail">
+            Lihat Rincian
+         <i class="arrow-icon">→</i>
+        </a>
+    </div>
+
+    <?php
  }
 }
 ?>

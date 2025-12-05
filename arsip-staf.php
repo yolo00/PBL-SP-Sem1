@@ -50,32 +50,30 @@ if (!$query) {
   <div class="page-container">
     <main class="content-wrap">
 
-      <!-- ========================= -->
-      <!-- FILTER DALAM CARD -->
-      <!-- ========================= -->
-      <div class="filter-card">
-        <h3>Filter Data Arsip</h3>
+<!-- ========================= -->
+<!-- FILTER DALAM CARD -->
+<!-- ========================= -->
+<div class="filter-card">
+    <div class="filter-bar">
 
-        <div class="filter-grid">
-
-          <div class="filter-group">
-            <label>Cari Nama / NIM / Prodi:</label>
-            <input type="text" id="filterSearch" class="filter-input" placeholder="Masukkan kata kunci...">
-          </div>
-
-          <div class="filter-group">
-            <label>Pilih Tingkat SP:</label>
-            <select id="filterTingkat" class="filter-select">
-              <option value="">Semua tingkat</option>
-              <option value="sp i">SP I</option>
-              <option value="sp ii">SP II</option>
-              <option value="sp iii">SP III</option>
-            </select>
-          </div>
-
+        <!-- Search Input -->
+        <div class="search-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="filterSearch" class="search-input" placeholder="Cari">
         </div>
-      </div>
-      <!-- END FILTER CARD -->
+
+        <!-- Filter Tingkat SP -->
+        <select id="filterTingkat" class="filter-select">
+            <option value="">Semua Tingkat Peringatan</option>
+            <option value="SP I">SP I</option>
+            <option value="SP II">SP II</option>
+            <option value="SP III">SP III</option>
+        </select>
+
+    </div>
+</div>
+
+<!-- END FILTER CARD -->
 
       <div class="table-container">
         <table id="arsipTable">
@@ -97,7 +95,12 @@ if (!$query) {
               </tr>
             <?php else: ?>
               <?php while ($row = mysqli_fetch_assoc($query)): ?>
-                <tr class="clickable-row" onclick="window.location='detail_arsip.php?id=<?= $row['id'] ?>'">
+                <tr class="clickable-row" onclick="window.location='detail_arsip.php?id=<?= $row['id'] ?>'"
+                    data-nama="<?= strtolower($row['nama']) ?>"
+                    data-nim="<?= strtolower($row['nim']) ?>"
+                    data-prodi="<?= strtolower($row['prodi']) ?>"
+                    data-tingkat="<?= strtolower($row['tingkat']) ?>"
+                    data-status="<?= strtolower($row['status']) ?>">
                   <td><?= $row['nama'] ?></td>
                   <td><?= $row['nim'] ?></td>
                   <td><?= $row['prodi'] ?></td>

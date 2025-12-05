@@ -95,6 +95,41 @@ h1 {
   font-size: 1.8rem;
   font-weight: 700;
 }
+/* ---------- FILTER ---------- */
+
+.filter-bar {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 260px;
+}
+
+.search-wrapper .search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.6;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 40px;
+    border-radius: 8px;
+    border: 1px solid #d0d0d0;
+}
+
+.filter-select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d0d0d0;
+}
 
 /* ================= CARD ================= */
 main {
