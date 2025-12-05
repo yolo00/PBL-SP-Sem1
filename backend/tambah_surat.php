@@ -1,39 +1,20 @@
 <?php
 include "config.php";
 
-// Ambil NIM dari input form
-$nim = $_POST['nim'];
+// Ambil data dari form dan amankan dari SQL Injection
+$nim        = mysqli_real_escape_string($conn, $_POST['nim']);
+$nama       = mysqli_real_escape_string($conn, $_POST['nama']);
+$jurusan    = mysqli_real_escape_string($conn, $_POST['jurusan']);
+$prodi      = mysqli_real_escape_string($conn, $_POST['prodi']);
+$kelas      = mysqli_real_escape_string($conn, $_POST['kelas']);
+$semester   = mysqli_real_escape_string($conn, $_POST['semester']);
+$sesi_kelas = mysqli_real_escape_string($conn, $_POST['sesi_kelas']);
 
-// ===============================
-// CEK APAKAH NIM TERDAFTAR DI USERS
-// ===============================
-$cekMhs = mysqli_query($conn, "SELECT * FROM users WHERE nim='$nim' AND role='mahasiswa'");
-
-if (mysqli_num_rows($cekMhs) == 0) {
-    echo "<script>
-            alert('Mahasiswa dengan NIM tersebut tidak ditemukan!');
-            history.back();
-          </script>";
-    exit;
-}
-
-$mhs = mysqli_fetch_assoc($cekMhs);
-
-// Ambil data mahasiswa dari DB (AUTO)
-$nama     = $mhs['nama'];
-$jurusan  = $mhs['jurusan'];
-$prodi    = $mhs['prodi'];
-$kelas    = $mhs['kelas'];
-$angkatan = $mhs['angkatan']; // kalau nanti mau dipakai
-
-// Ambil data SP dari form
-$tingkat     = $_POST['tingkat'];
-$tanggal     = $_POST['tanggal'];
-$sampai      = $_POST['sampai'];
-$perihal     = $_POST['perihal'];
-$deskripsi   = $_POST['deskripsi'];
-$semester    = $_POST['semester'];
-$sesi_kelas  = $_POST['sesi_kelas'];
+$tingkat    = mysqli_real_escape_string($conn, $_POST['tingkat']);
+$tanggal    = mysqli_real_escape_string($conn, $_POST['tanggal']);
+$sampai     = mysqli_real_escape_string($conn, $_POST['sampai']);
+$perihal    = mysqli_real_escape_string($conn, $_POST['perihal']);
+$deskripsi  = mysqli_real_escape_string($conn, $_POST['deskripsi']);
 
 // ===============================
 // HANDLE UPLOAD FILE
@@ -41,26 +22,34 @@ $sesi_kelas  = $_POST['sesi_kelas'];
 $fileName = null;
 
 if (!empty($_FILES['file']['name'])) {
-
     // Pastikan folder upload tersedia
     if (!is_dir("../uploads")) {
         mkdir("../uploads");
     }
 
-    $fileName = time() . "_" . $_FILES['file']['name'];
-    move_uploaded_file($_FILES['file']['tmp_name'], "../uploads/" . $fileName);
+    $originalName = $_FILES['file']['name'];
+    $ext = pathinfo($originalName, PATHINFO_EXTENSION);
+    $cleanName = time() . "_" . uniqid() . "." . $ext; // Generate unique safe filename
+    
+    if (move_uploaded_file($_FILES['file']['tmp_name'], "../uploads/" . $cleanName)) {
+        $fileName = mysqli_real_escape_string($conn, $cleanName);
+    }
 }
 
 // ===============================
 // INSERT KE TABEL SURAT PERINGATAN
 // ===============================
+// Kita gunakan data dari form langsung agar sesuai inputan staf
+// Default status kita set 'aktif' agar muncul di kelola-staf
+// NOTE: Kolom 'semester' dan 'sesi_kelas' dihapus sementara karena belum ada di database.
+// Silakan jalankan SETUP_DATABASE.sql jika ingin mengaktifkan fitur tersebut.
 $query = mysqli_query($conn, "
     INSERT INTO surat_peringatan(
         nama, nim, jurusan, prodi, kelas,
-        tingkat, tanggal, sampai, perihal, deskripsi, file, semester, sesi_kelas
+        tingkat, tanggal, sampai, perihal, deskripsi, file, status
     ) VALUES(
         '$nama', '$nim', '$jurusan', '$prodi', '$kelas',
-        '$tingkat', '$tanggal', '$sampai', '$perihal', '$deskripsi', '$fileName', '$semester', '$sesi_kelas'
+        '$tingkat', '$tanggal', '$sampai', '$perihal', '$deskripsi', '$fileName', 'aktif'
     )
 ");
 

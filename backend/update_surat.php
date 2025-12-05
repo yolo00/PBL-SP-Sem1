@@ -1,23 +1,24 @@
 <?php
 include "config.php";
 
-$id         = $_POST['id'];
-$nama       = $_POST['nama'];
-$nim        = $_POST['nim'];
-$jurusan    = $_POST['jurusan'];
-$prodi      = $_POST['prodi'];
-$kelas      = $_POST['kelas'];
-$tingkat    = $_POST['tingkat'];
-$tanggal    = $_POST['tanggal'];
-$sampai     = $_POST['sampai'];
-$status     = $_POST['status'];
-$perihal    = $_POST['perihal'];
-$deskripsi  = $_POST['deskripsi'];
-$semester   = $_POST['semester'];
-$sesi_kelas = $_POST['sesi_kelas'];
+$id         = mysqli_real_escape_string($conn, $_POST['id']);
+$nama       = mysqli_real_escape_string($conn, $_POST['nama']);
+$nim        = mysqli_real_escape_string($conn, $_POST['nim']);
+$jurusan    = mysqli_real_escape_string($conn, $_POST['jurusan']);
+$prodi      = mysqli_real_escape_string($conn, $_POST['prodi']);
+$kelas      = mysqli_real_escape_string($conn, $_POST['kelas']);
+$tingkat    = mysqli_real_escape_string($conn, $_POST['tingkat']);
+$tanggal    = mysqli_real_escape_string($conn, $_POST['tanggal']);
+$sampai     = mysqli_real_escape_string($conn, $_POST['sampai']);
+$status     = mysqli_real_escape_string($conn, $_POST['status']);
+$perihal    = mysqli_real_escape_string($conn, $_POST['perihal']);
+$deskripsi  = mysqli_real_escape_string($conn, $_POST['deskripsi']);
+// $semester   = mysqli_real_escape_string($conn, $_POST['semester']); // Kolom belum ada
+// $sesi_kelas = mysqli_real_escape_string($conn, $_POST['sesi_kelas']); // Kolom belum ada
 
 // Cek apakah ada file baru di-upload
 $newFileName = null;
+$updateFileQueryPart = "";
 
 if (!empty($_FILES['file']['name'])) {
 
@@ -25,49 +26,32 @@ if (!empty($_FILES['file']['name'])) {
         mkdir("../uploads");
     }
 
-    $newFileName = time() . "_" . $_FILES['file']['name'];
-    move_uploaded_file($_FILES['file']['tmp_name'], "../uploads/" . $newFileName);
+    $originalName = $_FILES['file']['name'];
+    $ext = pathinfo($originalName, PATHINFO_EXTENSION);
+    $cleanName = time() . "_" . uniqid() . "." . $ext;
 
-    $updateQuery = "
-        UPDATE surat_peringatan SET
-        nama='$nama',
-        nim='$nim',
-        jurusan='$jurusan',
-        prodi='$prodi',
-        kelas='$kelas',
-        tingkat='$tingkat',
-        tanggal='$tanggal',
-        sampai='$sampai',
-        perihal='$perihal',
-        deskripsi='$deskripsi',
-        file='$newFileName',
-        status='$status',
-        semester='$semester',
-        sesi_kelas='$sesi_kelas'
-        WHERE id='$id'
-    ";
+    if (move_uploaded_file($_FILES['file']['tmp_name'], "../uploads/" . $cleanName)) {
+        $newFileName = mysqli_real_escape_string($conn, $cleanName);
+        $updateFileQueryPart = ", file='$newFileName'";
+    }
 } 
-else {
 
-    // Jika file TIDAK diganti
-    $updateQuery = "
-        UPDATE surat_peringatan SET
-        nama='$nama',
-        nim='$nim',
-        jurusan='$jurusan',
-        prodi='$prodi',
-        kelas='$kelas',
-        tingkat='$tingkat',
-        tanggal='$tanggal',
-        sampai='$sampai',
-        status='$status',
-        perihal='$perihal',
-        deskripsi='$deskripsi',
-        semester='$semester',
-        sesi_kelas='$sesi_kelas'
-        WHERE id='$id'
-    ";
-}
+$updateQuery = "
+    UPDATE surat_peringatan SET
+    nama='$nama',
+    nim='$nim',
+    jurusan='$jurusan',
+    prodi='$prodi',
+    kelas='$kelas',
+    tingkat='$tingkat',
+    tanggal='$tanggal',
+    sampai='$sampai',
+    perihal='$perihal',
+    deskripsi='$deskripsi',
+    status='$status'
+    $updateFileQueryPart
+    WHERE id='$id'
+";
 
 // Eksekusi
 $result = mysqli_query($conn, $updateQuery);

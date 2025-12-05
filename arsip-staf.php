@@ -9,6 +9,10 @@ $query = mysqli_query($conn, "
   WHERE status='selesai'
   ORDER BY id DESC
 ");
+
+if (!$query) {
+    die("Query Error: " . mysqli_error($conn));
+}
 ?>
 
 <!DOCTYPE html>

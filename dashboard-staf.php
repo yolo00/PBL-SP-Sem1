@@ -58,62 +58,57 @@ include "backend/auto-arsip.php";
             </ul>
         </div>
     </nav>
-    <section id="home" class="hero">
-        <div data-aos="fade-up">
-            <h1>Selamat Datang di Layanan Surat Peringatan Mahasiswa Polibatam</h1>
-        </div>
-    </section>
-
-    <div class="welcome">
-  <h1>
-    Halo, Selamat datang 
-    <span><?= $data['nama'] ?></span> 👋
-  </h1>
-
-  <h2><?= $data['username'] ?></h2>
-</div>
-
-    <div class="new">
-      <h1>Lihat Surat Peringatan</h1>
-      <p id="noSuratMsg" class="no-surat-msg" style="display:none;">Tidak ada surat peringatan terbaru</p>
+<section id="home" class="hero">
+    <div data-aos="fade-up" data-aos-duration="1500">
+        <h1>Selamat Datang di Layanan Surat Peringatan Mahasiswa Polibatam</h1>
     </div>
-    <div class="card-container">
-      <?php
-        if (mysqli_num_rows($querySurat) == 0) {
-          echo "<p style='text-align:center;color:gray;'>Belum ada surat peringatan</p>";
-        } else {
-        while ($row = mysqli_fetch_assoc($querySurat)) {
+</section>
+
+<div class="welcome" data-aos="zoom-in" data-aos-delay="200">
+    <h1>Halo, Selamat datang <span data-aos="fade-in" data-aos-delay="600"><?= $data['nama'] ?></span></h1>
+
+<div class="new">
+    <h1>Surat Peringatan Aktif Terbaru</h1> 
+    <p id="noSuratMsg" class="no-surat-msg" style="display:none;">Tidak ada surat peringatan terbaru</p>
+</div>
+<div class="card-container">
+    <?php
+    if (mysqli_num_rows($querySurat) == 0) {
+        echo "<p class='no-sp-found' data-aos='fade-up'>🎉 Tidak ada surat peringatan aktif saat ini. Semua beres!</p>"; // Ubah tampilan pesan
+    } else {
+    while ($row = mysqli_fetch_assoc($querySurat)) {
 
         // Tentukan warna label SP
         $labelClass = "sp1";
         if ($row['tingkat'] == "SP II") $labelClass = "sp2";
         if ($row['tingkat'] == "SP III") $labelClass = "sp3";
-      ?>
-    
-      <div class="card" data-aos="fade-up">
+    ?>
+
+    <div class="card" data-aos="fade-up">
         <div class="sp-label <?= $labelClass ?>"><?= $row['tingkat'] ?></div>
         <div class="photo"></div>
 
-        <p>
-            <strong><?= $row['nama'] ?></strong><br>
-            <?= $row['nim'] ?><br>
-            <?= $row['prodi'] ?><br>
-            <?= $row['tanggal'] ?><br>
-            <?= $row['status'] ?? 'Aktif' ?>
-        </p>
+        <div class="card-content">
+            <p class="student-name"><strong><?= $row['nama'] ?></strong></p>
+            <p class="student-detail">NIM: <?= $row['nim'] ?></p>
+            <p class="student-detail">Prodi: <?= $row['prodi'] ?></p>
+            <p class="issue-date">Tgl. Terbit: <?= $row['tanggal'] ?></p>
+            <p class="sp-status">Status: <?= $row['status'] ?? 'Aktif' ?></p>
+        </div>
 
         <a href="detail-surat.php?id=<?= $row['id'] ?>" class="detail">
-            Rincian
+            Lihat Rincian
+         <i class="arrow-icon">→</i>
         </a>
-      </div>
-
-      <?php
-          }
-      }
-      ?>
     </div>
 
-    <footer class="footer">
+    <?php
+ }
+}
+?>
+</div>
+
+<footer class="footer">
   <div class="footer-container">
     <div class="footer-left">
       <img src="image/dispol.png" alt="Logo Dispol" width="60">
