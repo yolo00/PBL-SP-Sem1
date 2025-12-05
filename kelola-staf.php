@@ -99,25 +99,6 @@ $query = mysqli_query($conn, "
             </thead>
 
             <tbody>
-<<<<<<< HEAD
-              <?php while ($row = mysqli_fetch_assoc($query)): ?>
-                <tr
-                  data-nama="<?= strtolower($row['nama']) ?>"
-                  data-nim="<?= strtolower($row['nim']) ?>"
-                  data-tingkat="<?= strtolower($row['tingkat']) ?>"
-                  data-status="<?= strtolower($row['status']) ?>">
-                  <td><?= $row['nama'] ?></td>
-                  <td><?= $row['nim'] ?></td>
-                  <td><?= $row['prodi'] ?></td>
-                  <td><?= $row['tingkat'] ?></td>
-                  <td><?= date('d/m/Y', strtotime($row['tanggal'])) ?></td>
-                  <td><?= $row['status'] ?></td>
-                  <td>
-                    <a href="edit_surat.php?id=<?= $row['id'] ?>">✏️</a>
-                    <a href="backend/arsip-manual.php?id=<?= $row['id'] ?>">📁</a>
-                    <a href="backend/surat-delete.php?id=<?= $row['id'] ?>">🗑️</a>
-                  </td>
-=======
                 <?php while($row = mysqli_fetch_assoc($query)): ?>
                 <tr
                     data-nama="<?= strtolower($row['nama']) ?>"
@@ -137,7 +118,6 @@ $query = mysqli_query($conn, "
                         <a href="backend/arsip-manual.php?id=<?= $row['id'] ?>">📁</a>
                         <a href="backend/surat-delete.php?id=<?= $row['id'] ?>">🗑️</a>
                     </td>
->>>>>>> 1f029dd976551a9e2487f3daeb309aed184d27e0
                 </tr>
               <?php endwhile ?>
             </tbody>

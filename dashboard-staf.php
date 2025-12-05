@@ -115,18 +115,6 @@ include "backend/auto-arsip.php";
     </div>
     <div class="card-container">
         <?php
-<<<<<<< HEAD
-    <h1>Halo👋, Selamat datang <span data-aos="fade-in" data-aos-delay="600"><?= $data['nama'] ?></span></h1>
-    <h2><?= $data['nik'] ?></h2>
-  </div>
-  <div class="new">
-    <h1>Surat Peringatan Aktif Terbaru</h1>
-    <p id="noSuratMsg" class="no-surat-msg" style="display:none;">Tidak ada surat peringatan terbaru</p>
-  </div>
-  <div class="card-container">
-    <?php
-=======
->>>>>>> 1f029dd976551a9e2487f3daeb309aed184d27e0
     if (mysqli_num_rows($querySurat) == 0) {
       echo "<p class='no-sp-found' data-aos='fade-up'>🎉 Tidak ada surat peringatan aktif saat ini. Semua beres!</p>"; // Ubah tampilan pesan
     } else {
@@ -155,43 +143,6 @@ include "backend/auto-arsip.php";
             <i class="arrow-icon">→</i>
           </a>
         </div>
-<<<<<<< HEAD
-    <?php
-      }
-    }
-    ?>
-  </div>
-
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-left">
-        <img src="image/dispol.png" alt="Logo Dispol" width="60">
-        <div>
-          <h3>DISPOL</h3>
-          <p>Digitalisasi Surat Peringatan Mahasiswa Polibatam</p>
-        </div>
-      </div>
-
-      <div class="footer-center">
-        <h4>Menu</h4>
-        <ul>
-          <li><a href="dashboard-staf.php">Beranda</a></li>
-          <li><a href="kelola-staf.php">Kelola</a></li>
-          <li><a href="arsip-staf.php">Arsip</a></li>
-          <li><a href="profil-staf.php">Profil</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-right">
-        <h4>Hubungi Kami</h4>
-        <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
-        <ul class="social-links">
-          <li><a href="#"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
-          <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
-          <li><a href="#"><img src="image/icon-instagram.png" alt="Instagram"></a></li>
-        </ul>
-      </div>
-=======
 
         <a href="detail-surat.php?id=<?= $row['id'] ?>" class="detail">
             Lihat Rincian
@@ -203,7 +154,6 @@ include "backend/auto-arsip.php";
  }
 }
 ?>
->>>>>>> 1f029dd976551a9e2487f3daeb309aed184d27e0
     </div>
     <div class="footer-bottom">
       <p>&copy; 2025 DISPOL | All Rights Reserved</p>
