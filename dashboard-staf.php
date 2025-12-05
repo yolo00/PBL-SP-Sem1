@@ -64,7 +64,7 @@ include "backend/auto-arsip.php";
     </div>
 </section>
 
-<div class="welcome" data-aos="fade-up" data-aos-delay="200">
+<div class="welcome" data-aos="zoom-in" data-aos-delay="200">
     <h1>Halo, Selamat datang <span data-aos="fade-in" data-aos-delay="600"><?= $data['nama'] ?></span></h1>
 
 <div class="new">
@@ -101,6 +101,7 @@ include "backend/auto-arsip.php";
          <i class="arrow-icon">→</i>
         </a>
     </div>
+
     <?php
  }
 }
