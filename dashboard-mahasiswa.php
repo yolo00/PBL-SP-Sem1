@@ -26,9 +26,10 @@ $spQuery = mysqli_query($conn, "
 ");
 ?>
 
-<!DOCTYPE html><!--Michael Sando Turnip-->
+<!DOCTYPE html>
 <html lang="en">
 <head>
+<!--Michael Sando Turnip-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/dashboard-mahasiswa.css"><!--CSS-->
@@ -79,23 +80,15 @@ $spQuery = mysqli_query($conn, "
               <th>Tingkat SP</th>
               <th>Tanggal</th>
               <th>Status</th>
-              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
                 <?php while ($sp = mysqli_fetch_assoc($spQuery)) : ?>
-                  <tr>
+                  <tr onclick="window.location='lihat-sp-mh.php?id=<?= $sp['id'] ?>'" class="clickable-row">
                     <td><?= htmlspecialchars($sp['perihal']) ?></td>
                     <td><?= htmlspecialchars($sp['tingkat']) ?></td>
                     <td><?= date('d/m/Y', strtotime($sp['tanggal'])) ?></td>
                     <td><?= htmlspecialchars($sp['status']) ?></td>
-                    <td>
-                      <?php if ($sp['file']) : ?>
-                        <a href="uploads/<?= $sp['file'] ?>" target="_blank">📄 Lihat</a>
-                      <?php else : ?>
-                        <span>-</span>
-                      <?php endif; ?>
-                    </td>
                   </tr>
                 <?php endwhile; ?>
           </tbody>
