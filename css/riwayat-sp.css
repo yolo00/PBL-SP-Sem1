@@ -1,7 +1,7 @@
 /* Michael Sando Turnip(Lily, ingat untuk klaim wilayah orang! Kita adalah Federasi Lycentian)*/
 
-
-html, body {
+html,
+body {
   height: 100%;
 }
 * {
@@ -10,39 +10,39 @@ html, body {
   box-sizing: border-box;
 }
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    padding-top: 70px;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 main {
-    flex: 1;
+  flex: 1;
 }
 
 /*menu/navbar*/
 .navbar {
-    background: #004080;
-    padding: 1rem 0;
-    color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+  background: #004080;
+  padding: 1rem 0;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
 }
 .navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 2000px;
-    margin: 0 auto;
-    padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
-.nav-inner { 
-    gap: 12px; 
+.nav-inner {
+  gap: 12px;
 }
 .logo {
   display: flex;
@@ -53,7 +53,8 @@ main {
   display: block;
   border-radius: 6px;
 }
-.brand { /*Gaya huruf dispol*/
+.brand {
+  /*Gaya huruf dispol*/
   color: #ffffff;
   margin-left: 10px;
   font-weight: 800;
@@ -64,33 +65,33 @@ main {
   color: #ff8c00; /* orange untuk O */
 }
 .navbar .nav-links {
-    list-style: none;
-    display: flex;
-    margin-right: 20px;
-    align-items: center;
+  list-style: none;
+  display: flex;
+  margin-right: 20px;
+  align-items: center;
 }
 .navbar .nav-links li .active {
-    color:#e04e32;
+  color: #e04e32;
 }
 .navbar .nav-links li {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 .navbar .nav-links a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 .navbar .nav-links a:hover {
-    color: #e04e32;
+  color: #e04e32;
 }
 
 /* Tombol menu */
 .sidebar-toggle {
   position: fixed;
-  top:110px;
+  top: 110px;
   right: 20px;
   z-index: 1301;
   background: white;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   width: 42px;
   height: 38px;
@@ -101,7 +102,7 @@ main {
   gap: 5px;
   cursor: pointer;
   transition: right 0.3s ease, background 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 .sidebar-toggle .bar {
   width: 22px;
@@ -121,8 +122,8 @@ main {
   width: 300px;
   height: calc(100vh - 70px);
   background: #f9fafb;
-  border-left: 1px solid rgba(0,0,0,0.05);
-  box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
   transform: translateX(100%);
   transition: transform 0.3s ease;
   z-index: 800;
@@ -180,7 +181,7 @@ body {
   background: white;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .riwayat-list {
@@ -243,8 +244,8 @@ body {
   background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
   color: #fff;
   padding: 40px 0 10px 0;
-  box-shadow: 0 -3px 15px rgba(0,0,0,0.3);
-  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.3);
+  font-family: "Poppins", sans-serif;
   margin-top: 0; /* ubah ini */
 }
 
@@ -327,7 +328,7 @@ body {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
   margin-top: 20px;
   padding-top: 10px;
@@ -343,4 +344,3 @@ body {
     align-items: center;
   }
 }
-

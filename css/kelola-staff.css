@@ -334,3 +334,74 @@ td:last-child {
     text-align: center;
   }
 }
+/* ===========================
+   NAVBAR MOBILE
+=========================== */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* MOBILE STYLE */
+@media (max-width: 900px) {
+
+  /* NAVBAR */
+  .nav-links {
+    position: fixed;
+    top: 94px;
+    left: -100%;
+    background: #00346f;
+    width: 70%;
+    height: 100vh;
+    flex-direction: column;
+    padding-top: 30px;
+    gap: 20px;
+    transition: 0.4s ease;
+    box-shadow: -5px 0 10px rgba(0,0,0,0.3);
+  }
+
+  .nav-links.show {
+    left: 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar .container {
+    padding-right: 20px;
+  }
+
+  /* FILTER BAR */
+  .filter-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .filter-bar select,
+  .search-input,
+  .btn-tambah {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* TABLE */
+  .table-wrapper {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  .main-table {
+    width: 700px; /* biar bisa scroll ke samping */
+  }
+
+  /* FOOTER */
+  .footer-container {
+    text-align: center;
+    flex-direction: column;
+    gap: 25px;
+  }
+}

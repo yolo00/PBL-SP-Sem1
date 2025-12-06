@@ -13,10 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
     rows.forEach(row => {
       const nama    = row.dataset.nama;
       const nim     = row.dataset.nim;
+      const prodi   = row.dataset.prodi;
       const tingkat = row.dataset.tingkat;
       const status  = row.dataset.status;
 
-      const cocokSearch   = nama.includes(cariVal) || nim.includes(cariVal);
+      const cocokSearch   = nama.includes(cariVal) || nim.includes(cariVal) || prodi.includes(cariVal);
       const cocokTingkat  = !tingkatVal || tingkat === tingkatVal;
       const cocokStatus   = !statusVal || status === statusVal;
 
