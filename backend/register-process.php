@@ -10,6 +10,18 @@ $telepon  = $_POST['telepon'];
 $prodi = $_POST['prodi'];
 
 // ===============================
+// CEK USERNAME DUPLIKAT
+// ===============================
+$checkUser = mysqli_query($conn, "SELECT * FROM users WHERE username='$username'");
+if (mysqli_num_rows($checkUser) > 0) {
+    echo "<script>
+            alert('Username sudah terdaftar! Silakan gunakan username lain.');
+            window.location='../daftar.php';
+          </script>";
+    exit;
+}
+
+// ===============================
 // REGISTER STAF
 // ===============================
 if ($role == "staf") {
