@@ -16,11 +16,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profil Mahasiswa</title>
   <link rel="stylesheet" href="css/profil-mahasiswa.css" />
-<<<<<<< HEAD
   <link rel="icon" type="image/png" href="image/dispol.png">
-=======
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
->>>>>>> b9e6dd12908521d161a085d596f44ac3039e028a
 </head>
 <body>
   <!-- Navbar -->
@@ -115,8 +112,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
         <div class="footer-center">
           <h4>Menu</h4>
             <ul>
-              <li><a href="dashboard-mahasiswa.html">Beranda</a></li>
-              <li><a href="profil-mahasiswa.html">Kelola</a></li>
+              <li><a href="dashboard-mahasiswa.php">Beranda</a></li>
+              <li><a href="profil-mahasiswa.php">Kelola</a></li>
             </ul>
         </div>
         <div class="footer-right">

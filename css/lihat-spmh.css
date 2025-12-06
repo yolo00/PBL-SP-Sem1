@@ -168,149 +168,178 @@ body {
   right: 320px;
 }
 
-.hero {
-  width: 100%;
-  padding: 80px 20px;
-  text-align: center;
-  color: white;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  animation: fadeInDown 1s ease-in-out;
+
+/* Isi surat */
+
+:root {
+    --primary-color: #004080;
+    --secondary-color: #153d7e;
+    --accent-color: #ff8c00;
+    --text-dark: #333333;
 }
 
-.hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f4f6f9;
 }
 
-.hero h1 span {
-  color: #ffd700;
-  font-weight: bold;
+.main-content {
+    padding-top: 80px;
+    padding-bottom: 50px;
+    min-height: 80vh;
 }
 
-.hero h2 {
-  font-size: 1.3rem;
-  font-weight: 400;
-  opacity: 0.9;
+.detail-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-in-out;
 }
 
-/* ====== List Section ====== */
-#list {
-  width: 90%;
-  max-width: 900px;
-  background: white;
-  /* center horizontally and keep the negative top offset */
-  margin: -30px auto 0;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  animation: fadeInUp 1s ease-in-out;
+.detail-header {
+    margin-bottom: 30px;
 }
 
-.tabelsp {
-  overflow-x: auto;
+.detail-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-}
-
-th,
-td {
-  padding: 14px 10px;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-}
-
-/* Make Perihal column wider and allow multi-line content so there's room to add new SP descriptions */
-th:first-child,
-td:first-child {
-  width: 58%;
-  text-align: left;
-  padding-left: 18px;
-  word-wrap: break-word;
-}
-
-/* Make rows a bit taller for readability / space to add content */
-tbody tr {
-  min-height: 56px;
-}
-
-/* Scoped button style for the Lihat action */
-.btn-lihat {
-  display: inline-block;
-  padding: 8px 12px;
-  background: linear-gradient(135deg, #1a73e8, #2a9df4);
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  box-shadow: 0 6px 12px rgba(26, 115, 232, 0.18);
-  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
-}
-
-.btn-lihat:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(26, 115, 232, 0.18);
-  opacity: 0.95;
-}
-
-th {
-  background: #1a73e8;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-tr:hover {
-  background-color: #f1f7ff;
-  transition: background-color 0.3s ease;
-}
-
-/* ====== Responsive Design ====== */
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 1.6rem;
-  }
-
-  .hero h2 {
+.detail-header p {
+    color: #666;
     font-size: 1rem;
-  }
-
-  th,
-  td {
-    padding: 10px;
-    font-size: 0.9rem;
-  }
 }
 
-/* ====== Animations ====== */
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.rincian-surat {
+    background: #f0f7ff;
+    border: 2px solid #004080;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 20px;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
+.rincian-surat h3 {
+    font-size: 1.3rem;
+    color: #004080;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+}
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.preview-container {
+    display: flex;
+    justify-content: center;
+}
+
+.preview-section {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 64, 128, 0.1);
+    width: 100%;
+    max-width: 700px;
+    /* Limit width for single column look */
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #004080;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.section-header h4 {
+    font-size: 1.1rem;
+    color: #153d7e;
+    font-weight: 600;
+    margin: 0;
+}
+
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-aktif {
+    background-color: rgba(217, 83, 79, 0.15);
+    /* Faded Red */
+    color: #d9534f;
+    border: 1px solid rgba(217, 83, 79, 0.3);
+}
+
+.status-selesai {
+    background-color: rgba(25, 135, 84, 0.15);
+    /* Faded Green */
+    color: #198754;
+    border: 1px solid rgba(25, 135, 84, 0.3);
+}
+
+.preview-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.95rem;
+}
+
+.preview-item:last-child {
+    border-bottom: none;
+}
+
+.preview-item label {
+    font-weight: 600;
+    color: #333;
+    width: 35%;
+    flex-shrink: 0;
+}
+
+.preview-item span {
+    color: #555;
+    word-break: break-word;
+    text-align: right;
+    width: 65%;
+}
+
+.file-link {
+    color: #004080;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.file-link:hover {
+    color: #ff8c00;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.btn-kembali {
+    background-color: #9ca3af;
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    font-size: 0.95rem;
+}
+
+.btn-kembali:hover {
+    background-color: #6b7280;
 }
 
 /* ===== Footer Baru ===== */
@@ -418,12 +447,55 @@ tr:hover {
     align-items: center;
   }
 }
-/* Tambahan untuk clickable row */
-.clickable-row {
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
 
-.clickable-row:hover {
-    background-color: #d1d5db;
+/* Responsive */
+@media (max-width: 768px) {
+    .detail-container {
+        padding: 20px;
+        margin: 20px 10px;
+    }
+
+    .rincian-surat {
+        padding: 15px;
+    }
+
+    .preview-section {
+        padding: 15px;
+    }
+
+    .preview-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .preview-item label {
+        width: 100%;
+        margin-bottom: 2px;
+    }
+
+    .preview-item span {
+        width: 100%;
+        text-align: left;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .status-badge {
+        align-self: flex-start;
+    }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
