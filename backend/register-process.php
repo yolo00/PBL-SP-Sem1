@@ -31,8 +31,8 @@ if ($role == "staf") {
     $prodi = $_POST['prodi'];
 
 $query = mysqli_query($conn, "
-    INSERT INTO users(username, password, role, nama, email, telepon, nik, prodi, jabatan)
-    VALUES('$username', '$password', '$role', '$nama', '$email', '$telepon', '$nik', '$prodi', '$jabatan')
+    INSERT INTO users(username, password, role, nama, email, telepon, nik, jabatan, prodi)
+    VALUES('$username', '$password', '$role', '$nama', '$email', '$telepon', '$nik', '$jabatan', '$prodi')
 ");
 
 }

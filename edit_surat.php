@@ -8,26 +8,30 @@ $data = mysqli_fetch_assoc($query);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
   <meta charset="UTF-8">
-  <title>Edit Surat</title>
-  <<<<<<< HEAD
-    <link rel="stylesheet" href="css/tambah-surat.css">
-    <link rel="icon" type="image/png" href="image/dispol.png">
-    <link rel="stylesheet" href="css/edit_surat.css">
-    >>>>>>> 89ce14c3b7cdde4d404c364999c975e01cb901aa
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Surat | DISPOL</title>
+  <link rel="stylesheet" href="css/edit_surat.css">
+  <link rel="icon" type="image/png" href="image/dispol.png">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
 
   <nav class="navbar">
     <div class="container">
-      <a class="logo">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a href="dashboard-staf.php" class="logo">
         <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
         <span class="brand">DISP<span class="brand-o">O</span>L</span></a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navMenu">
         <li><a href="dashboard-staf.php">Beranda</a></li>
         <li><a href="kelola-staf.php" class="active">Kelola</a></li>
         <li><a href="arsip-staf.php">Arsip</a></li>
@@ -117,6 +121,7 @@ $data = mysqli_fetch_assoc($query);
           <div>
             <label>Semester</label>
             <select name="semester" required>
+              <option value="">Pilih Semester</option>
               <option value="1" <?= $data['semester'] == '1' ? 'selected' : '' ?>>Semester 1</option>
               <option value="2" <?= $data['semester'] == '2' ? 'selected' : '' ?>>Semester 2</option>
               <option value="3" <?= $data['semester'] == '3' ? 'selected' : '' ?>>Semester 3</option>
@@ -131,6 +136,7 @@ $data = mysqli_fetch_assoc($query);
           <div>
             <label>Sesi Kelas</label>
             <select name="sesi_kelas" required>
+              <option value="">Pilih Sesi Kelas</option>
               <option value="Pagi" <?= $data['sesi_kelas'] == 'Pagi' ? 'selected' : '' ?>>Pagi</option>
               <option value="Malam" <?= $data['sesi_kelas'] == 'Malam' ? 'selected' : '' ?>>Malam</option>
             </select>
@@ -172,6 +178,126 @@ $data = mysqli_fetch_assoc($query);
       </form>
     </section>
   </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <img src="image/dispol.png" alt="Logo Dispol" width="60">
+        <div>
+          <h3>DISPOL</h3>
+          <p>Digitalisasi Surat Peringatan Mahasiswa Polibatam</p>
+        </div>
+      </div>
+
+      <div class="footer-center">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="dashboard-staf.php">Beranda</a></li>
+          <li><a href="kelola-staf.php">Kelola</a></li>
+          <li><a href="arsip-staf.php">Arsip</a></li>
+          <li><a href="profil-staf.php">Profil</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-right">
+        <h4>Hubungi Kami</h4>
+        <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
+        <ul class="social-links">
+          <li><a href="#"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
+          <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
+          <li><a href="#"><img src="image/icon-instagram.png" alt="Instagram"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 DISPOL | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once:true, duration:1000 });
+  </script>
+  <script>
+  (function() {
+      const menuToggle = document.getElementById("menuToggle");
+      const navMenu = document.getElementById("navMenu");
+      const body = document.body;
+
+      if (!menuToggle || !navMenu) return;
+
+      // Create overlay
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.5);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          z-index: 998;
+      `;
+      body.appendChild(overlay);
+
+      function toggleMenu() {
+          const isOpen = navMenu.classList.contains('show');
+          if (isOpen) {
+              closeMenu();
+          } else {
+              openMenu();
+          }
+      }
+
+      function openMenu() {
+          navMenu.classList.add('show');
+          overlay.style.opacity = '1';
+          overlay.style.visibility = 'visible';
+          body.style.overflow = 'hidden';
+          menuToggle.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeMenu() {
+          navMenu.classList.remove('show');
+          overlay.style.opacity = '0';
+          overlay.style.visibility = 'hidden';
+          body.style.overflow = '';
+          menuToggle.setAttribute('aria-expanded', 'false');
+      }
+
+      menuToggle.addEventListener('click', toggleMenu);
+      overlay.addEventListener('click', closeMenu);
+
+      // Close on link click
+      navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+              if (window.innerWidth < 900) {
+                  closeMenu();
+              }
+          });
+      });
+
+      // Close on ESC
+      document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && navMenu.classList.contains('show')) {
+              closeMenu();
+          }
+      });
+
+      // Close on resize
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(() => {
+              if (window.innerWidth >= 900 && navMenu.classList.contains('show')) {
+                  closeMenu();
+              }
+          }, 250);
+      });
+  })();
+  </script>
 
 </body>
 

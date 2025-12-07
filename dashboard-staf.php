@@ -46,19 +46,22 @@ include "backend/auto-arsip.php";
 </head>
 
 <body>
+
     <nav class="navbar">
         <div class="container">
-            <div class="menu-toggle" id="menuToggle">
-                ☰
-            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-            <a class="logo">
-                <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
+            <a href="dashboard-staf.php" class="logo">
+                <img src="image/dispol.png" width="65" height="65" alt="Logo DISPOL">
                 <span class="brand">DISP<span class="brand-o">O</span>L</span>
             </a>
 
             <ul class="nav-links" id="navMenu">
-                <li><a href="dashboard-staf.php">Beranda</a></li>
+                <li><a href="dashboard-staf.php" class="active">Beranda</a></li>
                 <li><a href="kelola-staf.php">Kelola</a></li>
                 <li><a href="arsip-staf.php">Arsip</a></li>
                 <li><a href="profil-staf.php">Profil</a></li>

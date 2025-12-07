@@ -13,8 +13,8 @@ $sampai     = mysqli_real_escape_string($conn, $_POST['sampai']);
 $status     = mysqli_real_escape_string($conn, $_POST['status']);
 $perihal    = mysqli_real_escape_string($conn, $_POST['perihal']);
 $deskripsi  = mysqli_real_escape_string($conn, $_POST['deskripsi']);
-// $semester   = mysqli_real_escape_string($conn, $_POST['semester']); // Kolom belum ada
-// $sesi_kelas = mysqli_real_escape_string($conn, $_POST['sesi_kelas']); // Kolom belum ada
+$semester   = mysqli_real_escape_string($conn, $_POST['semester']);
+$sesi_kelas = mysqli_real_escape_string($conn, $_POST['sesi_kelas']);
 
 // Cek apakah ada file baru di-upload
 $newFileName = null;
@@ -43,6 +43,8 @@ $updateQuery = "
     jurusan='$jurusan',
     prodi='$prodi',
     kelas='$kelas',
+    semester='$semester',
+    sesi_kelas='$sesi_kelas',
     tingkat='$tingkat',
     tanggal='$tanggal',
     sampai='$sampai',

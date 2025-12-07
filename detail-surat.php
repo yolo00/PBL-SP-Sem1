@@ -32,11 +32,16 @@ if (!$data) {
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
-      <a class="logo">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a href="dashboard-staf.php" class="logo">
         <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
         <span class="brand">DISP<span class="brand-o">O</span>L</span>
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navMenu">
         <li><a href="dashboard-staf.php">Beranda</a></li>
         <li><a href="kelola-staf.php">Kelola</a></li>
         <li><a href="arsip-staf.php">Arsip</a></li>
@@ -133,6 +138,86 @@ if (!$data) {
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ once:true, duration:1000 });
+  </script>
+  <script>
+  (function() {
+      const menuToggle = document.getElementById("menuToggle");
+      const navMenu = document.getElementById("navMenu");
+      const body = document.body;
+
+      if (!menuToggle || !navMenu) return;
+
+      // Create overlay
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.5);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          z-index: 998;
+      `;
+      body.appendChild(overlay);
+
+      function toggleMenu() {
+          const isOpen = navMenu.classList.contains('show');
+          if (isOpen) {
+              closeMenu();
+          } else {
+              openMenu();
+          }
+      }
+
+      function openMenu() {
+          navMenu.classList.add('show');
+          overlay.style.opacity = '1';
+          overlay.style.visibility = 'visible';
+          body.style.overflow = 'hidden';
+          menuToggle.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeMenu() {
+          navMenu.classList.remove('show');
+          overlay.style.opacity = '0';
+          overlay.style.visibility = 'hidden';
+          body.style.overflow = '';
+          menuToggle.setAttribute('aria-expanded', 'false');
+      }
+
+      menuToggle.addEventListener('click', toggleMenu);
+      overlay.addEventListener('click', closeMenu);
+
+      // Close on link click
+      navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+              if (window.innerWidth < 900) {
+                  closeMenu();
+              }
+          });
+      });
+
+      // Close on ESC
+      document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && navMenu.classList.contains('show')) {
+              closeMenu();
+          }
+      });
+
+      // Close on resize
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(() => {
+              if (window.innerWidth >= 900 && navMenu.classList.contains('show')) {
+                  closeMenu();
+              }
+          }, 250);
+      });
+  })();
   </script>
 </body>
 </html>
