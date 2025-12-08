@@ -69,7 +69,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
                 <div class="detail-group">
                     <div class="detail-item">
                         <span class="label">Prodi</span>
-                        <span class="value"><?php echo isset($_SESSION['prodi']) ? htmlspecialchars($_SESSION['prodi']) : '-'; ?></span>
+                        <span class="value"><?php echo isset($_SESSION['prodi_mahasiswa']) ? htmlspecialchars($_SESSION['prodi_mahasiswa']) : '-'; ?></span>
                     </div>
                     <div class="detail-item">
                         <span class="label">Jurusan</span>
@@ -120,9 +120,9 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
           <h4>Hubungi Kami</h4>
           <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
             <ul class="social-links">
-              <li><a href="#"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
+              <li><a href="https://www.facebook.com/share/1NGcdBa57o/https://www.facebook.com/share/1NGcdBa57o/"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
               <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
-              <li><a href="#"><img src="image/icon-instagram.png" alt="Instagram"></a></li>
+              <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img src="image/icon-instagram.png" alt="Instagram"></a></li>
             </ul>
         </div>
       </div>

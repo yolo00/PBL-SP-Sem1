@@ -27,44 +27,46 @@
             <option value="staf">Staf Akademik</option>
         </select>
 
-        <!-- ============================================================
-     FORM STAF
+      <!-- ============================================================
+ FORM STAF
 ============================================================ -->
-        <div id="formStaf" style="display:none">
+<div id="formStaf" style="display:none">
 
-            <label for="id">ID Staf (boleh dikosongkan)</label>
-            <input type="number" name="id" placeholder="Masukkan ID staf">
+    <label for="id">ID Staf (boleh dikosongkan)</label>
+    <input type="number" name="id_staf" placeholder="Masukkan ID staf">
 
-            <label for="nik">NIK Staf</label>
-            <input type="text" name="nik" placeholder="Masukkan NIK Staf">
+    <label for="nik">NIK Staf</label>
+    <input type="text" name="nik" placeholder="Masukkan NIK Staf">
 
-            <label for="jabatan">Jabatan</label>
-            <input type="text" name="jabatan" placeholder="Contoh: Staf Akademik">
+    <label for="jabatan">Jabatan</label>
+    <input type="text" name="jabatan" placeholder="Contoh: Staf Akademik">
 
-            <label for="prodi">Program Studi</label>
-            <input type="text" name="prodi" placeholder="Masukkan prodi">
-        </div>
+    <label for="prodi_staf">Program Studi</label>
+    <input type="text" name="prodi_staf" placeholder="Masukkan prodi staf">
 
-        <!-- ============================================================
-     FORM MAHASISWA
+</div>
+
+<!-- ============================================================
+ FORM MAHASISWA
 ============================================================ -->
-        <div id="formMahasiswa" style="display:none">
-            <label for="nim">NIM</label>
-            <input type="text" name="nim" placeholder="Masukkan NIM">
+<div id="formMahasiswa" style="display:none">
 
-            <label for="jurusan">Jurusan</label>
-            <input type="text" name="jurusan" placeholder="Masukkan jurusan">
+    <label for="nim">NIM</label>
+    <input type="text" name="nim" placeholder="Masukkan NIM">
 
-            <label for="prodi">Program Studi</label>
-            <input type="text" name="prodi" placeholder="Masukkan prodi">
+    <label for="jurusan">Jurusan</label>
+    <input type="text" name="jurusan" placeholder="Masukkan jurusan">
 
-            <label for="kelas">Kelas</label>
-            <input type="text" name="kelas" placeholder="Masukkan kelas">
+    <label for="prodi_mahasiswa">Program Studi</label>
+    <input type="text" name="prodi_mahasiswa" placeholder="Masukkan prodi mahasiswa">
 
-            <label for="angkatan">Angkatan</label>
-            <input type="number" name="angkatan" placeholder="Contoh: 2025">
-        </div>
+    <label for="kelas">Kelas</label>
+    <input type="text" name="kelas" placeholder="Masukkan kelas">
 
+    <label for="angkatan">Angkatan</label>
+    <input type="number" name="angkatan" placeholder="Contoh: 2025">
+
+</div>
 
         <!-- ============================================================
      FORM UTAMA
