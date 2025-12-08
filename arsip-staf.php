@@ -167,10 +167,10 @@ if (!$query) {
                     <h4>Hubungi Kami</h4>
                     <p>Politeknik Negeri Batam<br />Jl. Ahmad Yani, Batam Center</p>
                     <ul class="social-links">
-                        <li><a href="#" aria-label="Facebook"><img src="image/icon-facebook.png" alt="Facebook" /></a>
+                        <li><a href="https://www.instagram.com/polibatamofficial/" aria-label="Facebook"><img src="image/icon-facebook.png" alt="Facebook" /></a>
                         </li>
-                        <li><a href="#" aria-label="Twitter"><img src="image/icon-twitter.png" alt="Twitter" /></a></li>
-                        <li><a href="#" aria-label="Instagram"><img src="image/icon-instagram.png"
+                        <li><a href="https://www.instagram.com/polibatamofficial/" aria-label="Twitter"><img src="image/icon-twitter.png" alt="Twitter" /></a></li>
+                        <li><a href="https://www.instagram.com/polibatamofficial/" aria-label="Instagram"><img src="image/icon-instagram.png"
                                     alt="Instagram" /></a></li>
                     </ul>
                 </div>
