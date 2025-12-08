@@ -410,20 +410,55 @@ tr:hover {
   color: #d0d0d0;
 }
 
-/* Responsif */
+/* ============================================
+   RESPONSIVE DESIGN
+============================================ */
 @media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero h2 {
+    font-size: 1rem;
+  }
+
+  #list {
+    padding: 25px 20px;
+  }
+
+  th,
+  td {
+    padding: 12px 8px;
+    font-size: 0.85rem;
+  }
+
   .footer-container {
     flex-direction: column;
     text-align: center;
     align-items: center;
   }
-}
-/* Tambahan untuk clickable row */
-.clickable-row {
-    cursor: pointer;
-    transition: background-color 0.2s;
+
+  .footer-left {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
 }
 
-.clickable-row:hover {
-    background-color: #d1d5db;
+@media (max-width: 480px) {
+  .tabelsp {
+    overflow-x: scroll;
+  }
+
+  table {
+    min-width: 500px;
+  }
+
+  .btn-lihat {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
 }

@@ -439,63 +439,55 @@ body {
   color: #d0d0d0;
 }
 
-/* Responsif */
+/* ============================================
+   RESPONSIVE DESIGN
+============================================ */
 @media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero h2 {
+    font-size: 1rem;
+  }
+
+  #list {
+    padding: 25px 20px;
+  }
+
+  th,
+  td {
+    padding: 12px 8px;
+    font-size: 0.85rem;
+  }
+
   .footer-container {
     flex-direction: column;
     text-align: center;
     align-items: center;
   }
-}
 
-/* Responsive */
-@media (max-width: 768px) {
-    .detail-container {
-        padding: 20px;
-        margin: 20px 10px;
-    }
-
-    .rincian-surat {
-        padding: 15px;
-    }
-
-    .preview-section {
-        padding: 15px;
-    }
-
-    .preview-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-    }
-
-    .preview-item label {
-        width: 100%;
-        margin-bottom: 2px;
-    }
-
-    .preview-item span {
-        width: 100%;
-        text-align: left;
-    }
-
-    .section-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    .status-badge {
-        align-self: flex-start;
-    }
-}
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+  .footer-left {
+    flex-direction: column;
+    text-align: center;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .tabelsp {
+    overflow-x: scroll;
+  }
+
+  table {
+    min-width: 500px;
+  }
+
+  .btn-lihat {
+    padding: 8px 14px;
+    font-size: 0.85rem;
   }
 }
