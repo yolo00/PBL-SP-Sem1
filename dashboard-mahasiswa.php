@@ -30,12 +30,12 @@ $spQuery = mysqli_query($conn, "
 <html lang="en">
 
 <head>
-<!--Michael Sando Turnip-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/dashboard-mahasiswa.css"><!--CSS-->
-    <link rel="icon" type="image/png" href="image/dispol.png">
-    <title>Beranda Mahasiswa</title>
+  <!--Michael Sando Turnip-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/dashboard-mahasiswa.css"><!--CSS-->
+  <link rel="icon" type="image/png" href="image/dispol.png">
+  <title>Beranda Mahasiswa</title>
 </head>
 
 <body>
@@ -85,14 +85,14 @@ $spQuery = mysqli_query($conn, "
             </tr>
           </thead>
           <tbody>
-                <?php while ($sp = mysqli_fetch_assoc($spQuery)) : ?>
-                  <tr onclick="window.location='lihat-sp-mh.php?id=<?= $sp['id'] ?>'" class="clickable-row">
-                    <td><?= htmlspecialchars($sp['perihal']) ?></td>
-                    <td><?= htmlspecialchars($sp['tingkat']) ?></td>
-                    <td><?= date('d/m/Y', strtotime($sp['tanggal'])) ?></td>
-                    <td><?= htmlspecialchars($sp['status']) ?></td>
-                  </tr>
-                <?php endwhile; ?>
+            <?php while ($sp = mysqli_fetch_assoc($spQuery)) : ?>
+              <tr onclick="window.location='lihat-sp-mh.php?id=<?= $sp['id'] ?>'" class="clickable-row">
+                <td><?= htmlspecialchars($sp['perihal']) ?></td>
+                <td><?= htmlspecialchars($sp['tingkat']) ?></td>
+                <td><?= date('d/m/Y', strtotime($sp['tanggal'])) ?></td>
+                <td><?= htmlspecialchars($sp['status']) ?></td>
+              </tr>
+            <?php endwhile; ?>
           </tbody>
         </table>
       </div>
@@ -120,15 +120,9 @@ $spQuery = mysqli_query($conn, "
         <h4>Hubungi Kami</h4>
         <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
         <ul class="social-links">
-<<<<<<< HEAD
           <li><a href="https://www.facebook.com/share/1NGcdBa57o/https://www.facebook.com/share/1NGcdBa57o/"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
           <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
           <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img src="image/icon-instagram.png" alt="Instagram"></a></li>
-=======
-          <li><a href="https://www.instagram.com/polibatamofficial/"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
-          <li><a href="https://www.instagram.com/polibatamofficial/"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
-          <li><a href="https://www.instagram.com/polibatamofficial/"><img src="image/icon-instagram.png" alt="Instagram"></a></li>
->>>>>>> fe55eae4f98d3a507e6bfdeeb9ae954c78dca8cf
         </ul>
       </div>
     </div>
