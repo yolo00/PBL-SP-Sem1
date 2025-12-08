@@ -203,9 +203,15 @@ $data = mysqli_fetch_assoc($query);
         <h4>Hubungi Kami</h4>
         <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
         <ul class="social-links">
+<<<<<<< HEAD
           <li><a href="https://www.facebook.com/share/1NGcdBa57o/https://www.facebook.com/share/1NGcdBa57o/"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
           <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
           <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img src="image/icon-instagram.png" alt="Instagram"></a></li>
+=======
+          <li><a href="https://www.instagram.com/polibatamofficial/"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
+          <li><a href="https://www.instagram.com/polibatamofficial/"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
+          <li><a href="https://www.instagram.com/polibatamofficial/"><img src="image/icon-instagram.png" alt="Instagram"></a></li>
+>>>>>>> fe55eae4f98d3a507e6bfdeeb9ae954c78dca8cf
         </ul>
       </div>
     </div>
