@@ -44,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Profil Staf Akademik</title>
     <link rel="stylesheet" href="css/profil-staf.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="png" href="image/dispol.png">
 </head>
 
@@ -69,47 +70,57 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
     </nav>
 
-    <main class="profil-container-modern">
+    <main class="profil-container-mahasiswa">
         <div class="header-section">
             <h1><b>EDIT PROFIL STAF AKADEMIK</b></h1>
+            <p class="subtitle">Perbarui Data Identitas & Kontak</p>
         </div>
 
-        <section class="profile-card-modern">
-            <form method="POST" action="">
-                <div class="card-left">
+        <div class="profile-content-wrapper">
+            <section class="profil-identitas-card">
+                <form method="POST" action="">
+                <div class="card-header-mahasiswa">
                     <div class="photo-placeholder">
-                        <i class="fas fa-user fa-3x"></i>
+                        <i class="fas fa-user-tie"></i>
                     </div>
-
-                    <!-- Nama Staf -->
-                    <input type="text" name="nama" value="<?= htmlspecialchars($data['nama']); ?>" required>
-                    <p class="staff-role">
-                        Staf Akademik
-                    </p>
-                </div>
-
-                <div class="card-right">
-                    <h3>Detail Informasi</h3>
-                    <div class="detail-group">
-                        <p><span class="label">NIK</span><input type="text" name="nik" value="<?= htmlspecialchars($data['nik']); ?>" required></p>
-                        <p><span class="label">Jabatan</span><input type="text" name="jabatan" value="<?= htmlspecialchars($data['jabatan']); ?>" required></p>
-                        <p><span class="label">Program Studi</span><input type="text" name="prodi" value="<?= htmlspecialchars($data['prodi']); ?>" required></p>
-                    </div>
-
-                    <h3>Kontak</h3>
-                    <div class="detail-group">
-                        <p><span class="label">Email&nbsp;&nbsp;</span><input type="email" name="email" value="<?= htmlspecialchars($data['email']); ?>" required></p>
-                        <p><span class="label">No. Telepon</span><input type="text" name="telepon" value="<?= htmlspecialchars($data['telepon']); ?>" required></p>
+                    <div class="profil-info-header">
+                        <input type="text" name="nama" value="<?= htmlspecialchars($data['nama']); ?>" required placeholder="Nama Staf">
+                        <p class="nim-label">NIK: <?= htmlspecialchars($data['nik']); ?></p>
                     </div>
                 </div>
-                <div class="aksi-logout-area">
-                    <button type="submit" class="btn-logout">Simpan Perubahan</button>
-                    <a href="profil-staf.php"><button type="button" class="btn-logout">Batal</button></a>
-                </div>
-            </form>
-        </section>
+                    <div class="profil-info-details">
+                        <h3>Data Pribadi & Kontak</h3>
+                        <div class="detail-group">
+                            <div class="detail-item">
+                                <span class="label">NIK</span>
+                                <input type="text" name="nik" value="<?= htmlspecialchars($data['nik']); ?>" required>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Jabatan</span>
+                                <input type="text" name="jabatan" value="<?= htmlspecialchars($data['jabatan']); ?>" required>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Program Studi</span>
+                                <input type="text" name="prodi" value="<?= htmlspecialchars($data['prodi']); ?>" required>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Email</span>
+                                <input type="email" name="email" value="<?= htmlspecialchars($data['email']); ?>" required>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">No. HP</span>
+                                <input type="tel" name="telepon" value="<?= htmlspecialchars($data['telepon']); ?>" required>
+                            </div>
+                        </div>
+                    <div class="aksi-logout-area">
+                        <button type="submit" class="btn-edit">Simpan Perubahan</button>
+                        <a href="profil-staf.php"><button type="button" class="btn-logout">Batal</button></a>
+                    </div>
+                    </div>
+                </form>
+            </section>
+        </div>
     </main>
-
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-left">
@@ -119,7 +130,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <p>Digitalisasi Surat Peringatan Mahasiswa Polibatam</p>
                 </div>
             </div>
-
             <div class="footer-center">
                 <h4>Menu</h4>
                 <ul>
@@ -129,14 +139,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <li><a href="profil-staf.php">Profil</a></li>
                 </ul>
             </div>
-
             <div class="footer-right">
                 <h4>Hubungi Kami</h4>
-                <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
+                <p><img src="image/icon-address.png" alt="Address" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> Jl. Ahmad Yani Batam Kota,<br>Kota Batam, Kepulauan Riau, Indonesia</p>
+                <p><img src="image/icon-contact.png" alt="Phone" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> +62-778-469858 Ext.1017</p>
+                <p><img src="image/icon-email.png" alt="Email" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> info@polibatam.ac.id</p>
                 <ul class="social-links">
-                    <li><a href="https://www.facebook.com/share/1NGcdBa57o/https://www.facebook.com/share/1NGcdBa57o/"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
-                    <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
-                    <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img src="image/icon-instagram.png" alt="Instagram"></a></li>
+                   <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img src="image/icon-instagram.png" alt="Instagram"></a></li>
+                    <li><a href="https://www.youtube.com/@polibatamofficial"><img src="image/icon-youtube.png" alt="YouTube"></a></li>
+                    <li><a href="https://www.polibatam.ac.id"><img src="image/icon-website.png" alt="Website"></a></li>
                 </ul>
             </div>
         </div>

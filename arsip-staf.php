@@ -169,12 +169,6 @@ if (!$query) {
                     <p><img src="image/icon-contact.png" alt="Phone" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> +62-778-469858 Ext.1017</p>
                     <p><img src="image/icon-email.png" alt="Email" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> info@polibatam.ac.id</p>
                     <ul class="social-links">
-<<<<<<< HEAD
-                        <li><a href="https://www.facebook.com/share/1NGcdBa57o/https://www.facebook.com/share/1NGcdBa57o/" aria-label="Facebook"><img src="image/icon-facebook.png" alt="Facebook" /></a>
-                        </li>
-                        <li><a href="#" aria-label="Twitter"><img src="image/icon-twitter.png" alt="Twitter" /></a></li>
-=======
->>>>>>> c327f355a5f14bff985be27ae1359fe89f48ff58
                         <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw==" aria-label="Instagram"><img src="image/icon-instagram.png"
                                     alt="Instagram" /></a></li>
                         <li><a href="https://www.youtube.com/@polibatamofficial" aria-label="YouTube"><img src="image/icon-youtube.png" alt="YouTube" /></a></li>

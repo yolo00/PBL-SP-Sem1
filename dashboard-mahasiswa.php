@@ -40,6 +40,7 @@ $spQuery = mysqli_query($conn, "
 
 <body>
 
+ <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
@@ -55,10 +56,13 @@ $spQuery = mysqli_query($conn, "
 
       <ul class="nav-links" id="navMenu">
         <li><a href="dashboard-mahasiswa.php" class="active">Beranda</a></li>
-        <li><a href="profil-mahasiswa.php">Profil</a></li>
+        <li><a href="profil-mahasiswa.php" >Profil</a></li>
       </ul>
     </div>
   </nav>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay"></div>
 
   <section id="home" class="hero">
     <div class="container">
@@ -129,13 +133,45 @@ $spQuery = mysqli_query($conn, "
     </div>
   </footer>
   <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
+    const sidebarToggle = document.getElementById("sidebarToggle");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
 
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener("click", () => {
-            navMenu.classList.toggle("show");
-        });
+    function toggleSidebar() {
+      const isOpen = sidebar.classList.contains("open");
+      if (isOpen) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    }
+
+    function openSidebar() {
+      sidebar.classList.add("open");
+      overlay.classList.add("show");
+      sidebarToggle.classList.add("open");
+      sidebarToggle.setAttribute("aria-expanded", "true");
+      sidebar.setAttribute("aria-hidden", "false");
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove("open");
+      overlay.classList.remove("show");
+      sidebarToggle.classList.remove("open");
+      sidebarToggle.setAttribute("aria-expanded", "false");
+      sidebar.setAttribute("aria-hidden", "true");
+    }
+
+    if (sidebarToggle && sidebar && overlay) {
+      sidebarToggle.addEventListener("click", toggleSidebar);
+      overlay.addEventListener("click", closeSidebar);
+
+      // Close on ESC
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && sidebar.classList.contains("open")) {
+          closeSidebar();
+        }
+      });
     }
   </script>
 </body>

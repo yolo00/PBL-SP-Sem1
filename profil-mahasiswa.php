@@ -59,34 +59,33 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
         </div>
         
         <div class="profil-info-details">
-          <h3><i class="fas fa-graduation-cap"></i> Informasi Akademik</h3>
+          <h3>Informasi Akademik</h3>
           <div class="detail-group">
             <div class="detail-item">
-              <span class="label"><i class="fas fa-building"></i> Program Studi</span>
+              <span class="label">Program Studi</span>
               <span class="value"><?php echo htmlspecialchars($_SESSION['prodi'] ?? '-'); ?></span>
             </div>
             <div class="detail-item">
-              <span class="label"><i class="fas fa-university"></i> Jurusan</span>
+              <span class="label">Jurusan</span>
               <span class="value"><?php echo htmlspecialchars($_SESSION['jurusan'] ?? '-'); ?></span>
             </div>
             <div class="detail-item">
-              <span class="label"><i class="fas fa-users"></i> Kelas</span>
+              <span class="label">Kelas</span>
               <span class="value"><?php echo htmlspecialchars($_SESSION['kelas'] ?? '-'); ?></span>
             </div>
             <div class="detail-item">
-              <span class="label"><i class="fas fa-calendar-alt"></i> Angkatan</span>
+              <span class="label">Angkatan</span>
               <span class="value"><?php echo htmlspecialchars($_SESSION['angkatan'] ?? '-'); ?></span>
             </div>
-          </div>
-
-          <h3><i class="fas fa-address-card"></i> Informasi Kontak</h3>
+          </div><br>
+          <h3>Informasi Pribadi & Kontak</h3>
           <div class="detail-group">
             <div class="detail-item">
-              <span class="label"><i class="fas fa-envelope"></i> Email</span>
+              <span class="label">Email</span>
               <span class="value"><?php echo htmlspecialchars($_SESSION['email'] ?? '-'); ?></span>
             </div>
             <div class="detail-item">
-              <span class="label"><i class="fas fa-phone"></i> No. Telepon</span>
+              <span class="label">No. Telepon</span>
               <span class="value"><?php echo htmlspecialchars($_SESSION['telepon'] ?? '-'); ?></span>
             </div>
           </div>
@@ -95,14 +94,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
     </div>
 
     <div class="aksi-logout-area">
-<<<<<<< HEAD
-        <a href="edit-profil-mahasiswa.php"><button class="btn-logout">Edit Profil</button></a>
-        <button class="btn-logout" id="logoutBtn">Keluar</button>
-=======
-      <button class="btn-logout" onclick="confirmLogout()">
-        <i class="fas fa-sign-out-alt"></i> Keluar
-      </button>
->>>>>>> c327f355a5f14bff985be27ae1359fe89f48ff58
+      <a href="edit-profil-mahasiswa.php"><button class="btn-edit">Edit Profil</button></a>
+      <button class="btn-logout" onclick="confirmLogout()">Keluar</button>
     </div>
   </main>
 

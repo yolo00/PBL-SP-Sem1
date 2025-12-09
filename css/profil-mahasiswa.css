@@ -128,7 +128,110 @@ body {
   color: #ff8c00;
 }
 
-/* Removed Sidebar Styles */
+/* Sidebar Styles */
+.sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(45deg, #004080, #0066cc);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1002;
+  box-shadow: 0 4px 15px rgba(0, 64, 128, 0.4);
+  transition: all 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 64, 128, 0.6);
+}
+
+.sidebar-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.sidebar-toggle.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.sidebar-toggle.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.sidebar-toggle.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100vh;
+  background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease;
+  z-index: 1001;
+  padding-top: 80px;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu .menu-item {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 15px 30px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu .menu-item:hover,
+.sidebar-menu .menu-item.active {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ff8c00;
+  border-left: 4px solid #ff8c00;
+  padding-left: 26px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
 
 /* Profil */
 /* CONTAINER & HEADER STYLING */
@@ -296,6 +399,29 @@ body {
 .btn-logout:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
+}
+
+/* Tombol Edit Profil Biru */
+.btn-edit {
+  background: linear-gradient(45deg, #004080, #0066cc);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 64, 128, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.btn-edit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 64, 128, 0.6);
 }
 
 /* Animations Keyframes */

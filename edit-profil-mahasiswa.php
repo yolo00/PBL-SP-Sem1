@@ -18,10 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $telepon = mysqli_real_escape_string($conn, $_POST['telepon']);
 
-    $update_query = "UPDATE users SET nama='$nama', prodi_mahasiswa='$prodi_mahasiswa', jurusan='$jurusan', kelas='$kelas', angkatan='$angkatan', email='$email', telepon='$telepon' WHERE id='{$_SESSION['user_id']}'";
+    $update_query = "UPDATE users SET nama='$nama', prodi='$prodi_mahasiswa', jurusan='$jurusan', kelas='$kelas', angkatan='$angkatan', email='$email', telepon='$telepon' WHERE id='{$_SESSION['user_id']}'";
     if (mysqli_query($conn, $update_query)) {
         // Update session
         $_SESSION['nama'] = $nama;
+        $_SESSION['prodi'] = $prodi_mahasiswa; // Update session variable to match display
         $_SESSION['prodi_mahasiswa'] = $prodi_mahasiswa;
         $_SESSION['jurusan'] = $jurusan;
         $_SESSION['kelas'] = $kelas;
@@ -41,36 +42,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Edit Profil Mahasiswa</title>
-  <link rel="stylesheet" href="css/profil-mahasiswa.css" />
+  <link rel="stylesheet" href="css/edit-profil-mahasiswa.css" />
   <link rel="icon" type="image/png" href="image/dispol.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <!-- Navbar -->
-<nav class="navbar">
-    <div class="container nav-inner">
-      <a class="logo">
-        <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
+  <nav class="navbar">
+    <div class="container">
+      <a href="dashboard-mahasiswa.php" class="logo">
+        <img src="image/dispol.png" width="65" height="65" alt="Logo DISPOL">
         <span class="brand">DISP<span class="brand-o">O</span>L</span>
-    </a>
-
+      </a>
     </div>
-</nav>
-
-<!-- Tombol sidebar-->
-<button id="sidebarToggle" class="sidebar-toggle" aria-label="Buka menu" aria-expanded="false">
-  <span class="bar"></span>
-  <span class="bar"></span>
-  <span class="bar"></span>
-</button>
-
-<!-- Sidebar kanan -->
-<aside id="sidebar" class="sidebar" aria-hidden="true">
-  <nav class="sidebar-menu">
-    <a href="dashboard-mahasiswa.php" class="menu-item">Beranda</a>
-    <a href="profil-mahasiswa.php" class="menu-item active">Profil</a>
   </nav>
-</aside>
+
+  <!-- Tombol sidebar-->
+  <button id="sidebarToggle" class="sidebar-toggle" aria-label="Buka menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <!-- Sidebar kanan -->
+  <aside id="sidebar" class="sidebar" aria-hidden="true">
+    <nav class="sidebar-menu">
+      <a href="dashboard-mahasiswa.php" class="menu-item">Beranda</a>
+      <a href="profil-mahasiswa.php" class="menu-item active">Profil</a>
+    </nav>
+  </aside>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay"></div>
+
 
 <main class="profil-container-mahasiswa">
     <div class="header-section">
@@ -80,6 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <div class="profile-content-wrapper">
         <section class="profil-identitas-card">
+            <form method="POST" action="">
             <div class="card-header-mahasiswa">
                 <div class="photo-placeholder">
                     <i class="fas fa-user-graduate"></i>
@@ -89,8 +94,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <p class="nim-label">NIM: <?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : '3312501048'; ?></p>
                 </div>
             </div>
-
-            <form method="POST" action="">
                 <div class="profil-info-details">
                     <h3>Data Pribadi & Kontak</h3>
                     <div class="detail-group">
@@ -119,10 +122,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <input type="tel" name="telepon" value="<?php echo isset($_SESSION['telepon']) ? htmlspecialchars($_SESSION['telepon']) : ''; ?>" required>
                         </div>
                     </div>
-                </div>
                 <div class="aksi-logout-area">
-                    <button type="submit" class="btn-logout">Simpan Perubahan</button>
+                    <button type="submit" class="btn-edit">Simpan Perubahan</button>
                     <a href="profil-mahasiswa.php"><button type="button" class="btn-logout">Batal</button></a>
+                </div>
                 </div>
             </form>
         </section>
@@ -142,16 +145,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <h4>Menu</h4>
             <ul>
               <li><a href="dashboard-mahasiswa.php">Beranda</a></li>
-              <li><a href="profil-mahasiswa.php">Kelola</a></li>
+              <li><a href="profil-mahasiswa.php" class="active">Kelola</a></li>
             </ul>
         </div>
         <div class="footer-right">
           <h4>Hubungi Kami</h4>
-          <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
-            <ul class="social-links">
-              <li><a href="https://www.facebook.com/share/1NGcdBa57o/https://www.facebook.com/share/1NGcdBa57o/"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
-              <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
-              <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img src="image/icon-instagram.png" alt="Instagram"></a></li>
+          <img src="image/icon-address.png" alt="Address" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> Jl. Ahmad Yani Batam Kota,<br>Kota Batam, Kepulauan Riau, Indonesia</p>
+                <p><img src="image/icon-contact.png" alt="Phone" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> +62-778-469858 Ext.1017</p>
+                <p><img src="image/icon-email.png" alt="Email" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> info@polibatam.ac.id</p>
+                <ul class="social-links">
+                   <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img src="image/icon-instagram.png" alt="Instagram"></a></li>
+                    <li><a href="https://www.youtube.com/@polibatamofficial"><img src="image/icon-youtube.png" alt="YouTube"></a></li>
+                    <li><a href="https://www.polibatam.ac.id"><img src="image/icon-website.png" alt="Website"></a></li>
             </ul>
         </div>
       </div>
@@ -159,6 +164,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <p>&copy; 2025 DISPOL | All Rights Reserved</p>
       </div>
     </footer>
-  <script src="js/profil-mahasiswa.js"></script>
+  <script>
+    const sidebarToggle = document.getElementById("sidebarToggle");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+
+    function toggleSidebar() {
+      const isOpen = sidebar.classList.contains("open");
+      if (isOpen) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    }
+
+    function openSidebar() {
+      sidebar.classList.add("open");
+      overlay.classList.add("show");
+      sidebarToggle.classList.add("open");
+      sidebarToggle.setAttribute("aria-expanded", "true");
+      sidebar.setAttribute("aria-hidden", "false");
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove("open");
+      overlay.classList.remove("show");
+      sidebarToggle.classList.remove("open");
+      sidebarToggle.setAttribute("aria-expanded", "false");
+      sidebar.setAttribute("aria-hidden", "true");
+    }
+
+    if (sidebarToggle && sidebar && overlay) {
+      sidebarToggle.addEventListener("click", toggleSidebar);
+      overlay.addEventListener("click", closeSidebar);
+
+      // Close on ESC
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && sidebar.classList.contains("open")) {
+          closeSidebar();
+        }
+      });
+    }
+  </script>
 </body>
 </html>

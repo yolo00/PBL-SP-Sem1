@@ -49,7 +49,7 @@ body {
   padding: 0 1rem;
 }
 
-/* Logo */
+/* Logo Responsif */
 .logo {
   display: flex;
   align-items: center;
@@ -99,7 +99,7 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Nav Links */
+/* Nav Links Desktop */
 .navbar .nav-links {
   list-style: none;
   display: flex;

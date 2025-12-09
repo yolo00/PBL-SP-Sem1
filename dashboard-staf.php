@@ -160,18 +160,9 @@ include "backend/auto-arsip.php";
                         style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);">
                     info@polibatam.ac.id</p>
                 <ul class="social-links">
-<<<<<<< HEAD
-                    <li><a href="https://www.facebook.com/share/1NGcdBa57o/https://www.facebook.com/share/1NGcdBa57o/"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
-                    <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
                     <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img src="image/icon-instagram.png" alt="Instagram"></a></li>
-=======
-                    <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img
-                                src="image/icon-instagram.png" alt="Instagram"></a></li>
-                    <li><a href="https://www.youtube.com/@polibatamofficial"><img src="image/icon-youtube.png"
-                                alt="YouTube"></a></li>
-                    <li><a href="https://www.polibatam.ac.id"><img src="image/icon-website.png" alt="Website"></a></li>
->>>>>>> c327f355a5f14bff985be27ae1359fe89f48ff58
-                </ul>
+          <li><a href="https://www.youtube.com/@polibatamofficial"><img src="image/icon-youtube.png" alt="YouTube"></a></li>
+          <li><a href="https://www.polibatam.ac.id"><img src="image/icon-website.png" alt="Website"></a></li>
             </div>
         </div>
         <div class="footer-bottom">

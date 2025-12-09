@@ -18,12 +18,8 @@ $id = $_SESSION['user_id'];
 $query = mysqli_query($conn, "SELECT * FROM users WHERE id='$id'");
 $data  = mysqli_fetch_assoc($query);
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -56,72 +52,56 @@ $data  = mysqli_fetch_assoc($query);
         </div>
     </nav>
 
-    <main class="profil-container-mahasiswa">
-        <div class="header-section">
-            <h1><b>PROFIL STAF AKADEMIK</b></h1>
-            <p class="subtitle">Data Kepegawaian & Informasi Pribadi</p>
-        </div>
+<main class="profil-container-mahasiswa">
+    <div class="header-section">
+        <h1><b>PROFIL STAF AKADEMIK</b></h1>
+        <p class="subtitle">Data Identitas & Kontak</p>
+    </div>
 
-        <div class="profile-content-wrapper">
-            <section class="profil-identitas-card">
-                <div class="card-header-mahasiswa">
-                    <div class="photo-placeholder">
-                        <i class="fas fa-user-tie"></i>
+    <div class="profile-content-wrapper">
+        <section class="profil-identitas-card">
+            <div class="card-header-mahasiswa">
+                <div class="photo-placeholder">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="profil-info-header">
+                    <h2><?= $data['nama']; ?></h2>
+                    <p class="nim-label">NIK: <?= $data['nik']; ?></p>
+                </div>
+            </div>
+
+            <div class="profil-info-details">
+                <h3>Informasi Staf</h3>
+                <div class="detail-group">
+                    <div class="detail-item">
+                        <span class="label">Jabatan</span>
+                        <span class="value"><?= $data['jabatan']; ?></span>
                     </div>
-                    <div class="profil-info-header">
-                        <h2><?= $data['nama']; ?></h2>
-                        <p class="nim-label">NIK: <?= $data['nik']; ?></p>
+                    <div class="detail-item">
+                        <span class="label">Program Studi</span>
+                        <span class="value"><?= $data['prodi']; ?></span>
+                    </div>
+                </div><br>
+                <h3>Kontak</h3>
+                <div class="detail-group">
+                    <div class="detail-item">
+                        <span class="label">Email</span>
+                        <span class="value"><?= $data['email']; ?></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Telepon</span>
+                        <span class="value"><?= $data['telepon']; ?></span>
                     </div>
                 </div>
-                
-                <div class="profil-info-details">
-                    <h3><i class="fas fa-briefcase"></i> Informasi Kepegawaian</h3>
-                    <div class="detail-group">
-                        <div class="detail-item">
-                            <span class="label"><i class="fas fa-id-badge"></i> Jabatan</span>
-                            <span class="value"><?= $data['jabatan']; ?></span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label"><i class="fas fa-building"></i> Program Studi</span>
-                            <span class="value"><?= !empty($data['prodi']) ? $data['prodi'] : '-'; ?></span>
-                        </div>
-                    </div>
+            </div>
+        </section>
+    </div>
 
-                    <h3><i class="fas fa-address-card"></i> Informasi Kontak</h3>
-                    <div class="detail-group">
-                        <div class="detail-item">
-                            <span class="label"><i class="fas fa-envelope"></i> Email</span>
-                            <span class="value"><?= $data['email']; ?></span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label"><i class="fas fa-phone"></i> No. Telepon</span>
-                            <span class="value"><?= $data['telepon']; ?></span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <div class="aksi-logout-area">
-<<<<<<< HEAD
-            <a href="edit-profil-staf.php">
-                <button class="btn-logout">
-                    Edit Profil
-                </button>
-            </a>
-            <a href="backend/logout.php">
-                <button class="btn-logout">
-                    Keluar
-                </button>
-            </a>
-=======
-            <button class="btn-logout" onclick="confirmLogout()">
-                <i class="fas fa-sign-out-alt"></i> Keluar
-            </button>
->>>>>>> c327f355a5f14bff985be27ae1359fe89f48ff58
-        </div>
-
-    </main>
+    <div class="aksi-logout-area">
+        <a href="edit-profil-staf.php"><button class="btn-edit">Edit Profil</button></a>
+        <button class="btn-logout" onclick="confirmLogout()">Keluar</button>
+    </div>
+</main>
 
     <footer class="footer">
         <div class="footer-container">
