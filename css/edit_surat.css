@@ -32,7 +32,7 @@ main {
    NAVBAR RESPONSIF
 ============================================ */
 .navbar {
-  background: #004080;
+  background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
   padding: 0.75rem 0;
   color: white;
   position: fixed;

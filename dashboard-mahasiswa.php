@@ -30,39 +30,35 @@ $spQuery = mysqli_query($conn, "
 <html lang="en">
 
 <head>
-<!--Michael Sando Turnip-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/dashboard-mahasiswa.css"><!--CSS-->
-    <link rel="icon" type="image/png" href="image/dispol.png">
-    <title>Beranda Mahasiswa</title>
+  <!--Michael Sando Turnip-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/dashboard-mahasiswa.css"><!--CSS-->
+  <link rel="icon" type="image/png" href="image/dispol.png">
+  <title>Beranda Mahasiswa</title>
 </head>
 
 <body>
 
   <nav class="navbar">
-    <div class="container nav-inner">
-      <a class="logo">
-        <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
+    <div class="container">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a href="dashboard-mahasiswa.php" class="logo">
+        <img src="image/dispol.png" width="65" height="65" alt="Logo DISPOL">
         <span class="brand">DISP<span class="brand-o">O</span>L</span>
       </a>
+
+      <ul class="nav-links" id="navMenu">
+        <li><a href="dashboard-mahasiswa.php" class="active">Beranda</a></li>
+        <li><a href="profil-mahasiswa.php">Profil</a></li>
+      </ul>
     </div>
   </nav>
-
-  <!-- Tombol sidebar-->
-  <button id="sidebarToggle" class="sidebar-toggle" aria-label="Buka menu" aria-expanded="false">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
-
-  <!-- Sidebar kanan -->
-  <aside id="sidebar" class="sidebar" aria-hidden="true">
-    <nav class="sidebar-menu">
-      <a href="dashboard-mahasiswa.php" class="menu-item active">Beranda</a>
-      <a href="profil-mahasiswa.php" class="menu-item">Profil</a>
-    </nav>
-  </aside>
 
   <section id="home" class="hero">
     <div class="container">
@@ -85,14 +81,14 @@ $spQuery = mysqli_query($conn, "
             </tr>
           </thead>
           <tbody>
-                <?php while ($sp = mysqli_fetch_assoc($spQuery)) : ?>
-                  <tr onclick="window.location='lihat-sp-mh.php?id=<?= $sp['id'] ?>'" class="clickable-row">
-                    <td><?= htmlspecialchars($sp['perihal']) ?></td>
-                    <td><?= htmlspecialchars($sp['tingkat']) ?></td>
-                    <td><?= date('d/m/Y', strtotime($sp['tanggal'])) ?></td>
-                    <td><?= htmlspecialchars($sp['status']) ?></td>
-                  </tr>
-                <?php endwhile; ?>
+            <?php while ($sp = mysqli_fetch_assoc($spQuery)) : ?>
+              <tr onclick="window.location='lihat-sp-mh.php?id=<?= $sp['id'] ?>'" class="clickable-row">
+                <td><?= htmlspecialchars($sp['perihal']) ?></td>
+                <td><?= htmlspecialchars($sp['tingkat']) ?></td>
+                <td><?= date('d/m/Y', strtotime($sp['tanggal'])) ?></td>
+                <td><?= htmlspecialchars($sp['status']) ?></td>
+              </tr>
+            <?php endwhile; ?>
           </tbody>
         </table>
       </div>
@@ -118,17 +114,13 @@ $spQuery = mysqli_query($conn, "
       </div>
       <div class="footer-right">
         <h4>Hubungi Kami</h4>
-        <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
+        <p><img src="image/icon-address.png" alt="Address" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> Jl. Ahmad Yani Batam Kota,<br>Kota Batam, Kepulauan Riau, Indonesia</p>
+        <p><img src="image/icon-contact.png" alt="Phone" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> +62-778-469858 Ext.1017</p>
+        <p><img src="image/icon-email.png" alt="Email" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> info@polibatam.ac.id</p>
         <ul class="social-links">
-<<<<<<< HEAD
-          <li><a href="https://www.facebook.com/share/1NGcdBa57o/https://www.facebook.com/share/1NGcdBa57o/"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
-          <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
           <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img src="image/icon-instagram.png" alt="Instagram"></a></li>
-=======
-          <li><a href="https://www.instagram.com/polibatamofficial/"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
-          <li><a href="https://www.instagram.com/polibatamofficial/"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
-          <li><a href="https://www.instagram.com/polibatamofficial/"><img src="image/icon-instagram.png" alt="Instagram"></a></li>
->>>>>>> fe55eae4f98d3a507e6bfdeeb9ae954c78dca8cf
+          <li><a href="https://www.youtube.com/@polibatamofficial"><img src="image/icon-youtube.png" alt="YouTube"></a></li>
+          <li><a href="https://www.polibatam.ac.id"><img src="image/icon-website.png" alt="Website"></a></li>
         </ul>
       </div>
     </div>
@@ -136,7 +128,16 @@ $spQuery = mysqli_query($conn, "
       <p>&copy; 2025 DISPOL | All Rights Reserved</p>
     </div>
   </footer>
-  <script src="js/sp-mahasiswa.js"></script>
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener("click", () => {
+            navMenu.classList.toggle("show");
+        });
+    }
+  </script>
 </body>
 
 </html>

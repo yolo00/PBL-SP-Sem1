@@ -1,9 +1,7 @@
 <?php include "backend/config.php"; ?>
 
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +9,6 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="icon" type="image/png" href="image/dispol.png">
 </head>
-
 <body>
 
     <form action="backend/register-process.php" method="POST">
@@ -27,59 +24,81 @@
             <option value="staf">Staf Akademik</option>
         </select>
 
-      <!-- ============================================================
- FORM STAF
-============================================================ -->
-<div id="formStaf" style="display:none">
+        <!-- ============================================================
+         FORM STAF
+        ============================================================ -->
+        <div id="formStaf" style="display:none">
+            <label for="nik">NIK Staf</label>
+            <input type="text" name="nik" placeholder="Masukkan NIK Staf">
 
-    <label for="id">ID Staf (boleh dikosongkan)</label>
-    <input type="number" name="id_staf" placeholder="Masukkan ID staf">
+            <label for="jabatan">Jabatan</label>
+            <input type="text" name="jabatan" placeholder="Contoh: Staf Akademik">
 
-    <label for="nik">NIK Staf</label>
-    <input type="text" name="nik" placeholder="Masukkan NIK Staf">
-
-    <label for="jabatan">Jabatan</label>
-    <input type="text" name="jabatan" placeholder="Contoh: Staf Akademik">
-
-    <label for="prodi_staf">Program Studi</label>
-    <input type="text" name="prodi_staf" placeholder="Masukkan prodi staf">
-
-</div>
-
-<!-- ============================================================
- FORM MAHASISWA
-============================================================ -->
-<div id="formMahasiswa" style="display:none">
-
-    <label for="nim">NIM</label>
-    <input type="text" name="nim" placeholder="Masukkan NIM">
-
-    <label for="jurusan">Jurusan</label>
-    <input type="text" name="jurusan" placeholder="Masukkan jurusan">
-
-    <label for="prodi_mahasiswa">Program Studi</label>
-    <input type="text" name="prodi_mahasiswa" placeholder="Masukkan prodi mahasiswa">
-
-    <label for="kelas">Kelas</label>
-    <input type="text" name="kelas" placeholder="Masukkan kelas">
-
-    <label for="angkatan">Angkatan</label>
-    <input type="number" name="angkatan" placeholder="Contoh: 2025">
-
-</div>
+            <label for="prodi_staf">Program Studi</label>
+            <select name="prodi_staf" id="prodi_staf">
+                <option value="">Pilih Program Studi</option>
+                <option value="Teknik Informatika">Teknik Informatika</option>
+                <option value="Teknologi Rekayasa Perangkat Lunak">Teknologi Rekayasa Perangkat Lunak</option>
+                <option value="Teknologi Geomatika">Teknologi Geomatika</option>
+                <option value="Rekayasa Keamanan Siber">Rekayasa Keamanan Siber</option>
+                <option value="Teknologi Rekayasa Multimedia">Teknologi Rekayasa Multimedia</option>
+                <option value="Animasi">Animasi</option>
+                <option value="Teknologi Permainan">Teknologi Permainan</option>
+            </select>
+        </div>
 
         <!-- ============================================================
-     FORM UTAMA
-============================================================ -->
+         FORM MAHASISWA
+        ============================================================ -->
+        <div id="formMahasiswa" style="display:none">
+            <label for="nim">NIM</label>
+            <input type="text" name="nim" placeholder="Masukkan NIM">
+
+            <label for="jurusan">Jurusan</label>
+            <select name="jurusan" id="jurusan">
+                <option value="">Pilih Jurusan</option>
+                <option value="Teknik Informatika">Teknik Informatika</option>
+                <option value="Teknik Elektro">Teknik Elektro</option>
+                <option value="Teknik Mesin">Teknik Mesin</option>
+            </select>
+
+            <label for="prodi_mahasiswa">Program Studi</label>
+            <select name="prodi_mahasiswa" id="prodi_mahasiswa">
+                <option value="">Pilih Program Studi</option>
+                <option value="Teknik Informatika">Teknik Informatika</option>
+                <option value="Teknologi Rekayasa Perangkat Lunak">Teknologi Rekayasa Perangkat Lunak</option>
+                <option value="Teknologi Geomatika">Teknologi Geomatika</option>
+                <option value="Rekayasa Keamanan Siber">Rekayasa Keamanan Siber</option>
+                <option value="Teknologi Rekayasa Multimedia">Teknologi Rekayasa Multimedia</option>
+                <option value="Animasi">Animasi</option>
+                <option value="Teknologi Permainan">Teknologi Permainan</option>
+            </select>
+
+            <label for="kelas">Kelas</label>
+            <select name="kelas" id="kelas">
+                <option value="">Pilih Kelas</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+            </select>
+
+            <label for="angkatan">Angkatan</label>
+            <input type="number" name="angkatan" placeholder="Contoh: 2025">
+        </div>
+
+        <!-- ============================================================
+         FORM UTAMA
+        ============================================================ -->
         <label for="nama">Nama Lengkap:</label>
         <input type="text" name="nama" placeholder="Masukkan nama lengkap" required>
 
         <label for="email">Email:</label>
-        <input type="email" name="email" placeholder="Masukkan email">
+        <input type="email" name="email" placeholder="Masukkan email" required>
 
         <label for="telepon">No. Telepon:</label>
-        <input type="text" name="telepon" placeholder="Masukkan nomor HP">
-
+        <input type="text" name="telepon" placeholder="Masukkan nomor HP" required>
 
         <label for="username">NIK/NIM untuk Login:</label>
         <input type="text" id="username" name="username" placeholder="Masukkan username akun" required>
@@ -97,8 +116,7 @@
 
     <!-- ============================================================
      SCRIPT: TAMPILKAN FORM SESUAI ROLE
-============================================================ -->
-
+    ============================================================ -->
     <script>
         const role = document.getElementById("role");
         const formStaf = document.getElementById("formStaf");
@@ -108,9 +126,35 @@
             if (this.value === "staf") {
                 formStaf.style.display = "block";
                 formMahasiswa.style.display = "none";
+                
+                // Set required untuk form staf
+                document.querySelector('[name="nik"]').required = true;
+                document.querySelector('[name="jabatan"]').required = true;
+                document.querySelector('[name="prodi_staf"]').required = true;
+                
+                // Remove required dari form mahasiswa
+                document.querySelector('[name="nim"]').required = false;
+                document.querySelector('[name="jurusan"]').required = false;
+                document.querySelector('[name="prodi_mahasiswa"]').required = false;
+                document.querySelector('[name="kelas"]').required = false;
+                document.querySelector('[name="angkatan"]').required = false;
+                
             } else if (this.value === "mahasiswa") {
                 formStaf.style.display = "none";
                 formMahasiswa.style.display = "block";
+                
+                // Set required untuk form mahasiswa
+                document.querySelector('[name="nim"]').required = true;
+                document.querySelector('[name="jurusan"]').required = true;
+                document.querySelector('[name="prodi_mahasiswa"]').required = true;
+                document.querySelector('[name="kelas"]').required = true;
+                document.querySelector('[name="angkatan"]').required = true;
+                
+                // Remove required dari form staf
+                document.querySelector('[name="nik"]').required = false;
+                document.querySelector('[name="jabatan"]').required = false;
+                document.querySelector('[name="prodi_staf"]').required = false;
+                
             } else {
                 formStaf.style.display = "none";
                 formMahasiswa.style.display = "none";
@@ -119,5 +163,4 @@
     </script>
 
 </body>
-
 </html>

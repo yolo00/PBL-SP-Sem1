@@ -12,29 +12,36 @@ body {
 }
 
 form {
-  width: 30%;
+  width: 90%;
   max-width: 450px;
-  min-width: 280px;     /* 🔥 Tambahan penting agar responsif */
-  padding: 20px;
+  padding: 25px;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   font-family: Arial, sans-serif;
+  transition: all 0.3s ease;
 }
 
 .logo {
-  width: 150px;          /* 🔥 kecilkan agar fit di mobile */
+  width: 130px;
   height: auto;
   border-radius: 15px;
   object-fit: cover;
   display: block;
-  margin: 20px auto;
+  margin: 15px auto 20px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  margin-bottom: 20px;
 }
 
 a {
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
@@ -55,6 +62,8 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="number"],
+select,
 textarea {
   width: 100%;
   padding: 10px;
@@ -87,33 +96,141 @@ button:hover {
 }
 
 /* ====================================================
-   🔥 MEDIA QUERY RESPONSIVE (WAJIB)
+   RESPONSIVE DESIGN - MEDIA QUERIES
    ==================================================== */
-@media (max-width: 768px) {
+
+/* Desktop and larger tablets */
+@media (min-width: 992px) {
   form {
-    width: 90%;      /* 🔥 penuh di layar HP */
-    padding: 20px;
+    width: 35%;
+    padding: 30px;
   }
 
   .logo {
-    width: 120px;
+    width: 140px;
   }
 
   h2 {
-    font-size: 16px;
+    font-size: 1.3rem;
   }
 }
 
-@media (max-width: 480px) {
+/* Tablets */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
   form {
-    width: 100%;
+    width: 85%;
+    padding: 25px;
   }
 
   .logo {
-    width: 100px;
+    width: 110px;
   }
 
   h2 {
+    font-size: 1.1rem;
+  }
+
+  label {
     font-size: 14px;
+  }
+
+  .jenis-user,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  select,
+  textarea {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  form {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .logo {
+    width: 90px;
+    margin: 10px auto 15px;
+  }
+
+  h2 {
+    font-size: 0.95rem;
+  }
+
+  label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .jenis-user,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  select,
+  textarea {
+    font-size: 13px;
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+
+  button {
+    padding: 11px;
+    font-size: 14px;
+  }
+
+  .lupa-sandi {
+    font-size: 12px;
+    margin-top: 20px;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 400px) {
+  form {
+    padding: 18px;
+  }
+
+  .logo {
+    width: 80px;
+  }
+
+  h2 {
+    font-size: 0.9rem;
+  }
+
+  .jenis-user,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  select,
+  textarea {
+    font-size: 12px;
+    padding: 9px;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 13px;
   }
 }

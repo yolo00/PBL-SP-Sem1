@@ -30,6 +30,8 @@ $data  = mysqli_fetch_assoc($query);
     <title>Profil Staf Akademik</title>
     <link rel="stylesheet" href="css/profil-staf.css" />
     <link rel="icon" type="png" href="image/dispol.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -54,45 +56,54 @@ $data  = mysqli_fetch_assoc($query);
         </div>
     </nav>
 
-    <main class="profil-container-modern">
+    <main class="profil-container-mahasiswa">
         <div class="header-section">
             <h1><b>PROFIL STAF AKADEMIK</b></h1>
+            <p class="subtitle">Data Kepegawaian & Informasi Pribadi</p>
         </div>
 
-        <section class="profile-card-modern">
-            <div class="card-left">
-                <div class="photo-placeholder">
-                    <i class="fas fa-user fa-3x"></i>
+        <div class="profile-content-wrapper">
+            <section class="profil-identitas-card">
+                <div class="card-header-mahasiswa">
+                    <div class="photo-placeholder">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="profil-info-header">
+                        <h2><?= $data['nama']; ?></h2>
+                        <p class="nim-label">NIK: <?= $data['nik']; ?></p>
+                    </div>
                 </div>
+                
+                <div class="profil-info-details">
+                    <h3><i class="fas fa-briefcase"></i> Informasi Kepegawaian</h3>
+                    <div class="detail-group">
+                        <div class="detail-item">
+                            <span class="label"><i class="fas fa-id-badge"></i> Jabatan</span>
+                            <span class="value"><?= $data['jabatan']; ?></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label"><i class="fas fa-building"></i> Program Studi</span>
+                            <span class="value"><?= !empty($data['prodi']) ? $data['prodi'] : '-'; ?></span>
+                        </div>
+                    </div>
 
-                <!-- Nama Staf -->
-                <h2 class="staff-name">
-                    <?= $data['nama']; ?>
-                </h2>
-
-                <p class="staff-role">
-                    Staf Akademik
-                </p>
-            </div>
-
-            <div class="card-right">
-                <h3>Detail Informasi</h3>
-                <div class="detail-group">
-                    <p><span class="label">NIK</span><span class="value"><?= $data['nik']; ?></span></p>
-                    <p><span class="label">Jabatan</span><span class="value"><?= $data['jabatan']; ?></span></p>
-                    <p><span class="label">Program Studi</span><span
-                            class="value"><?= !empty($data['prodi']) ? $data['prodi'] : '-'; ?></span></p>
+                    <h3><i class="fas fa-address-card"></i> Informasi Kontak</h3>
+                    <div class="detail-group">
+                        <div class="detail-item">
+                            <span class="label"><i class="fas fa-envelope"></i> Email</span>
+                            <span class="value"><?= $data['email']; ?></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label"><i class="fas fa-phone"></i> No. Telepon</span>
+                            <span class="value"><?= $data['telepon']; ?></span>
+                        </div>
+                    </div>
                 </div>
-
-                <h3>Kontak</h3>
-                <div class="detail-group">
-                    <p><span class="label">Email&nbsp;&nbsp;</span><span class="value"><?= $data['email']; ?></span></p>
-                    <p><span class="label">No. Telepon</span><span class="value"><?= $data['telepon']; ?></span></p>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
         <div class="aksi-logout-area">
+<<<<<<< HEAD
             <a href="edit-profil-staf.php">
                 <button class="btn-logout">
                     Edit Profil
@@ -103,6 +114,11 @@ $data  = mysqli_fetch_assoc($query);
                     Keluar
                 </button>
             </a>
+=======
+            <button class="btn-logout" onclick="confirmLogout()">
+                <i class="fas fa-sign-out-alt"></i> Keluar
+            </button>
+>>>>>>> c327f355a5f14bff985be27ae1359fe89f48ff58
         </div>
 
     </main>
@@ -129,11 +145,13 @@ $data  = mysqli_fetch_assoc($query);
 
             <div class="footer-right">
                 <h4>Hubungi Kami</h4>
-                <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
+                <p><img src="image/icon-address.png" alt="Address" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> Jl. Ahmad Yani Batam Kota,<br>Kota Batam, Kepulauan Riau, Indonesia</p>
+                <p><img src="image/icon-contact.png" alt="Phone" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> +62-778-469858 Ext.1017</p>
+                <p><img src="image/icon-email.png" alt="Email" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> info@polibatam.ac.id</p>
                 <ul class="social-links">
-                    <li><a href="https://www.facebook.com/share/1NGcdBa57o/https://www.facebook.com/share/1NGcdBa57o/"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
-                    <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
                     <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img src="image/icon-instagram.png" alt="Instagram"></a></li>
+                    <li><a href="https://www.youtube.com/@polibatamofficial"><img src="image/icon-youtube.png" alt="YouTube"></a></li>
+                    <li><a href="https://www.polibatam.ac.id"><img src="image/icon-website.png" alt="Website"></a></li>
                 </ul>
             </div>
         </div>
@@ -221,6 +239,13 @@ $data  = mysqli_fetch_assoc($query);
             }, 250);
         });
     })();
+
+    // Logout confirmation
+    function confirmLogout() {
+        if (confirm('Yakin ingin keluar dari akun ini?')) {
+            window.location.href = 'backend/logout.php';
+        }
+    }
     </script>
 </body>
 

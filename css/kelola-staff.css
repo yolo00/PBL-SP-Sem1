@@ -29,7 +29,7 @@ body {
    NAVBAR RESPONSIF
 ============================================ */
 .navbar {
-  background: #004080;
+  background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
   padding: 0.75rem 0;
   color: white;
   position: fixed;
@@ -66,6 +66,7 @@ body {
 .brand {
   color: #ffffff;
   margin-left: 8px;
+  font-family: 'Poppins', Arial, sans-serif;
   font-weight: 800;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
@@ -261,7 +262,7 @@ main h1 {
   .filter-bar {
     flex-direction: column;
   }
-  
+
   .search-wrapper,
   .filter-bar select,
   .btn-tambah {
@@ -276,11 +277,11 @@ main h1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  
+
   .search-wrapper {
     grid-column: 1 / -1;
   }
-  
+
   .btn-tambah {
     grid-column: 1 / -1;
   }
@@ -324,7 +325,8 @@ main h1 {
 ============================================ */
 .main-table {
   width: 100%;
-  min-width: 900px; /* Prevent table from being too narrow */
+  min-width: 900px;
+  /* Prevent table from being too narrow */
   border-collapse: collapse;
   font-size: 0.9rem;
   background: white;
@@ -395,6 +397,21 @@ main h1 {
   background: rgba(0, 64, 128, 0.1);
 }
 
+.main-table td:last-child a .fa-edit {
+  color: #3b82f6;
+  /* Blue for Edit */
+}
+
+.main-table td:last-child a .fa-box-archive {
+  color: #f59e0b;
+  /* Amber/Orange for Archive */
+}
+
+.main-table td:last-child a .fa-trash-alt {
+  color: #ef4444;
+  /* Red for Delete */
+}
+
 /* Empty state */
 .empty-state {
   text-align: center;
@@ -413,12 +430,12 @@ main h1 {
     font-size: 0.8rem;
     min-width: 800px;
   }
-  
+
   .main-table th,
   .main-table td {
     padding: 0.625rem 0.5rem;
   }
-  
+
   .main-table thead th {
     font-size: 0.75rem;
   }
@@ -568,50 +585,50 @@ main h1 {
   body {
     padding-top: 75px;
   }
-  
+
   .navbar {
     padding: 1rem 0;
   }
-  
+
   .logo img {
     width: 55px;
     height: 55px;
   }
-  
+
   .brand {
     font-size: 1rem;
   }
-  
+
   main {
     padding: 2rem 1.5rem;
   }
-  
+
   .table-container {
     padding: 2rem;
   }
-  
+
   .footer-container {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .footer-left {
     flex-direction: row;
     text-align: left;
   }
-  
+
   .footer-center h4,
   .footer-right h4 {
     text-align: left;
   }
-  
+
   .footer-center ul {
     text-align: left;
   }
-  
+
   .footer-right {
     text-align: left;
   }
-  
+
   .social-links {
     justify-content: flex-start;
   }
@@ -624,7 +641,7 @@ main h1 {
   .menu-toggle {
     display: flex;
   }
-  
+
   .nav-links {
     position: fixed;
     top: 0;
@@ -641,28 +658,28 @@ main h1 {
     overflow-y: auto;
     z-index: 999;
   }
-  
+
   .nav-links.show {
     left: 0;
   }
-  
+
   .nav-links li {
     width: 100%;
     margin: 0;
   }
-  
+
   .nav-links a {
     display: block;
     padding: 1rem 2rem;
     border-left: 3px solid transparent;
   }
-  
+
   .nav-links a:hover,
   .nav-links a.active {
     background: rgba(255, 255, 255, 0.1);
     border-left-color: #ff8c00;
   }
-  
+
   .nav-links a::after {
     display: none;
   }
@@ -675,34 +692,34 @@ main h1 {
   body {
     padding-top: 85px;
   }
-  
+
   .navbar .container {
     padding: 0 2rem;
   }
-  
+
   .logo img {
     width: 65px;
     height: 65px;
   }
-  
+
   .brand {
     font-size: 1.1rem;
   }
-  
+
   main {
     padding: 2.5rem 2rem;
   }
-  
+
   .table-container {
     padding: 2.5rem;
     width: 98%;
   }
-  
+
   .footer-container {
     grid-template-columns: 2fr 1fr 1.5fr;
     text-align: left;
   }
-  
+
   .footer-left {
     flex-direction: row;
   }
@@ -726,30 +743,36 @@ main h1 {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* ============================================
    PRINT STYLES
 ============================================ */
 @media print {
+
   .navbar,
   .footer,
   .menu-toggle,
   .filter-bar {
     display: none;
   }
-  
+
   body {
     padding-top: 0;
   }
-  
+
   .table-wrapper {
     overflow: visible;
     max-height: none;
   }
-  
+
   .main-table {
     min-width: 100%;
   }

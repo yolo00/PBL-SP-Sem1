@@ -3,6 +3,8 @@
 html,
 body {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 * {
@@ -15,158 +17,126 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   padding-top: 70px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/*menu/navbar*/
 .navbar {
-  background: #004080;
-  padding: 1rem 0;
+  background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
+  padding: 0.75rem 0;
   color: white;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 2000px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 16px;
-}
-
-.nav-inner {
-  gap: 12px;
+  padding: 0 1rem;
 }
 
 .logo {
   display: flex;
   align-items: center;
   text-decoration: none;
+  z-index: 1001;
 }
 
 .logo img {
-  display: block;
   border-radius: 6px;
+  width: 50px;
+  height: 50px;
 }
 
 .brand {
-  /*Gaya huruf dispol*/
   color: #ffffff;
-  margin-left: 10px;
+  margin-left: 8px;
+  font-family: 'Poppins', Arial, sans-serif;
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   letter-spacing: 0.5px;
 }
 
 .brand-o {
   color: #ff8c00;
-  /* orange untuk O */
 }
 
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Nav Links Desktop */
 .navbar .nav-links {
   list-style: none;
   display: flex;
-  margin-right: 20px;
   align-items: center;
-}
-
-.navbar .nav-links li .active {
-  color: #e04e32;
+  gap: 1.5rem;
+  margin: 0;
 }
 
 .navbar .nav-links li {
-  margin-left: 20px;
+  margin: 0;
 }
 
 .navbar .nav-links a {
   color: white;
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  padding: 0.5rem 0;
+  position: relative;
 }
 
-.navbar .nav-links a:hover {
-  color: #e04e32;
-}
-
-/*===Sidebar===*/
-.sidebar-toggle {
-  position: fixed;
-  top: 25px;
-  right: 20px;
-  z-index: 1301;
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  width: 42px;
-  height: 38px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-  transition: right 0.3s ease, background 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-}
-
-.sidebar-toggle .bar {
-  width: 22px;
+.navbar .nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
   height: 2px;
-  background: #0f172a;
-  border-radius: 2px;
+  background: #ff8c00;
+  transition: width 0.3s ease;
 }
 
-.sidebar-toggle:hover {
-  background: #f3f4f6;
+.navbar .nav-links a:hover::after,
+.navbar .nav-links a.active::after {
+  width: 100%;
 }
 
-/* Sidebar*/
-.sidebar {
-  position: fixed;
-  top: 100px;
-  right: 0;
-  width: 300px;
-  height: calc(100vh - 70px);
-  background: #f9fafb;
-  border-left: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
-  z-index: 800;
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
+.navbar .nav-links a:hover,
+.navbar .nav-links a.active {
+  color: #ff8c00;
 }
 
-/*Saat terbuka*/
-.sidebar.open {
-  transform: translateX(0);
-}
+/* Remove Sidebar Styles */
 
-/*Efek hover/active*/
-.sidebar-menu .menu-item {
-  text-decoration: none;
-  color: #111827;
-  padding: 10px 12px;
-  border-radius: 8px;
-  display: block;
-  transition: background 0.2s;
-}
-
-.sidebar-menu .menu-item:hover,
-.sidebar-menu .menu-item.active {
-  background: linear-gradient(135deg, #1a73e8, #2a9df4);
-  color: white;
-}
-
-.sidebar.open+.sidebar-toggle,
-.sidebar.open~.sidebar-toggle {
-  right: 320px;
-}
 
 .hero {
   width: 100%;
@@ -186,7 +156,7 @@ body {
 }
 
 .hero h1 span {
-  color: #ffd700;
+  color: #ff8c00;
   font-weight: bold;
 }
 
@@ -211,6 +181,19 @@ body {
 
 .tabelsp {
   overflow-x: auto;
+  overflow-y: auto;
+  max-height: 400px;
+  /* Adjust height as needed */
+  border: 1px solid #eee;
+  /* Optional border for clarity */
+}
+
+/* Sticky Header */
+.tabelsp thead th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.1);
 }
 
 table {
@@ -318,7 +301,7 @@ tr:hover {
   background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
   color: #fff;
   padding: 40px 0 10px 0;
-  margin-top: 50px;
+  margin-top: auto;
   box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.3);
   font-family: 'Poppins', sans-serif;
 }
@@ -410,20 +393,150 @@ tr:hover {
   color: #d0d0d0;
 }
 
-/* Responsif */
+/* ============================================
+   RESPONSIVE DESIGN
+============================================ */
 @media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero h2 {
+    font-size: 1rem;
+  }
+
+  #list {
+    padding: 25px 20px;
+  }
+
+  th,
+  td {
+    padding: 12px 8px;
+    font-size: 0.85rem;
+  }
+
   .footer-container {
     flex-direction: column;
     text-align: center;
     align-items: center;
   }
-}
-/* Tambahan untuk clickable row */
-.clickable-row {
-    cursor: pointer;
-    transition: background-color 0.2s;
+
+  .footer-left {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
 }
 
-.clickable-row:hover {
-    background-color: #d1d5db;
+@media (max-width: 480px) {
+  .tabelsp {
+    overflow-x: scroll;
+  }
+
+  table {
+    min-width: 500px;
+  }
+
+  .btn-lihat {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ============================================
+   TABLET RESPONSIVE (600px - 899px)
+============================================ */
+@media (min-width: 600px) {
+  body {
+    padding-top: 75px;
+  }
+
+  .navbar {
+    padding: 1rem 0;
+  }
+
+  .logo img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .brand {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   MOBILE RESPONSIVE (< 900px)
+============================================ */
+@media (max-width: 899px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    background: linear-gradient(180deg, #003366 0%, #004080 100%);
+    width: 75%;
+    max-width: 300px;
+    height: 100vh;
+    flex-direction: column;
+    padding: 80px 0 20px;
+    gap: 0;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+    transition: left 0.4s ease;
+    overflow-y: auto;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    left: 0;
+  }
+
+  .nav-links li {
+    width: 100%;
+    margin: 0;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 1rem 2rem;
+    border-left: 3px solid transparent;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    background: rgba(255, 255, 255, 0.1);
+    border-left-color: #ff8c00;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+}
+
+/* ============================================
+   DESKTOP RESPONSIVE (900px+)
+============================================ */
+@media (min-width: 900px) {
+  body {
+    padding-top: 85px;
+  }
+
+  .navbar .container {
+    padding: 0 2rem;
+  }
+
+  .logo img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .brand {
+    font-size: 1.1rem;
+  }
 }

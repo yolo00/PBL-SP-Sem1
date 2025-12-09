@@ -37,7 +37,7 @@ body {
    NAVBAR RESPONSIF
 ============================================ */
 .navbar {
-  background: var(--primary-color);
+  background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
   padding: 0.75rem 0;
   color: var(--text-light);
   position: fixed;
@@ -74,6 +74,7 @@ body {
 .brand {
   color: #ffffff;
   margin-left: 8px;
+  font-family: 'Poppins', Arial, sans-serif;
   font-weight: 800;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
@@ -247,7 +248,7 @@ body {
 
 .preview-item a {
   display: inline-block;
-  background: #004080;
+  background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
   color: white;
   text-decoration: none;
   padding: 6px 12px;

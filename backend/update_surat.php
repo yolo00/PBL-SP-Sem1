@@ -27,8 +27,11 @@ if (!empty($_FILES['file']['name'])) {
     }
 
     $originalName = $_FILES['file']['name'];
+    $baseName = pathinfo($originalName, PATHINFO_FILENAME);
     $ext = pathinfo($originalName, PATHINFO_EXTENSION);
-    $cleanName = time() . "_" . uniqid() . "." . $ext;
+    // Sanitize filename: remove special characters, keep original name
+    $safeName = preg_replace('/[^a-zA-Z0-9_-]/', '_', $baseName);
+    $cleanName = time() . "_" . $safeName . "." . $ext; // Timestamp + original filename
 
     if (move_uploaded_file($_FILES['file']['tmp_name'], "../uploads/" . $cleanName)) {
         $newFileName = mysqli_real_escape_string($conn, $cleanName);

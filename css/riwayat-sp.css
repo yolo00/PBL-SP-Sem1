@@ -4,11 +4,13 @@ html,
 body {
   height: 100%;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
@@ -17,13 +19,14 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
 main {
   flex: 1;
 }
 
 /*menu/navbar*/
 .navbar {
-  background: #004080;
+  background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
   padding: 1rem 0;
   color: white;
   position: fixed;
@@ -33,6 +36,7 @@ main {
   z-index: 1000;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
 }
+
 .navbar .container {
   display: flex;
   justify-content: space-between;
@@ -41,18 +45,22 @@ main {
   margin: 0 auto;
   padding: 0 16px;
 }
+
 .nav-inner {
   gap: 12px;
 }
+
 .logo {
   display: flex;
   align-items: center;
   text-decoration: none;
 }
+
 .logo img {
   display: block;
   border-radius: 6px;
 }
+
 .brand {
   /*Gaya huruf dispol*/
   color: #ffffff;
@@ -61,25 +69,32 @@ main {
   font-size: 1.1rem;
   letter-spacing: 0.5px;
 }
+
 .brand-o {
-  color: #ff8c00; /* orange untuk O */
+  color: #ff8c00;
+  /* orange untuk O */
 }
+
 .navbar .nav-links {
   list-style: none;
   display: flex;
   margin-right: 20px;
   align-items: center;
 }
+
 .navbar .nav-links li .active {
   color: #e04e32;
 }
+
 .navbar .nav-links li {
   margin-left: 20px;
 }
+
 .navbar .nav-links a {
   color: white;
   text-decoration: none;
 }
+
 .navbar .nav-links a:hover {
   color: #e04e32;
 }
@@ -104,12 +119,14 @@ main {
   transition: right 0.3s ease, background 0.2s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
+
 .sidebar-toggle .bar {
   width: 22px;
   height: 2px;
   background: #0f172a;
   border-radius: 2px;
 }
+
 .sidebar-toggle:hover {
   background: #f3f4f6;
 }
@@ -146,14 +163,15 @@ main {
   display: block;
   transition: background 0.2s;
 }
+
 .sidebar-menu .menu-item:hover,
 .sidebar-menu .menu-item.active {
   background: linear-gradient(135deg, #1a73e8, #2a9df4);
   color: white;
 }
 
-.sidebar.open + .sidebar-toggle,
-.sidebar.open ~ .sidebar-toggle {
+.sidebar.open+.sidebar-toggle,
+.sidebar.open~.sidebar-toggle {
   right: 320px;
 }
 
@@ -166,6 +184,7 @@ body {
   text-align: center;
   margin-bottom: 20px;
 }
+
 .title-bar h1 {
   font-size: 28px;
   color: #153d7e;
@@ -200,6 +219,7 @@ body {
   border-radius: 8px;
   transition: 0.3s ease;
 }
+
 .riwayat-item:hover {
   background: #e9eef8;
 }
@@ -207,11 +227,13 @@ body {
 .riwayat-info {
   flex: 1;
 }
+
 .riwayat-info strong {
   display: block;
   color: #153d7e;
   font-size: 16px;
 }
+
 .riwayat-info span {
   font-size: 14px;
   color: #555;
@@ -227,6 +249,7 @@ body {
   font-size: 14px;
   transition: background-color 0.3s;
 }
+
 .btn-detail:hover {
   background: #0f54c2;
 }
@@ -246,7 +269,8 @@ body {
   padding: 40px 0 10px 0;
   box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.3);
   font-family: "Poppins", sans-serif;
-  margin-top: 0; /* ubah ini */
+  margin-top: 0;
+  /* ubah ini */
 }
 
 .footer-container {

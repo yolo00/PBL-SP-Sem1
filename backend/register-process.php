@@ -7,7 +7,6 @@ $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 $nama     = $_POST['nama'];
 $email    = $_POST['email'];
 $telepon  = $_POST['telepon'];
-$prodi = $_POST['prodi'];
 
 // ===============================
 // CEK USERNAME DUPLIKAT
@@ -25,27 +24,23 @@ if (mysqli_num_rows($checkUser) > 0) {
 // REGISTER STAF
 // ===============================
 if ($role == "staf") {
-
     $nik     = $_POST['nik'];
     $jabatan = $_POST['jabatan'];
-    $prodi = $_POST['prodi'];
+    $prodi   = $_POST['prodi_staf']; // Ambil dari input prodi_staf
 
-$query = mysqli_query($conn, "
-    INSERT INTO users(username, password, role, nama, email, telepon, nik, jabatan, prodi)
-    VALUES('$username', '$password', '$role', '$nama', '$email', '$telepon', '$nik', '$jabatan', '$prodi')
-");
-
+    $query = mysqli_query($conn, "
+        INSERT INTO users(username, password, role, nama, email, telepon, nik, jabatan, prodi)
+        VALUES('$username', '$password', '$role', '$nama', '$email', '$telepon', '$nik', '$jabatan', '$prodi')
+    ");
 }
-
 
 // ===============================
 // REGISTER MAHASISWA
 // ===============================
 else if ($role == "mahasiswa") {
-
     $nim      = $_POST['nim'];
     $jurusan  = $_POST['jurusan'];
-    $prodi    = $_POST['prodi'];
+    $prodi    = $_POST['prodi_mahasiswa']; // Ambil dari input prodi_mahasiswa
     $kelas    = $_POST['kelas'];
     $angkatan = $_POST['angkatan'];
 
@@ -60,7 +55,6 @@ else if ($role == "mahasiswa") {
     ");
 }
 
-
 // ===============================
 // CEK STATUS INSERT
 // ===============================
@@ -71,7 +65,7 @@ if ($query) {
           </script>";
 } else {
     echo "<script>
-            alert('Gagal mendaftarkan akun!');
+            alert('Gagal mendaftarkan akun: " . mysqli_error($conn) . "');
             window.location='../daftar.php';
           </script>";
 }

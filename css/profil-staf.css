@@ -31,7 +31,7 @@ main {
    NAVBAR RESPONSIF
 ============================================ */
 .navbar {
-  background: #004080;
+  background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
   padding: 0.75rem 0;
   color: white;
   position: fixed;
@@ -68,6 +68,7 @@ main {
 .brand {
   color: #ffffff;
   margin-left: 8px;
+  font-family: 'Poppins', Arial, sans-serif;
   font-weight: 800;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
@@ -144,28 +145,30 @@ main {
 }
 
 /* ============================================
-   PROFIL CONTAINER
+   PROFIL CONTAINER (STYLES FROM PROFIL MAHASISWA)
 ============================================ */
-.profil-container-modern {
-  max-width: 1100px;
+.profil-container-mahasiswa {
+  max-width: 900px;
   width: 95%;
+  /* Ensure responsive width */
   margin: 40px auto;
-  padding: 30px 1rem;
+  padding: 20px;
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .header-section {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  animation: fadeInDown 0.8s ease-out;
 }
 
 .header-section h1 {
-  font-size: clamp(1.75rem, 5vw, 2.5rem);
-  color: #153d7e;
-  margin: 8px 0 18px;
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 0.2px;
-  line-height: 1.1;
+  font-size: 2.8em;
+  color: #0d47a1;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header-section .subtitle {
@@ -174,136 +177,220 @@ main {
   margin-top: 5px;
 }
 
-/* ============================================
-   PROFILE CARD
-============================================ */
-.profile-card-modern {
+/* Wrapper */
+.profile-content-wrapper {
   display: flex;
-  gap: 30px;
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Desktop layout */
-.card-left {
-  width: 35%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 
-.card-right {
-  width: 65%;
-  padding: 36px 40px;
+/* Styling Dasar Card */
+.profil-identitas-card {
   background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: zoomIn 0.6s ease-out 0.2s backwards;
+}
+
+.profil-identitas-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* 1. IDENTITAS CARD */
+.card-header-mahasiswa {
+  background: linear-gradient(135deg, #004080, #0066cc);
+  padding: 40px;
+  text-align: center;
+  color: white;
+  position: relative;
 }
 
 .photo-placeholder {
-  display: none;
-}
-
-.staff-name {
-  font-size: clamp(1.5rem, 4vw, 1.9rem);
-  color: #153d7e;
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 0.2px;
-  margin-top: 150px;
-  word-wrap: break-word;
-}
-
-.staff-role {
-  color: #153d7e;
-  font-weight: 600;
-  margin-bottom: 20px;
-  font-size: clamp(0.9rem, 2vw, 1rem);
-  opacity: 0.95;
-  text-align: center;
-}
-
-/* Tombol Ubah Profil */
-.btn-edit-profile {
-  background-color: #f39c12;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s;
-  width: 100%;
-}
-
-.btn-edit-profile:hover {
-  background-color: #e67e22;
-}
-
-/* Sisi Kanan: Detail Informasi */
-.card-right h3 {
-  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
-  color: #3498db;
-  border-bottom: 2px solid #ecf0f1;
-  padding-bottom: 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
   margin-bottom: 15px;
-  margin-top: 20px;
+  border: 4px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  animation: pulse 2s infinite;
 }
 
-.card-right h3:first-child {
-  margin-top: 0;
+.photo-placeholder i {
+  color: white;
+  font-size: 3.5rem;
 }
 
-.detail-group p {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.detail-group .label {
-  min-width: 130px;
+.profil-info-header h2 {
+  font-size: 2em;
+  margin: 10px 0 5px;
   font-weight: 700;
+}
+
+.nim-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1em;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 5px 15px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* Detail Info */
+.profil-info-details {
+  padding: 40px;
+}
+
+.profil-info-details h3 {
+  font-size: 1.4em;
   color: #004080;
-  font-size: clamp(0.9rem, 2vw, 1rem);
+  margin-bottom: 25px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.detail-group .value {
-  flex: 1;
-  color: #2c3e50;
-  white-space: normal;
-  word-break: normal;
-  font-size: clamp(0.9rem, 2vw, 1rem);
+.detail-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
-/* ============================================
-   LOGOUT BUTTON
-============================================ */
+.detail-item {
+  background: #f8f9fa;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border-left: 4px solid #004080;
+  transition: background 0.3s ease;
+}
+
+.detail-item:hover {
+  background: #eef2f7;
+}
+
+.detail-item .label {
+  display: block;
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-item .value {
+  display: block;
+  font-size: 1.1em;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Tombol Logout Area */
 .aksi-logout-area {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 40px;
+  animation: fadeInUp 1s ease-out 0.5s backwards;
 }
 
 .btn-logout {
-  background-color: #e74c3c;
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
   color: white;
   border: none;
-  margin-top: 20px;
-  padding: 12px 30px;
-  border-radius: 8px;
+  padding: 15px 40px;
+  border-radius: 50px;
   cursor: pointer;
-  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-size: 1.1em;
   font-weight: 600;
-  transition: background-color 0.3s, transform 0.2s;
-  box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
-  min-width: 120px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .btn-logout:hover {
-  background-color: #c0392b;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
+}
+
+/* Animations Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+/* Responsive Specific to Profile Card */
+@media (max-width: 768px) {
+  .profil-container-mahasiswa {
+    padding: 15px;
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .detail-group {
+    grid-template-columns: 1fr;
+  }
+
+  .header-section h1 {
+    font-size: 2em;
+  }
+
+  .card-header-mahasiswa {
+    padding: 30px 20px;
+  }
 }
 
 /* ============================================
@@ -608,6 +695,7 @@ main {
    PRINT STYLES
 ============================================ */
 @media print {
+
   .navbar,
   .footer,
   .menu-toggle,
