@@ -118,11 +118,13 @@ $spQuery = mysqli_query($conn, "
       </div>
       <div class="footer-right">
         <h4>Hubungi Kami</h4>
-        <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
+        <p><img src="image/icon-address.png" alt="Address" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> Jl. Ahmad Yani Batam Kota,<br>Kota Batam, Kepulauan Riau, Indonesia</p>
+        <p><img src="image/icon-contact.png" alt="Phone" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> +62-778-469858 Ext.1017</p>
+        <p><img src="image/icon-email.png" alt="Email" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> info@polibatam.ac.id</p>
         <ul class="social-links">
-          <li><a href="https://www.facebook.com/share/1NGcdBa57o/https://www.facebook.com/share/1NGcdBa57o/"><img src="image/icon-facebook.png" alt="Facebook"></a></li>
-          <li><a href="#"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
           <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img src="image/icon-instagram.png" alt="Instagram"></a></li>
+          <li><a href="https://www.youtube.com/@polibatamofficial"><img src="image/icon-youtube.png" alt="YouTube"></a></li>
+          <li><a href="https://www.polibatam.ac.id"><img src="image/icon-website.png" alt="Website"></a></li>
         </ul>
       </div>
     </div>

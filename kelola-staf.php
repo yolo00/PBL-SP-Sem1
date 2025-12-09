@@ -35,6 +35,7 @@ $query = mysqli_query($conn, "
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="image/dispol.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -76,7 +77,7 @@ $query = mysqli_query($conn, "
                 <div class="filter-bar">
                     <!-- Search -->
                     <div class="search-wrapper">
-                        <span class="search-icon">🔍</span>
+                        <span class="search-icon"><i class="fas fa-search"></i></span>
                         <input type="text" placeholder="Cari nama, NIM, atau prodi..." class="search-input"
                             id="filterSearch" aria-label="Cari surat">
                     </div>
@@ -89,16 +90,10 @@ $query = mysqli_query($conn, "
                         <option value="sp iii">SP III</option>
                     </select>
 
-                    <!-- Filter Status -->
-                    <select id="filterStatus" aria-label="Filter status">
-                        <option value="">Semua Status</option>
-                        <option value="aktif">Aktif</option>
-                        <option value="selesai">Selesai</option>
-                    </select>
 
                     <!-- Tombol Tambah -->
                     <button class="btn-tambah" onclick="window.location.href='tambah-surat.php'">
-                        ➕ Tambah Surat
+                        <i class="fas fa-plus"></i> Tambah Surat
                     </button>
                 </div>
 
@@ -121,7 +116,7 @@ $query = mysqli_query($conn, "
                             <?php if (mysqli_num_rows($query) == 0): ?>
                             <tr>
                                 <td colspan="7" class="empty-state">
-                                    <p>📋 Belum ada surat peringatan</p>
+                                    <p><i class="fas fa-clipboard-list" style="font-size: 2rem; margin-bottom: 15px; color: #ccc;"></i><br>Belum ada surat peringatan</p>
                                     <small>Klik tombol "Tambah Surat" untuk membuat surat baru</small>
                                 </td>
                             </tr>
@@ -143,13 +138,13 @@ $query = mysqli_query($conn, "
                                 </td>
                                 <td>
                                     <a href="edit_surat.php?id=<?= $row['id'] ?>" title="Edit"
-                                        aria-label="Edit surat <?= htmlspecialchars($row['nama']) ?>">✏️</a>
+                                        aria-label="Edit surat <?= htmlspecialchars($row['nama']) ?>"><i class="fas fa-edit"></i></a>
                                     <a href="backend/arsip-manual.php?id=<?= $row['id'] ?>" title="Arsipkan"
                                         aria-label="Arsipkan surat <?= htmlspecialchars($row['nama']) ?>"
-                                        onclick="return confirm('Arsipkan surat ini?')">📁</a>
+                                        onclick="return confirm('Arsipkan surat ini?')"><i class="fas fa-box-archive"></i></a>
                                     <a href="backend/surat-delete.php?id=<?= $row['id'] ?>" title="Hapus"
                                         aria-label="Hapus surat <?= htmlspecialchars($row['nama']) ?>"
-                                        onclick="return confirm('Yakin ingin menghapus surat ini?')">🗑️</a>
+                                        onclick="return confirm('Yakin ingin menghapus surat ini?')"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                             <?php endwhile ?>
@@ -190,13 +185,14 @@ $query = mysqli_query($conn, "
 
                 <div class="footer-right">
                     <h4>Hubungi Kami</h4>
-                    <p>Politeknik Negeri Batam<br>Jl. Ahmad Yani, Batam Center</p>
+                    <p><img src="image/icon-address.png" alt="Address" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> Jl. Ahmad Yani Batam Kota,<br>Kota Batam, Kepulauan Riau, Indonesia</p>
+                    <p><img src="image/icon-contact.png" alt="Phone" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> +62-778-469858 Ext.1017</p>
+                    <p><img src="image/icon-email.png" alt="Email" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> info@polibatam.ac.id</p>
                     <ul class="social-links">
-                        <li><a href="https://www.facebook.com/share/1NGcdBa57o/https://www.facebook.com/share/1NGcdBa57o/" aria-label="Facebook"><img src="image/icon-facebook.png" alt="Facebook"></a>
-                        </li>
-                        <li><a href="#" aria-label="Twitter"><img src="image/icon-twitter.png" alt="Twitter"></a></li>
                         <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw==" aria-label="Instagram"><img src="image/icon-instagram.png" alt="Instagram"></a>
                         </li>
+                        <li><a href="https://www.youtube.com/@polibatamofficial" aria-label="YouTube"><img src="image/icon-youtube.png" alt="YouTube"></a></li>
+                        <li><a href="https://www.polibatam.ac.id" aria-label="Website"><img src="image/icon-website.png" alt="Website"></a></li>
                     </ul>
                 </div>
             </div>

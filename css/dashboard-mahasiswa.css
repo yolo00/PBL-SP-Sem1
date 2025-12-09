@@ -3,6 +3,8 @@
 html,
 body {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 * {
@@ -15,11 +17,14 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   padding-top: 70px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /*menu/navbar*/
 .navbar {
-  background: #004080;
+  background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
   padding: 1rem 0;
   color: white;
   position: fixed;
@@ -58,6 +63,7 @@ body {
   /*Gaya huruf dispol*/
   color: #ffffff;
   margin-left: 10px;
+  font-family: 'Poppins', Arial, sans-serif;
   font-weight: 800;
   font-size: 1.1rem;
   letter-spacing: 0.5px;
@@ -318,7 +324,7 @@ tr:hover {
   background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
   color: #fff;
   padding: 40px 0 10px 0;
-  margin-top: 50px;
+  margin-top: auto;
   box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.3);
   font-family: 'Poppins', sans-serif;
 }

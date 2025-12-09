@@ -19,7 +19,7 @@ body {
 
 /*menu/navbar*/
 .navbar {
-  background: #004080;
+  background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
   padding: 1rem 0;
   color: white;
   position: fixed;
@@ -172,174 +172,174 @@ body {
 /* Isi surat */
 
 :root {
-    --primary-color: #004080;
-    --secondary-color: #153d7e;
-    --accent-color: #ff8c00;
-    --text-dark: #333333;
+  --primary-color: #004080;
+  --secondary-color: #153d7e;
+  --accent-color: #ff8c00;
+  --text-dark: #333333;
 }
 
 body {
-    font-family: 'Poppins', Arial, sans-serif;
-    background-color: #f4f6f9;
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #f4f6f9;
 }
 
 .main-content {
-    padding-top: 80px;
-    padding-bottom: 50px;
-    min-height: 80vh;
+  padding-top: 80px;
+  padding-bottom: 50px;
+  min-height: 80vh;
 }
 
 .detail-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    animation: fadeInUp 1s ease-in-out;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-in-out;
 }
 
 .detail-header {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .detail-header h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--secondary-color);
-    margin-bottom: 5px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 5px;
 }
 
 .detail-header p {
-    color: #666;
-    font-size: 1rem;
+  color: #666;
+  font-size: 1rem;
 }
 
 .rincian-surat {
-    background: #f0f7ff;
-    border: 2px solid #004080;
-    border-radius: 12px;
-    padding: 30px;
-    margin-top: 20px;
+  background: #f0f7ff;
+  border: 2px solid #004080;
+  border-radius: 12px;
+  padding: 30px;
+  margin-top: 20px;
 }
 
 .rincian-surat h3 {
-    font-size: 1.3rem;
-    color: #004080;
-    margin-bottom: 25px;
-    text-align: center;
-    font-weight: 600;
+  font-size: 1.3rem;
+  color: #004080;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 600;
 }
 
 .preview-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .preview-section {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 64, 128, 0.1);
-    width: 100%;
-    max-width: 700px;
-    /* Limit width for single column look */
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 64, 128, 0.1);
+  width: 100%;
+  max-width: 700px;
+  /* Limit width for single column look */
 }
 
 .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #004080;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #004080;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .section-header h4 {
-    font-size: 1.1rem;
-    color: #153d7e;
-    font-weight: 600;
-    margin: 0;
+  font-size: 1.1rem;
+  color: #153d7e;
+  font-weight: 600;
+  margin: 0;
 }
 
 .status-badge {
-    padding: 5px 12px;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .status-aktif {
-    background-color: rgba(217, 83, 79, 0.15);
-    /* Faded Red */
-    color: #d9534f;
-    border: 1px solid rgba(217, 83, 79, 0.3);
+  background-color: rgba(217, 83, 79, 0.15);
+  /* Faded Red */
+  color: #d9534f;
+  border: 1px solid rgba(217, 83, 79, 0.3);
 }
 
 .status-selesai {
-    background-color: rgba(25, 135, 84, 0.15);
-    /* Faded Green */
-    color: #198754;
-    border: 1px solid rgba(25, 135, 84, 0.3);
+  background-color: rgba(25, 135, 84, 0.15);
+  /* Faded Green */
+  color: #198754;
+  border: 1px solid rgba(25, 135, 84, 0.3);
 }
 
 .preview-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 0;
-    border-bottom: 1px solid #e5e7eb;
-    font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.95rem;
 }
 
 .preview-item:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .preview-item label {
-    font-weight: 600;
-    color: #333;
-    width: 35%;
-    flex-shrink: 0;
+  font-weight: 600;
+  color: #333;
+  width: 35%;
+  flex-shrink: 0;
 }
 
 .preview-item span {
-    color: #555;
-    word-break: break-word;
-    text-align: right;
-    width: 65%;
+  color: #555;
+  word-break: break-word;
+  text-align: right;
+  width: 65%;
 }
 
 .file-link {
-    color: #004080;
-    text-decoration: underline;
-    font-weight: 600;
+  color: #004080;
+  text-decoration: underline;
+  font-weight: 600;
 }
 
 .file-link:hover {
-    color: #ff8c00;
+  color: #ff8c00;
 }
 
 .form-buttons {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
 }
 
 .btn-kembali {
-    background-color: #9ca3af;
-    color: #ffffff;
-    border: none;
-    padding: 10px 24px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s;
-    font-size: 0.95rem;
+  background-color: #9ca3af;
+  color: #ffffff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  font-size: 0.95rem;
 }
 
 .btn-kembali:hover {
-    background-color: #6b7280;
+  background-color: #6b7280;
 }
 
 /* ===== Footer Baru ===== */

@@ -28,8 +28,11 @@ if (!empty($_FILES['file']['name'])) {
     }
 
     $originalName = $_FILES['file']['name'];
+    $baseName = pathinfo($originalName, PATHINFO_FILENAME);
     $ext = pathinfo($originalName, PATHINFO_EXTENSION);
-    $cleanName = time() . "_" . uniqid() . "." . $ext; // Generate unique safe filename
+    // Sanitize filename: remove special characters, keep original name
+    $safeName = preg_replace('/[^a-zA-Z0-9_-]/', '_', $baseName);
+    $cleanName = time() . "_" . $safeName . "." . $ext; // Timestamp + original filename
     
     if (move_uploaded_file($_FILES['file']['tmp_name'], "../uploads/" . $cleanName)) {
         $fileName = mysqli_real_escape_string($conn, $cleanName);
@@ -41,14 +44,13 @@ if (!empty($_FILES['file']['name'])) {
 // ===============================
 // Kita gunakan data dari form langsung agar sesuai inputan staf
 // Default status kita set 'aktif' agar muncul di kelola-staf
-// NOTE: Kolom 'semester' dan 'sesi_kelas' dihapus sementara karena belum ada di database.
-// Silakan jalankan SETUP_DATABASE.sql jika ingin mengaktifkan fitur tersebut.
+// Insert data termasuk semester dan sesi_kelas
 $query = mysqli_query($conn, "
     INSERT INTO surat_peringatan(
-        nama, nim, jurusan, prodi, kelas,
+        nama, nim, jurusan, prodi, kelas, semester, sesi_kelas,
         tingkat, tanggal, sampai, perihal, deskripsi, file, status
     ) VALUES(
-        '$nama', '$nim', '$jurusan', '$prodi', '$kelas',
+        '$nama', '$nim', '$jurusan', '$prodi', '$kelas', '$semester', '$sesi_kelas',
         '$tingkat', '$tanggal', '$sampai', '$perihal', '$deskripsi', '$fileName', 'aktif'
     )
 ");
