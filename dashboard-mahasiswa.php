@@ -41,28 +41,24 @@ $spQuery = mysqli_query($conn, "
 <body>
 
   <nav class="navbar">
-    <div class="container nav-inner">
-      <a class="logo">
-        <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
+    <div class="container">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a href="dashboard-mahasiswa.php" class="logo">
+        <img src="image/dispol.png" width="65" height="65" alt="Logo DISPOL">
         <span class="brand">DISP<span class="brand-o">O</span>L</span>
       </a>
+
+      <ul class="nav-links" id="navMenu">
+        <li><a href="dashboard-mahasiswa.php" class="active">Beranda</a></li>
+        <li><a href="profil-mahasiswa.php">Profil</a></li>
+      </ul>
     </div>
   </nav>
-
-  <!-- Tombol sidebar-->
-  <button id="sidebarToggle" class="sidebar-toggle" aria-label="Buka menu" aria-expanded="false">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
-
-  <!-- Sidebar kanan -->
-  <aside id="sidebar" class="sidebar" aria-hidden="true">
-    <nav class="sidebar-menu">
-      <a href="dashboard-mahasiswa.php" class="menu-item active">Beranda</a>
-      <a href="profil-mahasiswa.php" class="menu-item">Profil</a>
-    </nav>
-  </aside>
 
   <section id="home" class="hero">
     <div class="container">
@@ -132,7 +128,16 @@ $spQuery = mysqli_query($conn, "
       <p>&copy; 2025 DISPOL | All Rights Reserved</p>
     </div>
   </footer>
-  <script src="js/sp-mahasiswa.js"></script>
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener("click", () => {
+            navMenu.classList.toggle("show");
+        });
+    }
+  </script>
 </body>
 
 </html>
