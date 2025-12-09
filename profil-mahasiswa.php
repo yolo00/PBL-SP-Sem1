@@ -96,6 +96,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
         </section>
     </div>
     <div class="aksi-logout-area">
+        <a href="edit-profil-mahasiswa.php"><button class="btn-logout">Edit Profil</button></a>
         <button class="btn-logout" id="logoutBtn">Keluar</button>
     </div>
 </main>

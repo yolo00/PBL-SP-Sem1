@@ -1,0 +1,646 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  line-height: 1.6;
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding-bottom: 40px;
+}
+
+.navbar {
+  background: #004080;
+  padding: 0.75rem 0;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Logo Responsif */
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  z-index: 1001;
+}
+
+.logo img {
+  border-radius: 6px;
+  width: 50px;
+  height: 50px;
+}
+
+.brand {
+  color: #ffffff;
+  margin-left: 8px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.brand-o {
+  color: #ff8c00;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Nav Links Desktop */
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0;
+}
+
+.navbar .nav-links li {
+  margin: 0;
+}
+
+.navbar .nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.navbar .nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff8c00;
+  transition: width 0.3s ease;
+}
+
+.navbar .nav-links a:hover::after,
+.navbar .nav-links a.active::after {
+  width: 100%;
+}
+
+.navbar .nav-links a:hover,
+.navbar .nav-links a.active {
+  color: #ff8c00;
+}
+
+/* ============================================
+   PROFIL CONTAINER
+============================================ */
+.profil-container-modern {
+  max-width: 1100px;
+  width: 95%;
+  margin: 40px auto;
+  padding: 30px 1rem;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header-section h1 {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  color: #153d7e;
+  margin: 8px 0 18px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.2px;
+  line-height: 1.1;
+}
+
+.header-section .subtitle {
+  color: #7f8c8d;
+  font-size: 1em;
+  margin-top: 5px;
+}
+
+/* ============================================
+   PROFILE CARD
+============================================ */
+.profile-card-modern {
+  display: flex;
+  gap: 30px;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Desktop layout */
+.card-left {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-right {
+  width: 65%;
+  padding: 36px 40px;
+  background: #ffffff;
+}
+
+.photo-placeholder {
+  display: none;
+}
+
+.staff-name {
+  font-size: clamp(1.5rem, 4vw, 1.9rem);
+  color: #153d7e;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.2px;
+  margin-top: 150px;
+  word-wrap: break-word;
+}
+
+.staff-role {
+  color: #153d7e;
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  opacity: 0.95;
+  text-align: center;
+}
+
+/* Sisi Kanan: Detail Informasi */
+.card-right h3 {
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+  color: #3498db;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+
+.card-right h3:first-child {
+  margin-top: 0;
+}
+
+.detail-group p {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.detail-group .label {
+  min-width: 130px;
+  font-weight: 700;
+  color: #004080;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.detail-group .value {
+  flex: 1;
+  color: #2c3e50;
+  white-space: normal;
+  word-break: normal;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+/* ============================================
+   FORM STYLES FOR EDIT PROFIL
+============================================ */
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.detail-group p {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.detail-group .label {
+  font-weight: 700;
+  color: #004080;
+  margin-bottom: 5px;
+}
+
+.detail-group input {
+  flex: 1;
+}
+
+/* ============================================
+   LOGOUT BUTTON
+============================================ */
+.aksi-logout-area {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.btn-logout {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  margin-top: 20px;
+  padding: 12px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+  min-width: 120px;
+  margin-right: 10px;
+}
+
+.btn-logout:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+.btn-logout[type="button"] {
+  background-color: #95a5a6;
+}
+
+.btn-logout[type="button"]:hover {
+  background-color: #7f8c8d;
+}
+
+/* ============================================
+   FOOTER
+============================================ */
+.footer {
+  background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
+  color: #fff;
+  padding: 2rem 0 1rem;
+  margin-top: auto;
+  box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer-left img {
+  border-radius: 8px;
+  width: 50px;
+}
+
+.footer-left h3 {
+  color: #ff8c00;
+  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+}
+
+.footer-left p {
+  font-size: 0.9rem;
+}
+
+.footer-center h4,
+.footer-right h4 {
+  color: #ff8c00;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.footer-center ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.footer-center li {
+  margin: 0.5rem 0;
+}
+
+.footer-center a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-center a:hover {
+  color: #ff8c00;
+}
+
+.footer-right {
+  text-align: center;
+}
+
+.footer-right p {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0;
+  margin-top: 0.75rem;
+}
+
+.social-links img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social-links img:hover {
+  transform: scale(1.2);
+  filter: brightness(0) invert(0.6) sepia(1) saturate(5) hue-rotate(15deg);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: #d0d0d0;
+}
+
+/* ============================================
+   TABLET RESPONSIVE (600px - 899px)
+============================================ */
+@media (min-width: 600px) {
+  body {
+    padding-top: 75px;
+  }
+
+  .navbar {
+    padding: 1rem 0;
+  }
+
+  .logo img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .brand {
+    font-size: 1rem;
+  }
+
+  .profil-container-modern {
+    padding: 30px 2rem;
+  }
+
+  .profile-card-modern {
+    padding: 35px;
+  }
+
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-left {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .footer-center h4,
+  .footer-right h4 {
+    text-align: left;
+  }
+
+  .footer-center ul {
+    text-align: left;
+  }
+
+  .footer-right {
+    text-align: left;
+  }
+
+  .social-links {
+    justify-content: flex-start;
+  }
+}
+
+/* ============================================
+   MOBILE RESPONSIVE (< 900px)
+============================================ */
+@media (max-width: 899px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    background: linear-gradient(180deg, #003366 0%, #004080 100%);
+    width: 75%;
+    max-width: 300px;
+    height: 100vh;
+    flex-direction: column;
+    padding: 80px 0 20px;
+    gap: 0;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+    transition: left 0.4s ease;
+    overflow-y: auto;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    left: 0;
+  }
+
+  .nav-links li {
+    width: 100%;
+    margin: 0;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 1rem 2rem;
+    border-left: 3px solid transparent;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    background: rgba(255, 255, 255, 0.1);
+    border-left-color: #ff8c00;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  /* Profile Card Mobile */
+  .profile-card-modern {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .card-left,
+  .card-right {
+    width: 100%;
+    padding: 0;
+  }
+
+  .photo-placeholder {
+    display: flex;
+    width: 120px;
+    height: 120px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: #888;
+  }
+
+  .staff-name {
+    margin-top: 10px;
+    font-size: clamp(1.3rem, 5vw, 1.6rem);
+  }
+
+  .card-right {
+    margin-top: 20px;
+  }
+
+  .detail-group p {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+
+  .detail-group .label {
+    min-width: unset;
+    font-weight: bold;
+  }
+}
+
+/* ============================================
+   DESKTOP RESPONSIVE (900px+)
+============================================ */
+@media (min-width: 900px) {
+  body {
+    padding-top: 85px;
+  }
+
+  .navbar .container {
+    padding: 0 2rem;
+  }
+
+  .logo img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .brand {
+    font-size: 1.1rem;
+  }
+
+  .profil-container-modern {
+    padding: 40px 2rem;
+  }
+
+  .footer-container {
+    grid-template-columns: 2fr 1fr 1.5fr;
+    text-align: left;
+  }
+
+  .footer-left {
+    flex-direction: row;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+============================================ */
+@media print {
+  .navbar,
+  .footer,
+  .menu-toggle,
+  .btn-logout {
+    display: none;
+  }
+
+  body {
+    padding-top: 0;
+  }
+}
