@@ -43,29 +43,34 @@ if (!$sp) {
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="container nav-inner">
-      <a class="logo">
-        <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="dashboard-mahasiswa.php" class="logo">
+        <img src="image/dispol.png" width="65" height="65" alt="Logo DISPOL">
         <span class="brand">DISP<span class="brand-o">O</span>L</span>
       </a>
     </div>
-</nav>
-
-<!-- Tombol sidebar-->
-<button id="sidebarToggle" class="sidebar-toggle" aria-label="Buka menu" aria-expanded="false">
-  <span class="bar"></span>
-  <span class="bar"></span>
-  <span class="bar"></span>
-</button>
-
-<!-- Sidebar kanan -->
-<aside id="sidebar" class="sidebar" aria-hidden="true">
-  <nav class="sidebar-menu">
-    <a href="dashboard-mahasiswa.php" class="menu-item active">Beranda</a>
-    <a href="profil-mahasiswa.php" class="menu-item">Profil</a>
   </nav>
-</aside>
+
+  <!-- Tombol sidebar-->
+  <button id="sidebarToggle" class="sidebar-toggle" aria-label="Buka menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <!-- Sidebar kanan -->
+  <aside id="sidebar" class="sidebar" aria-hidden="true">
+    <nav class="sidebar-menu">
+      <a href="dashboard-mahasiswa.php" class="menu-item">Beranda</a>
+      <a href="profil-mahasiswa.php" class="menu-item active">Profil</a>
+    </nav>
+  </aside>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay"></div>
+
 
 <main class="main-content">
     <div class="detail-container">
@@ -155,6 +160,62 @@ if (!$sp) {
   </div>
 </footer>
 
-<script src="js/sp-mahasiswa.js"></script>
+<script>
+  // ================================
+// Sidebar Toggle Script
+// ================================
+
+const sidebarToggle = document.getElementById("sidebarToggle");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+
+// Fungsi buka sidebar
+function openSidebar() {
+    sidebar.classList.add("open");
+    overlay.classList.add("show");
+    sidebarToggle.classList.add("open");
+    sidebarToggle.setAttribute("aria-expanded", "true");
+    sidebar.setAttribute("aria-hidden", "false");
+}
+
+// Fungsi tutup sidebar
+function closeSidebar() {
+    sidebar.classList.remove("open");
+    overlay.classList.remove("show");
+    sidebarToggle.classList.remove("open");
+    sidebarToggle.setAttribute("aria-expanded", "false");
+    sidebar.setAttribute("aria-hidden", "true");
+}
+
+// Klik tombol toggle
+sidebarToggle.addEventListener("click", () => {
+    const isOpen = sidebar.classList.contains("open");
+    if (isOpen) {
+        closeSidebar();
+    } else {
+        openSidebar();
+    }
+});
+
+// Klik overlay menutup sidebar
+overlay.addEventListener("click", closeSidebar);
+
+// Klik di luar sidebar menutup sidebar
+document.addEventListener("click", function (e) {
+    if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+        if (sidebar.classList.contains("open")) {
+            closeSidebar();
+        }
+    }
+});
+
+// Tutup jika menekan tombol ESC
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && sidebar.classList.contains("open")) {
+        closeSidebar();
+    }
+});
+
+</script>
 </body>
 </html>

@@ -48,6 +48,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
   <div id="overlay" class="overlay"></div>
 
 
+
   <main class="profil-container-mahasiswa">
     <div class="header-section">
       <h1><b>PROFIL MAHASISWA</b></h1>
@@ -142,16 +143,41 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
   </footer>
 
   <script>
-    // Navbar toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
+      const sidebarToggle = document.getElementById("sidebarToggle");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
 
-    if (menuToggle && navMenu) {
-      menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
-      });
+  // Fungsi toggle sidebar
+  function toggleSidebar() {
+    const isOpen = sidebar.classList.contains("open");
+
+    if (isOpen) {
+      // Tutup sidebar
+      sidebar.classList.remove("open");
+      sidebarToggle.classList.remove("open");
+      overlay.classList.remove("show");
+      document.body.style.overflow = ""; // scroll aktif
+    } else {
+      // Buka sidebar
+      sidebar.classList.add("open");
+      sidebarToggle.classList.add("open");
+      overlay.classList.add("show");
+      document.body.style.overflow = "hidden"; // mencegah scroll
     }
+  }
 
+  // Klik tombol toggle
+  sidebarToggle.addEventListener("click", toggleSidebar);
+
+  // Klik overlay untuk menutup sidebar
+  overlay.addEventListener("click", toggleSidebar);
+
+  // Tekan tombol ESC untuk menutup
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && sidebar.classList.contains("open")) {
+      toggleSidebar();
+    }
+  });
     // Logout confirmation
     function confirmLogout() {
       if (confirm('Yakin ingin keluar dari akun ini?')) {
