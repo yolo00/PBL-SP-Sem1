@@ -22,23 +22,31 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mahasiswa') {
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
       <a href="dashboard-mahasiswa.php" class="logo">
         <img src="image/dispol.png" width="65" height="65" alt="Logo DISPOL">
         <span class="brand">DISP<span class="brand-o">O</span>L</span>
       </a>
-
-      <ul class="nav-links" id="navMenu">
-        <li><a href="dashboard-mahasiswa.php">Beranda</a></li>
-        <li><a href="profil-mahasiswa.php" class="active">Profil</a></li>
-      </ul>
     </div>
   </nav>
+
+  <!-- Tombol sidebar-->
+  <button id="sidebarToggle" class="sidebar-toggle" aria-label="Buka menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <!-- Sidebar kanan -->
+  <aside id="sidebar" class="sidebar" aria-hidden="true">
+    <nav class="sidebar-menu">
+      <a href="dashboard-mahasiswa.php" class="menu-item">Beranda</a>
+      <a href="profil-mahasiswa.php" class="menu-item active">Profil</a>
+    </nav>
+  </aside>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay"></div>
+
 
   <main class="profil-container-mahasiswa">
     <div class="header-section">
