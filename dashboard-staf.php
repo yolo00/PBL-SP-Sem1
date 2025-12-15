@@ -217,13 +217,13 @@ if (mysqli_num_rows($querySurat) == 0) {
     </div>
 <div class="pagination">
     <?php if ($page > 1): ?>
-        <a href="?page=<?= $page - 1 ?>&keyword=<?= urlencode($keyword) ?>&tingkat=<?= urlencode($tingkat) ?>">‹ Prev</a>
+        <a href="?page=<?= $page - 1 ?>&keyword=<?= urlencode($keyword) ?>&tingkat=<?= urlencode($tingkat) ?>">‹ Sebelumya</a>
     <?php endif; ?>
 
     <span>Halaman <?= $page ?> dari <?= $totalPage ?></span>
 
     <?php if ($page < $totalPage): ?>
-        <a href="?page=<?= $page + 1 ?>&keyword=<?= urlencode($keyword) ?>&tingkat=<?= urlencode($tingkat) ?>">Next ›</a>
+        <a href="?page=<?= $page + 1 ?>&keyword=<?= urlencode($keyword) ?>&tingkat=<?= urlencode($tingkat) ?>">Berikutnya ›</a>
     <?php endif; ?>
 </div>
 
