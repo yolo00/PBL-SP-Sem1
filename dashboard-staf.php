@@ -18,12 +18,48 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'staf') {
 // Ambil data user dari session
 $data = $_SESSION;
 
-// Ambil semua surat peringatan
+// Tentukan halaman aktif
+$limit = 6;
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$page = ($page < 1) ? 1 : $page;
+
+$offset = ($page - 1) * $limit;
+
+$keyword = $_GET['keyword'] ?? '';
+$tingkat = $_GET['tingkat'] ?? '';
+
+$where = "WHERE status='aktif'";
+
+// Filter pencarian
+if (!empty($keyword)) {
+    $keyword = mysqli_real_escape_string($conn, $keyword);
+    $where .= " AND (nama LIKE '%$keyword%' OR nim LIKE '%$keyword%')";
+}
+
+if (!empty($tingkat)) {
+    $tingkat = mysqli_real_escape_string($conn, $tingkat);
+    $where .= " AND tingkat='$tingkat'";
+}
+
+
+// 6 surat peringatan aktif terbaru
 $querySurat = mysqli_query($conn, "
     SELECT * FROM surat_peringatan
-    WHERE status='aktif'
+    $where
     ORDER BY id DESC
+    LIMIT $limit OFFSET $offset
 ");
+
+// Hitung total halaman
+$totalDataQuery = mysqli_query($conn, "
+    SELECT id FROM surat_peringatan $where
+");
+
+$totalData = mysqli_num_rows($totalDataQuery);
+$totalPage = ceil($totalData / $limit);
+
+$totalPage = ceil($totalData / $limit);
+
 
 include "backend/auto-arsip.php";
 ?>
@@ -93,7 +129,58 @@ include "backend/auto-arsip.php";
         <h1>Surat Peringatan Aktif Terbaru</h1>
         <p id="noSuratMsg" class="no-surat-msg" style="display:none;">Tidak ada surat peringatan terbaru</p>
     </div>
+    <div class="filter-search">
+    <form method="GET" class="filter-form">
+        <input 
+            type="text" 
+            name="keyword" 
+            placeholder="Cari nama / NIM..." 
+            value="<?= $_GET['keyword'] ?? '' ?>"
+        >
+
+        <select name="tingkat">
+            <option value="">Semua Tingkat</option>
+            <option value="SP I" <?= (($_GET['tingkat'] ?? '') == 'SP I') ? 'selected' : '' ?>>SP I</option>
+            <option value="SP II" <?= (($_GET['tingkat'] ?? '') == 'SP II') ? 'selected' : '' ?>>SP II</option>
+            <option value="SP III" <?= (($_GET['tingkat'] ?? '') == 'SP III') ? 'selected' : '' ?>>SP III</option>
+        </select>
+
+        <button type="submit">Cari</button>
+    </form>
+</div>
     <div class="card-container">
+<?php
+if (mysqli_num_rows($querySurat) == 0) {
+    echo "<p class='no-sp-found'>🎉 Tidak ada surat peringatan aktif.</p>";
+} else {
+    while ($row = mysqli_fetch_assoc($querySurat)) {
+
+        $labelClass = "sp1";
+        if ($row['tingkat'] == "SP II") $labelClass = "sp2";
+        if ($row['tingkat'] == "SP III") $labelClass = "sp3";
+?>
+    <div class="card" data-aos="fade-up">
+        <div class="sp-label <?= $labelClass ?>"><?= $row['tingkat'] ?></div>
+        <div class="photo"></div>
+
+        <div class="card-content">
+            <p class="student-name"><strong><?= $row['nama'] ?></strong></p>
+            <p class="student-detail">NIM: <?= $row['nim'] ?></p>
+            <p class="student-detail">Prodi: <?= $row['prodi'] ?></p>
+            <p class="issue-date">Tgl. Terbit: <?= $row['tanggal'] ?></p>
+            <p class="sp-status">Status: <?= $row['status'] ?? 'Aktif' ?></p>
+        </div>
+
+        <a href="detail-surat.php?id=<?= $row['id'] ?>" class="detail">
+            Lihat Rincian <i class="arrow-icon">→</i>
+        </a>
+    </div>
+<?php
+    }
+}
+?>
+</div> <!-- ❗ card-container TUTUP DI SINI -->
+        
         <?php
     if (mysqli_num_rows($querySurat) == 0) {
         echo "<p class=\"no-sp-found\" data-aos='fade-up'>🎉 Tidak ada surat peringatan aktif saat ini. Semua beres!</p>"; // Ubah tampilan pesan
@@ -128,6 +215,17 @@ include "backend/auto-arsip.php";
 }
 ?>
     </div>
+<div class="pagination">
+    <?php if ($page > 1): ?>
+        <a href="?page=<?= $page - 1 ?>&keyword=<?= urlencode($keyword) ?>&tingkat=<?= urlencode($tingkat) ?>">‹ Prev</a>
+    <?php endif; ?>
+
+    <span>Halaman <?= $page ?> dari <?= $totalPage ?></span>
+
+    <?php if ($page < $totalPage): ?>
+        <a href="?page=<?= $page + 1 ?>&keyword=<?= urlencode($keyword) ?>&tingkat=<?= urlencode($tingkat) ?>">Next ›</a>
+    <?php endif; ?>
+</div>
 
     <footer class="footer">
         <div class="footer-container">
