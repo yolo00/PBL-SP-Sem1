@@ -34,18 +34,18 @@ if (!$query) {
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
+            <!-- Logo -->
+            <a href="dashboard-staf.php" class="logo">
+                <img src="image/dispol.png" width="65" height="65" alt="Logo DISPOL" />
+                <span class="brand">DISP<span class="brand-o">O</span>L</span>
+            </a>
+
             <!-- Hamburger Menu -->
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-
-            <!-- Logo -->
-            <a href="dashboard-staf.php" class="logo">
-                <img src="image/dispol.png" width="65" height="65" alt="Logo DISPOL" />
-                <span class="brand">DISP<span class="brand-o">O</span>L</span>
-            </a>
 
             <!-- Nav Links -->
             <ul class="nav-links" id="navMenu">
@@ -219,6 +219,7 @@ if (!$query) {
             } else {
                 openMenu();
             }
+            menuToggle.classList.toggle('active');
         }
 
         function openMenu() {
