@@ -19,7 +19,9 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'staf') {
 $data = $_SESSION;
 
 // Tentukan halaman aktif
-$limit = 6;
+// Deteksi Mobile vs Desktop (Sederhana)
+$isMobile = preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+$limit = $isMobile ? 4 : 6;
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $page = ($page < 1) ? 1 : $page;
 
@@ -36,9 +38,30 @@ if (!empty($keyword)) {
     $where .= " AND (nama LIKE '%$keyword%' OR nim LIKE '%$keyword%')";
 }
 
+
 if (!empty($tingkat)) {
     $tingkat = mysqli_real_escape_string($conn, $tingkat);
     $where .= " AND tingkat='$tingkat'";
+}
+
+// Filter Tambahan
+$prodi = $_GET['prodi'] ?? '';
+$semester = $_GET['semester'] ?? '';
+$sesi_kelas = $_GET['sesi_kelas'] ?? '';
+
+if (!empty($prodi)) {
+    $prodi = mysqli_real_escape_string($conn, $prodi);
+    $where .= " AND prodi='$prodi'";
+}
+
+if (!empty($semester)) {
+    $semester = mysqli_real_escape_string($conn, $semester);
+    $where .= " AND semester='$semester'";
+}
+
+if (!empty($sesi_kelas)) {
+    $sesi_kelas = mysqli_real_escape_string($conn, $sesi_kelas);
+    $where .= " AND sesi_kelas='$sesi_kelas'";
 }
 
 
@@ -79,22 +102,23 @@ include "backend/auto-arsip.php";
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="image/dispol.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
     <nav class="navbar">
         <div class="container">
+            <a href="dashboard-staf.php" class="logo">
+                <img src="image/dispol.png" width="65" height="65" alt="Logo DISPOL">
+                <span class="brand">DISP<span class="brand-o">O</span>L</span>
+            </a>
+
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-
-            <a href="dashboard-staf.php" class="logo">
-                <img src="image/dispol.png" width="65" height="65" alt="Logo DISPOL">
-                <span class="brand">DISP<span class="brand-o">O</span>L</span>
-            </a>
 
             <ul class="nav-links" id="navMenu">
                 <li><a href="dashboard-staf.php" class="active">Beranda</a></li>
@@ -131,21 +155,51 @@ include "backend/auto-arsip.php";
     </div>
     <div class="filter-search">
     <form method="GET" class="filter-form">
-        <input 
-            type="text" 
-            name="keyword" 
-            placeholder="Cari nama / NIM..." 
-            value="<?= $_GET['keyword'] ?? '' ?>"
-        >
+        <div class="search-group">
+            <input 
+                type="text" 
+                name="keyword" 
+                placeholder="Cari nama / NIM..." 
+                value="<?= htmlspecialchars($_GET['keyword'] ?? '') ?>"
+            >
+            <button type="button" class="btn-filter-toggle" id="filterToggleBtn" title="Filter Pencarian">
+                <i class="fas fa-filter"></i>
+            </button>
+            <button type="submit" class="btn-cari">Cari</button>
+        </div>
 
-        <select name="tingkat">
-            <option value="">Semua Tingkat</option>
-            <option value="SP I" <?= (($_GET['tingkat'] ?? '') == 'SP I') ? 'selected' : '' ?>>SP I</option>
-            <option value="SP II" <?= (($_GET['tingkat'] ?? '') == 'SP II') ? 'selected' : '' ?>>SP II</option>
-            <option value="SP III" <?= (($_GET['tingkat'] ?? '') == 'SP III') ? 'selected' : '' ?>>SP III</option>
-        </select>
+        <div class="filter-options" id="filterOptions" style="display: none;">
+            <select name="tingkat">
+                <option value="">Semua Tingkat</option>
+                <option value="SP I" <?= (($_GET['tingkat'] ?? '') == 'SP I') ? 'selected' : '' ?>>SP I</option>
+                <option value="SP II" <?= (($_GET['tingkat'] ?? '') == 'SP II') ? 'selected' : '' ?>>SP II</option>
+                <option value="SP III" <?= (($_GET['tingkat'] ?? '') == 'SP III') ? 'selected' : '' ?>>SP III</option>
+            </select>
 
-        <button type="submit">Cari</button>
+            <select name="prodi">
+                <option value="">Semua Prodi</option>
+                <option value="Teknik Informatika" <?= (($_GET['prodi'] ?? '') == 'Teknik Informatika') ? 'selected' : '' ?>>Teknik Informatika</option>
+                <option value="Teknik Geomatika" <?= (($_GET['prodi'] ?? '') == 'Teknik Geomatika') ? 'selected' : '' ?>>Teknik Geomatika</option>
+                <option value="Rekayasa Keamanan Siber" <?= (($_GET['prodi'] ?? '') == 'Rekayasa Keamanan Siber') ? 'selected' : '' ?>>Rekayasa Keamanan Siber</option>
+                <option value="Teknologi Rekayasa Multimedia" <?= (($_GET['prodi'] ?? '') == 'Teknologi Rekayasa Multimedia') ? 'selected' : '' ?>>Teknologi Rekayasa Multimedia</option>
+                <option value="Teknologi Rekayasa Perangkat Lunak" <?= (($_GET['prodi'] ?? '') == 'Teknologi Rekayasa Perangkat Lunak') ? 'selected' : '' ?>>Teknologi Rekayasa Perangkat Lunak</option>
+                <option value="Animasi" <?= (($_GET['prodi'] ?? '') == 'Animasi') ? 'selected' : '' ?>>Animasi</option>
+                <option value="Teknologi Permainan" <?= (($_GET['prodi'] ?? '') == 'Teknologi Permainan') ? 'selected' : '' ?>>Teknologi Permainan</option>
+            </select>
+
+            <select name="semester">
+                <option value="">Semua Semester</option>
+                <?php for($i=1; $i<=8; $i++): ?>
+                    <option value="<?= $i ?>" <?= (($_GET['semester'] ?? '') == $i) ? 'selected' : '' ?>>Semester <?= $i ?></option>
+                <?php endfor; ?>
+            </select>
+
+            <select name="sesi_kelas">
+                <option value="">Semua Sesi</option>
+                <option value="Pagi" <?= (($_GET['sesi_kelas'] ?? '') == 'Pagi') ? 'selected' : '' ?>>Pagi</option>
+                <option value="Malam" <?= (($_GET['sesi_kelas'] ?? '') == 'Malam') ? 'selected' : '' ?>>Malam</option>
+            </select>
+        </div>
     </form>
 </div>
     <div class="card-container">
@@ -161,7 +215,6 @@ if (mysqli_num_rows($querySurat) == 0) {
 ?>
     <div class="card" data-aos="fade-up">
         <div class="sp-label <?= $labelClass ?>"><?= $row['tingkat'] ?></div>
-        <div class="photo"></div>
 
         <div class="card-content">
             <p class="student-name"><strong><?= $row['nama'] ?></strong></p>
@@ -181,49 +234,16 @@ if (mysqli_num_rows($querySurat) == 0) {
 ?>
 </div> <!-- ❗ card-container TUTUP DI SINI -->
         
-        <?php
-    if (mysqli_num_rows($querySurat) == 0) {
-        echo "<p class=\"no-sp-found\" data-aos='fade-up'>🎉 Tidak ada surat peringatan aktif saat ini. Semua beres!</p>"; // Ubah tampilan pesan
-    } else {
-    while ($row = mysqli_fetch_assoc($querySurat)) {
 
-        // Tentukan warna label SP
-        $labelClass = "sp1";
-        if ($row['tingkat'] == "SP II") $labelClass = "sp2";
-        if ($row['tingkat'] == "SP III") $labelClass = "sp3";
-    ?>
-
-        <div class="card" data-aos="fade-up">
-            <div class="sp-label <?= $labelClass ?>"><?= $row['tingkat'] ?></div>
-            <div class="photo"></div>
-
-            <div class="card-content">
-                <p class="student-name"><strong><?= $row['nama'] ?></strong></p>
-                <p class="student-detail">NIM: <?= $row['nim'] ?></p>
-                <p class="student-detail">Prodi: <?= $row['prodi'] ?></p>
-                <p class="issue-date">Tgl. Terbit: <?= $row['tanggal'] ?></p>
-                <p class="sp-status">Status: <?= $row['status'] ?? 'Aktif' ?></p>
-            </div>
-
-            <a href="detail-surat.php?id=<?= $row['id'] ?>" class="detail">
-                Lihat Rincian
-                <i class="arrow-icon">→</i>
-            </a>
-        </div>
-        <?php
- }
-}
-?>
-    </div>
 <div class="pagination">
     <?php if ($page > 1): ?>
-        <a href="?page=<?= $page - 1 ?>&keyword=<?= urlencode($keyword) ?>&tingkat=<?= urlencode($tingkat) ?>">‹ Prev</a>
+        <a href="?page=<?= $page - 1 ?>&keyword=<?= urlencode($keyword) ?>&tingkat=<?= urlencode($tingkat) ?>&prodi=<?= urlencode($prodi) ?>&semester=<?= urlencode($semester) ?>&sesi_kelas=<?= urlencode($sesi_kelas) ?>">‹ Prev</a>
     <?php endif; ?>
 
     <span>Halaman <?= $page ?> dari <?= $totalPage ?></span>
 
     <?php if ($page < $totalPage): ?>
-        <a href="?page=<?= $page + 1 ?>&keyword=<?= urlencode($keyword) ?>&tingkat=<?= urlencode($tingkat) ?>">Next ›</a>
+        <a href="?page=<?= $page + 1 ?>&keyword=<?= urlencode($keyword) ?>&tingkat=<?= urlencode($tingkat) ?>&prodi=<?= urlencode($prodi) ?>&semester=<?= urlencode($semester) ?>&sesi_kelas=<?= urlencode($sesi_kelas) ?>">Next ›</a>
     <?php endif; ?>
 </div>
 
@@ -281,7 +301,27 @@ if (mysqli_num_rows($querySurat) == 0) {
 
     menuToggle.addEventListener("click", () => {
         navMenu.classList.toggle("show");
+        menuToggle.classList.toggle("active");
     });
+
+    const filterToggleBtn = document.getElementById("filterToggleBtn");
+    const filterOptions = document.getElementById("filterOptions");
+
+    if (filterToggleBtn && filterOptions) {
+        filterToggleBtn.addEventListener("click", () => {
+            if (filterOptions.style.display === "none") {
+                filterOptions.style.display = "flex";
+                filterOptions.style.flexWrap = "wrap";
+                filterOptions.style.gap = "10px";
+                filterOptions.style.marginTop = "15px";
+                filterOptions.style.width = "100%";
+                filterOptions.style.justifyContent = "center";
+                filterOptions.style.animation = "fadeIn 0.3s ease";
+            } else {
+                filterOptions.style.display = "none";
+            }
+        });
+    }
     </script>
 </body>
 

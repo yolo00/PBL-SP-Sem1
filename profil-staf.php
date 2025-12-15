@@ -34,15 +34,15 @@ $data  = mysqli_fetch_assoc($query);
 
     <nav class="navbar">
         <div class="container">
+            <a href="dashboard-staf.php" class="logo">
+                <img src="image/dispol.png" width="65" height="65" alt="dispol logo" />
+                <span class="brand">DISP<span class="brand-o">O</span>L</span>
+            </a>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <a href="dashboard-staf.php" class="logo">
-                <img src="image/dispol.png" width="65" height="65" alt="dispol logo" />
-                <span class="brand">DISP<span class="brand-o">O</span>L</span>
-            </a>
             <ul class="nav-links" id="navMenu">
                 <li><a href="dashboard-staf.php">Beranda</a></li>
                 <li><a href="kelola-staf.php">Kelola</a></li>
@@ -171,6 +171,7 @@ $data  = mysqli_fetch_assoc($query);
             } else {
                 openMenu();
             }
+            menuToggle.classList.toggle("active");
         }
 
         function openMenu() {
