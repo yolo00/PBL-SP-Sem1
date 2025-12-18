@@ -43,33 +43,30 @@ if (!$sp) {
 </head>
 <body>
 
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
       <a href="dashboard-mahasiswa.php" class="logo">
         <img src="image/dispol.png" width="65" height="65" alt="Logo DISPOL">
         <span class="brand">DISP<span class="brand-o">O</span>L</span>
       </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="navMenu">
+        <li><a href="dashboard-mahasiswa.php">Beranda</a></li>
+        <li><a href="profil-mahasiswa.php">Profil</a></li>
+      </ul>
     </div>
   </nav>
 
-  <!-- Tombol sidebar-->
-  <button id="sidebarToggle" class="sidebar-toggle" aria-label="Buka menu" aria-expanded="false">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
 
-  <!-- Sidebar kanan -->
-  <aside id="sidebar" class="sidebar" aria-hidden="true">
-    <nav class="sidebar-menu">
-      <a href="dashboard-mahasiswa.php" class="menu-item">Beranda</a>
-      <a href="profil-mahasiswa.php" class="menu-item active">Profil</a>
-    </nav>
-  </aside>
 
-  <!-- Overlay -->
-  <div id="overlay" class="overlay"></div>
+
+
 
 
 <main class="main-content">
@@ -161,60 +158,67 @@ if (!$sp) {
 </footer>
 
 <script>
-  // ================================
-// Sidebar Toggle Script
-// ================================
+  (function() {
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+    const body = document.body;
 
-const sidebarToggle = document.getElementById("sidebarToggle");
-const sidebar = document.getElementById("sidebar");
-const overlay = document.getElementById("overlay");
+    if (!menuToggle || !navMenu) return;
 
-// Fungsi buka sidebar
-function openSidebar() {
-    sidebar.classList.add("open");
-    overlay.classList.add("show");
-    sidebarToggle.classList.add("open");
-    sidebarToggle.setAttribute("aria-expanded", "true");
-    sidebar.setAttribute("aria-hidden", "false");
-}
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 998;
+    `;
+    body.appendChild(overlay);
 
-// Fungsi tutup sidebar
-function closeSidebar() {
-    sidebar.classList.remove("open");
-    overlay.classList.remove("show");
-    sidebarToggle.classList.remove("open");
-    sidebarToggle.setAttribute("aria-expanded", "false");
-    sidebar.setAttribute("aria-hidden", "true");
-}
-
-// Klik tombol toggle
-sidebarToggle.addEventListener("click", () => {
-    const isOpen = sidebar.classList.contains("open");
-    if (isOpen) {
-        closeSidebar();
-    } else {
-        openSidebar();
-    }
-});
-
-// Klik overlay menutup sidebar
-overlay.addEventListener("click", closeSidebar);
-
-// Klik di luar sidebar menutup sidebar
-document.addEventListener("click", function (e) {
-    if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
-        if (sidebar.classList.contains("open")) {
-            closeSidebar();
+    function toggleMenu() {
+        const isOpen = navMenu.classList.contains('show');
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
         }
+        menuToggle.classList.toggle("active");
     }
-});
 
-// Tutup jika menekan tombol ESC
-document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && sidebar.classList.contains("open")) {
-        closeSidebar();
+    function openMenu() {
+        navMenu.classList.add('show');
+        overlay.style.opacity = '1';
+        overlay.style.visibility = 'visible';
+        body.style.overflow = 'hidden';
+        menuToggle.setAttribute('aria-expanded', 'true');
     }
-});
+
+    function closeMenu() {
+        navMenu.classList.remove('show');
+        overlay.style.opacity = '0';
+        overlay.style.visibility = 'hidden';
+        body.style.overflow = '';
+        menuToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', closeMenu);
+
+    // Close on link click
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 900) {
+                closeMenu();
+            }
+        });
+    });
+})();
 
 </script>
 </body>

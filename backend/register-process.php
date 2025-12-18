@@ -7,6 +7,7 @@ $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 $nama     = $_POST['nama'];
 $email    = $_POST['email'];
 $telepon  = $_POST['telepon'];
+$jenis_kelamin = $_POST['jenis_kelamin'];
 
 // ===============================
 // CEK USERNAME DUPLIKAT
@@ -24,13 +25,13 @@ if (mysqli_num_rows($checkUser) > 0) {
 // REGISTER STAF
 // ===============================
 if ($role == "staf") {
-    $nik     = $_POST['nik'];
+    $nik     = $username; // Gunakan username sebagai NIK
     $jabatan = $_POST['jabatan'];
-    $prodi   = $_POST['prodi_staf']; // Ambil dari input prodi_staf
+    $prodi   = $_POST['prodi_staf'];
 
     $query = mysqli_query($conn, "
-        INSERT INTO users(username, password, role, nama, email, telepon, nik, jabatan, prodi)
-        VALUES('$username', '$password', '$role', '$nama', '$email', '$telepon', '$nik', '$jabatan', '$prodi')
+        INSERT INTO users(username, password, role, nama, email, telepon, nik, jabatan, prodi, jenis_kelamin)
+        VALUES('$username', '$password', '$role', '$nama', '$email', '$telepon', '$nik', '$jabatan', '$prodi', '$jenis_kelamin')
     ");
 }
 
@@ -38,19 +39,18 @@ if ($role == "staf") {
 // REGISTER MAHASISWA
 // ===============================
 else if ($role == "mahasiswa") {
-    $nim      = $_POST['nim'];
-    $jurusan  = $_POST['jurusan'];
-    $prodi    = $_POST['prodi_mahasiswa']; // Ambil dari input prodi_mahasiswa
+    $nim      = $username; // Gunakan username sebagai NIM
+    $prodi    = $_POST['prodi_mahasiswa'];
     $kelas    = $_POST['kelas'];
     $angkatan = $_POST['angkatan'];
 
     $query = mysqli_query($conn, "
         INSERT INTO users(
             username, password, role, nama, email, telepon,
-            nim, jurusan, prodi, kelas, angkatan
+            nim, prodi, kelas, angkatan, jenis_kelamin
         ) VALUES(
             '$username', '$password', '$role', '$nama', '$email', '$telepon',
-            '$nim', '$jurusan', '$prodi', '$kelas', '$angkatan'
+            '$nim', '$prodi', '$kelas', '$angkatan', '$jenis_kelamin'
         )
     ");
 }

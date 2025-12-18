@@ -18,20 +18,24 @@ $id = $_SESSION['user_id'];
 $query = mysqli_query($conn, "SELECT * FROM users WHERE id='$id'");
 $data  = mysqli_fetch_assoc($query);
 
-// Proses update profil
+// Proses update profil (HANYA email & telepon)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nama = mysqli_real_escape_string($conn, $_POST['nama']);
-    $nik = mysqli_real_escape_string($conn, $_POST['nik']);
-    $jabatan = mysqli_real_escape_string($conn, $_POST['jabatan']);
-    $prodi = mysqli_real_escape_string($conn, $_POST['prodi']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $telepon = mysqli_real_escape_string($conn, $_POST['telepon']);
 
-    $update_query = "UPDATE users SET nama='$nama', nik='$nik', jabatan='$jabatan', prodi='$prodi', email='$email', telepon='$telepon' WHERE id='$id'";
+    $update_query = "
+        UPDATE users 
+        SET email='$email', telepon='$telepon' 
+        WHERE id='$id'
+    ";
+
     if (mysqli_query($conn, $update_query)) {
-        echo "<script>alert('Profil berhasil diperbarui!'); window.location='profil-staf.php';</script>";
+        echo "<script>
+            alert('Email dan No. HP berhasil diperbarui!');
+            window.location='profil-staf.php';
+        </script>";
     } else {
-        echo "<script>alert('Gagal memperbarui profil!');</script>";
+        echo "<script>alert('Gagal memperbarui data!');</script>";
     }
 }
 ?>
@@ -84,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <i class="fas fa-user-tie"></i>
                     </div>
                     <div class="profil-info-header">
-                        <input type="text" name="nama" value="<?= htmlspecialchars($data['nama']); ?>" required placeholder="Nama Staf">
+                        <input type="text" value="<?= htmlspecialchars($data['nama']); ?>" readonly="Nama Staf">
                         <p class="nim-label">NIK: <?= htmlspecialchars($data['nik']); ?></p>
                     </div>
                 </div>
@@ -93,15 +97,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="detail-group">
                             <div class="detail-item">
                                 <span class="label">NIK</span>
-                                <input type="text" name="nik" value="<?= htmlspecialchars($data['nik']); ?>" required>
-                            </div>
-                            <div class="detail-item">
-                                <span class="label">Jabatan</span>
-                                <input type="text" name="jabatan" value="<?= htmlspecialchars($data['jabatan']); ?>" required>
+                                <input type="text" value="<?= htmlspecialchars($data['nik']); ?>" readonly>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Jabatan</span>
+                                    <input type="text" name="jabatan" value="<?= htmlspecialchars($data['jabatan']); ?>" required>
                             </div>
                             <div class="detail-item">
                                 <span class="label">Program Studi</span>
-                                <input type="text" name="prodi" value="<?= htmlspecialchars($data['prodi']); ?>" required>
+                                <input type="text" value="<?= htmlspecialchars($data['prodi']); ?>" readonly>
                             </div>
                             <div class="detail-item">
                                 <span class="label">Email</span>

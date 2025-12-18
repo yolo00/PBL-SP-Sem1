@@ -25,30 +25,32 @@ if (!$data) {
   <title>Detail Surat Peringatan | DISPOL</title>
   <link rel="stylesheet" href="css/detail-surat.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="icon" type="image/png" href="image/dispol.png">
+    <link rel="icon" type="image/png" href="image/dispol.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="container">
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <a href="dashboard-staf.php" class="logo">
-        <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
-        <span class="brand">DISP<span class="brand-o">O</span>L</span>
-      </a>
-      <ul class="nav-links" id="navMenu">
-        <li><a href="dashboard-staf.php">Beranda</a></li>
-        <li><a href="kelola-staf.php">Kelola</a></li>
-        <li><a href="arsip-staf.php">Arsip</a></li>
-        <li><a href="profil-staf.php">Profil</a></li>
-      </ul>
-    </div>
-  </nav>
+   <nav class="navbar">
+        <div class="container">
+            <a href="dashboard-staf.php" class="logo">
+                <img src="image/dispol.png" width="65" height="65" alt="Logo DISPOL">
+                <span class="brand">DISP<span class="brand-o">O</span>L</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navMenu">
+                <li><a href="dashboard-staf.php" class="active">Beranda</a></li>
+                <li><a href="kelola-staf.php">Kelola</a></li>
+                <li><a href="arsip-staf.php">Arsip</a></li>
+                <li><a href="profil-staf.php">Profil</a></li>
+            </ul>
+        </div>
+    </nav>
 
   <div class="detail-container" data-aos="fade-up">
     <div class="detail-header">
@@ -72,7 +74,7 @@ if (!$data) {
           <div class="preview-item"><label>Semester:</label> <span>Semester <?= $data['semester'] ?></span></div>
           <div class="preview-item"><label>Sesi Kelas:</label> <span><?= $data['sesi_kelas'] ?></span></div>
           <div class="preview-item"><label>Status:</label> 
-          <span><?= $data['status'] ?? 'Aktif' ?></span></div>
+            <span><?= $data['status'] ?? 'Aktif' ?></span></div>
         </div>
 
         <!-- DATA SURAT -->
@@ -99,44 +101,46 @@ if (!$data) {
     <div class="form-buttons">
       <button type="button" class="btn btn-batal" onclick="window.history.back()">Kembali</button>
     </div>
+
   </div>
-    <!-- Footer tetap sama -->
- <footer class="footer">
-  <div class="footer-container">
-    <div class="footer-left">
-      <img src="image/dispol.png" alt="Logo Dispol" width="60">
-      <div>
-        <h3>DISPOL</h3>
-        <p>Digitalisasi Surat Peringatan Mahasiswa Polibatam</p>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <img src="image/dispol.png" alt="Logo Dispol" width="60">
+        <div>
+          <h3>DISPOL</h3>
+          <p>Digitalisasi Surat Peringatan Mahasiswa Polibatam</p>
+        </div>
       </div>
-    </div>
 
-    <div class="footer-center">
-      <h4>Menu</h4>
-      <ul>
-        <li><a href="dashboard-staf.php">Beranda</a></li>
-        <li><a href="kelola-staf.php">Kelola</a></li>
-        <li><a href="arsip-staf.php">Arsip</a></li>
-        <li><a href="profil-staf.php">Profil</a></li>
-      </ul>
-    </div>
+      <div class="footer-center">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="dashboard-staf.php">Beranda</a></li>
+          <li><a href="kelola-staf.php">Kelola</a></li>
+          <li><a href="arsip-staf.php">Arsip</a></li>
+          <li><a href="profil-staf.php">Profil</a></li>
+        </ul>
+      </div>
 
-    <div class="footer-right">
-      <h4>Hubungi Kami</h4>
-      <p><img src="image/icon-address.png" alt="Address" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> Jl. Ahmad Yani Batam Kota,<br>Kota Batam, Kepulauan Riau, Indonesia</p>
-      <p><img src="image/icon-contact.png" alt="Phone" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> +62-778-469858 Ext.1017</p>
-      <p><img src="image/icon-email.png" alt="Email" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> info@polibatam.ac.id</p>
-      <ul class="social-links">
-      <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img src="image/icon-instagram.png" alt="Instagram"></a></li>
+      <div class="footer-right">
+        <h4>Hubungi Kami</h4>
+        <p><img src="image/icon-address.png" alt="Address" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> Jl. Ahmad Yani Batam Kota,<br>Kota Batam, Kepulauan Riau, Indonesia</p>
+        <p><img src="image/icon-contact.png" alt="Phone" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> +62-778-469858 Ext.1017</p>
+        <p><img src="image/icon-email.png" alt="Email" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> info@polibatam.ac.id</p>
+        <ul class="social-links">
+          <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img src="image/icon-instagram.png" alt="Instagram"></a></li>
           <li><a href="https://www.youtube.com/@polibatamofficial"><img src="image/icon-youtube.png" alt="YouTube"></a></li>
           <li><a href="https://www.polibatam.ac.id"><img src="image/icon-website.png" alt="Website"></a></li>
-      </ul>
+        </ul>
+      </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 DISPOL | All Rights Reserved</p>
-  </div>
-</footer>
+    <div class="footer-bottom">
+      <p>&copy; 2025 DISPOL | All Rights Reserved</p>
+    </div>
+  </footer>
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ once:true, duration:1000 });

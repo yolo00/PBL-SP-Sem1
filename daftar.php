@@ -2,16 +2,24 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Akun DISPOL</title>
     <link rel="stylesheet" href="css/login.css">
     <link rel="icon" type="image/png" href="image/dispol.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
     <form action="backend/register-process.php" method="POST">
+        <div style="text-align: left; width: 100%; margin-bottom: 10px;">
+            <a href="landing-page.php" style="text-decoration: none; color: #333; font-size: 1.5rem;" title="Kembali">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+        </div>
 
         <img src="image/dispol.png" class="logo">
         <h2 style="text-align:center;">Buat Akun DISPOL</h2>
@@ -28,9 +36,6 @@
          FORM STAF
         ============================================================ -->
         <div id="formStaf" style="display:none">
-            <label for="nik">NIK Staf</label>
-            <input type="text" name="nik" placeholder="Masukkan NIK Staf">
-
             <label for="jabatan">Jabatan</label>
             <input type="text" name="jabatan" placeholder="Contoh: Staf Akademik">
 
@@ -51,17 +56,6 @@
          FORM MAHASISWA
         ============================================================ -->
         <div id="formMahasiswa" style="display:none">
-            <label for="nim">NIM</label>
-            <input type="text" name="nim" placeholder="Masukkan NIM">
-
-            <label for="jurusan">Jurusan</label>
-            <select name="jurusan" id="jurusan">
-                <option value="">Pilih Jurusan</option>
-                <option value="Teknik Informatika">Teknik Informatika</option>
-                <option value="Teknik Elektro">Teknik Elektro</option>
-                <option value="Teknik Mesin">Teknik Mesin</option>
-            </select>
-
             <label for="prodi_mahasiswa">Program Studi</label>
             <select name="prodi_mahasiswa" id="prodi_mahasiswa">
                 <option value="">Pilih Program Studi</option>
@@ -94,6 +88,16 @@
         <label for="nama">Nama Lengkap:</label>
         <input type="text" name="nama" placeholder="Masukkan nama lengkap" required>
 
+        <label for="jenis_kelamin">Jenis Kelamin:</label>
+        <div style="display: flex; gap: 20px; margin-bottom: 15px; margin-top: 5px;">
+            <label style="display: flex; align-items: center; gap: 8px; font-weight: 500; cursor: pointer;">
+                <input type="radio" name="jenis_kelamin" value="L" required style="width: auto; margin: 0;"> Laki-laki
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; font-weight: 500; cursor: pointer;">
+                <input type="radio" name="jenis_kelamin" value="P" required style="width: auto; margin: 0;"> Perempuan
+            </label>
+        </div>
+
         <label for="email">Email:</label>
         <input type="email" name="email" placeholder="Masukkan email" required>
 
@@ -118,49 +122,44 @@
      SCRIPT: TAMPILKAN FORM SESUAI ROLE
     ============================================================ -->
     <script>
-        const role = document.getElementById("role");
-        const formStaf = document.getElementById("formStaf");
-        const formMahasiswa = document.getElementById("formMahasiswa");
+    const role = document.getElementById("role");
+    const formStaf = document.getElementById("formStaf");
+    const formMahasiswa = document.getElementById("formMahasiswa");
 
-        role.addEventListener("change", function() {
-            if (this.value === "staf") {
-                formStaf.style.display = "block";
-                formMahasiswa.style.display = "none";
-                
-                // Set required untuk form staf
-                document.querySelector('[name="nik"]').required = true;
-                document.querySelector('[name="jabatan"]').required = true;
-                document.querySelector('[name="prodi_staf"]').required = true;
-                
-                // Remove required dari form mahasiswa
-                document.querySelector('[name="nim"]').required = false;
-                document.querySelector('[name="jurusan"]').required = false;
-                document.querySelector('[name="prodi_mahasiswa"]').required = false;
-                document.querySelector('[name="kelas"]').required = false;
-                document.querySelector('[name="angkatan"]').required = false;
-                
-            } else if (this.value === "mahasiswa") {
-                formStaf.style.display = "none";
-                formMahasiswa.style.display = "block";
-                
-                // Set required untuk form mahasiswa
-                document.querySelector('[name="nim"]').required = true;
-                document.querySelector('[name="jurusan"]').required = true;
-                document.querySelector('[name="prodi_mahasiswa"]').required = true;
-                document.querySelector('[name="kelas"]').required = true;
-                document.querySelector('[name="angkatan"]').required = true;
-                
-                // Remove required dari form staf
-                document.querySelector('[name="nik"]').required = false;
-                document.querySelector('[name="jabatan"]').required = false;
-                document.querySelector('[name="prodi_staf"]').required = false;
-                
-            } else {
-                formStaf.style.display = "none";
-                formMahasiswa.style.display = "none";
-            }
-        });
+    role.addEventListener("change", function() {
+        if (this.value === "staf") {
+            formStaf.style.display = "block";
+            formMahasiswa.style.display = "none";
+
+            // Set required untuk form staf
+            document.querySelector('[name="jabatan"]').required = true;
+            document.querySelector('[name="prodi_staf"]').required = true;
+
+            // Remove required dari form mahasiswa
+            document.querySelector('[name="prodi_mahasiswa"]').required = false;
+            document.querySelector('[name="kelas"]').required = false;
+            document.querySelector('[name="angkatan"]').required = false;
+
+        } else if (this.value === "mahasiswa") {
+            formStaf.style.display = "none";
+            formMahasiswa.style.display = "block";
+
+            // Set required untuk form mahasiswa
+            document.querySelector('[name="prodi_mahasiswa"]').required = true;
+            document.querySelector('[name="kelas"]').required = true;
+            document.querySelector('[name="angkatan"]').required = true;
+
+            // Remove required dari form staf
+            document.querySelector('[name="jabatan"]').required = false;
+            document.querySelector('[name="prodi_staf"]').required = false;
+
+        } else {
+            formStaf.style.display = "none";
+            formMahasiswa.style.display = "none";
+        }
+    });
     </script>
 
 </body>
+
 </html>

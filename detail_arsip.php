@@ -23,32 +23,34 @@ if (!$data) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detail Surat Peringatan | DISPOL</title>
-  <link rel="stylesheet" href="css/detail-surat.css">
+  <link rel="stylesheet" href="css/detail-arsip.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="image/dispol.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="container">
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <a href="dashboard-staf.php" class="logo">
-        <img src="image/dispol.png" width="65" height="65" alt="dispol logo">
-        <span class="brand">DISP<span class="brand-o">O</span>L</span>
-      </a>
-      <ul class="nav-links" id="navMenu">
-        <li><a href="dashboard-staf.php">Beranda</a></li>
-        <li><a href="kelola-staf.php">Kelola</a></li>
-        <li><a href="arsip-staf.php" class="active">Arsip</a></li>
-        <li><a href="profil-staf.php">Profil</a></li>
-      </ul>
-    </div>
-  </nav>
+   <nav class="navbar">
+        <div class="container">
+            <a href="dashboard-staf.php" class="logo">
+                <img src="image/dispol.png" width="65" height="65" alt="Logo DISPOL">
+                <span class="brand">DISP<span class="brand-o">O</span>L</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navMenu">
+                <li><a href="dashboard-staf.php" class="active">Beranda</a></li>
+                <li><a href="kelola-staf.php">Kelola</a></li>
+                <li><a href="arsip-staf.php">Arsip</a></li>
+                <li><a href="profil-staf.php">Profil</a></li>
+            </ul>
+        </div>
+    </nav>
 
   <div class="detail-container" data-aos="fade-up">
     <div class="detail-header">

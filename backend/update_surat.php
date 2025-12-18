@@ -16,6 +16,18 @@ $deskripsi  = mysqli_real_escape_string($conn, $_POST['deskripsi']);
 $semester   = mysqli_real_escape_string($conn, $_POST['semester']);
 $sesi_kelas = mysqli_real_escape_string($conn, $_POST['sesi_kelas']);
 
+// ===============================
+// VALIDASI NIM TERDAFTAR SEBAGAI MAHASISWA SEBELUM UPDATE
+// ===============================
+$check = mysqli_query($conn, "SELECT * FROM users WHERE nim = '$nim' AND role = 'mahasiswa' LIMIT 1");
+if (!$check || mysqli_num_rows($check) == 0) {
+    echo "<script>
+            alert('Gagal: NIM tidak terdaftar sebagai akun mahasiswa.');
+            window.location='../edit_surat.php?id=".$id."';
+          </script>";
+    exit;
+}
+
 // Cek apakah ada file baru di-upload
 $newFileName = null;
 $updateFileQueryPart = "";

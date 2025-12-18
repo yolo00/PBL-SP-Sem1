@@ -31,6 +31,7 @@ $_SESSION['user_id']  = $data['id'];
 $_SESSION['username'] = $data['username'];
 $_SESSION['nama']     = $data['nama'];
 $_SESSION['role']     = $data['role'];
+$_SESSION['jenis_kelamin'] = $data['jenis_kelamin'];
 $_SESSION['email']    = $data['email'];
 $_SESSION['telepon']  = $data['telepon'];
 $_SESSION['jurusan']  = $data['jurusan'];
@@ -40,6 +41,16 @@ $_SESSION['angkatan'] = $data['angkatan'];
 $_SESSION['nim']      = $data['nim'];
 $_SESSION['nik']      = $data['nik'];
 $_SESSION['jabatan']  = $data['jabatan'];
+
+
+
+// Cek Remember Me
+if (isset($_POST['remember'])) {
+    // Buat cookie berlaku 30 hari
+    setcookie('id', $data['id'], time() + (86400 * 30), "/"); // 86400 = 1 hari
+    setcookie('key', hash('sha256', $data['username']), time() + (86400 * 30), "/");
+}
+
 
 // Arahkan ke dashboard
 if ($data['role'] == 'staf') {

@@ -61,14 +61,32 @@ $data  = mysqli_fetch_assoc($query);
     <div class="profile-content-wrapper">
         <section class="profil-identitas-card">
             <div class="card-header-mahasiswa">
-                <div class="photo-placeholder">
-                    <i class="fas fa-user-tie"></i>
+                <?php
+                // Gunakan jenis_kelamin yang tersimpan di database (dipilih saat daftar akun)
+                $gender = $data['jenis_kelamin'] ?? 'L';
+
+                // Gunakan fa-user-tie untuk keduanya agar "berdasi"
+                // Pembeda hanya warna (Pink vs Biru)
+                $iconClass = 'fa-user-tie'; 
+                $bgClass = ($gender == 'P') ? 'bg-pink' : 'bg-blue';
+                ?>
+                <div class="photo-placeholder <?= $bgClass ?>" style="position: relative;">
+                    <i class="fas <?= $iconClass ?>"></i>
                 </div>
                 <div class="profil-info-header">
                     <h2><?= $data['nama']; ?></h2>
                     <p class="nim-label">NIK: <?= $data['nik']; ?></p>
                 </div>
             </div>
+            
+
+
+            <style>
+                .bg-pink { background: #ffc2d1 !important; color: #d63384 !important; }
+                .bg-blue { background: #e0e7ff !important; color: #002b6b !important; }
+            </style>
+
+
 
             <div class="profil-info-details">
                 <h3>Informasi Staf</h3>
@@ -98,7 +116,6 @@ $data  = mysqli_fetch_assoc($query);
     </div>
 
     <div class="aksi-logout-area">
-        <a href="edit-profil-staf.php"><button class="btn-edit">Edit Profil</button></a>
         <button class="btn-logout" onclick="confirmLogout()">Keluar</button>
     </div>
 </main>

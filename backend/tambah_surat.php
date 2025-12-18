@@ -17,6 +17,18 @@ $perihal    = mysqli_real_escape_string($conn, $_POST['perihal']);
 $deskripsi  = mysqli_real_escape_string($conn, $_POST['deskripsi']);
 
 // ===============================
+// VALIDASI NIM TERDAFTAR SEBAGAI MAHASISWA
+// ===============================
+$check = mysqli_query($conn, "SELECT * FROM users WHERE nim = '$nim' AND role = 'mahasiswa' LIMIT 1");
+if (!$check || mysqli_num_rows($check) == 0) {
+    echo "<script>
+            alert('Gagal: NIM tidak terdaftar sebagai akun mahasiswa.');
+            window.location='../tambah-surat.php';
+          </script>";
+    exit;
+}
+
+// ===============================
 // HANDLE UPLOAD FILE
 // ===============================
 $fileName = null;

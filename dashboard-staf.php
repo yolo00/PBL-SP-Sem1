@@ -3,6 +3,7 @@
 
 <?php
 session_start();
+include "backend/check-session.php";
 include "backend/config.php";
 
 // WAJIB ditaruh sebelum HTML, agar browser tidak simpan cache
@@ -205,7 +206,18 @@ include "backend/auto-arsip.php";
     <div class="card-container">
 <?php
 if (mysqli_num_rows($querySurat) == 0) {
-    echo "<p class='no-sp-found'>🎉 Tidak ada surat peringatan aktif.</p>";
+    // Cek apakah ada filter yang aktif
+    $isFiltered = !empty($keyword) || !empty($tingkat) || !empty($prodi) || !empty($semester) || !empty($sesi_kelas);
+
+    if ($isFiltered) {
+        echo "<div style='text-align:center; padding: 40px; color: #666; width: 100%; grid-column: 1 / -1;'>
+                <i class='fas fa-search' style='font-size: 40px; color: #ddd; margin-bottom: 15px;'></i>
+                <p style='font-size: 1.1rem; font-weight: 500;'>Data tidak ditemukan</p>
+                <p style='font-size: 0.9rem; color: #888;'>Coba ubah kata kunci atau reset filter pencarian Anda.</p>
+              </div>";
+    } else {
+        echo "<p class='no-sp-found'>🎉 Tidak ada surat peringatan aktif.</p>";
+    }
 } else {
     while ($row = mysqli_fetch_assoc($querySurat)) {
 

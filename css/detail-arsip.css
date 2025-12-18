@@ -1,6 +1,15 @@
 /* ============================================
    RESET & GLOBAL
 ============================================ */
+:root {
+  --primary-color: #004080;
+  --secondary-color: #153d7e;
+  --accent-color: #ff8c00;
+  --danger-color: #e04e32;
+  --text-light: #ffffff;
+  --text-dark: #333333;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -17,15 +26,11 @@ body {
 body {
   font-family: 'Poppins', Arial, sans-serif;
   line-height: 1.6;
+  background: url(/image/background-utama.png) center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   padding-top: 70px;
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex: 1;
-  width: 100%;
-  overflow: visible;
 }
 
 /* ============================================
@@ -34,7 +39,7 @@ main {
 .navbar {
   background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
   padding: 0.75rem 0;
-  color: white;
+  color: var(--text-light);
   position: fixed;
   top: 0;
   left: 0;
@@ -52,6 +57,7 @@ main {
   padding: 0 1rem;
 }
 
+/* Logo Responsif */
 .logo {
   display: flex;
   align-items: center;
@@ -89,7 +95,7 @@ main {
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 1006;
+  z-index: 1001;
 }
 
 .menu-toggle span {
@@ -145,124 +151,180 @@ main {
 }
 
 /* ============================================
-   MAIN CONTENT
+   DETAIL CONTAINER
 ============================================ */
-
-.title-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 30px;
-  margin-top: 3rem;
+.detail-container {
+  max-width: 900px;
+  width: 95%;
+  margin: 40px auto;
+  padding: clamp(20px, 5vw, 40px);
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.title-bar h1 {
-  color: #153d7e;
-  font-size: clamp(1.3rem, 4vw, 1.75rem);
-  font-weight: 700;
+.detail-header {
+  margin-bottom: 30px;
   text-align: center;
 }
 
+.detail-header h2 {
+  font-size: clamp(1.5rem, 4vw, 1.8rem);
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 5px;
+  word-wrap: break-word;
+}
+
+.detail-header p {
+  color: #666;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
 /* ============================================
-   FORM CONTAINER
+   RINCIAN SURAT
 ============================================ */
-.form-container {
-  background: white;
-  width: 95%;
-  max-width: 1100px;
-  margin: 0 auto 2rem;
+.rincian-surat {
+  background: #f0f7ff;
+  border: 2px solid #004080;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: clamp(20px, 4vw, 30px);
-  text-align: left;
+  margin-top: 30px;
 }
 
-.form-container h2 {
-  color: #153d7e;
-  margin-bottom: 20px;
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
+.rincian-surat h3 {
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  color: #004080;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 600;
 }
 
-/* Form Grid - Responsive */
-.form-grid {
+.preview-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: 20px;
 }
 
-.form-container label {
-  font-weight: 500;
+.preview-section {
+  background: white;
+  padding: clamp(15px, 3vw, 20px);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 64, 128, 0.1);
+}
+
+.preview-section h4 {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   color: #153d7e;
-  display: block;
-  margin-bottom: 6px;
-  font-size: clamp(0.9rem, 2vw, 1rem);
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #004080;
+  font-weight: 600;
 }
 
-.form-container input,
-.form-container select,
-.form-container textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1.5px solid #d1d5db;
-  border-radius: 8px;
-  font-family: 'Poppins', Arial, sans-serif;
-  font-size: clamp(0.9rem, 2vw, 1rem);
-  transition: all 0.3s ease;
-  background-color: #fff;
+.preview-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
 }
 
-.form-container input:focus,
-.form-container select:focus,
-.form-container textarea:focus {
-  outline: none;
-  border-color: #004080;
-  box-shadow: 0 0 0 3px rgba(0, 64, 128, 0.1);
-  background-color: #f0f7ff;
+.preview-item:last-child {
+  border-bottom: none;
 }
 
-.form-container select {
-  cursor: pointer;
+.preview-item label {
+  font-weight: 600;
+  color: #333;
 }
-/* Form Buttons */
+
+.preview-item span,
+.preview-item a {
+  color: #555;
+  word-break: break-word;
+}
+
+.preview-item a {
+  display: inline-block;
+  background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
+  color: white;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-top: 4px;
+  transition: 0.3s;
+  font-size: 0.9rem;
+}
+
+.preview-item a:hover {
+  background: #ff8c00;
+}
+
+/* ============================================
+   BUTTONS
+============================================ */
 .form-buttons {
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-top: 24px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
   flex-wrap: wrap;
 }
 
-.btn-batal,
-.btn-kirim {
+.btn {
   border: none;
-  color: white;
+  color: var(--text-light);
   padding: 12px 28px;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
-  font-size: clamp(0.9rem, 2vw, 1rem);
   transition: all 0.3s ease;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
   min-width: 120px;
 }
 
+.btn-kirim {
+  background-color: #004080;
+  color: white;
+}
+
+.btn-kirim:hover {
+  background-color: #003060;
+  box-shadow: 0 4px 12px rgba(0, 64, 128, 0.3);
+  transform: translateY(-2px);
+}
+
 .btn-batal {
-  background-color: #9ca3af;
+  background-color: #dc2626;
+  color: white;
 }
 
 .btn-batal:hover {
-  background-color: #6b7280;
+  background-color: #b91c1c;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(156, 163, 175, 0.3);
 }
 
-.btn-kirim {
-  background-color: #3b82f6;
+.btn-kembali {
+  background-color: #9ca3af;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: "Poppins", Arial, sans-serif;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  display: inline-block;
+  text-decoration: none;
 }
-.btn-kirim:hover {
-  background-color: #2563eb;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+
+.btn-kembali:hover {
+  background-color: #8c8f94;
 }
 
 /* ============================================
@@ -396,6 +458,27 @@ main {
     font-size: 1rem;
   }
 
+  .preview-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .preview-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .preview-item label {
+    width: 40%;
+  }
+
+  .preview-item span,
+  .preview-item a {
+    width: 60%;
+    text-align: right;
+  }
+
   .footer-container {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -434,8 +517,7 @@ main {
   .nav-links {
     position: fixed;
     top: 0;
-    left: auto;
-    right: -100%;
+    right: -100%;          /* ✅ SEMBUNYI DI KANAN */
     background: linear-gradient(180deg, #003366 0%, #004080 100%);
     width: 75%;
     max-width: 300px;
@@ -446,85 +528,31 @@ main {
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
     transition: right 0.4s ease;
     overflow-y: auto;
-    z-index: 1005;
+    z-index: 999;
   }
 
   .nav-links.show {
-    left: auto;
-    right: 0;
-  }
-
-  .menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
+    right: 0;              /* ✅ MUNCUL DARI KANAN */
   }
 
   .nav-links li {
     width: 100%;
-    margin: 0;
   }
 
   .nav-links a {
     display: block;
-    padding: 1rem 3rem;
-    border-left: 3px solid transparent;
+    padding: 1rem 2rem;
+    border-right: 3px solid transparent;
   }
 
   .nav-links a:hover,
   .nav-links a.active {
     background: rgba(255, 255, 255, 0.1);
-    border-left-color: #ff8c00;
+    border-right-color: #ff8c00;
   }
 
   .nav-links a::after {
     display: none;
-  }
-}
-
-/* ============================================
-   DESKTOP RESPONSIVE (900px+)
-============================================ */
-@media (min-width: 900px) {
-  body {
-    padding-top: 85px;
-  }
-
-  .navbar .container {
-    padding: 0 2rem;
-  }
-
-  .logo img {
-    width: 65px;
-    height: 65px;
-  }
-
-  .brand {
-    font-size: 1.1rem;
-  }
-
-  .menu-toggle {
-    display: none;
-  }
-
-  .form-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-
-  .footer-container {
-    grid-template-columns: 2fr 1fr 1.5fr;
-    text-align: left;
-  }
-
-  .footer-left {
-    flex-direction: row;
   }
 }
 
@@ -545,7 +573,7 @@ main {
     background: white;
   }
 
-  .form-container {
+  .detail-container {
     box-shadow: none;
     max-width: 100%;
   }
