@@ -26,11 +26,24 @@ body {
 body {
   font-family: 'Poppins', Arial, sans-serif;
   line-height: 1.6;
-  background: url(/image/background-utama.png) center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: #f5f7fa; /* ✅ UBAH KE WARNA SOLID */
   padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ✅ PASTIKAN FULL HEIGHT */
+}
+
+/* ✅ TAMBAHKAN INI - LAYOUT WRAPPER */
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrap {
+  flex: 1;
+  width: 100%;
+  padding-bottom: 2rem; /* ✅ BERI JARAK DARI FOOTER */
 }
 
 /* ============================================
@@ -334,8 +347,9 @@ body {
   background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
   color: #fff;
   padding: 2rem 0 1rem;
-  margin-top: auto;
+  margin-top: auto; /* ✅ PENTING - Push ke bawah */
   box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.3);
+  width: 100%; /* ✅ PASTIKAN FULL WIDTH */
 }
 
 .footer-container {
@@ -517,7 +531,8 @@ body {
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%;          /* ✅ SEMBUNYI DI KANAN */
+    left: auto;
+    right: -100%;
     background: linear-gradient(180deg, #003366 0%, #004080 100%);
     width: 75%;
     max-width: 300px;
@@ -528,31 +543,80 @@ body {
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
     transition: right 0.4s ease;
     overflow-y: auto;
-    z-index: 999;
+    z-index: 1005;
   }
 
   .nav-links.show {
-    right: 0;              /* ✅ MUNCUL DARI KANAN */
+    left: auto;
+    right: 0;
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
   }
 
   .nav-links li {
     width: 100%;
+    margin: 0;
   }
 
   .nav-links a {
     display: block;
-    padding: 1rem 2rem;
-    border-right: 3px solid transparent;
+    padding: 1rem 3rem;
+    border-left: 3px solid transparent;
   }
 
   .nav-links a:hover,
   .nav-links a.active {
     background: rgba(255, 255, 255, 0.1);
-    border-right-color: #ff8c00;
+    border-left-color: #ff8c00;
   }
 
   .nav-links a::after {
     display: none;
+  }
+}
+
+/* ============================================
+   DESKTOP RESPONSIVE (900px+)
+============================================ */
+@media (min-width: 900px) {
+  body {
+    padding-top: 85px;
+  }
+
+  .navbar .container {
+    padding: 0 2rem;
+  }
+
+  .logo img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .brand {
+    font-size: 1.1rem;
+  }
+
+  .detail-container {
+    padding: 40px;
+  }
+
+  .footer-container {
+    grid-template-columns: 2fr 1fr 1.5fr;
+    text-align: left;
+  }
+
+  .footer-left {
+    flex-direction: row;
   }
 }
 

@@ -12,7 +12,7 @@ body {
 }
 
 body {
-  font-family: 'Poppins', Arial, sans-serif;
+  font-family: "Poppins", Arial, sans-serif;
   line-height: 1.6;
   background: url(/image/background-utama.png) center;
   background-size: cover;
@@ -88,7 +88,7 @@ main {
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 1001;
+  z-index: 1006;
 }
 
 .menu-toggle span {
@@ -123,7 +123,7 @@ main {
 }
 
 .navbar .nav-links a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -214,7 +214,7 @@ main {
   padding: 12px;
   border: 1.5px solid #d1d5db;
   border-radius: 8px;
-  font-family: 'Poppins', Arial, sans-serif;
+  font-family: "Poppins", Arial, sans-serif;
   font-size: clamp(0.9rem, 2vw, 1rem);
   transition: all 0.3s ease;
   background-color: #fff;
@@ -464,7 +464,8 @@ main {
   .nav-links {
     position: fixed;
     top: 0;
-    left: -100%;
+    left: auto;
+    right: -100%;
     background: linear-gradient(180deg, #003366 0%, #004080 100%);
     width: 75%;
     max-width: 300px;
@@ -472,14 +473,27 @@ main {
     flex-direction: column;
     padding: 80px 0 20px;
     gap: 0;
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
-    transition: left 0.4s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    transition: right 0.4s ease;
     overflow-y: auto;
-    z-index: 999;
+    z-index: 1004;
   }
 
   .nav-links.show {
-    left: 0;
+    left: auto;
+    right: 0;
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
   }
 
   .nav-links li {
@@ -489,7 +503,7 @@ main {
 
   .nav-links a {
     display: block;
-    padding: 1rem 2rem;
+    padding: 1rem 3rem;
     border-left: 3px solid transparent;
   }
 
@@ -525,9 +539,13 @@ main {
     font-size: 1.1rem;
   }
 
+  .menu-toggle {
+    display: none;
+  }
+
   .form-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    gap: 24px;
   }
 
   .footer-container {
@@ -544,7 +562,6 @@ main {
    PRINT STYLES
 ============================================ */
 @media print {
-
   .navbar,
   .footer,
   .menu-toggle,

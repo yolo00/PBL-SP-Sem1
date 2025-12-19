@@ -31,9 +31,6 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['id']) && isset($_COOKIE['key
             $_SESSION['nik']      = $row['nik'];
             $_SESSION['jabatan']  = $row['jabatan'];
             $_SESSION['jenis_kelamin'] = $row['jenis_kelamin'];
-
-            // Refresh cookie jika perlu
-            setcookie('jenis_kelamin', $row['jenis_kelamin'], time() + (86400 * 30), "/");
         }
     }
 }

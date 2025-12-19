@@ -98,7 +98,8 @@
                             <option value="Teknik Geomatika">Teknik Geomatika</option>
                             <option value="Rekayasa Keamanan Siber">Rekayasa Keamanan Siber</option>
                             <option value="Teknologi Rekayasa Multimedia">Teknologi Rekayasa Multimedia</option>
-                            <option value="Teknologi Rekayasa Perangkat Lunak">Teknologi Rekayasa Perangkat Lunak</option>
+                            <option value="Teknologi Rekayasa Perangkat Lunak">Teknologi Rekayasa Perangkat Lunak
+                            </option>
                             <option value="Animasi">Animasi</option>
                             <option value="Teknologi Permainan">Teknologi Permainan</option>
                         </select>
@@ -158,7 +159,8 @@
                 </div>
 
                 <div class="form-buttons">
-                    <button type="button" class="btn-batal" onclick="window.location.href='kelola-staf.php'">Batal</button>
+                    <button type="button" class="btn-batal"
+                        onclick="window.location.href='kelola-staf.php'">Batal</button>
                     <button type="submit" class="btn-kirim">Kirim</button>
                 </div>
 
@@ -198,8 +200,10 @@
                         style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);">
                     info@polibatam.ac.id</p>
                 <ul class="social-links">
-                    <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img src="image/icon-instagram.png" alt="Instagram"></a></li>
-                    <li><a href="https://www.youtube.com/@polibatamofficial"><img src="image/icon-youtube.png" alt="YouTube"></a></li>
+                    <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img
+                                src="image/icon-instagram.png" alt="Instagram"></a></li>
+                    <li><a href="https://www.youtube.com/@polibatamofficial"><img src="image/icon-youtube.png"
+                                alt="YouTube"></a></li>
                     <li><a href="https://www.polibatam.ac.id"><img src="image/icon-website.png" alt="Website"></a></li>
                 </ul>
             </div>
@@ -216,14 +220,88 @@
         duration: 1000,
     });
     </script>
-    <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
 
-    menuToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("show");
-        menuToggle.classList.toggle("active");
-    });
+    <script>
+    (function() {
+        const menuToggle = document.getElementById("menuToggle");
+        const navMenu = document.getElementById("navMenu");
+        const body = document.body;
+
+        if (!menuToggle || !navMenu) return;
+
+        // Create overlay
+        const overlay = document.createElement('div');
+        overlay.style.cssText = `
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.5);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          z-index: 998;
+      `;
+        body.appendChild(overlay);
+
+        function toggleMenu() {
+            const isOpen = navMenu.classList.contains('show');
+            if (isOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        }
+
+        function openMenu() {
+            navMenu.classList.add('show');
+            menuToggle.classList.add('active');
+            overlay.style.opacity = '1';
+            overlay.style.visibility = 'visible';
+            body.style.overflow = 'hidden';
+            menuToggle.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeMenu() {
+            navMenu.classList.remove('show');
+            menuToggle.classList.remove('active');
+            overlay.style.opacity = '0';
+            overlay.style.visibility = 'hidden';
+            body.style.overflow = '';
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', closeMenu);
+
+        // Close on link click
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 900) {
+                    closeMenu();
+                }
+            });
+        });
+
+        // Close on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('show')) {
+                closeMenu();
+            }
+        });
+
+        // Close on resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                if (window.innerWidth >= 900 && navMenu.classList.contains('show')) {
+                    closeMenu();
+                }
+            }, 250);
+        });
+    })();
     </script>
 </body>
 

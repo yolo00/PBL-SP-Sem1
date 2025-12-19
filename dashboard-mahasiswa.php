@@ -35,6 +35,7 @@ $spQuery = mysqli_query($conn, "
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/dashboard-mahasiswa.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <!--CSS-->
     <link rel="icon" type="image/png" href="image/dispol.png">
     <title>Beranda Mahasiswa</title>
@@ -49,7 +50,7 @@ $spQuery = mysqli_query($conn, "
                 <span class="brand">DISP<span class="brand-o">O</span>L</span>
             </a>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -150,6 +151,7 @@ $spQuery = mysqli_query($conn, "
             <p>&copy; 2025 DISPOL | All Rights Reserved</p>
         </div>
     </footer>
+
     <script>
     (function() {
         const menuToggle = document.getElementById("menuToggle");
@@ -210,6 +212,24 @@ $spQuery = mysqli_query($conn, "
                     closeMenu();
                 }
             });
+        });
+
+        // Close on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('show')) {
+                closeMenu();
+            }
+        });
+
+        // Close on resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                if (window.innerWidth >= 900 && navMenu.classList.contains('show')) {
+                    closeMenu();
+                }
+            }, 250);
         });
     })();
     </script>

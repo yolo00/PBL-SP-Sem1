@@ -20,6 +20,7 @@ $data  = mysqli_fetch_assoc($query);
 ?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -52,16 +53,16 @@ $data  = mysqli_fetch_assoc($query);
         </div>
     </nav>
 
-<main class="profil-container-mahasiswa">
-    <div class="header-section">
-        <h1><b>PROFIL STAF AKADEMIK</b></h1>
-        <p class="subtitle">Data Identitas & Kontak</p>
-    </div>
+    <main class="profil-container-mahasiswa">
+        <div class="header-section">
+            <h1><b>PROFIL STAF AKADEMIK</b></h1>
+            <p class="subtitle">Data Identitas & Kontak</p>
+        </div>
 
-    <div class="profile-content-wrapper">
-        <section class="profil-identitas-card">
-            <div class="card-header-mahasiswa">
-                <?php
+        <div class="profile-content-wrapper">
+            <section class="profil-identitas-card">
+                <div class="card-header-mahasiswa">
+                    <?php
                 // Gunakan jenis_kelamin yang tersimpan di database (dipilih saat daftar akun)
                 $gender = $data['jenis_kelamin'] ?? 'L';
 
@@ -70,55 +71,62 @@ $data  = mysqli_fetch_assoc($query);
                 $iconClass = 'fa-user-tie'; 
                 $bgClass = ($gender == 'P') ? 'bg-pink' : 'bg-blue';
                 ?>
-                <div class="photo-placeholder <?= $bgClass ?>" style="position: relative;">
-                    <i class="fas <?= $iconClass ?>"></i>
-                </div>
-                <div class="profil-info-header">
-                    <h2><?= $data['nama']; ?></h2>
-                    <p class="nim-label">NIK: <?= $data['nik']; ?></p>
-                </div>
-            </div>
-            
-
-
-            <style>
-                .bg-pink { background: #ffc2d1 !important; color: #d63384 !important; }
-                .bg-blue { background: #e0e7ff !important; color: #002b6b !important; }
-            </style>
-
-
-
-            <div class="profil-info-details">
-                <h3>Informasi Staf</h3>
-                <div class="detail-group">
-                    <div class="detail-item">
-                        <span class="label">Jabatan</span>
-                        <span class="value"><?= $data['jabatan']; ?></span>
+                    <div class="photo-placeholder <?= $bgClass ?>" style="position: relative;">
+                        <i class="fas <?= $iconClass ?>"></i>
                     </div>
-                    <div class="detail-item">
-                        <span class="label">Program Studi</span>
-                        <span class="value"><?= $data['prodi']; ?></span>
-                    </div>
-                </div><br>
-                <h3>Kontak</h3>
-                <div class="detail-group">
-                    <div class="detail-item">
-                        <span class="label">Email</span>
-                        <span class="value"><?= $data['email']; ?></span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="label">Telepon</span>
-                        <span class="value"><?= $data['telepon']; ?></span>
+                    <div class="profil-info-header">
+                        <h2><?= $data['nama']; ?></h2>
+                        <p class="nim-label">NIK: <?= $data['nik']; ?></p>
                     </div>
                 </div>
-            </div>
-        </section>
-    </div>
 
-    <div class="aksi-logout-area">
-        <button class="btn-logout" onclick="confirmLogout()">Keluar</button>
-    </div>
-</main>
+
+
+                <style>
+                .bg-pink {
+                    background: #ffc2d1 !important;
+                    color: #d63384 !important;
+                }
+
+                .bg-blue {
+                    background: #e0e7ff !important;
+                    color: #002b6b !important;
+                }
+                </style>
+
+
+
+                <div class="profil-info-details">
+                    <h3>Informasi Staf</h3>
+                    <div class="detail-group">
+                        <div class="detail-item">
+                            <span class="label">Jabatan</span>
+                            <span class="value"><?= $data['jabatan']; ?></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Program Studi</span>
+                            <span class="value"><?= $data['prodi']; ?></span>
+                        </div>
+                    </div><br>
+                    <h3>Kontak</h3>
+                    <div class="detail-group">
+                        <div class="detail-item">
+                            <span class="label">Email</span>
+                            <span class="value"><?= $data['email']; ?></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Telepon</span>
+                            <span class="value"><?= $data['telepon']; ?></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="aksi-logout-area">
+            <button class="btn-logout" onclick="confirmLogout()">Keluar</button>
+        </div>
+    </main>
 
     <footer class="footer">
         <div class="footer-container">
@@ -142,12 +150,20 @@ $data  = mysqli_fetch_assoc($query);
 
             <div class="footer-right">
                 <h4>Hubungi Kami</h4>
-                <p><img src="image/icon-address.png" alt="Address" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> Jl. Ahmad Yani Batam Kota,<br>Kota Batam, Kepulauan Riau, Indonesia</p>
-                <p><img src="image/icon-contact.png" alt="Phone" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> +62-778-469858 Ext.1017</p>
-                <p><img src="image/icon-email.png" alt="Email" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);"> info@polibatam.ac.id</p>
+                <p><img src="image/icon-address.png" alt="Address"
+                        style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);">
+                    Jl. Ahmad Yani Batam Kota,<br>Kota Batam, Kepulauan Riau, Indonesia</p>
+                <p><img src="image/icon-contact.png" alt="Phone"
+                        style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);">
+                    +62-778-469858 Ext.1017</p>
+                <p><img src="image/icon-email.png" alt="Email"
+                        style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);">
+                    info@polibatam.ac.id</p>
                 <ul class="social-links">
-                    <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img src="image/icon-instagram.png" alt="Instagram"></a></li>
-                    <li><a href="https://www.youtube.com/@polibatamofficial"><img src="image/icon-youtube.png" alt="YouTube"></a></li>
+                    <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img
+                                src="image/icon-instagram.png" alt="Instagram"></a></li>
+                    <li><a href="https://www.youtube.com/@polibatamofficial"><img src="image/icon-youtube.png"
+                                alt="YouTube"></a></li>
                     <li><a href="https://www.polibatam.ac.id"><img src="image/icon-website.png" alt="Website"></a></li>
                 </ul>
             </div>

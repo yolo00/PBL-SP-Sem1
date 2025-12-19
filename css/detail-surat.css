@@ -498,6 +498,9 @@ body {
 /* ============================================
    MOBILE RESPONSIVE (< 900px)
 ============================================ */
+/* ============================================
+   MOBILE RESPONSIVE (< 900px)
+============================================ */
 @media (max-width: 899px) {
   .menu-toggle {
     display: flex;
@@ -506,8 +509,7 @@ body {
   .nav-links {
     position: fixed;
     top: 0;
-    left: auto;
-    right: -100%;
+    right: -100%;        
     background: linear-gradient(180deg, #003366 0%, #004080 100%);
     width: 75%;
     max-width: 300px;
@@ -522,8 +524,7 @@ body {
   }
 
   .nav-links.show {
-    left: auto;
-    right: 0;
+    right: 0;             
   }
 
   .menu-toggle.active span:nth-child(1) {
@@ -540,19 +541,18 @@ body {
 
   .nav-links li {
     width: 100%;
-    margin: 0;
   }
 
   .nav-links a {
     display: block;
-    padding: 1rem 3rem;
-    border-left: 3px solid transparent;
+    padding: 1rem 2rem;
+    border-right: 3px solid transparent;
   }
 
   .nav-links a:hover,
   .nav-links a.active {
     background: rgba(255, 255, 255, 0.1);
-    border-left-color: #ff8c00;
+    border-right-color: #ff8c00;
   }
 
   .nav-links a::after {
