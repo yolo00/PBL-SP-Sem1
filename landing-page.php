@@ -61,6 +61,7 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['id']) && isset($_COOKIE['key
                 <div class="nav-menu">
                     <ul class="nav-links">
                         <li><a href="#features">Fitur</a></li>
+                        <li><a href="#about">Tentang</a></li>
                         <li><a href="#team">Tim</a></li>
                     </ul>
 
@@ -102,7 +103,7 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['id']) && isset($_COOKIE['key
 
         <div class="hero-content">
             <h1>Digitalisasi Surat Peringatan Sebagai Pengelolaan Staf Akademik Terhadap Mahasiswa Polibatam</h1>
-            <p>Sistem terintegrasi untuk pengelolaan surat peringatan mahasiswa Polibatam.</p>
+            <p>Sistem berbasis web untuk mengelola surat peringatan mahasiswa Polibatam.</p>
         </div>
     </section>
 
@@ -167,6 +168,25 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['id']) && isset($_COOKIE['key
                 </div>
             </div>
         </section>
+
+        <!-- TENTANG DISPOL MODERN -->
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="about-card">
+            <!-- Ilustrasi / Icon -->
+            <div class="about-image">
+                <img src="image/ilustrasi dispol.png" alt="Ilustrasi DISPOL">
+            </div>
+            <!-- Teks -->
+            <div class="about-text">
+                <h2>Tentang <span>DISPOL</span></h2>
+                <p>
+                    <strong>DISPOL</strong> (Digital Surat Peringatan Polibatam) adalah sistem modern untuk pengelolaan Surat Peringatan mahasiswa Polibatam secara digital.
+                    Dengan sistem ini, staf akademik dapat mencatat, memantau, dan mendokumentasikan pelanggaran mahasiswa dengan cara yang terstruktur.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- TEAM -->
         <section id="team" class="team">
@@ -240,13 +260,14 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['id']) && isset($_COOKIE['key
                 <img src="image/dispol.png" alt="Logo Dispol" width="60">
                 <div>
                     <h3>DISPOL</h3>
-                    <p>Digitalisasi Surat Peringatan Mahasiswa Polibatam</p>
+                    <p>Digital Surat Peringatan Mahasiswa Polibatam</p>
                 </div>
             </div>
             <div class="footer-center">
                 <h4>Menu</h4>
                 <ul>
                     <li><a href="#features">Fitur</a></li>
+                    <li><a href="#about">Tentang</a></li>
                     <li><a href="#team">Tim Pengembang</a></li>
                     <?php if (isset($_SESSION['user_id'])): ?>
                     <?php $dashboardLink = ($_SESSION['role'] == 'staf') ? 'dashboard-staf.php' : 'dashboard-mahasiswa.php'; ?>

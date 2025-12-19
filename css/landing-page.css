@@ -596,6 +596,133 @@ body {
   }
 }
 
+/* ===========================
+   TENTANG DISPOL MODERN UI
+=========================== */
+.about-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #f0f5ff, #ffffff);
+}
+
+.about-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 20px;
+    transition: transform 0.5s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: #ff8c00;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.about-text h2 span {
+    color: #031b71;
+    position: relative;
+}
+
+.about-text h2 span::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #FF6F61, #FFB347);
+    left: 0;
+    bottom: -10px;
+    transition: width 0.5s ease;
+}
+
+.about-text h2 span:hover::after {
+    width: 100%;
+}
+
+.about-text p {
+    font-family: 'Poppins', sans-serif;
+    text-align: justify;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s forwards;
+}
+
+.about-text p:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.about-text p:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Fade up animation */
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 900px) {
+    .about-card {
+        flex-direction: column-reverse;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .about-image img {
+        max-width: 80%;
+        margin: 0 auto 20px;
+    }
+
+    .about-text h2 {
+        font-size: 2rem;
+    }
+}
+
 /* TEAM */
 .team {
   padding: 70px 20px;

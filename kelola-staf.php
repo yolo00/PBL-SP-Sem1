@@ -173,7 +173,7 @@ $query = mysqli_query($conn, "
                     <img src="image/dispol.png" alt="Logo Dispol" width="60">
                     <div>
                         <h3>DISPOL</h3>
-                        <p>Digitalisasi Surat Peringatan Mahasiswa Polibatam</p>
+                        <p>Digital Surat Peringatan Mahasiswa Polibatam</p>
                     </div>
                 </div>
 
