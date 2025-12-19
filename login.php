@@ -28,7 +28,6 @@
         <button type="submit" id="loginBtn">Masuk</button>
         <p class="lupa-sandi">Belum punya akun?<a href="daftar.php">Daftar</a></p>
     </form>
-    <script src="js/script-login.js"></script>
 </body>
 
 </html>

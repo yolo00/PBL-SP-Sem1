@@ -6,7 +6,8 @@
 
 html,
 body {
-  height: 100%;
+  width: 100%;
+  min-height: 100%;
   overflow-x: hidden;
 }
 
@@ -16,18 +17,11 @@ body {
   padding-top: 70px;
   display: flex;
   flex-direction: column;
-  background: #f5f7fa;
 }
 
-.page-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.content-wrap {
+main {
   flex: 1;
-  width: 100%;
+  padding-bottom: 40px;
 }
 
 /* ============================================
@@ -41,7 +35,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1010;
+  z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -54,7 +48,7 @@ body {
   padding: 0 1rem;
 }
 
-/* Logo */
+/* Logo Responsif */
 .logo {
   display: flex;
   align-items: center;

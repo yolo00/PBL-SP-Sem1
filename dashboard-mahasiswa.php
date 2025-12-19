@@ -99,7 +99,7 @@ $spQuery = mysqli_query($conn, "
                         <?php else : ?>
                         <tr>
                             <td colspan="4" style="text-align: center; padding: 40px; color: #666; font-style: italic;">
-                                Alhamdulillah, Anda belum menerima surat peringatan aktif.
+                                Anda belum menerima surat peringatan aktif.
                             </td>
                         </tr>
                         <?php endif; ?>

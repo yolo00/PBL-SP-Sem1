@@ -172,6 +172,7 @@ if (!$data) {
         duration: 1000
     });
     </script>
+
     <script>
     (function() {
         const menuToggle = document.getElementById("menuToggle");
@@ -180,19 +181,20 @@ if (!$data) {
 
         if (!menuToggle || !navMenu) return;
 
+        // Create overlay
         const overlay = document.createElement('div');
         overlay.style.cssText = `
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100vh;
-          background: rgba(0, 0, 0, 0.5);
-          opacity: 0;
-          visibility: hidden;
-          transition: all 0.3s ease;
-          z-index: 998;
-      `;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        `;
         body.appendChild(overlay);
 
         function toggleMenu() {
@@ -202,6 +204,7 @@ if (!$data) {
             } else {
                 openMenu();
             }
+            menuToggle.classList.toggle("active");
         }
 
         function openMenu() {
@@ -223,6 +226,7 @@ if (!$data) {
         menuToggle.addEventListener('click', toggleMenu);
         overlay.addEventListener('click', closeMenu);
 
+        // Close on link click
         navMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth < 900) {
@@ -231,12 +235,14 @@ if (!$data) {
             });
         });
 
+        // Close on ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && navMenu.classList.contains('show')) {
                 closeMenu();
             }
         });
 
+        // Close on resize
         let resizeTimer;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimer);

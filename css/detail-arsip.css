@@ -108,7 +108,7 @@ body {
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 1001;
+  z-index: 1006;
 }
 
 .menu-toggle span {
@@ -571,13 +571,13 @@ body {
   .nav-links a {
     display: block;
     padding: 1rem 3rem;
-    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
   }
 
   .nav-links a:hover,
   .nav-links a.active {
     background: rgba(255, 255, 255, 0.1);
-    border-left-color: #ff8c00;
+    border-right-color: #ff8c00;
   }
 
   .nav-links a::after {
