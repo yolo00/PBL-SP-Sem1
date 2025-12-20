@@ -16,6 +16,7 @@ $data = mysqli_fetch_assoc($query);
     <title>Edit Surat | DISPOL</title>
     <link rel="stylesheet" href="css/edit_surat.css">
     <link rel="icon" type="image/png" href="image/dispol.png">
+    <link rel="stylesheet" href="css/loading.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
@@ -333,6 +334,8 @@ $data = mysqli_fetch_assoc($query);
         });
     })();
     </script>
+
+    <script src="js/loading.js"></script>
 </body>
 
 </html>

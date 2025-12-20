@@ -25,9 +25,6 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['id']) && isset($_COOKIE['key
         $_SESSION['nik']      = $row['nik'];
         $_SESSION['jabatan']  = $row['jabatan'];
         $_SESSION['jenis_kelamin'] = $row['jenis_kelamin'];
-        
-        // Refresh cookie jika perlu
-        setcookie('jenis_kelamin', $row['jenis_kelamin'], time() + (86400 * 30), "/");
     }
 }
 ?>
@@ -43,6 +40,7 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['id']) && isset($_COOKIE['key
     <link rel="stylesheet" href="css/landing-page.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" href="image/dispol.png">
+    <link rel="stylesheet" href="css/loading.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -170,23 +168,26 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['id']) && isset($_COOKIE['key
         </section>
 
         <!-- TENTANG DISPOL MODERN -->
-<section id="about" class="about-section">
-    <div class="container">
-        <div class="about-card">
-            <!-- Ilustrasi / Icon -->
-            <div class="about-image">
-                <img src="image/ilustrasi dispol.png" alt="Ilustrasi DISPOL">
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-card">
+                    <!-- Ilustrasi / Icon -->
+                    <div class="about-image">
+                        <img src="image/ilustrasi dispol.png" alt="Ilustrasi DISPOL">
+                    </div>
+                    <!-- Teks -->
+                    <div class="about-text">
+                        <h2>Tentang <span>DISPOL</span></h2>
+                        <p>
+                            <strong>DISPOL</strong> (Digital Surat Peringatan Polibatam) adalah sistem modern untuk
+                            pengelolaan Surat Peringatan mahasiswa Polibatam secara digital.
+                            Dengan sistem ini, staf akademik dapat mencatat, memantau, dan mendokumentasikan pelanggaran
+                            mahasiswa dengan cara yang terstruktur.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <!-- Teks -->
-            <div class="about-text">
-                <h2>Tentang <span>DISPOL</span></h2>
-                <p>
-                    <strong>DISPOL</strong> (Digital Surat Peringatan Polibatam) adalah sistem modern untuk pengelolaan Surat Peringatan mahasiswa Polibatam secara digital.
-                    Dengan sistem ini, staf akademik dapat mencatat, memantau, dan mendokumentasikan pelanggaran mahasiswa dengan cara yang terstruktur.</p>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
         <!-- TEAM -->
         <section id="team" class="team">
@@ -303,6 +304,9 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['id']) && isset($_COOKIE['key
             <p>&copy; 2025 DISPOL | All Rights Reserved</p>
         </div>
     </footer>
+
+
+    <script src="js/loading.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
     document.addEventListener("DOMContentLoaded", () => {

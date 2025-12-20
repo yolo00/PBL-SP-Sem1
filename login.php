@@ -9,6 +9,7 @@
     <title>Login DISPOL</title>
     <link rel="stylesheet" href="css/login.css">
     <link rel="icon" type="image/png" href="image/dispol.png">
+    <link rel="stylesheet" href="css/loading.css">
 </head>
 
 <body>
@@ -28,6 +29,9 @@
         <button type="submit" id="loginBtn">Masuk</button>
         <p class="lupa-sandi">Belum punya akun?<a href="daftar.php">Daftar</a></p>
     </form>
+
+    <script src="js/loading.js"></script>
+
 </body>
 
 </html>

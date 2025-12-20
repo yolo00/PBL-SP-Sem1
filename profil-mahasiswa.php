@@ -21,6 +21,7 @@ $data  = mysqli_fetch_assoc($query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profil Mahasiswa - DISPOL</title>
     <link rel="stylesheet" href="css/profil-mahasiswa.css" />
+    <link rel="stylesheet" href="css/loading.css">
     <link rel="icon" type="image/png" href="image/dispol.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
@@ -242,6 +243,8 @@ $data  = mysqli_fetch_assoc($query);
         }
     }
     </script>
+
+    <script src="js/loading.js"></script>
 </body>
 
 </html>

@@ -35,6 +35,7 @@ $spQuery = mysqli_query($conn, "
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/dashboard-mahasiswa.css">
+    <link rel="stylesheet" href="css/loading.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <!--CSS-->
     <link rel="icon" type="image/png" href="image/dispol.png">
@@ -233,6 +234,8 @@ $spQuery = mysqli_query($conn, "
         });
     })();
     </script>
+
+    <script src="js/loading.js"></script>
 </body>
 
 </html>

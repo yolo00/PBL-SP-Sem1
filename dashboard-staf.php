@@ -100,6 +100,7 @@ include "backend/auto-arsip.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beranda Staf</title>
     <link rel="stylesheet" href="css/dashboard-staf.css">
+    <link rel="stylesheet" href="css/loading.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="image/dispol.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -155,56 +156,68 @@ include "backend/auto-arsip.php";
         <p id="noSuratMsg" class="no-surat-msg" style="display:none;">Tidak ada surat peringatan terbaru</p>
     </div>
     <div class="filter-search">
-    <form method="GET" class="filter-form">
-        <div class="search-group">
-            <input 
-                type="text" 
-                name="keyword" 
-                placeholder="Cari nama / NIM..." 
-                value="<?= htmlspecialchars($_GET['keyword'] ?? '') ?>"
-            >
-            <button type="button" class="btn-filter-toggle" id="filterToggleBtn" title="Filter Pencarian">
-                <i class="fas fa-filter"></i>
-            </button>
-            <button type="submit" class="btn-cari">Cari</button>
-        </div>
+        <form method="GET" class="filter-form">
+            <div class="search-group">
+                <input type="text" name="keyword" placeholder="Cari nama / NIM..."
+                    value="<?= htmlspecialchars($_GET['keyword'] ?? '') ?>">
+                <button type="button" class="btn-filter-toggle" id="filterToggleBtn" title="Filter Pencarian">
+                    <i class="fas fa-filter"></i>
+                </button>
+                <button type="submit" class="btn-cari">Cari</button>
+            </div>
 
-        <div class="filter-options" id="filterOptions" style="display: none;">
-            <select name="tingkat">
-                <option value="">Semua Tingkat</option>
-                <option value="SP I" <?= (($_GET['tingkat'] ?? '') == 'SP I') ? 'selected' : '' ?>>SP I</option>
-                <option value="SP II" <?= (($_GET['tingkat'] ?? '') == 'SP II') ? 'selected' : '' ?>>SP II</option>
-                <option value="SP III" <?= (($_GET['tingkat'] ?? '') == 'SP III') ? 'selected' : '' ?>>SP III</option>
-            </select>
+            <div class="filter-options" id="filterOptions" style="display: none;">
+                <select name="tingkat">
+                    <option value="">Semua Tingkat</option>
+                    <option value="SP I" <?= (($_GET['tingkat'] ?? '') == 'SP I') ? 'selected' : '' ?>>SP I</option>
+                    <option value="SP II" <?= (($_GET['tingkat'] ?? '') == 'SP II') ? 'selected' : '' ?>>SP II</option>
+                    <option value="SP III" <?= (($_GET['tingkat'] ?? '') == 'SP III') ? 'selected' : '' ?>>SP III
+                    </option>
+                </select>
 
-            <select name="prodi">
-                <option value="">Semua Prodi</option>
-                <option value="Teknik Informatika" <?= (($_GET['prodi'] ?? '') == 'Teknik Informatika') ? 'selected' : '' ?>>Teknik Informatika</option>
-                <option value="Teknik Geomatika" <?= (($_GET['prodi'] ?? '') == 'Teknik Geomatika') ? 'selected' : '' ?>>Teknik Geomatika</option>
-                <option value="Rekayasa Keamanan Siber" <?= (($_GET['prodi'] ?? '') == 'Rekayasa Keamanan Siber') ? 'selected' : '' ?>>Rekayasa Keamanan Siber</option>
-                <option value="Teknologi Rekayasa Multimedia" <?= (($_GET['prodi'] ?? '') == 'Teknologi Rekayasa Multimedia') ? 'selected' : '' ?>>Teknologi Rekayasa Multimedia</option>
-                <option value="Teknologi Rekayasa Perangkat Lunak" <?= (($_GET['prodi'] ?? '') == 'Teknologi Rekayasa Perangkat Lunak') ? 'selected' : '' ?>>Teknologi Rekayasa Perangkat Lunak</option>
-                <option value="Animasi" <?= (($_GET['prodi'] ?? '') == 'Animasi') ? 'selected' : '' ?>>Animasi</option>
-                <option value="Teknologi Permainan" <?= (($_GET['prodi'] ?? '') == 'Teknologi Permainan') ? 'selected' : '' ?>>Teknologi Permainan</option>
-            </select>
+                <select name="prodi">
+                    <option value="">Semua Prodi</option>
+                    <option value="Teknik Informatika"
+                        <?= (($_GET['prodi'] ?? '') == 'Teknik Informatika') ? 'selected' : '' ?>>Teknik Informatika
+                    </option>
+                    <option value="Teknik Geomatika"
+                        <?= (($_GET['prodi'] ?? '') == 'Teknik Geomatika') ? 'selected' : '' ?>>Teknik Geomatika
+                    </option>
+                    <option value="Rekayasa Keamanan Siber"
+                        <?= (($_GET['prodi'] ?? '') == 'Rekayasa Keamanan Siber') ? 'selected' : '' ?>>Rekayasa Keamanan
+                        Siber</option>
+                    <option value="Teknologi Rekayasa Multimedia"
+                        <?= (($_GET['prodi'] ?? '') == 'Teknologi Rekayasa Multimedia') ? 'selected' : '' ?>>Teknologi
+                        Rekayasa Multimedia</option>
+                    <option value="Teknologi Rekayasa Perangkat Lunak"
+                        <?= (($_GET['prodi'] ?? '') == 'Teknologi Rekayasa Perangkat Lunak') ? 'selected' : '' ?>>
+                        Teknologi Rekayasa Perangkat Lunak</option>
+                    <option value="Animasi" <?= (($_GET['prodi'] ?? '') == 'Animasi') ? 'selected' : '' ?>>Animasi
+                    </option>
+                    <option value="Teknologi Permainan"
+                        <?= (($_GET['prodi'] ?? '') == 'Teknologi Permainan') ? 'selected' : '' ?>>Teknologi Permainan
+                    </option>
+                </select>
 
-            <select name="semester">
-                <option value="">Semua Semester</option>
-                <?php for($i=1; $i<=8; $i++): ?>
-                    <option value="<?= $i ?>" <?= (($_GET['semester'] ?? '') == $i) ? 'selected' : '' ?>>Semester <?= $i ?></option>
-                <?php endfor; ?>
-            </select>
+                <select name="semester">
+                    <option value="">Semua Semester</option>
+                    <?php for($i=1; $i<=8; $i++): ?>
+                    <option value="<?= $i ?>" <?= (($_GET['semester'] ?? '') == $i) ? 'selected' : '' ?>>Semester
+                        <?= $i ?></option>
+                    <?php endfor; ?>
+                </select>
 
-            <select name="sesi_kelas">
-                <option value="">Semua Sesi</option>
-                <option value="Pagi" <?= (($_GET['sesi_kelas'] ?? '') == 'Pagi') ? 'selected' : '' ?>>Pagi</option>
-                <option value="Malam" <?= (($_GET['sesi_kelas'] ?? '') == 'Malam') ? 'selected' : '' ?>>Malam</option>
-            </select>
-        </div>
-    </form>
-</div>
+                <select name="sesi_kelas">
+                    <option value="">Semua Sesi</option>
+                    <option value="Pagi" <?= (($_GET['sesi_kelas'] ?? '') == 'Pagi') ? 'selected' : '' ?>>Pagi</option>
+                    <option value="Malam" <?= (($_GET['sesi_kelas'] ?? '') == 'Malam') ? 'selected' : '' ?>>Malam
+                    </option>
+                </select>
+            </div>
+        </form>
+    </div>
     <div class="card-container">
-<?php
+        <?php
 if (mysqli_num_rows($querySurat) == 0) {
     // Cek apakah ada filter yang aktif
     $isFiltered = !empty($keyword) || !empty($tingkat) || !empty($prodi) || !empty($semester) || !empty($sesi_kelas);
@@ -225,39 +238,41 @@ if (mysqli_num_rows($querySurat) == 0) {
         if ($row['tingkat'] == "SP II") $labelClass = "sp2";
         if ($row['tingkat'] == "SP III") $labelClass = "sp3";
 ?>
-    <div class="card" data-aos="fade-up">
-        <div class="sp-label <?= $labelClass ?>"><?= $row['tingkat'] ?></div>
+        <div class="card" data-aos="fade-up">
+            <div class="sp-label <?= $labelClass ?>"><?= $row['tingkat'] ?></div>
 
-        <div class="card-content">
-            <p class="student-name"><strong><?= $row['nama'] ?></strong></p>
-            <p class="student-detail">NIM: <?= $row['nim'] ?></p>
-            <p class="student-detail">Prodi: <?= $row['prodi'] ?></p>
-            <p class="issue-date">Tgl. Terbit: <?= $row['tanggal'] ?></p>
-            <p class="sp-status">Status: <?= $row['status'] ?? 'Aktif' ?></p>
+            <div class="card-content">
+                <p class="student-name"><strong><?= $row['nama'] ?></strong></p>
+                <p class="student-detail">NIM: <?= $row['nim'] ?></p>
+                <p class="student-detail">Prodi: <?= $row['prodi'] ?></p>
+                <p class="issue-date">Tgl. Terbit: <?= $row['tanggal'] ?></p>
+                <p class="sp-status">Status: <?= $row['status'] ?? 'Aktif' ?></p>
+            </div>
+
+            <a href="detail-surat.php?id=<?= $row['id'] ?>" class="detail">
+                Lihat Rincian <i class="arrow-icon">→</i>
+            </a>
         </div>
-
-        <a href="detail-surat.php?id=<?= $row['id'] ?>" class="detail">
-            Lihat Rincian <i class="arrow-icon">→</i>
-        </a>
-    </div>
-<?php
+        <?php
     }
 }
 ?>
-</div> <!-- ❗ card-container TUTUP DI SINI -->
-        
+    </div> <!-- ❗ card-container TUTUP DI SINI -->
 
-<div class="pagination">
-    <?php if ($page > 1): ?>
-        <a href="?page=<?= $page - 1 ?>&keyword=<?= urlencode($keyword) ?>&tingkat=<?= urlencode($tingkat) ?>">‹ Sebelumya</a>
-    <?php endif; ?>
 
-    <span>Halaman <?= $page ?> dari <?= $totalPage ?></span>
+    <div class="pagination">
+        <?php if ($page > 1): ?>
+        <a href="?page=<?= $page - 1 ?>&keyword=<?= urlencode($keyword) ?>&tingkat=<?= urlencode($tingkat) ?>">‹
+            Sebelumya</a>
+        <?php endif; ?>
 
-    <?php if ($page < $totalPage): ?>
-        <a href="?page=<?= $page + 1 ?>&keyword=<?= urlencode($keyword) ?>&tingkat=<?= urlencode($tingkat) ?>">Berikutnya ›</a>
-    <?php endif; ?>
-</div>
+        <span>Halaman <?= $page ?> dari <?= $totalPage ?></span>
+
+        <?php if ($page < $totalPage): ?>
+        <a href="?page=<?= $page + 1 ?>&keyword=<?= urlencode($keyword) ?>&tingkat=<?= urlencode($tingkat) ?>">Berikutnya
+            ›</a>
+        <?php endif; ?>
+    </div>
 
     <footer class="footer">
         <div class="footer-container">
@@ -290,9 +305,11 @@ if (mysqli_num_rows($querySurat) == 0) {
                         style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);">
                     info@polibatam.ac.id</p>
                 <ul class="social-links">
-                    <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img src="image/icon-instagram.png" alt="Instagram"></a></li>
-          <li><a href="https://www.youtube.com/@polibatamofficial"><img src="image/icon-youtube.png" alt="YouTube"></a></li>
-          <li><a href="https://www.polibatam.ac.id"><img src="image/icon-website.png" alt="Website"></a></li>
+                    <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img
+                                src="image/icon-instagram.png" alt="Instagram"></a></li>
+                    <li><a href="https://www.youtube.com/@polibatamofficial"><img src="image/icon-youtube.png"
+                                alt="YouTube"></a></li>
+                    <li><a href="https://www.polibatam.ac.id"><img src="image/icon-website.png" alt="Website"></a></li>
             </div>
         </div>
         <div class="footer-bottom">
@@ -335,6 +352,8 @@ if (mysqli_num_rows($querySurat) == 0) {
         });
     }
     </script>
+
+    <script src="js/loading.js"></script>
 </body>
 
 </html>

@@ -39,6 +39,7 @@ if (!$sp) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Surat Peringatan - <?= htmlspecialchars($sp['perihal']) ?></title>
     <link rel="stylesheet" href="css/lihat-spmh.css">
+    <link rel="stylesheet" href="css/loading.css">
     <link rel="icon" type="image/png" href="image/dispol.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -251,6 +252,8 @@ if (!$sp) {
         });
     })();
     </script>
+
+    <script src="js/loading.js"></script>
 </body>
 
 </html>
