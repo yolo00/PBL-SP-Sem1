@@ -774,7 +774,7 @@ body {
   }
 }
 
-/* Pengurangan ukuran teks untuk hp */
+/* Pengurangan ukuran untuk hp */
 @media (max-width: 480px) {
   .about-text h2 {
     font-size: 1.25rem;
@@ -842,23 +842,42 @@ body {
   font-size: 0.9rem;
 }
 
+.team-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+  justify-content: center;
+  gap: 20px;
+}
+
 /*Pengurangan ukuran card untuk hp, dan adjust posisi*/
 @media (max-width: 480px) {
+
   .team-grid {
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 15px;
-    justify-items: center;
+    padding: 0 15px;          /* penting: buffer layar */
+    box-sizing: border-box;
   }
 
-  .team-card {
-    padding: 12.5px;
-    border-radius: 9px;
+  /* WRAPPER <a> WAJIB DIATUR */
+  .team-card-link {
+    display: block;
     width: 100%;
   }
 
-  /* Center last odd card */
-  .team-card:last-child:nth-child(odd) {
+  .team-card {
+    width: 100%;
+    padding: 12.5px;
+    border-radius: 9px;
+    box-sizing: border-box;  /* INI KUNCI OVERFLOW */
+    text-align: center;
+  }
+
+  /* card terakhir kalau ganjil → ke tengah */
+  .team-card-link:last-child:nth-child(odd) {
     grid-column: 1 / -1;
+    justify-self: center;
     max-width: 50%;
   }
 
@@ -876,6 +895,7 @@ body {
     font-size: 0.45rem;
   }
 }
+
 
 .footer {
   background: linear-gradient(180deg, #002b6b 0%, #001a47 100%);
@@ -1125,7 +1145,7 @@ body {
 @media (max-width: 600px) {
   .hero {
     min-height: 50vh !important;
-    /* Paksa ubah untuk mobile */
+    /* Force override for mobile */
     padding-top: 80px;
   }
 }
