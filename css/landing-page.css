@@ -596,131 +596,196 @@ body {
   }
 }
 
+/* Mobile: 50% card size reduction, 2 cards per row */
+@media (max-width: 480px) {
+  .section-subtitle {
+    font-size: 0.5rem;
+    /* 50% of 1rem */
+  }
+
+  .features-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    /* 50% of 30px */
+    justify-items: center;
+  }
+
+  .feature-card {
+    padding: 15px 10px;
+    /* 50% of 30px 20px */
+    min-width: unset;
+    width: 100%;
+    flex: unset;
+  }
+
+  /* Center last odd card */
+  .feature-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 50%;
+  }
+
+  .feature-icon {
+    font-size: 1.25rem;
+    /* 50% of 2.5rem */
+    margin-bottom: 7.5px;
+    /* 50% of 15px */
+  }
+
+  .feature-card h3 {
+    font-size: 0.6rem;
+    /* 50% of 1.2rem */
+    margin-bottom: 5px;
+    /* 50% of 10px */
+  }
+
+  .feature-card p {
+    font-size: 0.475rem;
+    /* 50% of 0.95rem */
+    line-height: 1.4;
+  }
+}
+
 /* ===========================
    TENTANG DISPOL MODERN UI
 =========================== */
 .about-section {
-    padding: 100px 20px;
-    background: linear-gradient(135deg, #f0f5ff, #ffffff);
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #f0f5ff, #ffffff);
 }
 
 .about-section .container {
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .about-card {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    border-radius: 25px;
-    padding: 40px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .about-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
 }
 
 .about-image {
-    flex: 1;
-    min-width: 300px;
-    text-align: center;
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
 }
 
 .about-image img {
-    width: 100%;
-    max-width: 350px;
-    border-radius: 20px;
-    transition: transform 0.5s ease;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 20px;
+  transition: transform 0.5s ease;
 }
 
 .about-image img:hover {
-    transform: scale(1.05) rotate(2deg);
+  transform: scale(1.05) rotate(2deg);
 }
 
 .about-text {
-    flex: 1;
-    min-width: 300px;
+  flex: 1;
+  min-width: 300px;
 }
 
 .about-text h2 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
-    font-size: 2.5rem;
-    color: #ff8c00;
-    margin-bottom: 25px;
-    position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: #ff8c00;
+  margin-bottom: 25px;
+  position: relative;
 }
 
 .about-text h2 span {
-    color: #031b71;
-    position: relative;
+  color: #031b71;
+  position: relative;
 }
 
 .about-text h2 span::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 5px;
-    background: linear-gradient(90deg, #FF6F61, #FFB347);
-    left: 0;
-    bottom: -10px;
-    transition: width 0.5s ease;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #FF6F61, #FFB347);
+  left: 0;
+  bottom: -10px;
+  transition: width 0.5s ease;
 }
 
 .about-text h2 span:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 .about-text p {
-    font-family: 'Poppins', sans-serif;
-    text-align: justify;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #333;
-    margin-bottom: 15px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 1s forwards;
+  font-family: 'Poppins', sans-serif;
+  text-align: justify;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards;
 }
 
 .about-text p:nth-child(2) {
-    animation-delay: 0.3s;
+  animation-delay: 0.3s;
 }
+
 .about-text p:nth-child(3) {
-    animation-delay: 0.6s;
+  animation-delay: 0.6s;
 }
 
 /* Fade up animation */
 @keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* RESPONSIVE */
 @media screen and (max-width: 900px) {
-    .about-card {
-        flex-direction: column-reverse;
-        padding: 30px;
-        text-align: center;
-    }
+  .about-card {
+    flex-direction: column-reverse;
+    padding: 30px;
+    text-align: center;
+  }
 
-    .about-image img {
-        max-width: 80%;
-        margin: 0 auto 20px;
-    }
+  .about-image img {
+    max-width: 80%;
+    margin: 0 auto 20px;
+  }
 
-    .about-text h2 {
-        font-size: 2rem;
-    }
+  .about-text h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Pengurangan ukuran teks untuk hp */
+@media (max-width: 480px) {
+  .about-text h2 {
+    font-size: 1.25rem;
+    margin-bottom: 12.5px;
+  }
+
+  .about-text p {
+    font-size: 0.55rem;
+    line-height: 1.6;
+    margin-bottom: 7.5px;
+  }
 }
 
 /* TEAM */
@@ -775,6 +840,41 @@ body {
 .team-card p {
   color: #666;
   font-size: 0.9rem;
+}
+
+/*Pengurangan ukuran card untuk hp, dan adjust posisi*/
+@media (max-width: 480px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    justify-items: center;
+  }
+
+  .team-card {
+    padding: 12.5px;
+    border-radius: 9px;
+    width: 100%;
+  }
+
+  /* Center last odd card */
+  .team-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 50%;
+  }
+
+  .team-card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 7.5px;
+  }
+
+  .team-card h3 {
+    font-size: 0.55rem;
+  }
+
+  .team-card p {
+    font-size: 0.45rem;
+  }
 }
 
 .footer {
@@ -1025,7 +1125,7 @@ body {
 @media (max-width: 600px) {
   .hero {
     min-height: 50vh !important;
-    /* Force override for mobile */
+    /* Paksa ubah untuk mobile */
     padding-top: 80px;
   }
 }
