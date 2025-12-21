@@ -109,6 +109,7 @@ $data  = mysqli_fetch_assoc($query);
                         <div class="detail-item">
                             <span class="label">Angkatan</span>
                             <span class="value"><?php echo htmlspecialchars($_SESSION['angkatan'] ?? '-'); ?></span>
+                        </div>
                     </div>
 
                     <h3 style="margin-top: 30px;">Informasi Pribadi & Kontak</h3>
@@ -121,16 +122,13 @@ $data  = mysqli_fetch_assoc($query);
                             <span class="label">No. Telepon</span>
                             <span class="value"><?= $data['telepon'] ?? '-'; ?></span>
                         </div>
-
-                        <!-- Spacer -->
-                        <div class="desktop-only-spacer"></div>
-
-                        <!-- Tombol Edit -->
-                        <div style="display: flex; align-items: flex-start; justify-content: flex-start; padding-top: 10px;">
-                             <button onclick="openEditModal()" style="background: transparent; border: 2px solid #0d00ff; color: #0d00ff; padding: 8px 25px; border-radius: 50px; cursor: pointer; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s;">
-                                <i class="fas fa-edit"></i> Edit Profil
-                            </button>
-                        </div>
+                    </div>
+                    
+                    <!-- Tombol Edit -->
+                    <div style="display: flex; align-items: flex-start; justify-content: flex-start; padding-top: 20px; margin-bottom: 30px;">
+                         <button onclick="openEditModal()" style="background: transparent; border: 2px solid #0d00ff; color: #0d00ff; padding: 10px 30px; border-radius: 50px; cursor: pointer; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease;">
+                            <i class="fas fa-edit"></i> Edit Profil
+                        </button>
                     </div>
                 </div>
             </section>

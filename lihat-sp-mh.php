@@ -38,8 +38,9 @@ if (!$sp) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Surat Peringatan - <?= htmlspecialchars($sp['perihal']) ?></title>
-    <link rel="stylesheet" href="css/lihat-spmh.css">
+    <link rel="stylesheet" href="css/detail-arsip.css">
     <link rel="stylesheet" href="css/loading.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="image/dispol.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -66,110 +67,119 @@ if (!$sp) {
         </div>
     </nav>
 
+    <!-- ✅ TAMBAHKAN WRAPPER INI -->
+    <div class="page-container">
+        <main class="content-wrap">
 
+            <div class="detail-container" data-aos="fade-up">
+                <div class="detail-header">
+                    <h2 id="namaMahasiswaHeader"><?= $sp['nama'] ?></h2>
+                    <p>Mahasiswa Politeknik Negeri Batam</p>
+                </div>
 
+                <div class="rincian-surat">
+                    <h3>Rincian Surat Peringatan</h3>
+                    <div class="preview-container">
 
+                        <!-- DATA MAHASISWA -->
+                        <div class="preview-section">
+                            <h4>Data Mahasiswa</h4>
+                            <div class="preview-item"><label>Nama:</label> <span><?= $sp['nama'] ?></span></div>
+                            <div class="preview-item"><label>NIM:</label> <span><?= $sp['nim'] ?></span></div>
+                            <div class="preview-item"><label>Program Studi:</label> <span><?= $sp['prodi'] ?></span>
+                            </div>
+                            <div class="preview-item"><label>Jurusan:</label> <span><?= $sp['jurusan'] ?></span></div>
+                            <div class="preview-item"><label>Kelas:</label> <span><?= $sp['kelas'] ?></span></div>
+                            <div class="preview-item"><label>Semester:</label> <span>Semester
+                                    <?= $sp['semester'] ?></span></div>
+                            <div class="preview-item"><label>Sesi Kelas:</label> <span><?= $sp['sesi_kelas'] ?></span>
+                            </div>
+                            <div class="preview-item"><label>Status:</label>
+                                <span><?= $sp['status'] ?? 'Aktif' ?></span>
+                            </div>
+                        </div>
 
-
-
-    <main class="main-content">
-        <div class="detail-container">
-            <div class="detail-header">
-                <h2><?= isset($_SESSION['nama']) ? htmlspecialchars($_SESSION['nama']) : 'Mahasiswa' ?></h2>
-                <p>Mahasiswa Politeknik Negeri Batam</p>
-            </div>
-
-            <div class="rincian-surat">
-                <h3>Rincian Surat Peringatan</h3>
-
-                <div class="preview-container">
-                    <div class="preview-section">
-                        <div class="section-header">
+                        <!-- DATA SURAT -->
+                        <div class="preview-section">
                             <h4>Data Surat Peringatan</h4>
-                            <span
-                                class="status-badge status-<?= strtolower($sp['status']) ?>"><?= htmlspecialchars($sp['status']) ?></span>
-                        </div>
-
-                        <div class="preview-item">
-                            <label>Tingkat SP:</label>
-                            <span><?= htmlspecialchars($sp['tingkat']) ?></span>
-                        </div>
-                        <div class="preview-item">
-                            <label>Perihal:</label>
-                            <span><?= htmlspecialchars($sp['perihal']) ?></span>
-                        </div>
-                        <div class="preview-item">
-                            <label>Tanggal Surat:</label>
-                            <span><?= date('d F Y', strtotime($sp['tanggal'])) ?></span>
-                        </div>
-                        <div class="preview-item">
-                            <label>Berlaku Sampai:</label>
-                            <span><?= date('d F Y', strtotime($sp['sampai'])) ?></span>
-                        </div>
-                        <div class="preview-item">
-                            <label>Deskripsi:</label>
-                            <span><?= nl2br(htmlspecialchars($sp['deskripsi'])) ?></span>
-                        </div>
-                        <div class="preview-item">
-                            <label>File Surat:</label>
-                            <?php if ($sp['file']) : ?>
-                            <a href="uploads/<?= htmlspecialchars($sp['file']) ?>" target="_blank"
-                                class="file-link">Lihat File</a>
-                            <?php else : ?>
-                            <span>-</span>
-                            <?php endif; ?>
+                            <div class="preview-item"><label>Tingkat SP:</label> <span><?= $sp['tingkat'] ?></span>
+                            </div>
+                            <div class="preview-item"><label>Tanggal Surat:</label> <span><?= $sp['tanggal'] ?></span>
+                            </div>
+                            <div class="preview-item"><label>Perihal:</label> <span><?= $sp['perihal'] ?></span></div>
+                            <div class="preview-item"><label>Deskripsi:</label> <span><?= $sp['deskripsi'] ?></span>
+                            </div>
+                            <div class="preview-item">
+                                <label>File Surat:</label>
+                                <?php if ($sp['file']): ?>
+                                <a href="uploads/<?= $sp['file'] ?>" target="_blank">Lihat File</a>
+                                <?php else: ?>
+                                <span>-</span>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Tombol -->
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-batal" onclick="window.history.back()">Kembali</button>
+                </div>
+
             </div>
 
-            <div class="form-buttons">
-                <button type="button" class="btn-kembali"
-                    onclick="window.location='dashboard-mahasiswa.php'">Kembali</button>
-            </div>
-        </div>
-    </main>
+        </main>
 
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-left">
-                <img src="image/dispol.png" alt="Logo Dispol" width="60">
-                <div>
-                    <h3>DISPOL</h3>
-                    <p>Digital Surat Peringatan Mahasiswa Polibatam</p>
+        <!-- ✅ FOOTER SEKARANG DI DALAM page-container -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <img src="image/dispol.png" alt="Logo Dispol" width="60">
+                    <div>
+                        <h3>DISPOL</h3>
+                        <p>Digital Surat Peringatan Mahasiswa Polibatam</p>
+                    </div>
+                </div>
+                <div class="footer-center">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="dashboard-mahasiswa.php">Beranda</a></li>
+                        <li><a href="profil-mahasiswa.php">Profil</a></li>
+                    </ul>
+                </div>
+                <div class="footer-right">
+                    <h4>Hubungi Kami</h4>
+                    <p><img src="image/icon-address.png" alt="Address"
+                            style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);">
+                        Jl. Ahmad Yani Batam Kota,<br>Kota Batam, Kepulauan Riau, Indonesia</p>
+                    <p><img src="image/icon-contact.png" alt="Phone"
+                            style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);">
+                        +62-778-469858 Ext.1017</p>
+                    <p><img src="image/icon-email.png" alt="Email"
+                            style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);">
+                        info@polibatam.ac.id</p>
+                    <ul class="social-links">
+                        <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img
+                                    src="image/icon-instagram.png" alt="Instagram"></a></li>
+                        <li><a href="https://www.youtube.com/@polibatamofficial"><img src="image/icon-youtube.png"
+                                    alt="YouTube"></a></li>
+                        <li><a href="https://www.polibatam.ac.id"><img src="image/icon-website.png" alt="Website"></a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-center">
-                <h4>Menu</h4>
-                <ul>
-                    <li><a href="dashboard-mahasiswa.php">Beranda</a></li>
-                    <li><a href="profil-mahasiswa.php">Profil</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DISPOL | All Rights Reserved</p>
             </div>
-            <div class="footer-right">
-                <h4>Hubungi Kami</h4>
-                <p><img src="image/icon-address.png" alt="Address"
-                        style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);">
-                    Jl. Ahmad Yani Batam Kota,<br>Kota Batam, Kepulauan Riau, Indonesia</p>
-                <p><img src="image/icon-contact.png" alt="Phone"
-                        style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);">
-                    +62-778-469858 Ext.1017</p>
-                <p><img src="image/icon-email.png" alt="Email"
-                        style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; filter: brightness(0) invert(1);">
-                    info@polibatam.ac.id</p>
-                <ul class="social-links">
-                    <li><a href="https://www.instagram.com/polibatamofficial?igsh=MXNidmNrMDJobGY0Zw=="><img
-                                src="image/icon-instagram.png" alt="Instagram"></a></li>
-                    <li><a href="https://www.youtube.com/@polibatamofficial"><img src="image/icon-youtube.png"
-                                alt="YouTube"></a></li>
-                    <li><a href="https://www.polibatam.ac.id"><img src="image/icon-website.png" alt="Website"></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 DISPOL | All Rights Reserved</p>
-        </div>
-    </footer>
+        </footer>
+    </div> <!-- ✅ TUTUP page-container -->
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init({
+        once: true,
+        duration: 1000
+    });
+    </script>
 
     <script>
     (function() {

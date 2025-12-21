@@ -155,7 +155,7 @@
                 </div>
 
                 <div>
-                    <label>Unggah File Surat Peringatan (Opsional)</label>
+                    <label>Unggah File Surat Peringatan</label>
                     <input type="file" name="file" accept=".pdf,.jpg,.png,.doc,.docx">
                 </div>
 
