@@ -45,10 +45,22 @@ $_SESSION['jabatan']  = $data['jabatan'];
 
 
 // Cek Remember Me
+// Cek Remember Me
 if (isset($_POST['remember'])) {
-    // Buat cookie berlaku 30 hari
-    setcookie('id', $data['id'], time() + (86400 * 30), "/"); // 86400 = 1 hari
-    setcookie('key', hash('sha256', $data['username']), time() + (86400 * 30), "/");
+    // 1. Generate Secure Token
+    $token = bin2hex(random_bytes(32)); // 64 karakter hex
+    $expiry = date('Y-m-d H:i:s', time() + (86400 * 30)); // 30 hari
+
+    // 2. Simpan token ke database user
+    $uid = $data['id'];
+    $updateToken = mysqli_query($conn, "UPDATE users SET remember_token='$token', token_expiry='$expiry' WHERE id='$uid'");
+
+    if ($updateToken) {
+        // 3. Set Cookie di browser (HttpOnly agar aman dari XSS)
+        // Format cookie: user_id:token
+        $cookieValue = $data['id'] . ':' . $token;
+        setcookie('remember_me', $cookieValue, time() + (86400 * 30), "/", "", false, true);
+    }
 }
 
 

@@ -26,8 +26,15 @@
         <input type="text" id="username" name="username" placeholder="Masukkan NIK/NIM anda" required>
         <label for="password">Kata Sandi:</label>
         <input type="password" id="password" name="password" placeholder="Masukkan kata sandi" required>
+        <div class="remember-forgot">
+            <label class="remember-me">
+                <input type="checkbox" name="remember"> Ingat Saya
+            </label>
+            <a href="lupa-password.php" class="forgot-link">Lupa Kata Sandi?</a>
+        </div>
+        
         <button type="submit" id="loginBtn">Masuk</button>
-        <p class="lupa-sandi">Belum punya akun?<a href="daftar.php">Daftar</a></p>
+        <p class="account-check">Belum punya akun? <a href="daftar.php">Daftar</a></p>
     </form>
 
     <script src="js/loading.js"></script>

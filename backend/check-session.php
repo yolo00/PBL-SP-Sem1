@@ -6,17 +6,22 @@ if (session_status() === PHP_SESSION_NONE) {
 
 include_once __DIR__ . '/config.php';
 
-if (!isset($_SESSION['user_id']) && isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
-    $id_cookie = $_COOKIE['id'];
-    $key_cookie = $_COOKIE['key'];
+if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_me'])) {
+    // 1. Ambil cookie form: id:token
+    $cookie_data = explode(':', $_COOKIE['remember_me']);
+    
+    if (count($cookie_data) === 2) {
+        $id_cookie = mysqli_real_escape_string($conn, $cookie_data[0]);
+        $token_cookie = mysqli_real_escape_string($conn, $cookie_data[1]);
 
-    $query = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id_cookie'");
-    if ($query && mysqli_num_rows($query) > 0) {
-        $row = mysqli_fetch_assoc($query);
+        // 2. Cari user dengan ID dan Token tersebut yang belum expired
+        $now = date('Y-m-d H:i:s');
+        $query = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id_cookie' AND remember_token = '$token_cookie' AND token_expiry > '$now'");
+        
+        if ($query && mysqli_num_rows($query) > 0) {
+            $row = mysqli_fetch_assoc($query);
 
-        // Verifikasi hash
-        if ($key_cookie === hash('sha256', $row['username'])) {
-            // Restore Session
+            // 3. Restore Session jika valid
             $_SESSION['user_id']  = $row['id'];
             $_SESSION['username'] = $row['username'];
             $_SESSION['nama']     = $row['nama'];

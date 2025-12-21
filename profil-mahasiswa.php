@@ -109,22 +109,94 @@ $data  = mysqli_fetch_assoc($query);
                         <div class="detail-item">
                             <span class="label">Angkatan</span>
                             <span class="value"><?php echo htmlspecialchars($_SESSION['angkatan'] ?? '-'); ?></span>
-                        </div>
-                    </div><br>
-                    <h3>Informasi Pribadi & Kontak</h3>
+                    </div>
+
+                    <h3 style="margin-top: 30px;">Informasi Pribadi & Kontak</h3>
                     <div class="detail-group">
                         <div class="detail-item">
                             <span class="label">Email</span>
-                            <span class="value"><?php echo htmlspecialchars($_SESSION['email'] ?? '-'); ?></span>
+                            <span class="value"><?= $data['email'] ?? '-'; ?></span>
                         </div>
                         <div class="detail-item">
                             <span class="label">No. Telepon</span>
-                            <span class="value"><?php echo htmlspecialchars($_SESSION['telepon'] ?? '-'); ?></span>
+                            <span class="value"><?= $data['telepon'] ?? '-'; ?></span>
+                        </div>
+
+                        <!-- Spacer -->
+                        <div class="desktop-only-spacer"></div>
+
+                        <!-- Tombol Edit -->
+                        <div style="display: flex; align-items: flex-start; justify-content: flex-start; padding-top: 10px;">
+                             <button onclick="openEditModal()" style="background: transparent; border: 2px solid #0d00ff; color: #0d00ff; padding: 8px 25px; border-radius: 50px; cursor: pointer; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s;">
+                                <i class="fas fa-edit"></i> Edit Profil
+                            </button>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
+
+        <!-- MODAL EDIT PROFIL -->
+        <div id="editModal" class="modal-overlay" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Edit Kontak</h3>
+                    <span class="close-btn" onclick="closeEditModal()">&times;</span>
+                </div>
+                <form action="backend/update-profil.php" method="POST">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" value="<?= $data['email'] ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>No. Telepon</label>
+                        <input type="text" name="telepon" value="<?= $data['telepon'] ?>" required>
+                    </div>
+                    <button type="submit" class="btn-simpan">Simpan Perubahan</button>
+                </form>
+            </div>
+        </div>
+
+        <style>
+            .modal-overlay {
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.5); z-index: 1000;
+                display: flex; justify-content: center; align-items: center;
+            }
+            .modal-content {
+                background: white; padding: 25px; border-radius: 10px;
+                width: 90%; max-width: 400px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            }
+            .modal-header {
+                display: flex; justify-content: space-between; align-items: center;
+                margin-bottom: 20px;
+            }
+            .close-btn { font-size: 24px; cursor: pointer; }
+            .form-group { margin-bottom: 15px; text-align: left; }
+            .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+            .form-group input { 
+                width: 100%; padding: 10px; border: 1px solid #ddd; 
+                border-radius: 5px; font-size: 14px;
+            }
+            .btn-simpan {
+                width: 100%; padding: 10px; background: #0d00ff; color: white;
+                border: none; border-radius: 5px; cursor: pointer; font-size: 16px;
+            }
+            .btn-simpan:hover { background: #0000cc; }
+        </style>
+
+        <script>
+            function openEditModal() { document.getElementById('editModal').style.display = 'flex'; }
+            function closeEditModal() { document.getElementById('editModal').style.display = 'none'; }
+            
+            // Tutup modal jika klik di luar area konten
+            window.onclick = function(event) {
+                if (event.target == document.getElementById('editModal')) {
+                    closeEditModal();
+                }
+            }
+        </script>
 
         <div class="aksi-logout-area">
             <button class="btn-logout" onclick="confirmLogout()">Keluar</button>
