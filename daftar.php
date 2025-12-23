@@ -17,7 +17,7 @@
 
     <form action="backend/register-process.php" method="POST">
         <div style="text-align: left; width: 100%; margin-bottom: 10px;">
-            <a href="landing-page.php" style="text-decoration: none; color: #333; font-size: 1.5rem;" title="Kembali">
+            <a href="javascript:history.back()" style="text-decoration: none; color: #333; font-size: 1.5rem;" title="Kembali">
                 <i class="fas fa-chevron-left"></i>
             </a>
         </div>

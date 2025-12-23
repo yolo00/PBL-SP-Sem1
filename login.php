@@ -10,10 +10,17 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="icon" type="image/png" href="image/dispol.png">
     <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
     <form action="backend/login-process.php" method="POST">
+        <div style="text-align: left; width: 100%; margin-bottom: 10px;">
+            <a href="javascript:history.back()" style="text-decoration: none; color: #333; font-size: 1.5rem;" title="Kembali">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+        </div>
+
         <img src="image/dispol.png" class="logo">
         <h2 style="text-align: center;">Digitalisasi Surat Peringatan Mahasiswa Polibatam</h2>
         <label for="role">Pilih Pengguna</label>
