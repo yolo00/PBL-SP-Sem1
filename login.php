@@ -16,7 +16,8 @@
 <body>
     <form action="backend/login-process.php" method="POST">
         <div style="text-align: left; width: 100%; margin-bottom: 10px;">
-            <a href="javascript:history.back()" style="text-decoration: none; color: #333; font-size: 1.5rem;" title="Kembali">
+            <a href="javascript:history.back()" style="text-decoration: none; color: #333; font-size: 1.5rem;"
+                title="Kembali">
                 <i class="fas fa-chevron-left"></i>
             </a>
         </div>
@@ -37,9 +38,8 @@
             <label class="remember-me">
                 <input type="checkbox" name="remember"> Ingat Saya
             </label>
-            <a href="lupa-password.php" class="forgot-link">Lupa Kata Sandi?</a>
         </div>
-        
+
         <button type="submit" id="loginBtn">Masuk</button>
         <p class="account-check">Belum punya akun? <a href="daftar.php">Daftar</a></p>
     </form>
