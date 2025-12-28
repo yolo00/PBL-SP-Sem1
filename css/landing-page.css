@@ -212,7 +212,7 @@ body {
   }
 
   .hero h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .hero h1 {
@@ -557,9 +557,7 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   flex: 0 1 calc(33.333% - 40px);
-  /* 3 cards per row minus gap */
   min-width: 280px;
-  /* Prevent being too thin */
 }
 
 .feature-card:hover {
@@ -599,21 +597,18 @@ body {
 /* Mobile: 50% card size reduction, 2 cards per row */
 @media (max-width: 480px) {
   .section-subtitle {
-    font-size: 0.5rem;
-    /* 50% of 1rem */
+    font-size: 0.8rem;
   }
 
   .features-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
-    /* 50% of 30px */
     justify-items: center;
   }
 
   .feature-card {
     padding: 15px 10px;
-    /* 50% of 30px 20px */
     min-width: unset;
     width: 100%;
     flex: unset;
@@ -627,21 +622,16 @@ body {
 
   .feature-icon {
     font-size: 1.25rem;
-    /* 50% of 2.5rem */
     margin-bottom: 7.5px;
-    /* 50% of 15px */
   }
 
   .feature-card h3 {
-    font-size: 0.6rem;
-    /* 50% of 1.2rem */
+    font-size: 0.9rem;
     margin-bottom: 5px;
-    /* 50% of 10px */
   }
 
   .feature-card p {
-    font-size: 0.475rem;
-    /* 50% of 0.95rem */
+    font-size: 0.6rem;
     line-height: 1.4;
   }
 }
@@ -802,13 +792,13 @@ body {
   }
 
   .about-text h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 15px;
     text-align: center;
   }
 
   .about-text p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     line-height: 1.7;
     margin-bottom: 12px;
     text-align: left;
@@ -928,11 +918,11 @@ body {
   }
 
   .team-card h3 {
-    font-size: 0.55rem;
+    font-size: 0.75rem;
   }
 
   .team-card p {
-    font-size: 0.45rem;
+    font-size: 0.6rem;
   }
 }
 
@@ -1040,11 +1030,11 @@ body {
 ============================================ */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   .hero h2 {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   #list {
@@ -1192,11 +1182,11 @@ body {
 
 @media (max-width: 480px) {
   .hero h1 {
-    font-size: 1.1rem !important;
+    font-size: 1.2rem !important;
   }
 
   .hero p {
-    font-size: 0.6rem !important;
+    font-size: 0.9rem !important;
     max-width: 70%;
   }
 }
