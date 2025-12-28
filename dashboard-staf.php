@@ -238,7 +238,7 @@ if (mysqli_num_rows($querySurat) == 0) {
         if ($row['tingkat'] == "SP II") $labelClass = "sp2";
         if ($row['tingkat'] == "SP III") $labelClass = "sp3";
 ?>
-        <div class="card" data-aos="fade-up">
+        <div class="card" data-aos="fade-up" data-nama="<?= strtolower($row['nama']) ?>" data-nim="<?= strtolower($row['nim']) ?>" data-prodi="<?= strtolower($row['prodi']) ?>" data-tingkat="<?= strtolower($row['tingkat']) ?>">
             <div class="sp-label <?= $labelClass ?>"><?= $row['tingkat'] ?></div>
 
             <div class="card-content">
@@ -332,27 +332,9 @@ if (mysqli_num_rows($querySurat) == 0) {
         navMenu.classList.toggle("show");
         menuToggle.classList.toggle("active");
     });
-
-    const filterToggleBtn = document.getElementById("filterToggleBtn");
-    const filterOptions = document.getElementById("filterOptions");
-
-    if (filterToggleBtn && filterOptions) {
-        filterToggleBtn.addEventListener("click", () => {
-            if (filterOptions.style.display === "none") {
-                filterOptions.style.display = "flex";
-                filterOptions.style.flexWrap = "wrap";
-                filterOptions.style.gap = "10px";
-                filterOptions.style.marginTop = "15px";
-                filterOptions.style.width = "100%";
-                filterOptions.style.justifyContent = "center";
-                filterOptions.style.animation = "fadeIn 0.3s ease";
-            } else {
-                filterOptions.style.display = "none";
-            }
-        });
-    }
     </script>
 
+    <script src="js/filter-dashboard-staf.js"></script>
     <script src="js/loading.js"></script>
 </body>
 

@@ -738,7 +738,12 @@ main {
   }
 
   .nav-links.show {
-    right: 0;             
+    right: 0;  
+    width: 100%;           
+  }
+
+  .nav-links.show li a{
+    margin-left: 20px;            
   }
 
   .menu-toggle.active span:nth-child(1) {
@@ -765,7 +770,6 @@ main {
 
   .nav-links a:hover,
   .nav-links a.active {
-    background: rgba(255, 255, 255, 0.1);
     border-right-color: #ff8c00;
   }
 

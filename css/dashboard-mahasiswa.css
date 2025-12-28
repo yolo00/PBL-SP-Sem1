@@ -492,8 +492,11 @@ tr:hover {
   }
 
   .nav-links.show {
-    left: auto;
     right: 0;
+  }
+  
+  .nav-links.show li a{
+    margin-left: 20px;            
   }
 
   .menu-toggle.active span:nth-child(1) {
@@ -521,7 +524,6 @@ tr:hover {
 
   .nav-links a:hover,
   .nav-links a.active {
-    background: rgba(255, 255, 255, 0.1);
     border-right-color: #ff8c00;
   }
 

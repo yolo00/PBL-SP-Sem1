@@ -122,10 +122,13 @@ $data  = mysqli_fetch_assoc($query);
                         </div>
                     </div>
                     
-                    <!-- Tombol Edit -->
-                    <div style="display: flex; align-items: flex-start; justify-content: flex-start; padding-top: 20px; margin-bottom: 30px;">
+                    <!-- Tombol Edit & Ganti Password -->
+                    <div style="display: flex; align-items: flex-start; justify-content: flex-start; padding-top: 20px; margin-bottom: 30px; gap: 15px; flex-wrap: wrap;">
                          <button onclick="openEditModal()" style="background: transparent; border: 2px solid #0d00ff; color: #0d00ff; padding: 10px 30px; border-radius: 50px; cursor: pointer; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; text-decoration: none;">
                             <i class="fas fa-edit"></i> Edit Profil
+                        </button>
+                        <button onclick="openPasswordModal()" style="background: transparent; border: 2px solid #ff6b35; color: #ff6b35; padding: 10px 30px; border-radius: 50px; cursor: pointer; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; text-decoration: none;">
+                            <i class="fas fa-key"></i> Ganti Kata Sandi
                         </button>
                     </div>
                 </div>
@@ -149,6 +152,41 @@ $data  = mysqli_fetch_assoc($query);
                         <input type="text" name="telepon" value="<?= $data['telepon'] ?>" required>
                     </div>
                     <button type="submit" class="btn-simpan">Simpan Perubahan</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- MODAL GANTI PASSWORD -->
+        <div id="passwordModal" class="modal-overlay" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Ganti Kata Sandi</h3>
+                    <span class="close-btn" onclick="closePasswordModal()">&times;</span>
+                </div>
+                <form id="passwordForm" action="backend/update-password.php" method="POST">
+                    <div class="form-group">
+                        <label>Kata Sandi Lama</label>
+                        <div style="position: relative;">
+                            <input type="password" name="old_password" id="oldPassword" required>
+                            <i class="fas fa-eye toggle-password" onclick="togglePassword('oldPassword', this)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #888;"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Kata Sandi Baru</label>
+                        <div style="position: relative;">
+                            <input type="password" name="new_password" id="newPassword" required minlength="6">
+                            <i class="fas fa-eye toggle-password" onclick="togglePassword('newPassword', this)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #888;"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Konfirmasi Kata Sandi Baru</label>
+                        <div style="position: relative;">
+                            <input type="password" name="confirm_password" id="confirmPassword" required minlength="6">
+                            <i class="fas fa-eye toggle-password" onclick="togglePassword('confirmPassword', this)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #888;"></i>
+                        </div>
+                    </div>
+                    <p id="passwordError" style="color: #dc3545; font-size: 13px; margin-bottom: 10px; display: none;"></p>
+                    <button type="submit" class="btn-simpan" style="background: #ff6b35;">Simpan Kata Sandi</button>
                 </form>
             </div>
         </div>
@@ -186,10 +224,55 @@ $data  = mysqli_fetch_assoc($query);
             function openEditModal() { document.getElementById('editModal').style.display = 'flex'; }
             function closeEditModal() { document.getElementById('editModal').style.display = 'none'; }
             
+            function openPasswordModal() { 
+                document.getElementById('passwordModal').style.display = 'flex'; 
+                document.getElementById('passwordForm').reset();
+                document.getElementById('passwordError').style.display = 'none';
+            }
+            function closePasswordModal() { 
+                document.getElementById('passwordModal').style.display = 'none'; 
+            }
+            
+            function togglePassword(inputId, icon) {
+                const input = document.getElementById(inputId);
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            }
+            
+            // Validasi form password
+            document.getElementById('passwordForm').addEventListener('submit', function(e) {
+                const newPass = document.getElementById('newPassword').value;
+                const confirmPass = document.getElementById('confirmPassword').value;
+                const errorEl = document.getElementById('passwordError');
+                
+                if (newPass !== confirmPass) {
+                    e.preventDefault();
+                    errorEl.textContent = 'Konfirmasi kata sandi tidak cocok!';
+                    errorEl.style.display = 'block';
+                    return false;
+                }
+                if (newPass.length < 6) {
+                    e.preventDefault();
+                    errorEl.textContent = 'Kata sandi minimal 6 karakter!';
+                    errorEl.style.display = 'block';
+                    return false;
+                }
+            });
+            
             // Tutup modal jika klik di luar area konten
             window.onclick = function(event) {
                 if (event.target == document.getElementById('editModal')) {
                     closeEditModal();
+                }
+                if (event.target == document.getElementById('passwordModal')) {
+                    closePasswordModal();
                 }
             }
         </script>

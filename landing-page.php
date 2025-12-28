@@ -225,7 +225,7 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['id']) && isset($_COOKIE['key
                     target="_blank" class="team-card-link" style="text-decoration: none; color: inherit;">
                     <div class="team-card" data-aos="fade-up" data-aos-delay="300">
                         <img src="image/fotolilyy.jpg" alt="Developer">
-                        <h3>Nur Iliyanie<br></br></h3>
+                        <h3 class="team-card-4">Nur Iliyanie</h3>
                         <p>Frontend Developer</p>
                     </div>
                 </a>

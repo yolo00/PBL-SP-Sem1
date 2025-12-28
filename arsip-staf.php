@@ -3,11 +3,45 @@
 <!--UPDATED: Responsive Version-->
 
 <?php
+session_start();
+include "backend/check-session.php";
 include "backend/config.php";
+
+// WAJIB ditaruh sebelum HTML, agar browser tidak simpan cache
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'staf') {
+    header("Location: login.php");
+    exit;
+}
+
+$keyword = $_GET['keyword'] ?? '';
+$tingkat = $_GET['tingkat'] ?? '';
+$prodi = $_GET['prodi'] ?? '';
+
+$where = "WHERE status='selesai'";
+
+// Filter pencarian
+if (!empty($keyword)) {
+    $keyword = mysqli_real_escape_string($conn, $keyword);
+    $where .= " AND (nama LIKE '%$keyword%' OR nim LIKE '%$keyword%')";
+}
+
+if (!empty($tingkat)) {
+    $tingkat = mysqli_real_escape_string($conn, $tingkat);
+    $where .= " AND tingkat='$tingkat'";
+}
+
+if (!empty($prodi)) {
+    $prodi = mysqli_real_escape_string($conn, $prodi);
+    $where .= " AND prodi='$prodi'";
+}
 
 $query = mysqli_query($conn, "
   SELECT * FROM surat_peringatan
-  WHERE status='selesai'
+  $where
   ORDER BY id DESC
 ");
 
@@ -29,6 +63,7 @@ if (!$query) {
     <link rel="icon" type="image/png" href="image/dispol.png">
     <link rel="stylesheet" href="css/loading.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -65,30 +100,38 @@ if (!$query) {
     <div class="page-container">
         <main class="content-wrap">
 
-            <!-- Filter Card -->
-            <div class="filter-card">
+            <!-- Filter Bar -->
+            <section class="table-container">
                 <div class="filter-bar">
-
-                    <!-- Search Input -->
+                    <!-- Search -->
                     <div class="search-wrapper">
-                        <span class="search-icon">🔍</span>
-                        <input type="text" id="filterSearch" class="search-input"
-                            placeholder="Cari nama, NIM, atau prodi..." aria-label="Cari arsip surat">
+                        <span class="search-icon"><i class="fas fa-search"></i></span>
+                        <input type="text" placeholder="Cari nama, NIM, atau prodi..." class="search-input"
+                            id="filterSearch" aria-label="Cari arsip">
                     </div>
 
-                    <!-- Filter Tingkat SP -->
-                    <select id="filterTingkat" class="filter-select" aria-label="Filter tingkat peringatan">
-                        <option value="">Semua Tingkat Peringatan</option>
-                        <option value="SP I">SP I</option>
-                        <option value="SP II">SP II</option>
-                        <option value="SP III">SP III</option>
+                    <!-- Filter Tingkat -->
+                    <select id="filterTingkat" aria-label="Filter tingkat peringatan">
+                        <option value="">Semua Tingkat</option>
+                        <option value="sp i">SP I</option>
+                        <option value="sp ii">SP II</option>
+                        <option value="sp iii">SP III</option>
                     </select>
 
+                    <!-- Filter Prodi -->
+                    <select id="filterProdi" aria-label="Filter program studi">
+                        <option value="">Semua Prodi</option>
+                        <option value="teknik informatika">Teknik Informatika</option>
+                        <option value="teknik geomatika">Teknik Geomatika</option>
+                        <option value="rekayasa keamanan siber">Rekayasa Keamanan Siber</option>
+                        <option value="teknologi rekayasa multimedia">Teknologi Rekayasa Multimedia</option>
+                        <option value="teknologi rekayasa perangkat lunak">Teknologi Rekayasa Perangkat Lunak</option>
+                        <option value="animasi">Animasi</option>
+                        <option value="teknologi permainan">Teknologi Permainan</option>
+                    </select>
                 </div>
-            </div>
 
-            <!-- Table Container -->
-            <div class="table-container">
+                <!-- Table Wrapper with Horizontal Scroll -->
                 <div class="table-wrapper">
                     <table id="arsipTable">
                         <thead>
@@ -106,7 +149,9 @@ if (!$query) {
                             <?php if (mysqli_num_rows($query) == 0): ?>
                             <tr>
                                 <td colspan="6" class="empty-state">
-                                    <p>📁 Belum ada arsip surat</p>
+                                    <p><i class="fas fa-archive"
+                                            style="font-size: 2rem; margin-bottom: 15px; color: #ccc;"></i><br>Belum ada
+                                        arsip surat</p>
                                     <small>Arsip akan muncul setelah surat diarsipkan</small>
                                 </td>
                             </tr>
@@ -139,7 +184,7 @@ if (!$query) {
                 <div class="scroll-hint">
                     ← Geser ke samping untuk melihat selengkapnya →
                 </div>
-            </div>
+            </section>
 
         </main>
 
@@ -194,7 +239,7 @@ if (!$query) {
     </div>
 
     <!-- JavaScript Filter -->
-    <script src="js/arsip-staf.js"></script>
+    <script src="js/filter-arsip.js"></script>
 
     <!-- Navbar Toggle Script -->
     <script>

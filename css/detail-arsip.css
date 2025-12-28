@@ -547,8 +547,11 @@ body {
   }
 
   .nav-links.show {
-    left: auto;
     right: 0;
+  }
+  
+  .nav-links.show li a{
+    margin-left: 20px;            
   }
 
   .menu-toggle.active span:nth-child(1) {
@@ -565,18 +568,16 @@ body {
 
   .nav-links li {
     width: 100%;
-    margin: 0;
   }
 
   .nav-links a {
     display: block;
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
     border-right: 3px solid transparent;
   }
 
   .nav-links a:hover,
   .nav-links a.active {
-    background: rgba(255, 255, 255, 0.1);
     border-right-color: #ff8c00;
   }
 

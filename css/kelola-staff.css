@@ -205,6 +205,7 @@ main h1 {
   border: 1px solid #d0d0d0;
   font-size: 0.95rem;
   transition: all 0.3s ease;
+  font-family: inherit;
 }
 
 .search-input:focus {
@@ -213,9 +214,13 @@ main h1 {
   box-shadow: 0 0 0 3px rgba(0, 64, 128, 0.1);
 }
 
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
 /* Filter selects */
 .filter-bar select {
-  padding: 0.75rem;
+  padding: 0.75rem 1rem;
   border-radius: 8px;
   border: 1px solid #d0d0d0;
   font-size: 0.95rem;
@@ -224,6 +229,8 @@ main h1 {
   transition: all 0.3s ease;
   flex: 1;
   min-width: 150px;
+  font-family: inherit;
+  color: #374151;
 }
 
 .filter-bar select:focus {
@@ -666,6 +673,10 @@ main h1 {
     right: 0;             
   }
 
+  .nav-links.show li a{
+    margin-left: 20px;            
+  }
+
   .menu-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
@@ -690,7 +701,6 @@ main h1 {
 
   .nav-links a:hover,
   .nav-links a.active {
-    background: rgba(255, 255, 255, 0.1);
     border-right-color: #ff8c00;
   }
 
